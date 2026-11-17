@@ -66,6 +66,9 @@ def advance(state, dates, P, names):
 
 def main():
     dates, names, P = lab.load_prices(os.path.join(DATA, "prices.csv"))
+    need = lab.WARM + team.SEASON + 2
+    if len(P) < need:
+        raise SystemExit(f"Zu wenig gemeinsame Kurstage: {len(P)} ({dates[0]} .. {dates[-1]}), benoetigt {need}. Siehe Log von fetch_prices.py.")
     plan, season = current_plan(P, names)
     last = dates[-1]
     state = load_state()

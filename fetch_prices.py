@@ -70,7 +70,7 @@ def first_ok(label, *fns):
         try:
             d = fn()
             if len(d) > 200:
-                print(f"{label}: {len(d)} Tage via {fn.__name__ if hasattr(fn, '__name__') else fn}")
+                ks = sorted(d); print(f"{label}: {len(d)} Tage, {ks[0]} .. {ks[-1]}")
                 return d
         except Exception as e:
             print(f"{label}: Quelle fehlgeschlagen ({e})")
