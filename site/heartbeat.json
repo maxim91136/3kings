@@ -1,0 +1,74 @@
+{
+ "generated_at": "2026-11-17T23:12:54Z",
+ "data_date": "2026-11-16",
+ "players": {
+  "BTC": {
+   "champion": "Trend SMA200",
+   "strat_weight": 0.0,
+   "alloc": 0.165,
+   "target": 0.0,
+   "price": 64816.79,
+   "vs_sma200": -0.1038
+  },
+  "SPY": {
+   "champion": "Vol-Target 15%",
+   "strat_weight": 0.6537,
+   "alloc": 0.5765,
+   "target": 0.3768,
+   "price": 739.950012,
+   "vs_sma200": 0.0142
+  },
+  "GLD": {
+   "champion": "Vol-Target 15%",
+   "strat_weight": 0.5353,
+   "alloc": 0.2585,
+   "target": 0.1384,
+   "price": 352.929993,
+   "vs_sma200": -0.1349
+  }
+ },
+ "season": {
+  "day_in_season": 14,
+  "days_left": 49,
+  "n_seasons": 38
+ },
+ "held": {
+  "BTC": 0.0,
+  "SPY": 0.3768,
+  "GLD": 0.1384
+ },
+ "cash": 0.4848,
+ "moves": [
+  {
+   "player": "SPY",
+   "name": "S&P 500",
+   "von": 0.0,
+   "auf": 0.3768,
+   "delta": 0.3768
+  },
+  {
+   "player": "GLD",
+   "name": "Gold",
+   "von": 0.0,
+   "auf": 0.1384,
+   "delta": 0.1384
+  }
+ ],
+ "shadow": 0.9997,
+ "hold": 1.0,
+ "since": "2026-11-16",
+ "n_actions": 1,
+ "band": 0.05,
+ "ledger_tail": [
+  {
+   "date": "2026-11-16",
+   "BTC": "0.0",
+   "SPY": "0.3768",
+   "GLD": "0.1384",
+   "cash": "0.4848",
+   "shadow": "0.99974",
+   "hold": "1.0",
+   "action": "S&P 500 0.00->0.38; Gold 0.00->0.14"
+  }
+ ]
+}
