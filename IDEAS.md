@@ -4,7 +4,7 @@
 - [x] Halten
 - [x] Trend SMA200
 - [x] Vol-Target 15 %
-- [ ] Familie "Halten + Nachkaufen" (EINE Strategie mit Varianten, Basis = Halten):
+- [x] Familie "Halten + Nachkaufen" (gebaut: accumulate.py, erster Test siehe unten) (EINE Strategie mit Varianten, Basis = Halten):
       Variante A: nie nachkaufen (= reines Halten)
       Variante B: bei Rücksetzer nachkaufen (Dip, Schwelle vorab festgelegt)
       Variante C: regelmäßig nachkaufen (Sparplan)
@@ -23,3 +23,9 @@
 
 ## Seite
 - Beide Varianten sichtbar: Empfehlung gegen Halten, später mit Kurve
+
+## Erste Ergebnisse (accumulate.py, echte Kurse 2015-2026, Frist 3 Jahre, viele überlappende Starts)
+- Keine Nachkauf-Variante schlägt die Einmalanlage beim mittleren Endwert (BTC 3,70 gegen 3,65 / 3,32 / 3,31).
+- Dip-Nachkauf liegt fast gleichauf (besser als Halten in 33-41 % der Starts), Rückgang bei SPY/GLD etwas kleiner.
+- Sparplan und Kombination kosten Rendite, weil Geld länger in Cash liegt.
+- Offen: andere Schwellen und längere Zeiträume (nur vorab festlegen), dann in die Mannschaft/das Turnier einbauen.
