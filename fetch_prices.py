@@ -54,7 +54,8 @@ def binance_btc(start="2017-09-01"):
 
 
 def yahoo(sym):
-    d = json.loads(get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}?range=max&interval=1d&events=div,splits"))
+    now = int(time.time())
+    d = json.loads(get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}?period1=946684800&period2={now}&interval=1d&events=div,splits"))
     r = d["chart"]["result"][0]
     px = r["indicators"].get("adjclose", [{}])[0].get("adjclose") or r["indicators"]["quote"][0]["close"]
     return {day(t): p for t, p in zip(r["timestamp"], px) if p}
@@ -69,9 +70,13 @@ def first_ok(label, *fns):
     for fn in fns:
         try:
             d = fn()
-            if len(d) > 200:
-                ks = sorted(d); print(f"{label}: {len(d)} Tage, {ks[0]} .. {ks[-1]}")
+            ks = sorted(d)
+            gaps = sorted((datetime.fromisoformat(b) - datetime.fromisoformat(a)).days for a, b in zip(ks, ks[1:]))
+            med = gaps[len(gaps) // 2] if gaps else 99
+            print(f"{label}: {len(d)} Eintraege, {ks[0]} .. {ks[-1]}, typischer Abstand {med} Tag(e)")
+            if len(d) > 200 and med <= 3:                 # Tagesdaten (Monats-/Wochendaten werden abgelehnt)
                 return d
+            print(f"{label}: Quelle liefert keine Tagesdaten - naechste Quelle")
         except Exception as e:
             print(f"{label}: Quelle fehlgeschlagen ({e})")
     raise SystemExit(f"{label}: keine Quelle erreichbar - Lauf abgebrochen (alte Daten bleiben unveraendert)")
