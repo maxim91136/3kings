@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>3Kings</title>
+<style>
+:root{color-scheme:dark}body{margin:0;font:16px/1.45 system-ui,sans-serif;background:#0b0b0d;color:#e8e8ea;padding:18px;max-width:640px;margin:auto}
+h1{font-size:22px;margin:0 0 4px}.sub{color:#8b8b93;font-size:13px;margin-bottom:16px}
+.card{background:#151519;border:1px solid #26262c;border-radius:12px;padding:14px;margin:12px 0}
+.act{border-color:#d9a400}.ok{border-color:#2a6b45}.bad{border-color:#b3261e;background:#2a1210}
+.row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #202026}.row:last-child{border:0}
+.m{color:#8b8b93;font-size:13px}b{font-weight:600}table{width:100%;font-size:12px;border-collapse:collapse}td,th{padding:3px 4px;text-align:right}th:first-child,td:first-child{text-align:left}
+</style></head><body>
+<h1>👑 3Kings</h1><div class="sub" id="sub">lädt …</div><div id="out"></div>
+<script>
+const pct=x=>(x*100).toFixed(0)+" %";
+fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
+ const age=(Date.now()-new Date(h.generated_at))/864e5, dage=(Date.now()-new Date(h.data_date))/864e5;
+ let o="";
+ if(age>3||dage>5) o+=`<div class="card bad"><b>⚠ Puls ausgefallen</b><br>Letzter Lauf vor ${age.toFixed(1)} Tagen, letzter Kurstag ${h.data_date}. GitHub-Lauf prüfen (Actions).</div>`;
+ if(h.moves.length) o+=`<div class="card act"><b>Aktion empfohlen</b>`+h.moves.map(m=>`<div class="row"><span>${m.name}</span><span>${pct(m.von)} → <b>${pct(m.auf)}</b></span></div>`).join("")+`</div>`;
+ else o+=`<div class="card ok"><b>Nichts tun.</b><div class="m">Keine Abweichung ab ${pct(h.band)}-Punkten.</div></div>`;
+ o+=`<div class="card"><b>Aufstellung</b>`+Object.entries(h.players).map(([k,v])=>`<div class="row"><span>${k} · ${v.champion}</span><span><b>${pct(h.held[k])}</b> <span class="m">(Ziel ${pct(v.target)})</span></span></div>`).join("")+`<div class="row"><span>Cash</span><b>${pct(h.cash)}</b></div></div>`;
+ o+=`<div class="card"><b>Saison</b><div class="m">Tag ${h.season.day_in_season} von 63 · Wahl in ${h.season.days_left} Handelstagen · Saison Nr. ${h.season.n_seasons}</div></div>`;
+ o+=`<div class="card"><b>Schattenbuch seit ${h.since}</b><div class="row"><span>Empfehlungen befolgt</span><b>${h.shadow.toFixed(3)}</b></div><div class="row"><span>Alle drei gleich halten</span><b>${h.hold.toFixed(3)}</b></div><div class="m">Empfehlungen bisher: ${h.n_actions}. Papierrechnung ohne Steuern und Gebühren außer Handelskosten.</div></div>`;
+ if(h.ledger_tail.length) o+=`<div class="card"><b>Verlauf</b><table><tr><th>Tag</th><th>BTC</th><th>SPY</th><th>GLD</th><th>Cash</th><th>Schatten</th></tr>`+h.ledger_tail.slice(-10).reverse().map(r=>`<tr><td>${r.date}</td><td>${pct(+r.BTC)}</td><td>${pct(+r.SPY)}</td><td>${pct(+r.GLD)}</td><td>${pct(+r.cash)}</td><td>${(+r.shadow).toFixed(3)}</td></tr>`).join("")+`</table></div>`;
+ document.getElementById("out").innerHTML=o;
+ document.getElementById("sub").textContent="Kurstag "+h.data_date+" · Lauf "+h.generated_at.replace("T"," ").slice(0,16)+" UTC";
+}).catch(e=>{document.getElementById("sub").textContent="Noch keine Daten (heartbeat.json fehlt).";});
+</script></body></html>
