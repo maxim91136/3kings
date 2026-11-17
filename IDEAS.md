@@ -4,9 +4,13 @@
 - [x] Halten
 - [x] Trend SMA200
 - [x] Vol-Target 15 %
-- [ ] Dip-Kauf: Basis investiert, zusätzlich kaufen bei Rücksetzer unter Schwelle (vorab festgelegt)
-- [ ] Weiterhalten / Nachkaufen: dabeibleiben und regelmäßig oder bei Schwäche aufstocken (kein Hin-und-Her-Handeln)
-- [ ] Einstieg bei leerer Position: Wann zum ersten Mal kaufen? (Start-Zeitpunkt wirkt stark auf das Ergebnis)
+- [ ] Familie "Halten + Nachkaufen" (EINE Strategie mit Varianten, Basis = Halten):
+      Variante A: nie nachkaufen (= reines Halten)
+      Variante B: bei Rücksetzer nachkaufen (Dip, Schwelle vorab festgelegt)
+      Variante C: regelmäßig nachkaufen (Sparplan)
+      Variante D: Kombination aus B und C
+      Verkauft wird nicht, nur aufgestockt; Zahl der Käufe und Kosten werden ausgewiesen
+- [ ] Einstieg bei leerer Position: gleiche Familie, nur mit Startsumme in Teilbeträgen (Tranchen) statt auf einmal
 
 ## Regeln für alle Strategien
 - Wenig handeln: Umschichtungen kosten Geld. Umsatz und Kosten je Strategie mit ausweisen.
