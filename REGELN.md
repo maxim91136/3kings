@@ -72,3 +72,6 @@ M0 alles in den S&P (Vergleich). M1 gleich auf alle verteilt. M2 alles in den St
 Test A: Bitcoin, S&P, Gold (2015-2026). Test B: nur S&P und Gold (ohne Bitcoin). Test C: breite ETFs VT, EEM, IEF, XLK (2008-2026, Kurse inkl. Ausschuettungen).
 Kriterium: eine Regel schlaegt M0 nur, wenn ihr Median-Endwert in Test B UND Test C mindestens 3 % ueber M0 (bzw. ueber VT in Test C) liegt und sie in beiden Haelften der Startzeitpunkte vorne ist. Test A allein zaehlt nicht (Bitcoin-Rueckblick).
 Ergebnis: keine Regel erfuellt das Kriterium, keine Aenderung. Test B (S&P/Gold): alle Regeln 1,42-1,43 vs S&P 1,49. Test C: Staerke 12-1 (M3/M4) 1,48 vs Welt-ETF 1,29 - kauft aber fast nur XLK (Tech-Rueckblick 2008-2026), antizyklisch (M5) 1,14. Test A (mit Bitcoin): alles, was Bitcoin beimischt, schlaegt den S&P (1,96-2,17), antizyklisch am besten (2,17) - nur Rueckblick, zaehlt nicht.
+
+## 2026-11-18: Kaufsignal in Euro (eurtest.py)
+Euro-Anleger 2004-2026, 10-Jahres-Fenster, Werte in Euro: sofort 2,121 | Signal in Dollar 2,125 | Signal in Euro 2,125 (in 100 % der Fenster mindestens so gut wie sofort). Signale unterscheiden sich an 21 % der Tage. -> Signal und Schattenbuch Sparplan rechnen ab jetzt mit dem S&P in Euro (sparplan.py, USE_EUR).

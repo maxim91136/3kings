@@ -19,7 +19,7 @@ h1{font:600 40px/1.1 var(--serif);letter-spacing:.01em;margin:6px 0 6px}
 .verdict{margin:34px 0 8px}
 .verdict h2{font:500 34px/1.15 var(--serif);margin:0}
 .verdict p{margin:6px 0 0;color:var(--mute);font-size:14px}
-.verdict.act h2{color:var(--warn)}
+.verdict.act h2{color:var(--warn)}.verdict.hero{margin:30px 0 0}.verdict.hero h2{font-size:56px;letter-spacing:-.01em}.verdict.hero h2.buy{color:#7FD39A}.verdict.hero h2.wait{color:var(--gld)}.verdict.small{margin:20px 0 8px}.verdict.small h2{font-size:24px}section.first{margin-top:22px}section.pruef{margin-top:64px;padding-top:28px;border-top:1px solid var(--line)}.money label{min-width:8.5em;text-align:right}
 .banners{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0 0}
 .banner{display:flex;flex-direction:column;align-items:center;gap:8px}
 .banner h3{font:600 15px/1.2 var(--sans);margin:0;color:var(--text)}
@@ -72,7 +72,7 @@ const fmtDay=s=>{const[a,b,c]=s.split("-");return c+"."+b+"."+a};
 const KINGS={BTC:{name:"Bitcoin",c:"var(--btc)"},SPY:{name:"S&P 500",c:"var(--spy)"},GLD:{name:"Gold",c:"var(--gld)"}};
 const why=v=>v.champion.startsWith("Trend")?(x=>`Kurs ${Math.abs(x)<0.01?(Math.abs(x)*100).toFixed(1).replace(".",","):Math.abs(Math.round(x*100))} % ${x<0?"unter":"über"} dem ${v.line_n||200}-Tage-Schnitt`)(v.vs_line??v.vs_sma200):
  v.champion.startsWith("Vol")?"Anteil nach Schwankung":"voll dabei";
-function chart(rows){
+function chart(rows,la="Empfehlungen",lb="Halten"){
  if(rows.length<3) return `<div class="empty">Die Kurve füllt sich mit jedem Lauf.</div>`;
  const W=640,H=220,L=44,R=70,T=14,B=26,xs=rows.map((_,i)=>L+(W-L-R)*i/(rows.length-1));
  const all=rows.flatMap(r=>[+r.shadow,+r.hold]);let lo=Math.min(...all),hi=Math.max(...all);const pad=(hi-lo)*.15||.01;lo-=pad;hi+=pad;
@@ -83,8 +83,8 @@ function chart(rows){
  <line x1="${L}" x2="${W-R}" y1="${y(1)}" y2="${y(1)}" stroke="#262B37"/><text x="${L-8}" y="${y(1)+4}" text-anchor="end" fill="#8A8F9C" font-size="12">1,00</text>
  <path d="${path("hold")}" fill="none" stroke="#8A8F9C" stroke-width="2" stroke-dasharray="5 4"/>
  <path d="${path("shadow")}" fill="none" stroke="#D9B34A" stroke-width="2.5"/>
- <text x="${W-R+8}" y="${y(+last.shadow)+4}" fill="#D9B34A" font-size="13">Empfehlungen</text>
- <text x="${W-R+8}" y="${y(+last.hold)+(Math.abs(y(+last.shadow)-y(+last.hold))<16?18:4)}" fill="#8A8F9C" font-size="13">Halten</text>
+ <text x="${W-R+8}" y="${y(+last.shadow)+4}" fill="#D9B34A" font-size="13">${la}</text>
+ <text x="${W-R+8}" y="${y(+last.hold)+(Math.abs(y(+last.shadow)-y(+last.hold))<16?18:4)}" fill="#8A8F9C" font-size="13">${lb}</text>
  <text x="${L}" y="${H-6}" fill="#8A8F9C" font-size="12">${fmtDay(rows[0].date)}</text>
  <text x="${W-R}" y="${H-6}" text-anchor="end" fill="#8A8F9C" font-size="12">${fmtDay(last.date)}</text></svg>`;
 }
@@ -95,7 +95,15 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  let o=`<svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg><h1>3Kings</h1>
  <div class="stamp">Kurse vom ${fmtDay(h.data_date)}, berechnet am ${run} Uhr</div>`;
  if(age>3||dage>5) o+=`<div class="alert"><b>Puls ausgefallen.</b> Letzter Lauf vor ${age.toFixed(1)} Tagen, letzter Kurstag ${fmtDay(h.data_date)}. Bitte den GitHub-Lauf prüfen.</div>`;
- o+=`<div class="verdict ${act?"act":""}"><h2>${act?"Aktion empfohlen":"Nichts tun"}</h2><p>${act?"Mindestens ein Anteil weicht um "+pct(h.band)+" Punkte oder mehr ab.":"Der Bestand bleibt, keine Abweichung ab "+pct(h.band)+" Punkten."}</p></div><div class="banners">`;
+ o+=`<div class="verdict hero" id="hero"><h2 id="sig">…</h2><p id="sigwhy"></p></div>
+ <section class="first"><div class="money"><label for="amt" class="mute">Neues Geld</label><input id="amt" type="number" inputmode="numeric" min="0" step="100" value="1000"><span class="mute">€</span></div>
+ <div class="money"><label for="res" class="mute">Schon gesammelt</label><input id="res" type="number" inputmode="numeric" min="0" step="100" value="0"><span class="mute">€</span></div>
+ <div class="split" id="split"></div><div class="mute" id="note"></div>
+ <table class="cheap" id="cheap"></table></section>
+ <section id="ind" hidden></section>
+ <section id="spar" hidden></section>
+ <section class="pruef"><h4>Prüfstand: Mannschaft</h4><div class="mute">Das taktische Modell mit allen drei Königen. Danach handelst du nicht, es läuft zum Testen mit.</div>`;
+ o+=`<div class="verdict small ${act?"act":""}"><h2>${act?"Aktion empfohlen":"Nichts tun"}</h2><p>${act?"Mindestens ein Anteil weicht um "+pct(h.band)+" Punkte oder mehr ab.":"Der Bestand bleibt, keine Abweichung ab "+pct(h.band)+" Punkten."}</p></div><div class="banners">`;
  for(const[k,v]of Object.entries(h.players)){const K=KINGS[k],m=mv[k],held=h.held[k];
   let verb,cls;
   if(m){cls=m.delta>0?"up":"down";verb=(m.delta>0?"aufstocken auf ":"reduzieren auf ")+pct(m.auf)+" %"}
@@ -104,33 +112,35 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
   o+=`<div class="banner" style="--c:${K.c}"><h3>${K.name}</h3><div class="pole"><div class="fill" data-h="${Math.min(pct(held),100)}"></div>${tick}</div>
   <div class="pct">${pct(held)}<small> %</small></div><div class="verb ${cls}">${verb}</div><div class="why">${why(v)}</div></div>`}
  o+=`</div><section><h4>Verteilung</h4><div class="bar">${Object.entries(KINGS).map(([k,K])=>`<i style="width:${pct(h.held[k])}%;background:${K.c}"></i>`).join("")}</div>
- <div class="legend">${Object.entries(KINGS).map(([k,K])=>`<span><span class="dot" style="background:${K.c}"></span>${K.name} <b>${pct(h.held[k])} %</b></span>`).join("")}<span><span class="dot" style="background:#262B37;border:1px solid #8A8F9C"></span>Cash <b>${pct(h.cash)} %</b></span></div></section>
-
- <section><h4>Neues Geld</h4><div class="money"><label for="amt" class="mute">Betrag</label><input id="amt" type="number" inputmode="numeric" min="0" step="100" value="1000"><span class="mute">€</span><label class="mute only"><input id="only" type="checkbox" checked>nur S&amp;P 500</label></div>
- <div class="verdictline" id="spyv"></div>
- <div class="split" id="split"></div>
- <div class="mute" id="teamnote">Neues Geld folgt der Aufstellung. Der Cash-Anteil bleibt zurück. Bei großen Summen hilft es, in drei bis vier Teilen einzusteigen, die Tests zeigen dabei aber keinen Renditevorteil, nur weniger Risiko im schlechtesten Fall.</div>
- <table class="cheap"><tr><td class="mute">Wie günstig gerade</td><td class="mute">zum 12-Monats-Hoch</td></tr>${Object.entries(h.players).map(([k,v])=>`<tr><td>${KINGS[k].name}</td><td>${(v.dd_high*100).toFixed(0).replace("-","−")} %</td></tr>`).join("")}</table></section>
- <section id="ind" hidden></section>
- <section><h4>Saison ${h.season.n_seasons}</h4><div class="season"><i data-w="${Math.round(h.season.day_in_season/63*100)}"></i></div>
+ <div class="legend">${Object.entries(KINGS).map(([k,K])=>`<span><span class="dot" style="background:${K.c}"></span>${K.name} <b>${pct(h.held[k])} %</b></span>`).join("")}<span><span class="dot" style="background:#262B37;border:1px solid #8A8F9C"></span>Cash <b>${pct(h.cash)} %</b></span></div></section>`;
+ o+=`</section>`;
+ o+=`<section><h4>Saison ${h.season.n_seasons}</h4><div class="season"><i data-w="${Math.round(h.season.day_in_season/63*100)}"></i></div>
  <div class="mute">Tag ${h.season.day_in_season} von 63. Die nächste Champion-Wahl kommt in ${h.season.days_left} Handelstagen, bis dahin ändern sich die Regeln nicht.</div></section>
- <section><h4>Schattenbuch</h4><div class="pair"><div><b style="color:var(--gld)">${h.shadow.toFixed(3).replace(".",",")}</b><span>Empfehlungen befolgt</span></div><div><b>${h.hold.toFixed(3).replace(".",",")}</b><span>alle drei gleich halten</span></div></div>
+ <section><h4>Schattenbuch Mannschaft</h4><div class="pair"><div><b style="color:var(--gld)">${h.shadow.toFixed(3).replace(".",",")}</b><span>Empfehlungen befolgt</span></div><div><b>${h.hold.toFixed(3).replace(".",",")}</b><span>alle drei gleich halten</span></div></div>
  ${chart(h.ledger_tail)}<div class="mute">Seit ${fmtDay(h.since)}, ${h.n_actions} ${h.n_actions===1?"Empfehlung":"Empfehlungen"}. Papierrechnung, nur Handelskosten sind eingerechnet.</div></section>
  <details><summary>Verlauf</summary><table><tr><th>Tag</th><th>BTC</th><th>S&amp;P</th><th>Gold</th><th>Cash</th><th>Schatten</th></tr>${h.ledger_tail.slice().reverse().slice(0,60).map(r=>`<tr><td>${fmtDay(r.date)}</td><td>${pct(+r.BTC)} %</td><td>${pct(+r.SPY)} %</td><td>${pct(+r.GLD)} %</td><td>${pct(+r.cash)} %</td><td>${(+r.shadow).toFixed(3)}</td></tr>`).join("")}</table></details>
  <footer>Nur zur privaten Auswertung. Es werden keine Aufträge ausgelöst.</footer>`;
  document.getElementById("app").innerHTML=o;
- const upd=()=>{const a=Math.max(0,+document.getElementById("amt").value||0);const only=document.getElementById("only").checked;
-  const eur=x=>Math.round(a*x).toLocaleString("de-DE")+" €";
-  const sp=h.players.SPY,gap=(sp.vs_line*100).toFixed(1).replace(".",",").replace("-","−"),up=+sp.vs_line>=0;
-  const ath=sp.dd_ath??sp.dd_high,near=ath>-0.03,athS=Math.abs(ath*100).toFixed(1).replace(".",",");
-  document.getElementById("spyv").innerHTML=only?(near?`<b>S&amp;P 500: sammeln</b><span class="mute"> · Kurs nur ${athS} % unter dem Allzeithoch. Regel: nicht am Hoch kaufen. Der Betrag wartet als Reserve und geht komplett rein, sobald der Kurs mindestens 3 % unter dem Hoch liegt.</span>`:`<b>S&amp;P 500: kaufen</b><span class="mute"> · Betrag plus eventuell gesammelte Reserve. Kurs ${athS} % unter dem Allzeithoch, also nicht am Hoch. Trend ${up?"intakt":"gebrochen"} (${gap} % zur 200-Tage-Linie).</span>`):"";
-  document.getElementById("teamnote").hidden=only;
-  if(only){document.getElementById("split").innerHTML=`<div style="--c:${KINGS.SPY.c}"><b>${eur(1)}</b><span>${near?"Reserve":"S&amp;P 500"}</span></div>`;document.getElementById("split").style.gridTemplateColumns="1fr";return}
-  document.getElementById("split").style.gridTemplateColumns="";
-  const t=Object.fromEntries(Object.entries(h.players).map(([k,v])=>[k,v.target]));const cash=Math.max(0,1-Object.values(t).reduce((x,y)=>x+y,0));
-  document.getElementById("split").innerHTML=Object.entries(KINGS).map(([k,K])=>`<div style="--c:${K.c}"><b>${eur(t[k])}</b><span>${K.name}</span></div>`).join("")+`<div><b>${eur(cash)}</b><span>Cash</span></div>`};
- document.getElementById("only").addEventListener("change",upd);
- document.getElementById("amt").addEventListener("input",upd);upd();
+ const de=(x,d=1)=>Math.abs(x*100).toFixed(d).replace(".",",");
+ const go=s=>{const near=s.dd_ath>s.thresh;const cur=s.currency==="EUR"?"in Euro":"in Dollar";
+  const sig=document.getElementById("sig");sig.textContent=near?"Sammeln":"Kaufen";sig.className=near?"wait":"buy";
+  document.getElementById("sigwhy").textContent=`S&P 500 ${cur} ${de(s.dd_ath)} % unter dem Allzeithoch. Regel: kaufen ab ${de(s.thresh,0)} % darunter, sonst sammeln.`;
+  const amt=document.getElementById("amt"),res=document.getElementById("res");
+  try{res.value=localStorage.getItem("3k_res")||0}catch(e){}
+  const upd=()=>{const a=Math.max(0,+amt.value||0),r=Math.max(0,+res.value||0),eur=x=>Math.round(x).toLocaleString("de-DE")+" €";
+   try{localStorage.setItem("3k_res",r)}catch(e){}
+   document.getElementById("split").innerHTML=near?`<div style="--c:var(--gld)"><b>${eur(a)}</b><span>aufs Tagesgeld</span></div><div><b>${eur(a+r)}</b><span>dann gesammelt</span></div>`
+    :`<div style="--c:var(--spy)"><b>${eur(a+r)}</b><span>in den S&amp;P 500</span></div>`;
+   document.getElementById("split").style.gridTemplateColumns=near?"1fr 1fr":"1fr";
+   document.getElementById("note").textContent=near?"Danach „Schon gesammelt“ auf den neuen Stand setzen. Sobald hier „Kaufen“ steht, geht alles auf einmal rein.":(r>0?"Nach dem Kauf „Schon gesammelt“ auf 0 setzen.":"Nicht verkaufen, auch nicht im Crash. Bitcoin und Gold nicht nachkaufen.")};
+  amt.addEventListener("input",upd);res.addEventListener("input",upd);upd();
+  document.getElementById("cheap").innerHTML=`<tr><td class="mute">Abstand zum Allzeithoch</td><td></td></tr><tr><td>S&amp;P 500 (${s.currency==="EUR"?"Euro":"Dollar"})</td><td>−${de(s.dd_ath)} %</td></tr>`+["BTC","GLD"].map(k=>`<tr><td>${KINGS[k].name} (Dollar)</td><td>−${de(h.players[k].dd_ath??h.players[k].dd_high,0)} %</td></tr>`).join("");
+  if(s.rows&&s.rows.length){const p=s.plans,sp=document.getElementById("spar");
+   sp.innerHTML=`<h4>Schattenbuch Sparplan</h4><div class="pair"><div><b style="color:var(--spy)">${eur0(p.regel.value)}</b><span>nach Regel</span></div><div><b>${eur0(p.sofort.value)}</b><span>immer sofort</span></div></div>
+   ${chart(s.rows.map(r=>({date:r.date,shadow:r.regel/r.paid,hold:r.sofort/r.paid})),"Regel","sofort")}
+   <div class="mute">Seit ${fmtDay(s.start)} jeden Monat 100 € virtuell, eingezahlt ${eur0(p.regel.paid)}${p.regel.cash>0?`, davon ${eur0(p.regel.cash)} gerade gesammelt`:""}. Prüft live, ob „nicht am Hoch“ besser ist als sofort kaufen.</div>`;sp.hidden=false}};
+ const eur0=x=>Math.round(x).toLocaleString("de-DE")+" €";
+ fetch("sparplan.json",{cache:"no-store"}).then(r=>r.json()).then(go).catch(()=>{const s=h.players.SPY;go({dd_ath:s.dd_ath??s.dd_high,thresh:-0.03,currency:"USD"})});
  fetch("indicators.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{if(!j.indicators||!j.indicators.length)return;const L={gruen:"günstig/Chance",gelb:"mittel",rot:"teuer/Vorsicht"};
   const s=document.getElementById("ind");s.innerHTML=`<h4>Marktlage</h4>`+j.indicators.map(i=>`<div class="ind"><i class="${i.light||""}" title="${L[i.light]||"Info"}"></i><b>${i.name}</b><em>${i.value}</em><small>${i.pct!=null?`${i.higher==="teurer"?"Teurer":"Ängstlicher"} als an ${Math.round(i.pct*100)} % der Zeit seit ${i.since}. `:""}${i.text} <span style="opacity:.7">${i.note}</span></small></div>`).join("")+`<div class="mute" style="margin-top:8px">Nur zur Info. Die Indikatoren fließen erst in die Regeln ein, wenn sie einen Test bestanden haben.</div>`;s.hidden=false}).catch(()=>{});
  requestAnimationFrame(()=>requestAnimationFrame(()=>{document.querySelectorAll(".fill").forEach(e=>e.style.height=e.dataset.h+"%");document.querySelectorAll(".season i").forEach(e=>e.style.width=e.dataset.w+"%")}));

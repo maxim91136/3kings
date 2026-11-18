@@ -26,7 +26,8 @@ Regeln ändern sich nur am Saisonende, nie mitten in der Saison. Der Kursabruf i
 | Welche Regeln gelten? | `core/lab.py` (Strategien), `core/team.py` (Saison, Champion) |
 | Was wurde wann an den Regeln geändert? | `REGELN.md` |
 | Was ist das Gedächtnis? | `data/ledger.csv` (Schattenbuch), `data/state.json` |
-| Wie sieht die Seite aus? | `site/index.html` |
+| Wie sieht die Seite aus? | `sparplan.py` | Kaufsignal (nicht am Hoch, in Euro) und Schattenbuch Sparplan |
+| `site/index.html` |
 | Neue Spieler testen / Daten holen | `admit.py` (Aufnahmeregeln), `fetch_candidates.py` + Workflow `candidates` (einmalig starten) |
 | Tests, die nichts verändern | `run_dip.py`, `run_sma100.py`, `horizon.py`, `accumulate.py`, `powerlaw.py` |
 | Ideen, noch nicht gebaut | `IDEAS.md` |

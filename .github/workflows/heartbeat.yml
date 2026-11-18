@@ -20,6 +20,7 @@ jobs:
         timeout-minutes: 3
         continue-on-error: true
       - run: python indicators.py || true
+      - run: python sparplan.py || true
       - run: python notify.py
         continue-on-error: true
         env:
