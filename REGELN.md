@@ -17,3 +17,8 @@ Regeln ändern sich nur am Saisonende oder nach ausdrücklicher Entscheidung. Je
 - XLK als vierter Koenig und Aufnahme der ETFs/ETH/Anleihen: nicht aufgenommen (kaum Effekt, zu nah an SPY).
 - Aufnahmetest ETFs und Power-Law (echte Daten): alle 11 Kandidaten durchgefallen; Power-Law-Rampe = Halten bei geringerem Rueckgang, nicht aufgenommen.
 - Naechste Pruefung der Regeln: Saisonende.
+
+## 2026-11-18: Vorab festgelegt, woran wir die Regeln messen (bevor die Ergebnisse da sind)
+Grundsatz: kein Hin und Her. Regeln aendern sich nur zum Saisonende oder per ausdruecklicher Entscheidung, nie nach Bauchgefuehl.
+1. Langzeittest S&P 500 (longtest.py, Preisindex ab 1928): Der Trendfilter gilt fuer den S&P nur als belegt, wenn er in den Krisenepochen 1973-1982 UND 2000-2009 den Rueckgang gegenueber Halten senkt. Sonst wird er fuer den S&P neu bewertet (zum naechsten Saisonende).
+2. Live-Pruefung (Schattenbuch, nach 4 Saisons = ca. Nov 2027): bestaetigt, wenn Rueckgang kleiner als beim Halten und Rendite hoechstens 2 Punkte darunter; gescheitert, wenn Rendite mehr als 5 Punkte darunter UND Rueckgang nicht kleiner; sonst weiter beobachten.
