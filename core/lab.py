@@ -197,6 +197,20 @@ def build_strategies(names, cost):
         sd = rolling_std(returns(P)[:, a], 20) * sqrt(ANN)
         return np.where(np.isfinite(sd), np.clip(target / np.maximum(sd, 1e-9), 0, 1), 0.0)
 
+    def dipbuild(P, a, base=0.7, step=0.1, tiers=(-0.10, -0.20, -0.30)):
+        """Dip-Aufbau: Basis 70 % investiert; je Stufe (-10/-20/-30 % unter dem 252-Tage-Hoch)
+        +10 % dazu. Ist der Kurs wieder >= 95 % des Hochs, faellt es auf die Basis zurueck."""
+        p, T = P[:, a], len(P)
+        w, k = np.zeros(T), 0
+        for t in range(T):
+            hi = p[max(0, t - 251): t + 1].max()
+            if p[t] >= 0.95 * hi:
+                k = 0
+            else:
+                k = max(k, sum(p[t] / hi - 1 <= th for th in tiers))
+            w[t] = min(1.0, base + step * k)
+        return w
+
     def raupe(P, a):
         m = sma(P[:, a], 100)
         calm = expanding_below_quantile(rolling_std(returns(P)[:, a], 20), 0.7)
@@ -236,7 +250,7 @@ def build_strategies(names, cost):
         return out
 
     return {"Halten (Baseline)": hold, "Trend SMA200 (Std.)": trend(200), "Vol-Target 15% (Std.)": voltarget,
-            "Momentum 12M (Std.)": momentum, "RAUPE (ruhiger Aufwaertstrend)": raupe,
+            "Momentum 12M (Std.)": momentum, "Dip-Aufbau (Std.)": dipbuild, "RAUPE (ruhiger Aufwaertstrend)": raupe,
             "STRESS-Thermometer (cross-asset)": stress, "EGE (evidenz-gesteuert)": ege}
 
 
