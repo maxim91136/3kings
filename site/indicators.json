@@ -1,0 +1,37 @@
+{
+ "indicators": [
+  {
+   "key": "cape",
+   "name": "Shiller-KGV",
+   "value": "38,8",
+   "pct": 0.981,
+   "since": "1871",
+   "light": "rot",
+   "text": "Kurs geteilt durch den Durchschnittsgewinn der letzten 10 Jahre. Hoch heißt teuer.",
+   "note": "Stand 17.11.2026",
+   "higher": "teurer"
+  },
+  {
+   "key": "fng",
+   "name": "Fear & Greed Aktien",
+   "value": "25 · extreme Angst",
+   "pct": null,
+   "since": null,
+   "light": "gruen",
+   "text": "CNN, 0 = extreme Angst, 100 = extreme Gier. Extreme Angst war oft eine Kaufgelegenheit.",
+   "note": "Stand 18.11.2026",
+   "higher": null
+  },
+  {
+   "key": "cfng",
+   "name": "Fear & Greed Krypto",
+   "value": "11 · extreme Angst",
+   "pct": null,
+   "since": null,
+   "light": "gruen",
+   "text": "alternative.me, 0 = extreme Angst, 100 = extreme Gier. Extreme Angst war oft eine Kaufgelegenheit.",
+   "note": "Stand 18.11.2026",
+   "higher": null
+  }
+ ]
+}
