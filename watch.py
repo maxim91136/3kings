@@ -41,11 +41,10 @@ if cand and spy:
         rows.append(dict(key=k, name=names[k], cagr=round(st["cagr"], 4), mdd=round(st["mdd"], 3), sharpe=round(st["sharpe"], 2), beta=round(b, 2), corr=round(c, 2)))
     out["factor"] = dict(since=dates[0], until=dates[-1], rows=rows)
 
-# ---------------- Elite 9
+# ---------------- Elite 5 (nach Regel-Pruefung 2026-11-18, vier ausgeschieden)
 el = load("data/elite.csv")
-NAMES = {"CME": ("CME Group", "Börsen und Clearing", 18.5), "RACE": ("Ferrari", "Luxus-Autos", 23.7), "WM": ("Waste Management", "Müll-Infrastruktur", 17.3),
-         "MA": ("Mastercard", "Zahlungs-Duopol", 20.9), "V": ("Visa", "Zahlungs-Duopol", 16.9), "CTAS": ("Cintas", "Wiederkehrende Dienste", 25.6),
-         "RMS": ("Hermès", "Luxus (Paris, in Euro)", 21.0), "MSFT": ("Microsoft", "Cloud und KI", 25.9), "GOOGL": ("Alphabet", "Suche und Werbung", 24.6)}
+NAMES = { "RACE": ("Ferrari", "Luxus-Autos", 23.7),
+         "MA": ("Mastercard", "Zahlungs-Duopol", 20.9), "V": ("Visa", "Zahlungs-Duopol", 16.9), "CTAS": ("Cintas", "Wiederkehrende Dienste", 25.6),", 21.0), "MSFT": ("Microsoft", "Cloud und KI", 25.9),}
 if el and spy:
     local, ep = {}, {}
     for k in NAMES:
