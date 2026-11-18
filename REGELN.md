@@ -78,3 +78,12 @@ Euro-Anleger 2004-2026, 10-Jahres-Fenster, Werte in Euro: sofort 2,121 | Signal 
 
 ## 2026-11-18: Euro-Sicht fuer die Mannschaft (nur Befund, keine Aenderung)
 Mannschaft 2017-2026 in Euro gerechnet: 15,4 %/J, Rueckgang 16 %, Sharpe 1,07 (in Dollar 17,6 %, 17 %, 1,26). Halten in Euro 22,9 %/J, Rueckgang 25 %. Der Abstand zum Halten ist in Euro groesser, weil der Cash-Anteil die Dollar-Gewinne nicht mitnimmt. Trendsignale Dollar vs Euro verschieden: Bitcoin 2 %, S&P 12 %, Gold 22 % der Tage. Ob die Mannschaft in Euro rechnen soll: Entscheidung zum Saisonende. Seite zeigt Abstand zum Allzeithoch fuer alle drei in Euro.
+
+## 2026-11-18: Langzeittest Gold (vorab festgelegt, goldtest.py)
+Daten: Goldpreis monatlich (datasets/gold-prices, USD) ab 1971-08 (Ende fester Goldpreis). Monatliche Signale, Kosten 5 bps, Cash ohne Zins. Halten vs Trend 10 Monate (entspricht etwa 200 Tagen).
+Kriterium: Der Trendfilter gilt fuer Gold als belegt, wenn er den groessten Rueckgang gesamt UND in der Baisse-Epoche 1981-2000 senkt und die Rendite gesamt hoechstens 2 Punkte pro Jahr unter Halten liegt. Dann spielt Gold im Pruefstand fest Trend SMA200 (wie der S&P). Sonst spielt Gold fest Halten.
+Ergebnis Gold (1971-2026, monatlich): Trend 10,1 %/J, Rueckgang 32 % vs Halten 8,6 %/J, 62 %; 1981-2000 Rueckgang 31 vs 54 %. Kriterium ERFUELLT -> Gold spielt im Pruefstand fest Trend SMA200.
+Hinweis: im kurzen Fenster 2017-2026 (Euro) war die Mannschaft mit Gold-Trend schwaecher (12,9 %/J, Rueckgang 21 %, Sharpe 0,94) als mit Gold-Wahl (15,4 %, 16 %, 1,07). Die Langzeitdaten zaehlen (vorab festgelegt).
+
+## 2026-11-18: Pruefstand rechnet in Euro (ausdrueckliche Entscheidung)
+heartbeat.py rechnet alle Kurse in Euro (to_eur). Befund 2017-2026 in Euro: Mannschaft 12,9 %/J, Rueckgang 21 %, Sharpe 0,94; alle drei gleich halten 22,9 %/J, Rueckgang 25 %, Sharpe 1,19. Die Mannschaft liegt in Euro auch risikobereinigt hinter dem Halten - zum Saisonende ehrlich bewerten.

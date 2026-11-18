@@ -1,39 +1,39 @@
 {
- "generated_at": "2026-11-18T19:25:45Z",
+ "generated_at": "2026-11-18T19:33:14Z",
  "data_date": "2026-11-17",
  "players": {
   "BTC": {
-   "champion": "Trend SMA200",
+   "champion": "Trend SMA100",
    "strat_weight": 0.0,
-   "alloc": 0.2833,
+   "alloc": 0.2814,
    "target": 0.0,
-   "price": 64873.18,
-   "line_n": 200,
-   "vs_line": -0.1022,
-   "dd_high": -0.3309,
-   "dd_ath": -0.4798
+   "price": 58986.34297144935,
+   "line_n": 100,
+   "vs_line": -0.0872,
+   "dd_high": -0.2917,
+   "dd_ath": -0.4462
   },
   "SPY": {
    "champion": "Trend SMA200",
    "strat_weight": 1.0,
-   "alloc": 0.4948,
-   "target": 0.4948,
-   "price": 732.440002,
+   "alloc": 0.4909,
+   "target": 0.4909,
+   "price": 665.9756337515912,
    "line_n": 200,
-   "vs_line": 0.0036,
-   "dd_high": -0.0599,
-   "dd_ath": -0.0599
+   "vs_line": 0.051,
+   "dd_high": -0.0448,
+   "dd_ath": -0.0448
   },
   "GLD": {
-   "champion": "Vol-Target 15%",
-   "strat_weight": 0.5353,
-   "alloc": 0.2219,
-   "target": 0.1187,
-   "price": 352.480011,
+   "champion": "Trend SMA200",
+   "strat_weight": 0.0,
+   "alloc": 0.2277,
+   "target": 0.0,
+   "price": 320.4946453900709,
    "line_n": 200,
-   "vs_line": -0.1352,
-   "dd_high": -0.2892,
-   "dd_ath": -0.2892
+   "vs_line": -0.0929,
+   "dd_high": -0.2309,
+   "dd_ath": -0.2309
   }
  },
  "season": {
@@ -44,10 +44,18 @@
  "held": {
   "BTC": 0.0,
   "SPY": 0.4948,
-  "GLD": 0.1384
+  "GLD": 0.0
  },
- "cash": 0.3668,
- "moves": [],
+ "cash": 0.5052,
+ "moves": [
+  {
+   "player": "GLD",
+   "name": "Gold",
+   "von": 0.1384,
+   "auf": 0.0,
+   "delta": -0.1384
+  }
+ ],
  "shadow": 0.9956,
  "hold": 0.9965,
  "since": "2026-11-16",

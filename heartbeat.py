@@ -19,7 +19,7 @@ import lab, team
 
 PLAYERS = ["BTC", "SPY", "GLD"]
 TILT = {"BTC": 2.0}   # Regel seit 2026-11-18: Bitcoin bekommt doppeltes Gewicht in der Kapitalverteilung (Spot, kein Hebel)
-FIXED = {"SPY": ["Trend SMA200 (Std.)"]}   # Regel seit 2026-11-18 (Review): S&P spielt fest Trend SMA200, keine Champion-Wahl
+FIXED = {"SPY": ["Trend SMA200 (Std.)"], "GLD": ["Trend SMA200 (Std.)"]}   # Gold seit 2026-11-18 (goldtest.py)   # Regel seit 2026-11-18 (Review): S&P spielt fest Trend SMA200, keine Champion-Wahl
 EXTRA = {"BTC": ["Trend SMA100 (Std.)"]}      # Regelaenderung 18.11.2026: schnelle Trend-Linie nur fuer Bitcoin (siehe REGELN.md)
 LABEL = {"BTC": "Bitcoin", "SPY": "S&P 500", "GLD": "Gold"}
 BAND = 0.05                                   # vorab festgelegt, nicht optimiert
@@ -71,8 +71,21 @@ def advance(state, dates, P, names):
     state["last_date"] = dates[-1]
 
 
+def to_eur(dates, P):
+    """Kurse in Euro (EURUSD aus data/ind_EURUSD.csv, Luecken mit dem letzten Kurs). Ohne Datei: Dollar."""
+    f = os.path.join(DATA, "ind_EURUSD.csv")
+    if not os.path.exists(f):
+        print("Hinweis: keine Euro-Kurse, rechne in Dollar"); return P
+    fx = {r["date"]: float(r["value"]) for r in csv.DictReader(open(f))}
+    first = min(fx); last = fx[first]; out = []
+    for d in dates:
+        last = fx.get(d, last); out.append(last)
+    return P / np.array(out)[:, None]
+
+
 def main():
     dates, names, P = lab.load_prices(os.path.join(DATA, "prices.csv"))
+    P = to_eur(dates, P)                                            # Regel seit 2026-11-18: alles aus Sicht eines Euro-Anlegers
     need = lab.WARM + team.SEASON + 2
     if len(P) < need:
         raise SystemExit(f"Zu wenig gemeinsame Kurstage: {len(P)} ({dates[0]} .. {dates[-1]}), benoetigt {need}. Siehe Log von fetch_prices.py.")

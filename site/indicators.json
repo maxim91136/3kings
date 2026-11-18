@@ -45,6 +45,17 @@
    "higher": null
   },
   {
+   "key": "expect",
+   "name": "Erwartung nächste 10 Jahre",
+   "value": "≈ 2,6 % p, a,",
+   "pct": null,
+   "since": null,
+   "light": null,
+   "text": "Faustregel aus dem Shiller-KGV: 1 geteilt durch das KGV ergibt grob die jährliche Rendite über der Inflation für die nächsten 10 Jahre (US-Aktien). Streut stark, ist keine Vorhersage für einzelne Jahre.",
+   "note": "aus KGV 38.8",
+   "higher": null
+  },
+  {
    "key": "vix",
    "name": "Angst-Index VIX",
    "value": "25,5",
