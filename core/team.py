@@ -27,7 +27,7 @@ def run_team(P, names, players, cost_mult=1.0, strats=None, tilt=None, cap=None)
     W, NET = {}, {}
     for p in players:                                                 # alle Strategien je Spieler
         fns = lab.build_strategies(names, cost[p])
-        for s in SP[p]:
+        for s in dict.fromkeys(SP[p] + [STRATS[0]]):            # Halten immer mitrechnen (Vergleich)
             w = fns[s](P, ix[p])
             W[p, s] = w
             NET[p, s] = lab.backtest(w, R[:, ix[p]], cost[p])
