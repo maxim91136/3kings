@@ -114,3 +114,6 @@ Pruefbar sind nur Regel 1 (Beta < 1,15) und Regel 7 (10-Jahres-Rendite >= 17 % p
 
 ## 2026-11-18: Screening nach weiteren Elite-Kandidaten (vor dem Rechnen festgelegt)
 Universum: ca. 130 bekannte Qualitaetsfirmen USA/Europa (Liste in screen.py). Harte Regeln wie bei Elite 5: Beta < 1,15 (5 Jahre taeglich, in Euro gegen S&P 500 in Euro) UND 10-Jahres-Rendite >= 17 % p. a. (Heimatwaehrung, inkl. Dividenden). Wer besteht, wird danach von Hand gegen die weichen Regeln (Marge > 50 %, Monopol, nicht zyklisch, Verschuldung < 1, kein Disruptionsrisiko) eingeschaetzt; diese Einschaetzung ist Urteil, nicht Messung. Aufnahme nur durch ausdrueckliche Entscheidung des Nutzers. Hinweis: Auswahl nach vergangener Rendite findet per Definition die Gewinner der Vergangenheit.
+
+## 2026-11-18: Screening-Ergebnis, Elite 5 wird Elite 7 (Entscheidung des Nutzers)
+Ca. 40 von 130 bestehen die harten Regeln; nach den weichen Regeln (Urteil) bleiben IDEXX (Beta 1,09 / 19,7 %), ASML (30,3 %, aber zyklisch), Constellation Software (18,8 %), Deutsche Boerse (18,3 %; Beta europaeischer Werte wegen Zeitzonen zu niedrig gemessen). Aufgenommen: IDEXX und ASML (US-Notierung, damit Beta sauber gemessen wird). ASML verletzt "nicht zyklisch", bewusst aufgenommen. Schattenbuch startet neu mit 7, Kriterium unveraendert.
