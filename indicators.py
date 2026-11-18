@@ -35,6 +35,20 @@ if eq and gdp:
                     light="rot" if p >= 0.8 else "gruen" if p <= 0.33 else "gelb",
                     text="Börsenwert der US-Firmen im Verhältnis zur Wirtschaftsleistung. Hoch heißt teuer.",
                     note=f"Quartal bis {qend:%d.%m.%Y}, mit S&P-Kurs bis {asof} fortgeschrieben", higher="teurer"))
+w5 = load("W5000")
+if not (eq and gdp) and w5 and gdp:
+    gk = sorted(gdp); wk = sorted(w5)
+    def w_at(d):
+        i = bisect_right(wk, d) - 1; return w5[wk[i]] if i >= 0 else None
+    hist = []
+    for g in gk:
+        qe = ((date.fromisoformat(g) + timedelta(days=92)).replace(day=1) - timedelta(days=1)).isoformat()
+        if qe >= wk[0] and w_at(qe): hist.append(w_at(qe) / gdp[g])
+    now = w5[wk[-1]] / gdp[gk[-1]]; p = pct(hist, now)
+    out.append(dict(key="buffett", name="Buffett-Indikator", value=f"{now*100:.0f} %", pct=round(p, 3), since=wk[0][:4],
+                    light="rot" if p >= 0.8 else "gruen" if p <= 0.33 else "gelb",
+                    text="Börsenwert aller US-Firmen (Wilshire 5000) im Verhältnis zur Wirtschaftsleistung. Hoch heißt teuer.",
+                    note=f"Wilshire {wk[-1]}, Wirtschaftsleistung Quartal ab {gk[-1]}", higher="teurer"))
 c = load("CAPE")
 if c:
     k = max(c); p = pct(c.values(), c[k])

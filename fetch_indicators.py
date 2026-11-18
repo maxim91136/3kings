@@ -135,6 +135,12 @@ for name, fn in (("VIXCLS", cboe_vix),
         save(name, d)
     except Exception as e:
         print(name, "fehlgeschlagen:", type(e).__name__, e)
+import time as _t
+for k in range(3):                                         # Wilshire 5000 (Gesamtmarkt, 1 Punkt ~ 1 Mrd $) fuer den Buffett-Indikator
+    try:
+        save("W5000", yahoo("%5EW5000", 599616000)); break
+    except Exception as e:
+        print("W5000 Versuch", k + 1, "fehlgeschlagen:", e); _t.sleep(15)
 try:
     t = treasury()
     save("T10Y2Y", {d: round(v[2] - v[1], 3) for d, v in t.items()})
