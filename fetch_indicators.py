@@ -141,6 +141,11 @@ for k in range(3):                                         # Wilshire 5000 (Gesa
         save("W5000", yahoo("%5EW5000", 599616000)); break
     except Exception as e:
         print("W5000 Versuch", k + 1, "fehlgeschlagen:", e); _t.sleep(15)
+for k in range(3):                                         # Euro/Dollar (Yahoo ab 2003) fuer die Euro-Sicht
+    try:
+        save("EURUSD", yahoo("EURUSD%3DX", 946684800)); break
+    except Exception as e:
+        print("EURUSD Versuch", k + 1, "fehlgeschlagen:", e); _t.sleep(15)
 try:
     t = treasury()
     save("T10Y2Y", {d: round(v[2] - v[1], 3) for d, v in t.items()})
