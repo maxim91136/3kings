@@ -29,3 +29,11 @@
 - Dip-Nachkauf liegt fast gleichauf (besser als Halten in 33-41 % der Starts), Rückgang bei SPY/GLD etwas kleiner.
 - Sparplan und Kombination kosten Rendite, weil Geld länger in Cash liegt.
 - Offen: andere Schwellen und längere Zeiträume (nur vorab festlegen), dann in die Mannschaft/das Turnier einbauen.
+
+## Zeithorizonte (wichtig, Ausbau nach und nach)
+- Welche Linie? SMA 50/100/200/300, evtl. EMA. Welcher Rückblick fürs Turnier (252/504/756 Tage)? Welche Saisonlänge?
+- Vorgehen: feste, kleine Auswahl vorab festlegen, ALLE Ergebnisse zeigen (nicht nur das beste), Signifikanzschwelle an die Zahl der Tests anpassen.
+- Je Spieler getrennt auswerten: Bitcoin tickt anders als Gold.
+
+## Seite: "Neues Geld"
+- Eigener Bereich: Wo zuerst nachlegen? Regel vorher festlegen, dann testen.
