@@ -3,7 +3,7 @@
 Privates Forschungs- und Empfehlungssystem für drei Spieler: **Bitcoin, S&P 500 (SPY), Gold (GLD)**.
 Es gibt **keine Auto-Trades**; es erzeugt nur eine tägliche Empfehlung und führt ein Schattenbuch.
 
-- `core/lab.py`, `core/team.py` – Strategien und Mannschaftsregeln (Saison 63 Tage, Champion/Herausforderer, Inverse-Vol-Kapital)
+- `core/lab.py`, `core/team.py` – Strategien und Mannschaftsregeln (Saison 63 Tage, Champion/Herausforderer, Inverse-Vol-Kapital, Bitcoin doppelt gewichtet)
 - `fetch_prices.py` – Kurse (Coinbase/Yahoo, Reserven Binance-Datenhost/Stooq) -> `data/prices.csv`
 - `heartbeat.py` – Empfehlung + Schattenbuch (`data/ledger.csv`, `data/state.json`) -> `site/heartbeat.json`
 - `site/` – schlichte Seite (Cloudflare Pages, Ausgabeordner `site`, kein Build-Befehl)

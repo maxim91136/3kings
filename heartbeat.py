@@ -18,6 +18,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "core"))
 import lab, team
 
 PLAYERS = ["BTC", "SPY", "GLD"]
+TILT = {"BTC": 2.0}   # Regel seit 2026-11-18: Bitcoin bekommt doppeltes Gewicht in der Kapitalverteilung (Spot, kein Hebel)
 EXTRA = {"BTC": ["Trend SMA100 (Std.)"]}      # Regelaenderung 18.11.2026: schnelle Trend-Linie nur fuer Bitcoin (siehe REGELN.md)
 LABEL = {"BTC": "Bitcoin", "SPY": "S&P 500", "GLD": "Gold"}
 BAND = 0.05                                   # vorab festgelegt, nicht optimiert
@@ -25,7 +26,7 @@ DATA, SITE = "data", "site"
 
 
 def current_plan(P, names):
-    res = team.run_team(P, names, PLAYERS, strats={p: team.STRATS + EXTRA.get(p, []) for p in PLAYERS})
+    res = team.run_team(P, names, PLAYERS, strats={p: team.STRATS + EXTRA.get(p, []) for p in PLAYERS}, tilt=TILT)
     T, ix = len(P), {n: i for i, n in enumerate(names)}
     t0 = res["bounds"][-1]
     alloc = res["alloc"][T - 1]

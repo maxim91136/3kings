@@ -18,7 +18,7 @@ STRATS = ["Halten (Baseline)", "Trend SMA200 (Std.)", "Vol-Target 15% (Std.)"]
 COST = {"BTC": 0.0010}
 
 
-def run_team(P, names, players, cost_mult=1.0, strats=None):
+def run_team(P, names, players, cost_mult=1.0, strats=None, tilt=None, cap=None):
     SP = {p: (strats or {}).get(p, STRATS) for p in players}      # Kandidaten je Spieler (Standard: STRATS)
     R = lab.returns(P)
     T = len(P)
@@ -49,7 +49,18 @@ def run_team(P, names, players, cost_mult=1.0, strats=None):
             history[p].append(champ[p])
             w_real[p][t: end + 1] = W[p, champ[p]][t: end + 1]
         vol = np.array([R[t - 62: t + 1, ix[p]].std(ddof=1) for p in players])
-        a = (1 / vol) / (1 / vol).sum()
+        a = (1 / vol) * np.array([(tilt or {}).get(p, 1.0) for p in players])   # tilt/cap nur fuer Tests (Standard: aus)
+        a = a / a.sum()
+        for _ in range(10):
+            over = [k for k, p in enumerate(players) if cap and p in cap and a[k] > cap[p] + 1e-9]
+            if not over:
+                break
+            for k in over:
+                a[k] = cap[players[k]]
+            free = [k for k in range(len(players)) if k not in over and not (cap and players[k] in cap and a[k] >= cap[players[k]] - 1e-9)]
+            if not free:
+                break
+            a[free] *= (1 - a[over].sum()) / a[free].sum()
         alloc[t: end + 1] = a
     out = {}
     for tag, wd in (("team", w_real), ("halten", w_hold)):
