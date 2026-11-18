@@ -34,7 +34,7 @@ def fred(sid):
 
 def yahoo(sym, start=631152000):
     import time
-    j = json.loads(get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}?period1={start}&period2={int(time.time())}&interval=1d"))
+    j = json.loads(fp.get(f"https://query2.finance.yahoo.com/v8/finance/chart/{sym}?period1={start}&period2={int(time.time())}&interval=1d"))
     r = j["chart"]["result"][0]
     return {fp.day(t): round(float(c), 4) for t, c in zip(r["timestamp"], r["indicators"]["quote"][0]["close"]) if c}
 
