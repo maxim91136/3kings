@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T18:10:13Z",
+ "generated_at": "2026-11-18T18:14:33Z",
  "data_date": "2026-11-17",
  "players": {
   "BTC": {
@@ -10,7 +10,8 @@
    "price": 64873.18,
    "line_n": 200,
    "vs_line": -0.1022,
-   "dd_high": -0.3309
+   "dd_high": -0.3309,
+   "dd_ath": -0.4798
   },
   "SPY": {
    "champion": "Trend SMA200",
@@ -20,7 +21,8 @@
    "price": 732.440002,
    "line_n": 200,
    "vs_line": 0.0036,
-   "dd_high": -0.0599
+   "dd_high": -0.0599,
+   "dd_ath": -0.0599
   },
   "GLD": {
    "champion": "Vol-Target 15%",
@@ -30,7 +32,8 @@
    "price": 352.480011,
    "line_n": 200,
    "vs_line": -0.1352,
-   "dd_high": -0.2892
+   "dd_high": -0.2892,
+   "dd_ath": -0.2892
   }
  },
  "season": {
@@ -44,15 +47,7 @@
   "GLD": 0.1384
  },
  "cash": 0.3668,
- "moves": [
-  {
-   "player": "SPY",
-   "name": "S&P 500",
-   "von": 0.3219,
-   "auf": 0.4948,
-   "delta": 0.1729
-  }
- ],
+ "moves": [],
  "shadow": 0.9956,
  "hold": 0.9965,
  "since": "2026-11-16",

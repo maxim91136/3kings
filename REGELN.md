@@ -49,3 +49,7 @@ Frage 2 - Kaufregel fuer neues Geld (monatlich gleicher Betrag, Fenster 10 und 2
 Frage 1 ERFUELLT: nach Steuern 1930-2026 Trend SMA200 5,2 %/J, Rueckgang 49 % vs Champion-Wahl 4,3 %/J, 64 % (Krisen 17 vs 22 %, 26 vs 49 %). Halten 6,0 %/J, 83 %. -> S&P spielt ab sofort fest Trend SMA200 (heartbeat.py FIXED). Mannschaft 2017-2026 dadurch praktisch gleich (17,6 %/J, Rueckgang 17 statt 16 %, Sharpe 1,26).
 Frage 2: 20-Jahres-Fenster Median Endwert/Eingezahlt: K1 sofort 2,14; K2 Kauf-Pause 2,14; K4 Dip-Reserve 2,08; K3 Trend voll 1,82; K5 Champion 1,69. Nach Kriterium empfohlen: K1 (sofort kaufen). K2 gleicher Median, schlimmster Buchverlust -38 statt -67 %, Median-Buchverlust nur 4 Punkte kleiner (Kriterium 10) -> nicht empfohlen, nur als ausdrueckliche Entscheidung moeglich.
 Seite: "Neues Geld / nur S&P 500" zeigt jetzt K1 (kaufen, ganzer Betrag) plus Trendlage als Info.
+
+## 2026-11-18: Kaufregel neues Geld = "nicht am Hoch" (ausdrueckliche Entscheidung des Nutzers)
+Grundsatz des Nutzers: nicht am Allzeithoch kaufen. ath.py (S&P 1930-2026, monatlich, vor Steuern): "nicht am Hoch" (kaufen nur, wenn mind. 3 % unter dem Allzeithoch, sonst sammeln) 20 Jahre Median 2,43 vs sofort 2,44, besser in 41 % der Fenster - kostet praktisch nichts. "Warte auf -10 %" kostet deutlich (2,18). Kauf ab -20 % brachte im Schnitt mehr (5 Jahre 10,9 vs 8,7 %/J am Hoch), Kauf am Hoch war aber nicht oefter im Minus als bei -3 bis -20 %.
+Regel: S&P innerhalb 3 % vom Allzeithoch -> sammeln; sonst Betrag plus Reserve kaufen. Ersetzt K1 auf der Seite.

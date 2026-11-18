@@ -121,9 +121,10 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  const upd=()=>{const a=Math.max(0,+document.getElementById("amt").value||0);const only=document.getElementById("only").checked;
   const eur=x=>Math.round(a*x).toLocaleString("de-DE")+" €";
   const sp=h.players.SPY,gap=(sp.vs_line*100).toFixed(1).replace(".",",").replace("-","−"),up=+sp.vs_line>=0;
-  document.getElementById("spyv").innerHTML=only?`<b>S&amp;P 500: kaufen, ganzer Betrag</b><span class="mute"> · Regel für neues Geld: sofort anlegen, nicht auf Rücksetzer warten. Im Test 1930–2026 brachte das über 20 Jahre nach Steuern im Mittel mindestens so viel wie jede Warte-Regel. Trend gerade ${up?"intakt":"gebrochen"} (${gap} % zur 200-Tage-Linie).</span>`:"";
+  const ath=sp.dd_ath??sp.dd_high,near=ath>-0.03,athS=Math.abs(ath*100).toFixed(1).replace(".",",");
+  document.getElementById("spyv").innerHTML=only?(near?`<b>S&amp;P 500: sammeln</b><span class="mute"> · Kurs nur ${athS} % unter dem Allzeithoch. Regel: nicht am Hoch kaufen. Der Betrag wartet als Reserve und geht komplett rein, sobald der Kurs mindestens 3 % unter dem Hoch liegt.</span>`:`<b>S&amp;P 500: kaufen</b><span class="mute"> · Betrag plus eventuell gesammelte Reserve. Kurs ${athS} % unter dem Allzeithoch, also nicht am Hoch. Trend ${up?"intakt":"gebrochen"} (${gap} % zur 200-Tage-Linie).</span>`):"";
   document.getElementById("teamnote").hidden=only;
-  if(only){document.getElementById("split").innerHTML=`<div style="--c:${KINGS.SPY.c}"><b>${eur(1)}</b><span>S&amp;P 500</span></div>`;document.getElementById("split").style.gridTemplateColumns="1fr";return}
+  if(only){document.getElementById("split").innerHTML=`<div style="--c:${KINGS.SPY.c}"><b>${eur(1)}</b><span>${near?"Reserve":"S&amp;P 500"}</span></div>`;document.getElementById("split").style.gridTemplateColumns="1fr";return}
   document.getElementById("split").style.gridTemplateColumns="";
   const t=Object.fromEntries(Object.entries(h.players).map(([k,v])=>[k,v.target]));const cash=Math.max(0,1-Object.values(t).reduce((x,y)=>x+y,0));
   document.getElementById("split").innerHTML=Object.entries(KINGS).map(([k,K])=>`<div style="--c:${K.c}"><b>${eur(t[k])}</b><span>${K.name}</span></div>`).join("")+`<div><b>${eur(cash)}</b><span>Cash</span></div>`};
