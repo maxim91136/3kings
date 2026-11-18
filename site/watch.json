@@ -72,30 +72,12 @@
  "elite": {
   "rows": [
    {
-    "key": "CME",
-    "name": "CME Group",
-    "branch": "Börsen und Clearing",
-    "claim": 18.5,
-    "beta": 0.3,
-    "cagr10": 0.1477,
-    "until": "2026-11-17"
-   },
-   {
     "key": "RACE",
     "name": "Ferrari",
     "branch": "Luxus-Autos",
     "claim": 23.7,
     "beta": 0.9,
     "cagr10": 0.2326,
-    "until": "2026-11-17"
-   },
-   {
-    "key": "WM",
-    "name": "Waste Management",
-    "branch": "Müll-Infrastruktur",
-    "claim": 17.3,
-    "beta": 0.39,
-    "cagr10": 0.1548,
     "until": "2026-11-17"
    },
    {
@@ -126,15 +108,6 @@
     "until": "2026-11-17"
    },
    {
-    "key": "RMS",
-    "name": "Hermès",
-    "branch": "Luxus (Paris, in Euro)",
-    "claim": 21.0,
-    "beta": 0.47,
-    "cagr10": 0.1404,
-    "until": "2026-11-17"
-   },
-   {
     "key": "MSFT",
     "name": "Microsoft",
     "branch": "Cloud und KI",
@@ -142,26 +115,17 @@
     "beta": 1.09,
     "cagr10": 0.2504,
     "until": "2026-11-17"
-   },
-   {
-    "key": "GOOGL",
-    "name": "Alphabet",
-    "branch": "Suche und Werbung",
-    "claim": 24.6,
-    "beta": 1.19,
-    "cagr10": 0.2182,
-    "until": "2026-11-17"
    }
   ],
   "back": {
    "since": "2016-11-17",
    "until": "2026-11-17",
    "elite": {
-    "cagr": 0.2192,
-    "mdd": 0.315
+    "cagr": 0.2375,
+    "mdd": 0.358
    },
    "spy": {
-    "cagr": 0.1452,
+    "cagr": 0.1437,
     "mdd": 0.331
    }
   },

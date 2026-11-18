@@ -43,8 +43,8 @@ if cand and spy:
 
 # ---------------- Elite 5 (nach Regel-Pruefung 2026-11-18, vier ausgeschieden)
 el = load("data/elite.csv")
-NAMES = { "RACE": ("Ferrari", "Luxus-Autos", 23.7),
-         "MA": ("Mastercard", "Zahlungs-Duopol", 20.9), "V": ("Visa", "Zahlungs-Duopol", 16.9), "CTAS": ("Cintas", "Wiederkehrende Dienste", 25.6),", 21.0), "MSFT": ("Microsoft", "Cloud und KI", 25.9),}
+NAMES = {"RACE": ("Ferrari", "Luxus-Autos", 23.7), "MA": ("Mastercard", "Zahlungs-Duopol", 20.9), "V": ("Visa", "Zahlungs-Duopol", 16.9),
+         "CTAS": ("Cintas", "Wiederkehrende Dienste", 25.6), "MSFT": ("Microsoft", "Cloud und KI", 25.9)}
 if el and spy:
     local, ep = {}, {}
     for k in NAMES:
