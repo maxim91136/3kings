@@ -66,8 +66,8 @@ for key, nm, sub in (("FNG", "Fear & Greed Aktien", "CNN, 0 = extreme Angst, 100
                         text=sub + " Extreme Angst war oft eine Kaufgelegenheit.", note=f"Stand {k}", higher=None))
 if c:
     k = max(c); e = 1 / c[k]
-    out.append(dict(key="expect", name="Erwartung nächste 10 Jahre", value=f"≈ {e*100:.1f} % p. a.", pct=None, since=None, light=None,
-                    text="Faustregel aus dem Shiller-KGV: 1 geteilt durch das KGV ergibt grob die jährliche Rendite über der Inflation für die nächsten 10 Jahre (US-Aktien). Streut stark, ist keine Vorhersage für einzelne Jahre.",
+    out.append(dict(key="expect", name="Erwartete Rendite pro Jahr", value=f"≈ {e*100:.1f} %", pct=None, since=None, light=None,
+                    text="Für die nächsten 10 Jahre, über der Inflation, US-Aktien. Faustregel: 1 geteilt durch das Shiller-KGV. Grobe Richtung, keine Prognose.",
                     note=f"aus KGV {c[k]:.1f}", higher=None))
 v = load("VIXCLS")
 if v:
@@ -90,7 +90,8 @@ if t:
                     text="Zins für kurzfristig geparktes Geld in den USA. Grobe Richtung für Tagesgeld.", note=f"Stand {k}", higher=None))
 import re
 for i in out:
-    i["value"] = i["value"].replace(".", ",")
+    i["value"] = re.sub(r"(\d)\.(\d)", r"\1,\2", i["value"])
+    i["note"] = re.sub(r"(\d)\.(\d)", r"\1,\2", i["note"])
     i["note"] = re.sub(r"(\d{4})-(\d{2})-(\d{2})", r"\3.\2.\1", i["note"])
 os.makedirs("site", exist_ok=True)
 json.dump(dict(indicators=out), open("site/indicators.json", "w"), ensure_ascii=False, indent=1)
