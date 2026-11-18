@@ -19,7 +19,7 @@ h1{font:600 40px/1.1 var(--serif);letter-spacing:.01em;margin:6px 0 6px}
 .verdict{margin:34px 0 8px}
 .verdict h2{font:500 34px/1.15 var(--serif);margin:0}
 .verdict p{margin:6px 0 0;color:var(--mute);font-size:14px}
-.verdict.act h2{color:var(--warn)}.verdict.hero{margin:30px 0 0}.verdict.hero h2{font-size:56px;letter-spacing:-.01em}.verdict.hero h2.buy{color:#7FD39A}.verdict.hero h2.wait{color:var(--gld)}.verdict.small{margin:20px 0 8px}.verdict.small h2{font-size:24px}section.first{margin-top:22px}section.pruef{margin-top:64px;padding-top:28px;border-top:1px solid var(--line)}.money label{min-width:8.5em;text-align:right}
+.verdict.act h2{color:var(--warn)}.verdict.hero{margin:30px 0 0}.verdict.hero h2{font-size:56px;letter-spacing:-.01em}.verdict.hero h2.buy{color:#7FD39A}.verdict.hero h2.wait{color:var(--gld)}.verdict.small{margin:20px 0 8px}.verdict.small h2{font-size:24px}section.first{margin-top:22px}table.pf{margin:14px 0}table.pf td:last-child{color:var(--mute)}table.pf td{font-size:13px;line-height:1.4;padding:9px 4px}table.pf th{font-size:12px}section.pruef{margin-top:64px;padding-top:28px;border-top:1px solid var(--line)}.money label{min-width:8.5em;text-align:right}
 .banners{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0 0}
 .banner{display:flex;flex-direction:column;align-items:center;gap:8px}
 .banner h3{font:600 15px/1.2 var(--sans);margin:0;color:var(--text)}
@@ -99,6 +99,18 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <section class="first"><div class="money"><label for="amt" class="mute">Neues Geld</label><input id="amt" type="number" inputmode="numeric" min="0" step="100" value="1000"><span class="mute">€</span></div>
  <div class="split" id="split"></div><div class="mute" id="note"></div>
  <table class="cheap" id="cheap"></table></section>
+ <section class="proof"><h4>Der Beleg</h4>
+ <div class="mute">Kaufen, sobald Geld da ist. Das haben wir gegen jede Warte-Idee getestet, mit Daten ab 1929. Keine hat sich gelohnt.</div>
+ <table class="pf"><tr><th>Idee</th><th>Ergebnis</th></tr>
+ <tr><td>Auf Rücksetzer warten (−10 %)</td><td>2,18 statt 2,44 pro eingezahltem €</td></tr>
+ <tr><td>Nicht am Hoch kaufen</td><td>2–3 % weniger Endvermögen</td></tr>
+ <tr><td>Teure Bewertung als Bremse</td><td>2,26 statt 2,43, bis zu 6 Jahre Wartezeit</td></tr>
+ <tr><td>Extreme Angst (VIX) als Kaufsignal</td><td>identisch, der Markt war da schon gefallen</td></tr>
+ <tr><td>In Stufen einsteigen</td><td>beim S&amp;P in 3 von 6 Epochen besser, zu wenig</td></tr>
+ <tr><td>20 % als Reserve für Crashs halten</td><td>2,08 statt 2,14</td></tr>
+ <tr><td>Immer in den Stärksten investieren</td><td>kein Vorteil bei S&amp;P und Gold</td></tr></table>
+ <div class="mute">Einzige belegte Ausnahme: Der Trend (200-Tage-Linie) senkt den schlimmsten Rückgang von 78 auf 22 %. Das gilt fürs Halten, nicht fürs Kaufen.</div>
+ <div class="mute" style="margin-top:8px">US-Aktien, Vergangenheit, keine Garantie. Stand 18.11.2026, Details im Regelbuch.</div></section>
  <section id="ind" hidden></section>
  <section id="spar" hidden></section>
  <section class="pruef"><h4>Prüfstand: Mannschaft</h4><div class="mute">Das taktische Modell mit allen drei Königen. Danach handelst du nicht, es läuft zum Testen mit.</div>`;
