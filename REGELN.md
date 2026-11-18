@@ -117,3 +117,6 @@ Universum: ca. 130 bekannte Qualitaetsfirmen USA/Europa (Liste in screen.py). Ha
 
 ## 2026-11-18: Screening-Ergebnis, Elite 5 wird Elite 6 (Entscheidung des Nutzers)
 Ca. 40 von 130 bestehen die harten Regeln; nach den weichen Regeln (Urteil) bleiben IDEXX (Beta 1,09 / 19,7 %), ASML (30,3 %, aber zyklisch), Constellation Software (18,8 %), Deutsche Boerse (18,3 %; Beta europaeischer Werte wegen Zeitzonen zu niedrig gemessen). Aufgenommen: nur IDEXX. ASML nicht (zyklisch, Regel gilt), obwohl einzigartig. Schattenbuch startet neu mit 6, Kriterium unveraendert.
+
+## 2026-11-18: Elite 6 Aufnahmewerte eingefroren
+Beta und 10-Jahres-Rendite der Elite 6 gelten fest zum Stichtag 2026-11-18 (data/elite_frozen.json), keine naechtliche Neuberechnung. Nach vorn misst nur das Schattenbuch. Neuer Stand nur bei ausdruecklicher Ueberpruefung durch den Nutzer.

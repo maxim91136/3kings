@@ -66,6 +66,11 @@ if el and spy:
         b, _ = beta(ep[k], [d for d in ds if d in spy]) if len(ds) > 300 else (None, None)
         c = cagr10(local[k], d1)
         rows.append(dict(key=k, name=nm, branch=br, claim=claim, beta=None if b is None else round(b, 2), cagr10=None if c is None else round(c, 4), until=d1))
+    fz = json.load(open("data/elite_frozen.json")) if os.path.exists("data/elite_frozen.json") else None
+    if fz:  # Aufnahmewerte vom Stichtag, eingefroren
+        fm = {r["key"]: r for r in fz["rows"]}
+        for r in rows:
+            if r["key"] in fm: r["beta"], r["cagr10"] = fm[r["key"]]["beta"], fm[r["key"]]["cagr10"]
     # Rueckblick (geschoent!): gleich gewichtet, taeglich, letzte 10 Jahre in Euro
     ks = [k for k in NAMES if k in ep]
     common = sorted(set.intersection(*[set(ep[k]) for k in ks]) & set(spy))
@@ -84,7 +89,7 @@ if el and spy:
     if last_d >= st["start"] and (not st["rows"] or st["rows"][-1]["date"] != last_d) and last_d in spy:
         e = float(np.mean([ep[k][last_d] / st["p0"][k] for k in ks if k in st["p0"]])); st["rows"].append(dict(date=last_d, elite=round(e, 4), spy=round(spy[last_d] / st["spy0"], 4)))
         json.dump(st, open(sp_path, "w"), indent=1)
-    out["elite"] = dict(rows=rows, back=back, shadow=dict(start=st["start"], rows=st["rows"][-400:]))
+    out["elite"] = dict(stand=fz["stand"] if fz else None, rows=rows, back=back, shadow=dict(start=st["start"], rows=st["rows"][-400:]))
 json.dump(out, open("site/watch.json", "w"), ensure_ascii=False, indent=1)
 print("watch.json:", ", ".join(k for k in out if k != "generated"))
 if "factor" in out:
