@@ -16,6 +16,8 @@ jobs:
       - run: pip install numpy
       - run: python fetch_prices.py --out data/prices.csv
       - run: python heartbeat.py
+      - run: python fetch_indicators.py || true
+      - run: python indicators.py || true
       - run: python notify.py
         continue-on-error: true
         env:

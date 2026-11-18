@@ -35,7 +35,7 @@ border-radius:3px 3px 36px 36px / 3px 3px 22px 22px;overflow:hidden}
 .why{color:var(--mute);font-size:12px;line-height:1.35;max-width:14em;margin-top:-2px}
 section{margin-top:44px;text-align:center}
 .money{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;margin:0 0 14px}.money .only{display:flex;align-items:center;gap:6px;font-size:13px}.money .only input{width:auto;padding:0}.money input{width:7.5em;background:var(--slate);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:9px 10px;font:600 18px var(--sans);text-align:right}.money input:focus-visible{outline:2px solid var(--gld);outline-offset:2px}
-.split{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}.split div{border-top:2px solid var(--c,var(--line));padding-top:8px}.split b{display:block;font:600 20px var(--serif)}.split span{font-size:12px;color:var(--mute)}.verdictline{margin:6px 0 12px;font-size:14px;line-height:1.5}.verdictline b{font:600 16px var(--serif)}
+.split{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}.split div{border-top:2px solid var(--c,var(--line));padding-top:8px}.split b{display:block;font:600 20px var(--serif)}.split span{font-size:12px;color:var(--mute)}.ind{display:grid;grid-template-columns:14px 1fr auto;gap:4px 10px;align-items:baseline;padding:10px 0;border-top:1px solid var(--line);text-align:left}.ind i{width:10px;height:10px;border-radius:50%;display:inline-block;background:#8A8F9C}.ind .gruen{background:#5FBF7A}.ind .gelb{background:#D9B34A}.ind .rot{background:#D9634A}.ind b{font:600 15px var(--sans)}.ind em{font-style:normal;font:600 16px var(--serif);text-align:right}.ind small{grid-column:2/4;color:var(--mute);font-size:12.5px;line-height:1.45}.verdictline{margin:6px 0 12px;font-size:14px;line-height:1.5}.verdictline b{font:600 16px var(--serif)}
 .cheap{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}.cheap td{padding:6px 4px;border-bottom:1px solid var(--line);text-align:right}.cheap td:first-child{text-align:left}
 h4{font:500 22px/1.2 var(--serif);margin:0 0 14px}
 .bar{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--slate);border:1px solid var(--line)}
@@ -111,6 +111,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <div class="split" id="split"></div>
  <div class="mute" id="teamnote">Neues Geld folgt der Aufstellung. Der Cash-Anteil bleibt zurück. Bei großen Summen hilft es, in drei bis vier Teilen einzusteigen, die Tests zeigen dabei aber keinen Renditevorteil, nur weniger Risiko im schlechtesten Fall.</div>
  <table class="cheap"><tr><td class="mute">Wie günstig gerade</td><td class="mute">zum 12-Monats-Hoch</td></tr>${Object.entries(h.players).map(([k,v])=>`<tr><td>${KINGS[k].name}</td><td>${(v.dd_high*100).toFixed(0).replace("-","−")} %</td></tr>`).join("")}</table></section>
+ <section id="ind" hidden></section>
  <section><h4>Saison ${h.season.n_seasons}</h4><div class="season"><i data-w="${Math.round(h.season.day_in_season/63*100)}"></i></div>
  <div class="mute">Tag ${h.season.day_in_season} von 63. Die nächste Champion-Wahl kommt in ${h.season.days_left} Handelstagen, bis dahin ändern sich die Regeln nicht.</div></section>
  <section><h4>Schattenbuch</h4><div class="pair"><div><b style="color:var(--gld)">${h.shadow.toFixed(3).replace(".",",")}</b><span>Empfehlungen befolgt</span></div><div><b>${h.hold.toFixed(3).replace(".",",")}</b><span>alle drei gleich halten</span></div></div>
@@ -130,6 +131,8 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
   document.getElementById("split").innerHTML=Object.entries(KINGS).map(([k,K])=>`<div style="--c:${K.c}"><b>${eur(t[k])}</b><span>${K.name}</span></div>`).join("")+`<div><b>${eur(cash)}</b><span>Cash</span></div>`};
  document.getElementById("only").addEventListener("change",upd);
  document.getElementById("amt").addEventListener("input",upd);upd();
+ fetch("indicators.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{if(!j.indicators||!j.indicators.length)return;const L={gruen:"günstig/Chance",gelb:"mittel",rot:"teuer/Vorsicht"};
+  const s=document.getElementById("ind");s.innerHTML=`<h4>Marktlage</h4>`+j.indicators.map(i=>`<div class="ind"><i class="${i.light||""}" title="${L[i.light]||"Info"}"></i><b>${i.name}</b><em>${i.value}</em><small>${i.pct!=null?`${i.higher==="teurer"?"Teurer":"Ängstlicher"} als an ${Math.round(i.pct*100)} % der Zeit seit ${i.since}. `:""}${i.text} <span style="opacity:.7">${i.note}</span></small></div>`).join("")+`<div class="mute" style="margin-top:8px">Nur zur Info. Die Indikatoren fließen erst in die Regeln ein, wenn sie einen Test bestanden haben.</div>`;s.hidden=false}).catch(()=>{});
  requestAnimationFrame(()=>requestAnimationFrame(()=>{document.querySelectorAll(".fill").forEach(e=>e.style.height=e.dataset.h+"%");document.querySelectorAll(".season i").forEach(e=>e.style.width=e.dataset.w+"%")}));
 }).catch(()=>{document.querySelector(".stamp").textContent="Noch keine Daten. Der erste Lauf fehlt oder heartbeat.json ist nicht erreichbar."});
 </script></body></html>
