@@ -35,7 +35,7 @@ border-radius:3px 3px 36px 36px / 3px 3px 22px 22px;overflow:hidden}
 .why{color:var(--mute);font-size:12px;line-height:1.35;max-width:14em;margin-top:-2px}
 section{margin-top:44px;text-align:center}
 .money{display:flex;justify-content:center;align-items:center;gap:8px;margin:0 0 14px}.money input{width:7.5em;background:var(--slate);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:9px 10px;font:600 18px var(--sans);text-align:right}.money input:focus-visible{outline:2px solid var(--gld);outline-offset:2px}
-.split{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}.split div{border-top:2px solid var(--c,var(--line));padding-top:8px}.split b{display:block;font:600 20px var(--serif)}.split span{font-size:12px;color:var(--mute)}
+.split{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}.split div{border-top:2px solid var(--c,var(--line));padding-top:8px}.split b{display:block;font:600 20px var(--serif)}.split span{font-size:12px;color:var(--mute)}.verdictline{margin:6px 0 12px;font-size:14px;line-height:1.5}.verdictline b{font:600 16px var(--serif)}
 .cheap{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}.cheap td{padding:6px 4px;border-bottom:1px solid var(--line);text-align:right}.cheap td:first-child{text-align:left}
 h4{font:500 22px/1.2 var(--serif);margin:0 0 14px}
 .bar{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--slate);border:1px solid var(--line)}
@@ -106,9 +106,10 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  o+=`</div><section><h4>Verteilung</h4><div class="bar">${Object.entries(KINGS).map(([k,K])=>`<i style="width:${pct(h.held[k])}%;background:${K.c}"></i>`).join("")}</div>
  <div class="legend">${Object.entries(KINGS).map(([k,K])=>`<span><span class="dot" style="background:${K.c}"></span>${K.name} <b>${pct(h.held[k])} %</b></span>`).join("")}<span><span class="dot" style="background:#262B37;border:1px solid #8A8F9C"></span>Cash <b>${pct(h.cash)} %</b></span></div></section>
 
- <section><h4>Neues Geld</h4><div class="money"><label for="amt" class="mute">Betrag</label><input id="amt" type="number" inputmode="numeric" min="0" step="100" value="1000"><span class="mute">€</span></div>
+ <section><h4>Neues Geld</h4><div class="money"><label for="amt" class="mute">Betrag</label><input id="amt" type="number" inputmode="numeric" min="0" step="100" value="1000"><span class="mute">€</span><label class="mute" style="margin-left:14px"><input id="only" type="checkbox" checked> nur S&amp;P 500</label></div>
+ <div class="verdictline" id="spyv"></div>
  <div class="split" id="split"></div>
- <div class="mute">Neues Geld folgt der Aufstellung. Der Cash-Anteil bleibt zurück. Bei großen Summen hilft es, in drei bis vier Teilen einzusteigen, die Tests zeigen dabei aber keinen Renditevorteil, nur weniger Risiko im schlechtesten Fall.</div>
+ <div class="mute">Neues Geld folgt der Aufstellung. Der Reserve-Anteil bleibt zurück. Bei großen Summen hilft es, in drei bis vier Teilen einzusteigen, die Tests zeigen dabei aber keinen Renditevorteil, nur weniger Risiko im schlechtesten Fall.</div>
  <table class="cheap"><tr><td class="mute">Wie günstig gerade</td><td class="mute">zum 12-Monats-Hoch</td></tr>${Object.entries(h.players).map(([k,v])=>`<tr><td>${KINGS[k].name}</td><td>${(v.dd_high*100).toFixed(0).replace("-","−")} %</td></tr>`).join("")}</table></section>
  <section><h4>Saison ${h.season.n_seasons}</h4><div class="season"><i data-w="${Math.round(h.season.day_in_season/63*100)}"></i></div>
  <div class="mute">Tag ${h.season.day_in_season} von 63. Die nächste Champion-Wahl kommt in ${h.season.days_left} Handelstagen, bis dahin ändern sich die Regeln nicht.</div></section>
@@ -117,9 +118,14 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <details><summary>Verlauf</summary><table><tr><th>Tag</th><th>BTC</th><th>S&amp;P</th><th>Gold</th><th>Cash</th><th>Schatten</th></tr>${h.ledger_tail.slice().reverse().slice(0,60).map(r=>`<tr><td>${fmtDay(r.date)}</td><td>${pct(+r.BTC)} %</td><td>${pct(+r.SPY)} %</td><td>${pct(+r.GLD)} %</td><td>${pct(+r.cash)} %</td><td>${(+r.shadow).toFixed(3)}</td></tr>`).join("")}</table></details>
  <footer>Nur zur privaten Auswertung. Es werden keine Aufträge ausgelöst.</footer>`;
  document.getElementById("app").innerHTML=o;
- const upd=()=>{const a=Math.max(0,+document.getElementById("amt").value||0);const t=Object.fromEntries(Object.entries(h.players).map(([k,v])=>[k,v.target]));const cash=Math.max(0,1-Object.values(t).reduce((x,y)=>x+y,0));
+ const upd=()=>{const a=Math.max(0,+document.getElementById("amt").value||0);const only=document.getElementById("only").checked;
   const eur=x=>Math.round(a*x).toLocaleString("de-DE")+" €";
+  const sp=h.players.SPY,w=sp.strat_weight,gap=(sp.vs_line*100).toFixed(1).replace(".",",").replace("-","−");
+  document.getElementById("spyv").innerHTML=`<b>S&amp;P 500: ${w>=0.99?"kaufen":w>0?"teilweise kaufen ("+pct(w)+" % jetzt)":"abwarten"}</b><span class="mute"> · Kurs ${(+sp.vs_line>=0?"über":"unter")} der ${sp.line_n}-Tage-Linie (${gap} %), ${pct(w)} % Anteil laut ${sp.champion}. Der Rest bleibt Reserve und wird frei, sobald der Anteil steigt.</span>`;
+  if(only){document.getElementById("split").innerHTML=`<div style="--c:${KINGS.SPY.c}"><b>${eur(w)}</b><span>S&amp;P 500 jetzt</span></div><div><b>${eur(1-w)}</b><span>Reserve</span></div>`;return}
+  const t=Object.fromEntries(Object.entries(h.players).map(([k,v])=>[k,v.target]));const cash=Math.max(0,1-Object.values(t).reduce((x,y)=>x+y,0));
   document.getElementById("split").innerHTML=Object.entries(KINGS).map(([k,K])=>`<div style="--c:${K.c}"><b>${eur(t[k])}</b><span>${K.name}</span></div>`).join("")+`<div><b>${eur(cash)}</b><span>Cash</span></div>`};
+ document.getElementById("only").addEventListener("change",upd);
  document.getElementById("amt").addEventListener("input",upd);upd();
  requestAnimationFrame(()=>requestAnimationFrame(()=>{document.querySelectorAll(".fill").forEach(e=>e.style.height=e.dataset.h+"%");document.querySelectorAll(".season i").forEach(e=>e.style.width=e.dataset.w+"%")}));
 }).catch(()=>{document.querySelector(".stamp").textContent="Noch keine Daten. Der erste Lauf fehlt oder heartbeat.json ist nicht erreichbar."});
