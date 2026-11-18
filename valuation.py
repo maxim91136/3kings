@@ -9,9 +9,18 @@ vix = {x["date"]: float(x["value"]) for x in csv.DictReader(open("data/ind_VIXCL
 cp = {}; hist = []
 for k in ck:
     v = cape[k]; s = sorted(hist); cp[k] = bisect_right(s, v) / len(s) if s else 0.5; hist.append(v)
+def rolling_pct(years):
+    out = {}
+    for i, k in enumerate(ck):
+        lo = max(0, i - years * 12); w = sorted(cape[x] for x in ck[lo:i])
+        out[k] = bisect_right(w, cape[k]) / len(w) if w else 0.5
+    return out
 def last(keys, m, d):
     i = bisect_right(keys, d) - 1; return m[keys[i]] if i >= 0 else None
 expensive = np.array([(last(ck, cp, d) or 0) >= 0.8 for d in D])
+r10, r20 = rolling_pct(10), rolling_pct(20)
+EXP10 = np.array([(last(ck, r10, d) or 0) >= 0.8 for d in D]); EXP20 = np.array([(last(ck, r20, d) or 0) >= 0.8 for d in D])
+CHEAP10 = np.array([(last(ck, r10, d) or 1) <= 0.2 for d in D])
 V = np.array([last(vk, vix, d) if d >= vk[0] else np.nan for d in D])
 
 def go(rule, t, wait):
@@ -23,6 +32,11 @@ def go(rule, t, wait):
         if rule == "A2" and V[t] >= 30: ok = True
         return ok
     if rule == "B2": return (dd[t] <= -0.20) if expensive[t] else not near
+    if rule in ("R10", "R10c", "R20"):
+        e = EXP20[t] if rule == "R20" else EXP10[t]
+        ok = (dd[t] <= -0.10) if e else not near
+        return ok or (rule == "R10c" and wait >= 252)
+    if rule == "G10": return CHEAP10[t] or not near
     if rule == "A1": return (not near) or V[t] >= 30
     return True
 
@@ -43,5 +57,11 @@ def table(rules, start, years):
         ok = "" if k == "N" else ("ERFUELLT" if (m >= mn * 0.99 and w10 > np.percentile(n, 10)) or m >= mn * 1.02 else "nicht erfuellt")
         print(f"{k:6s}{m:8.2f}{w10:10.2f}{(x[:,0]>n+1e-9).mean()*100:13.0f}%{np.mean(x[:,2])*100:15.0f}%{x[:,1].max():17.1f} J.   {ok}")
 print("Anteil Tage 'KGV im obersten Fuenftel seiner Geschichte':", f"{expensive[D.index(next(d for d in D if d>='1930-01-02')):].mean()*100:.0f} %", "| seit 1995:", f"{expensive[next(i for i,d in enumerate(D) if d>='1995-01-01'):].mean()*100:.0f} %")
-table(["N", "B1", "B2", "B3"], "1930-01-01", 20)
-table(["N", "B1", "A1", "A2"], "1990-01-01", 10)
+import sys
+if "--relativ" in sys.argv:
+    s0 = next(i for i, d in enumerate(D) if d >= "1930-01-02")
+    print(f"teuer (oberstes Fuenftel) letzte 10 J: {EXP10[s0:].mean()*100:.0f} % der Tage, letzte 20 J: {EXP20[s0:].mean()*100:.0f} %, guenstig 10 J: {CHEAP10[s0:].mean()*100:.0f} %")
+    table(["N", "R10", "R20", "R10c", "G10"], "1930-01-01", 20)
+else:
+    table(["N", "B1", "B2", "B3"], "1930-01-01", 20)
+    table(["N", "B1", "A1", "A2"], "1990-01-01", 10)

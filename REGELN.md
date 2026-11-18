@@ -61,3 +61,7 @@ Kriterium: eine Regel ersetzt N nur, wenn ueber 20-Jahres-Fenster (bzw. 10-Jahre
 
 ### Ergebnis Studie "Bewertung + Angst" (2026-11-18)
 Keine Regel erfuellt das Kriterium, N bleibt. 20 J ab 1930: N 2,43 | B1 2,26 (laengste Wartezeit 6,2 J) | B2 2,19 (9,6 J) | B3 2,40. Grund: Shiller-KGV seit 1995 an 94 % der Tage im obersten Fuenftel seiner Geschichte - eine Bewertungsbremse wartet jahrelang. 10 J ab 1990: A1 (Angst-Kauf VIX >= 30) identisch mit N, weil hohe Angst immer mit Kursen mehr als 3 % unter dem Hoch zusammenfiel - N kauft in Angstphasen also schon. A2 1,47 vs N 1,53.
+
+## 2026-11-18: Nachtrag "relative Bewertung" (vorab festgelegt, valuation.py --relativ)
+Shiller-KGV als Perzentil nur der letzten 10 bzw. 20 Jahre (kausal). R10/R20: im obersten Fuenftel dieses Fensters erst ab 10 % unter dem Hoch kaufen, sonst wie N. R10c: wie R10, nach spaetestens 12 Monaten Warten trotzdem kaufen. G10: im untersten Fuenftel der letzten 10 Jahre sofort kaufen, auch nahe am Hoch, sonst wie N. Gleiches Kriterium wie oben (20-Jahres-Fenster ab 1930).
+Ergebnis: keine Regel erfuellt das Kriterium, N bleibt. N 2,43 | R10 2,19 | R20 2,26 | R10c 2,37 | G10 2,43 (identisch mit N: guenstige Phasen fielen immer mit Kursen unter dem Hoch zusammen). Relativ "teuer" ist an rund 36 % der Tage - die Bremse verpasst dann die Aufschwuenge.
