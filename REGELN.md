@@ -100,3 +100,11 @@ Die Regel "nicht am Hoch" ist eine ausdrueckliche Entscheidung des Nutzers (Grun
 
 ## 2026-11-18: Kaufregel neues Geld = sofort kaufen (Entscheidung des Nutzers, ersetzt "nicht am Hoch")
 Grund: Gegencheck Total Return (totalreturn.py): "nicht am Hoch" kostet 2-3 % Endvermoegen, besser als sofort nur in 1-12 % der Fenster. Der Nutzer: Zahlen gehen vor Prinzip. Seite zeigt immer "Kaufen". "Nicht am Hoch" laeuft als Vergleich im Schattenbuch Sparplan weiter (sparplan.py: regel_signal). Pruefung: nach einem Jahr. Rueckgaengig: signal in sparplan.py wieder an buy koppeln.
+
+## 2026-11-18: Elite 9 und Faktor-ETFs (Wunsch des Nutzers, nur Anzeige und Schattenbuch, kein Geld)
+Ausnahme von "keine Einzelaktien": nur Beobachtung, keine Empfehlung, kein Einfluss auf die Kaufregel.
+Elite 9 (Liste des Nutzers vom 2026-11-18, Auswahl im RUECKBLICK, Quelle der Zahlen unklar): CME Group, Ferrari, Waste Management, Mastercard, Visa, Cintas, Hermes (Paris, EUR), Microsoft, Alphabet. 9 Regeln der Liste: Beta < 1,15; Bruttomarge > 50 %; Monopol/Duopol; keine Zyklizitaet; Preissetzungsmacht; kein existenzielles Disruptionsrisiko; 10-Jahres-Rendite (Total Return) ~17 % p. a.; Verschuldung/Eigenkapital < 1,0; Burggraben waechst.
+Automatisch berechnet (aus Kursen): Beta (taeglich, 5 Jahre, gegen S&P 500) und 10-Jahres-Rendite p. a. Alles andere (Marge, Monopol, Zyklik, Disruption, Burggraben, Verschuldung) wird NICHT geprueft, nur uebernommen. Die berechneten Werte werden mit den Listenwerten verglichen; Abweichung > 3 Punkte wird angezeigt.
+Ein Rueckwaerts-Test der Liste ist wertlos (Survivorship: Regel 7 waehlt Gewinner der Vergangenheit). Er wird nur zur Illustration gezeigt und so gekennzeichnet. DER Test ist das Schattenbuch Elite ab 2026-11-18: 9 Aktien gleich gewichtet, in Euro, gegen S&P 500 in Euro.
+Kriterium (nach 3 Jahren, ab 2029-11): bewaehrt, wenn Rendite mindestens 2 Punkte pro Jahr ueber dem S&P UND der Rueckgang nicht groesser; gescheitert, wenn die Rendite unter dem S&P liegt; sonst weiter beobachten. Nach 1 Jahr nur Zwischenstand, keine Bewertung.
+Faktor-ETFs: QUAL (Qualitaet), MTUM (Momentum), USMV (Min. Volatilitaet), XLK (Tech), dazu VT und URTH (Welt) gegen SPY, in Euro, ab 2015-07. Anzeige: Rendite pro Jahr, Rueckgang, Sharpe, Beta. Aufnahmetest vom 2026-11-18: alle durchgefallen (siehe oben). Keine neue Regel.
