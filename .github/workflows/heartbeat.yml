@@ -17,6 +17,7 @@ jobs:
       - run: python fetch_prices.py --out data/prices.csv
       - run: python heartbeat.py
       - run: python fetch_indicators.py || true
+        timeout-minutes: 3
       - run: python indicators.py || true
       - run: python notify.py
         continue-on-error: true

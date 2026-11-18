@@ -7,16 +7,26 @@ from datetime import datetime, timezone
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fetch_prices as fp
 
+BROWSER = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36",
+           "Accept": "application/json", "Referer": "https://edition.cnn.com/"}
+
+
 FRED = ["NCBEILQ027S", "GDP", "VIXCLS", "T10Y2Y", "DTB3", "TB3MS"]
 
 
+def get(url, timeout=20):
+    """Ein Versuch, kurzer Timeout: eine haengende Quelle darf den Heartbeat nicht aufhalten."""
+    with urllib.request.urlopen(urllib.request.Request(url, headers=BROWSER), timeout=timeout) as r:
+        return r.read().decode()
+
+
 def fred(sid):
-    rows = list(csv.reader(fp.get(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}").splitlines()))[1:]
+    rows = list(csv.reader(get(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}").splitlines()))[1:]
     return {r[0]: float(r[1]) for r in rows if len(r) > 1 and r[1] not in ("", ".")}
 
 
 def cape():
-    html = fp.get("https://www.multpl.com/shiller-pe/table/by-month")
+    html = get("https://www.multpl.com/shiller-pe/table/by-month")
     out = {}
     for tr in re.findall(r"<tr[^>]*>(.*?)</tr>", html, re.S):
         txt = re.sub(r"&[#a-zA-Z0-9]+;", " ", re.sub(r"<[^>]+>", " ", tr))
@@ -27,14 +37,10 @@ def cape():
     return out
 
 
-BROWSER = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36",
-           "Accept": "application/json", "Referer": "https://edition.cnn.com/"}
-
-
 def cnn_fng():
     """CNN Fear & Greed (Aktien, 0-100). Liefert nur ca. 1 Jahr - die Datei waechst taeglich weiter."""
     req = urllib.request.Request("https://production.dataviz.cnn.io/index/fearandgreed/graphdata", headers=BROWSER)
-    j = json.loads(urllib.request.urlopen(req, timeout=30).read().decode())
+    j = json.loads(urllib.request.urlopen(req, timeout=20).read().decode())
     d = {datetime.fromtimestamp(p["x"] / 1000, timezone.utc).strftime("%Y-%m-%d"): round(float(p["y"]), 1)
          for p in j["fear_and_greed_historical"]["data"]}
     d[datetime.now(timezone.utc).strftime("%Y-%m-%d")] = round(float(j["fear_and_greed"]["score"]), 1)
@@ -43,7 +49,7 @@ def cnn_fng():
 
 def crypto_fng():
     """Crypto Fear & Greed (alternative.me, 0-100, ab 2018)."""
-    j = json.loads(fp.get("https://api.alternative.me/fng/?limit=0"))
+    j = json.loads(get("https://api.alternative.me/fng/?limit=0"))
     return {fp.day(int(p["timestamp"])): float(p["value"]) for p in j["data"]}
 
 
