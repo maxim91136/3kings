@@ -1,6 +1,17 @@
 {
  "indicators": [
   {
+   "key": "buffett",
+   "name": "Buffett-Indikator",
+   "value": "222 %",
+   "pct": 0.987,
+   "since": "1989",
+   "light": "rot",
+   "text": "Börsenwert aller US-Firmen (Wilshire 5000) im Verhältnis zur Wirtschaftsleistung. Hoch heißt teuer.",
+   "note": "Wilshire 17.11.2026, Wirtschaftsleistung Quartal ab 01.07.2026",
+   "higher": "teurer"
+  },
+  {
    "key": "cape",
    "name": "Shiller-KGV",
    "value": "38,8",
