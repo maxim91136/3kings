@@ -115,14 +115,32 @@
     "beta": 1.09,
     "cagr10": 0.2504,
     "until": "2026-11-17"
+   },
+   {
+    "key": "IDXX",
+    "name": "IDEXX",
+    "branch": "Tierarzt-Diagnostik",
+    "claim": null,
+    "beta": 1.09,
+    "cagr10": 0.1961,
+    "until": "2026-11-17"
+   },
+   {
+    "key": "ASML",
+    "name": "ASML",
+    "branch": "Chip-Belichtung (zyklisch)",
+    "claim": null,
+    "beta": 1.63,
+    "cagr10": 0.3095,
+    "until": "2026-11-17"
    }
   ],
   "back": {
    "since": "2016-11-17",
    "until": "2026-11-17",
    "elite": {
-    "cagr": 0.2375,
-    "mdd": 0.358
+    "cagr": 0.2547,
+    "mdd": 0.343
    },
    "spy": {
     "cagr": 0.1437,
