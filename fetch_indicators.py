@@ -1,5 +1,5 @@
 """Holt Bewertungs- und Marktindikatoren (laeuft im Heartbeat-Workflow, Fehler sind nicht fatal).
-FRED: NCBEILQ027S (Boersenwert US-Firmen, Mio $) und GDP (Mrd $) -> Buffett-Indikator; VIXCLS (Angst-Index);
+Quellen: CBOE (VIX ab 1990), US-Finanzministerium (Zinsen 3 M, 2 J, 10 J), DBnomics (BEA-Wirtschaftsleistung, Fed-Z.1-Boersenwert -> Buffett),
 T10Y2Y (Zinskurve 10J-2J); DTB3 (Geldmarkt 3 Monate, taeglich); TB3MS (monatlich ab 1934, fuer Langzeittests).
 multpl.com: Shiller-KGV (CAPE) monatlich ab 1871. Ausgabe: data/ind_<NAME>.csv (date,value)."""
 import csv, json, os, re, sys, urllib.request
@@ -81,26 +81,56 @@ def save(name, d):
 
 
 os.makedirs("data", exist_ok=True)
-fred_ok = True
-for sid in FRED:
-    if not fred_ok:
-        print(sid, "uebersprungen (FRED nicht erreichbar)"); continue
+def cboe_vix():
+    rows = list(csv.reader(get("https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv").splitlines()))[1:]
+    out = {}
+    for r in rows:
+        if len(r) >= 5 and r[4]:
+            m, d, y = r[0].split("/"); out[f"{y}-{int(m):02d}-{int(d):02d}"] = float(r[4])
+    return out
+
+
+def treasury():
+    """US-Finanzministerium, Tageszinsen. Rueckgabe: {datum: (3 Monate, 2 Jahre, 10 Jahre)}."""
+    from datetime import date
+    out = {}
+    for y in (date.today().year - 1, date.today().year):
+        url = (f"https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/{y}/all"
+               f"?type=daily_treasury_yield_curve&field_tdr_date_value={y}&page&_format=csv")
+        rows = list(csv.reader(get(url, 30).splitlines()))
+        h = rows[0]; i3, i2, i10 = h.index("3 Mo"), h.index("2 Yr"), h.index("10 Yr")
+        for r in rows[1:]:
+            try:
+                m, d, yy = r[0].split("/"); out[f"{yy}-{int(m):02d}-{int(d):02d}"] = (float(r[i3]), float(r[i2]), float(r[i10]))
+            except (ValueError, IndexError):
+                pass
+    return out
+
+
+def dbnomics(sid):
+    j = json.loads(get(f"https://api.db.nomics.world/v22/series/{sid}?observations=1&format=json", 30))
+    doc = j["series"]["docs"][0]; out = {}
+    for per, v in zip(doc["period"], doc["value"]):
+        if v in (None, "NA"): continue
+        y, q = per.split("-Q"); out[f"{y}-{(int(q) - 1) * 3 + 1:02d}-01"] = float(v)
+    return out
+
+
+for name, fn in (("VIXCLS", cboe_vix),
+                 ("GDP", lambda: dbnomics("BEA/NIPA-T10105/A191RC-Q")),
+                 ("NCBEILQ027S", lambda: dbnomics("FED/Z1/FL103164103.Q"))):
     try:
-        d = fred(sid)
-        if len(d) < 20: raise ValueError("zu wenige Werte")
-        save(sid, d)
+        d = fn()
+        if len(d) < 20: raise ValueError(f"nur {len(d)} Werte")
+        save(name, d)
     except Exception as e:
-        print(sid, "fehlgeschlagen:", type(e).__name__, e); fred_ok = False
-# Ersatz ueber Yahoo, wenn FRED fehlt: VIX, Zinsen 10 J (^TNX) und 3 M (^IRX)
-if not os.path.exists("data/ind_VIXCLS.csv") or not fred_ok:
-    try: save("VIXCLS", yahoo("%5EVIX"))
-    except Exception as e: print("VIX (Yahoo) fehlgeschlagen:", e)
+        print(name, "fehlgeschlagen:", type(e).__name__, e)
 try:
-    tnx, irx = yahoo("%5ETNX", 1577836800), yahoo("%5EIRX", 1577836800)
-    save("IRX", irx)
-    save("CURVE", {d: round(tnx[d] - irx[d], 3) for d in tnx if d in irx})
+    t = treasury()
+    save("T10Y2Y", {d: round(v[2] - v[1], 3) for d, v in t.items()})
+    save("DTB3", {d: v[0] for d, v in t.items()})
 except Exception as e:
-    print("Zinsen (Yahoo) fehlgeschlagen:", e)
+    print("Zinsen (Treasury) fehlgeschlagen:", type(e).__name__, e)
 try:
     d = cape()
     if len(d) < 100: raise ValueError(f"nur {len(d)} Werte erkannt")
