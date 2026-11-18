@@ -37,3 +37,10 @@ Kriterium: Eine Regel gilt als besser als R0 nur, wenn (a) ihr Sharpe in der Meh
 
 ### Ergebnis Studie "Einstieg in Stufen" (2026-11-18, staged.py)
 S&P (1930-2026): R1/R2/R3 verfehlen das Kriterium (Sharpe in nur 3 von 6 Epochen mindestens so gut wie R0; gesamt +0,01 bis +0,02). Stufen helfen 1930-1982, schaden 1983-2009 (Fehlsignale). Bitcoin (2011-2026): alle drei erfuellen das Kriterium (R1: Sharpe 1,20 -> 1,37, Rueckgang 78 -> 71 %, in 4 von 4 Epochen besser). Gesamtkriterium (S&P UND Bitcoin) NICHT erfuellt -> keine Regelaenderung. Offen fuer Saisonende: Bitcoin-Stufen (R1) als ausdrueckliche Einzelentscheidung, nicht per Regel.
+
+## 2026-11-18: Review (Opus) - vorab festgelegt, vor dem Rechnen (review.py)
+Annahmen: S&P-Preisindex 1928-2026 ohne Dividenden, Cash ohne Zins (beides wirkt grob gegeneinander). Steuer: 26,375 % Abgeltungsteuer, 30 % Teilfreistellung (Aktien-ETF) = 18,46 % auf realisierte Gewinne, Verlusttopf, Freibetrag nicht beruecksichtigt. Kosten 5 bps je Umschichtung. Umschichtung nur bei mehr als 2 Punkten Abweichung.
+Frage 1 - fester Champion fuer den S&P: Trend SMA200 ersetzt die Champion-Wahl beim S&P, wenn er nach Steuern ueber 1930-2026 (a) Rendite hoechstens 0,3 Punkte unter der Champion-Wahl, (b) kleineren Rueckgang gesamt und (c) kleineren Rueckgang in 1973-1982 und 2000-2009 hat.
+Frage 2 - Kaufregel fuer neues Geld (monatlich gleicher Betrag, Fenster 10 und 20 Jahre, Start alle 6 Monate ab 1930):
+  K1 sofort kaufen, nie verkaufen; K2 Kauf-Pause: kaufen nur ueber SMA200, sonst sammeln, Gesammeltes beim Signal kaufen, nie verkaufen; K3 Trend voll (kauft und verkauft mit SMA200); K4 Dip-Reserve: 80 % sofort, 20 % Reserve, Reserve komplett rein bei Rueckgang >= 20 % vom 12-Monats-Hoch, nie verkaufen; K5 heutige Champion-Wahl.
+  Empfohlen wird die Regel mit dem hoechsten Median-Endvermoegen nach Steuern ueber 20-Jahres-Fenster. Eine andere Regel wird nur empfohlen, wenn ihr Median hoechstens 2 % darunter liegt UND ihr schlimmster Buchverlust (Wert/Eingezahlt) im Median der Fenster mindestens 10 Punkte kleiner ist.
