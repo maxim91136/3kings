@@ -67,7 +67,7 @@ footer{margin-top:44px;color:var(--mute);font-size:12px}
 const pct=x=>Math.round(x*100);
 const fmtDay=s=>{const[a,b,c]=s.split("-");return c+"."+b+"."+a};
 const KINGS={BTC:{name:"Bitcoin",c:"var(--btc)"},SPY:{name:"S&P 500",c:"var(--spy)"},GLD:{name:"Gold",c:"var(--gld)"}};
-const why=v=>v.champion.startsWith("Trend")?`Kurs ${Math.abs(Math.round(v.vs_sma200*100))} % ${v.vs_sma200<0?"unter":"über"} dem 200-Tage-Schnitt`:
+const why=v=>v.champion.startsWith("Trend")?(x=>`Kurs ${Math.abs(Math.round(x*100))} % ${x<0?"unter":"über"} dem ${v.line_n||200}-Tage-Schnitt`)(v.vs_line??v.vs_sma200):
  v.champion.startsWith("Vol")?"Anteil nach Schwankung":"voll dabei";
 function chart(rows){
  if(rows.length<3) return `<div class="empty">Die Kurve füllt sich mit jedem Lauf.</div>`;

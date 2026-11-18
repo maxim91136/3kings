@@ -18,13 +18,14 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "core"))
 import lab, team
 
 PLAYERS = ["BTC", "SPY", "GLD"]
+EXTRA = {"BTC": ["Trend SMA100 (Std.)"]}      # Regelaenderung 18.11.2026: schnelle Trend-Linie nur fuer Bitcoin (siehe REGELN.md)
 LABEL = {"BTC": "Bitcoin", "SPY": "S&P 500", "GLD": "Gold"}
 BAND = 0.05                                   # vorab festgelegt, nicht optimiert
 DATA, SITE = "data", "site"
 
 
 def current_plan(P, names):
-    res = team.run_team(P, names, PLAYERS)
+    res = team.run_team(P, names, PLAYERS, strats={p: team.STRATS + EXTRA.get(p, []) for p in PLAYERS})
     T, ix = len(P), {n: i for i, n in enumerate(names)}
     t0 = res["bounds"][-1]
     alloc = res["alloc"][T - 1]
@@ -33,10 +34,12 @@ def current_plan(P, names):
         cost = team.COST.get(p, 0.0005)
         champ = res["history"][p][-1]
         w = float(lab.build_strategies(names, cost)[champ](P, ix[p])[T - 1])
-        sma = P[T - 200:, ix[p]].mean() if T >= 200 else float("nan")
+        digits = "".join(ch for ch in champ.split(" (")[0] if ch.isdigit())
+        line_n = int(digits) if champ.startswith("Trend") and digits else 200
+        sma = P[T - line_n:, ix[p]].mean()
         plan[p] = dict(champion=champ.split(" (")[0], strat_weight=round(w, 4), alloc=round(float(alloc[k]), 4),
                        target=round(float(alloc[k]) * w, 4), price=float(P[T - 1, ix[p]]),
-                       vs_sma200=round(float(P[T - 1, ix[p]] / sma - 1), 4))
+                       line_n=line_n, vs_line=round(float(P[T - 1, ix[p]] / sma - 1), 4))
     left = t0 + team.SEASON - (T - 1)
     return plan, dict(day_in_season=int(T - 1 - t0), days_left=int(left), n_seasons=len(res["bounds"]))
 
