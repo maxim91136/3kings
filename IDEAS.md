@@ -42,3 +42,11 @@
 - A: Aktien-ETFs als Spieler (URTH, VT, QUAL, MTUM, USMV, XLK; Reserve TLT, IEF, EFA, EEM, ETH) -> `admit.py`, Daten per Workflow `candidates`
 - B: Power-Law als Günstig-Signal für Bitcoin, kausal: erster Test mit Daten ab 2015 schlechter als Halten (Sharpe 0,70/0,68 gegen 0,87); mit langer Historie (ab 2010) wiederholen
 - C: Langfrist-Plan als Kern, 3Kings als Steuerung für Neues Geld und taktischen Teil
+
+## Rahmen fuer neues Geld (Plan C, Stand 2026-11-18)
+Startlage: fast nichts vorhanden, alles kommt aus kuenftigem Geld. Deshalb gibt es keinen zweiten "Kern-Plan": der Kern IST die Zielverteilung der Mannschaft.
+1. Geld kommt rein (Sparrate oder Einmalbetrag) -> Betrag auf der Seite unter "Neues Geld" eintragen -> sofort nach Ziel-Anteilen investieren (Einmalanlage schlug Dip-Warten, siehe accumulate.py).
+2. Der Cash-Anteil des Plans (Spieler im Trend-Aus) bleibt Cash. Bitcoin kommt erst bei Signal dazu.
+3. Kleine Betraege: nicht in drei Haeppchen zerlegen (Gebuehren, Mindestorder). Dann nur den Spieler kaufen, der am weitesten unter seinem Ziel liegt.
+4. Verkaufen nur bei "Aktion empfohlen" mit Abweichung >= 5 Punkte. Sonst nichts tun.
+5. Das System kennt deinen echten Bestand nicht. Es nennt nur das Soll.
