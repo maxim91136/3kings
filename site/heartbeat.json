@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T19:33:14Z",
+ "generated_at": "2026-11-18T19:34:16Z",
  "data_date": "2026-11-17",
  "players": {
   "BTC": {
@@ -47,15 +47,7 @@
   "GLD": 0.0
  },
  "cash": 0.5052,
- "moves": [
-  {
-   "player": "GLD",
-   "name": "Gold",
-   "von": 0.1384,
-   "auf": 0.0,
-   "delta": -0.1384
-  }
- ],
+ "moves": [],
  "shadow": 0.9956,
  "hold": 0.9965,
  "since": "2026-11-16",
