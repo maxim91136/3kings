@@ -57,13 +57,14 @@ if v:
                     light="gruen" if p >= 0.8 else "rot" if p <= 0.2 else "gelb",
                     text="Erwartete Schwankung. Viel Angst war oft eine Kaufgelegenheit, sehr wenig Angst heißt Sorglosigkeit.",
                     note=f"Stand {k}", higher="ängstlicher"))
-y = load("T10Y2Y")
+y, ylab = load("T10Y2Y"), "Zinskurve 10 J − 2 J"
+if not y: y, ylab = load("CURVE"), "Zinskurve 10 J − 3 M"
 if y:
     k = max(y); x = y[k]
-    out.append(dict(key="curve", name="Zinskurve 10 J − 2 J", value=f"{x:+.2f} %".replace("+", "+"), pct=None, since=min(y)[:4],
+    out.append(dict(key="curve", name=ylab, value=f"{x:+.2f} %".replace("+", "+"), pct=None, since=min(y)[:4],
                     light="rot" if x < 0 else "gelb" if x < 0.5 else "gruen",
                     text="Unter null (invertiert) ging Rezessionen oft voraus, meist mit 6 bis 24 Monaten Abstand.", note=f"Stand {k}", higher=None))
-t = load("DTB3")
+t = load("DTB3") or load("IRX")
 if t:
     k = max(t)
     out.append(dict(key="rate", name="US-Geldmarktzins", value=f"{t[k]:.2f} %", pct=None, since=None, light=None,

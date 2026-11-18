@@ -21,8 +21,22 @@ def get(url, timeout=20):
 
 
 def fred(sid):
-    rows = list(csv.reader(get(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}").splitlines()))[1:]
-    return {r[0]: float(r[1]) for r in rows if len(r) > 1 and r[1] not in ("", ".")}
+    last = None
+    for ua in (BROWSER, {"User-Agent": "3kings/1.0"}):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}", headers=ua), timeout=15) as r:
+                rows = list(csv.reader(r.read().decode().splitlines()))[1:]
+            return {r[0]: float(r[1]) for r in rows if len(r) > 1 and r[1] not in ("", ".")}
+        except Exception as e:
+            last = e
+    raise last
+
+
+def yahoo(sym, start=631152000):
+    import time
+    j = json.loads(get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}?period1={start}&period2={int(time.time())}&interval=1d"))
+    r = j["chart"]["result"][0]
+    return {fp.day(t): round(float(c), 4) for t, c in zip(r["timestamp"], r["indicators"]["quote"][0]["close"]) if c}
 
 
 def cape():
@@ -67,13 +81,26 @@ def save(name, d):
 
 
 os.makedirs("data", exist_ok=True)
+fred_ok = True
 for sid in FRED:
+    if not fred_ok:
+        print(sid, "uebersprungen (FRED nicht erreichbar)"); continue
     try:
         d = fred(sid)
         if len(d) < 20: raise ValueError("zu wenige Werte")
         save(sid, d)
     except Exception as e:
-        print(sid, "fehlgeschlagen:", e)
+        print(sid, "fehlgeschlagen:", type(e).__name__, e); fred_ok = False
+# Ersatz ueber Yahoo, wenn FRED fehlt: VIX, Zinsen 10 J (^TNX) und 3 M (^IRX)
+if not os.path.exists("data/ind_VIXCLS.csv") or not fred_ok:
+    try: save("VIXCLS", yahoo("%5EVIX"))
+    except Exception as e: print("VIX (Yahoo) fehlgeschlagen:", e)
+try:
+    tnx, irx = yahoo("%5ETNX", 1577836800), yahoo("%5EIRX", 1577836800)
+    save("IRX", irx)
+    save("CURVE", {d: round(tnx[d] - irx[d], 3) for d in tnx if d in irx})
+except Exception as e:
+    print("Zinsen (Yahoo) fehlgeschlagen:", e)
 try:
     d = cape()
     if len(d) < 100: raise ValueError(f"nur {len(d)} Werte erkannt")
