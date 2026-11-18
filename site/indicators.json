@@ -25,10 +25,10 @@
   {
    "key": "fng",
    "name": "Fear & Greed Aktien",
-   "value": "26 · Angst",
+   "value": "25 · extreme Angst",
    "pct": null,
    "since": null,
-   "light": "gelb",
+   "light": "gruen",
    "text": "CNN, 0 = extreme Angst, 100 = extreme Gier. Extreme Angst war oft eine Kaufgelegenheit.",
    "note": "Stand 18.11.2026",
    "higher": null
