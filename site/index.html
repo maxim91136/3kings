@@ -3,7 +3,8 @@
 <meta name="robots" content="noindex,nofollow"><title>3Kings</title>
 <style>
 :root{color-scheme:dark}body{margin:0;font:16px/1.45 system-ui,sans-serif;background:#0b0b0d;color:#e8e8ea;padding:18px;max-width:640px;margin:auto}
-h1{font-size:22px;margin:0 0 4px}.sub{color:#8b8b93;font-size:13px;margin-bottom:16px}
+h1{font-size:28px;margin:8px 0 4px;text-align:center;letter-spacing:.5px}.sub{color:#8b8b93;font-size:13px;margin-bottom:18px;text-align:center}
+.rec{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid #202026}.rec:last-child{border:0}.rec .why{color:#8b8b93;font-size:12px}.up{color:#4ade80}.down{color:#f59e0b}
 .card{background:#151519;border:1px solid #26262c;border-radius:12px;padding:14px;margin:12px 0}
 .act{border-color:#d9a400}.ok{border-color:#2a6b45}.bad{border-color:#b3261e;background:#2a1210}
 .row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #202026}.row:last-child{border:0}
@@ -16,8 +17,13 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  const age=(Date.now()-new Date(h.generated_at))/864e5, dage=(Date.now()-new Date(h.data_date))/864e5;
  let o="";
  if(age>3||dage>5) o+=`<div class="card bad"><b>⚠ Puls ausgefallen</b><br>Letzter Lauf vor ${age.toFixed(1)} Tagen, letzter Kurstag ${h.data_date}. GitHub-Lauf prüfen (Actions).</div>`;
- if(h.moves.length) o+=`<div class="card act"><b>Aktion empfohlen</b>`+h.moves.map(m=>`<div class="row"><span>${m.name}</span><span>${pct(m.von)} → <b>${pct(m.auf)}</b></span></div>`).join("")+`</div>`;
- else o+=`<div class="card ok"><b>Nichts tun.</b><div class="m">Keine Abweichung ab ${pct(h.band)}-Punkten.</div></div>`;
+ const mv={};h.moves.forEach(m=>mv[m.player]=m);
+ const why=(v)=>v.champion.startsWith("Trend")?`Kurs ${Math.abs(v.vs_sma200*100).toFixed(0)} % ${v.vs_sma200<0?"unter":"über"} dem 200-Tage-Schnitt`:v.champion.startsWith("Vol")?"Anteil nach Schwankung (Vol-Target)":"voll dabei (Halten)";
+ const lines=Object.entries(h.players).map(([k,v])=>{const m=mv[k];let verb;
+  if(m) verb=m.delta>0?`<span class="up">aufstocken auf <b>${pct(m.auf)}</b></span>`:`<span class="down">reduzieren auf <b>${pct(m.auf)}</b></span>`;
+  else verb=h.held[k]===0?`draußen bleiben`:`halten <b>${pct(h.held[k])}</b>`;
+  return `<div class="rec"><span>${k}<div class="why">${why(v)}</div></span><span>${verb}</span></div>`}).join("");
+ o+=`<div class="card ${h.moves.length?"act":"ok"}"><b>${h.moves.length?"Aktion empfohlen":"Nichts tun – Bestand halten"}</b>${lines}<div class="m" style="margin-top:6px">Cash: ${pct(h.cash)} · umgeschichtet wird erst ab ${pct(h.band)}-Punkten Abweichung</div></div>`;
  o+=`<div class="card"><b>Aufstellung</b>`+Object.entries(h.players).map(([k,v])=>`<div class="row"><span>${k} · ${v.champion}</span><span><b>${pct(h.held[k])}</b> <span class="m">(Ziel ${pct(v.target)})</span></span></div>`).join("")+`<div class="row"><span>Cash</span><b>${pct(h.cash)}</b></div></div>`;
  o+=`<div class="card"><b>Saison</b><div class="m">Tag ${h.season.day_in_season} von 63 · Wahl in ${h.season.days_left} Handelstagen · Saison Nr. ${h.season.n_seasons}</div></div>`;
  o+=`<div class="card"><b>Schattenbuch seit ${h.since}</b><div class="row"><span>Empfehlungen befolgt</span><b>${h.shadow.toFixed(3)}</b></div><div class="row"><span>Alle drei gleich halten</span><b>${h.hold.toFixed(3)}</b></div><div class="m">Empfehlungen bisher: ${h.n_actions}. Papierrechnung ohne Steuern und Gebühren außer Handelskosten.</div></div>`;
