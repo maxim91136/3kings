@@ -50,3 +50,6 @@ Startlage: fast nichts vorhanden, alles kommt aus kuenftigem Geld. Deshalb gibt 
 3. Kleine Betraege: nicht in drei Haeppchen zerlegen (Gebuehren, Mindestorder). Dann nur den Spieler kaufen, der am weitesten unter seinem Ziel liegt.
 4. Verkaufen nur bei "Aktion empfohlen" mit Abweichung >= 5 Punkte. Sonst nichts tun.
 5. Das System kennt deinen echten Bestand nicht. Es nennt nur das Soll.
+
+### Kern (Entscheidung 2026-11-18)
+Vorhandene Bitcoin (ca. 0,31 BTC, davon 0,25 Familie, Rest Sparplan fuers Kind) sind KERN: werden gehalten, nie vom System bewegt, nicht in die Mannschaft eingerechnet. Die Mannschaft steuert nur NEUES Geld (ab 2027 groesser, Sparplaene/monatlich). Cash, das wegen Trend-Aus eines Spielers parkt, gehoert zum Plan und wird bei Signal investiert.
