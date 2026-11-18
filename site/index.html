@@ -97,7 +97,6 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  if(age>3||dage>5) o+=`<div class="alert"><b>Puls ausgefallen.</b> Letzter Lauf vor ${age.toFixed(1)} Tagen, letzter Kurstag ${fmtDay(h.data_date)}. Bitte den GitHub-Lauf prüfen.</div>`;
  o+=`<div class="verdict hero" id="hero"><h2 id="sig">…</h2><p id="sigwhy"></p></div>
  <section class="first"><div class="money"><label for="amt" class="mute">Neues Geld</label><input id="amt" type="number" inputmode="numeric" min="0" step="100" value="1000"><span class="mute">€</span></div>
- <div class="money"><label for="res" class="mute">Schon gesammelt</label><input id="res" type="number" inputmode="numeric" min="0" step="100" value="0"><span class="mute">€</span></div>
  <div class="split" id="split"></div><div class="mute" id="note"></div>
  <table class="cheap" id="cheap"></table></section>
  <section id="ind" hidden></section>
@@ -122,23 +121,20 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <footer>Nur zur privaten Auswertung. Es werden keine Aufträge ausgelöst.</footer>`;
  document.getElementById("app").innerHTML=o;
  const de=(x,d=1)=>Math.abs(x*100).toFixed(d).replace(".",",");
- const go=s=>{const near=s.dd_ath>s.thresh;const cur=s.currency==="EUR"?"in Euro":"in Dollar";
-  const sig=document.getElementById("sig");sig.textContent=near?"Sammeln":"Kaufen";sig.className=near?"wait":"buy";
-  document.getElementById("sigwhy").textContent=`S&P 500 ${cur} ${de(s.dd_ath)} % unter dem Allzeithoch. Regel: kaufen ab ${de(s.thresh,0)} % darunter, sonst sammeln.`;
-  const amt=document.getElementById("amt"),res=document.getElementById("res");
-  try{res.value=localStorage.getItem("3k_res")||0}catch(e){}
-  const upd=()=>{const a=Math.max(0,+amt.value||0),r=Math.max(0,+res.value||0),eur=x=>Math.round(x).toLocaleString("de-DE")+" €";
-   try{localStorage.setItem("3k_res",r)}catch(e){}
-   document.getElementById("split").innerHTML=near?`<div style="--c:var(--gld)"><b>${eur(a)}</b><span>aufs Tagesgeld</span></div><div><b>${eur(a+r)}</b><span>dann gesammelt</span></div>`
-    :`<div style="--c:var(--spy)"><b>${eur(a+r)}</b><span>in den S&amp;P 500</span></div>`;
-   document.getElementById("split").style.gridTemplateColumns=near?"1fr 1fr":"1fr";
-   document.getElementById("note").textContent=near?"Danach „Schon gesammelt“ auf den neuen Stand setzen. Sobald hier „Kaufen“ steht, geht alles auf einmal rein.":(r>0?"Nach dem Kauf „Schon gesammelt“ auf 0 setzen.":"Nicht verkaufen, auch nicht im Crash. Bitcoin und Gold nicht nachkaufen.")};
-  amt.addEventListener("input",upd);res.addEventListener("input",upd);upd();
-  document.getElementById("cheap").innerHTML=`<tr><td class="mute">Abstand zum Allzeithoch</td><td></td></tr><tr><td>S&amp;P 500 (${s.currency==="EUR"?"Euro":"Dollar"})</td><td>−${de(s.dd_ath)} %</td></tr>`+["BTC","GLD"].map(k=>{const v=s.others?s.others[k]:(h.players[k].dd_ath??h.players[k].dd_high);return `<tr><td>${KINGS[k].name} (${s.others&&s.currency==="EUR"?"Euro":"Dollar"})</td><td>−${de(v)} %</td></tr>`}).join("");
+ const go=s=>{const cur=s.currency==="EUR"?"in Euro":"in Dollar";
+  const sig=document.getElementById("sig");sig.textContent="Kaufen";sig.className="buy";
+  document.getElementById("sigwhy").textContent="Neues Geld sofort in den S&P 500. Warten auf Rücksetzer, Bewertung oder Angst hat in keinem Test etwas gebracht.";
+  const amt=document.getElementById("amt");
+  const upd=()=>{const a=Math.max(0,+amt.value||0);
+   document.getElementById("split").innerHTML=`<div style="--c:var(--spy)"><b>${Math.round(a).toLocaleString("de-DE")} €</b><span>in den S&amp;P 500</span></div>`;
+   document.getElementById("split").style.gridTemplateColumns="1fr";
+   document.getElementById("note").textContent="Nicht verkaufen, auch nicht im Crash. Bitcoin und Gold nicht nachkaufen."};
+  amt.addEventListener("input",upd);upd();
+  document.getElementById("cheap").innerHTML=`<tr><td class="mute">Abstand zum Allzeithoch (nur Info)</td><td></td></tr><tr><td>S&amp;P 500 (${s.currency==="EUR"?"Euro":"Dollar"})</td><td>−${de(s.dd_ath)} %</td></tr>`+["BTC","GLD"].map(k=>{const v=s.others?s.others[k]:(h.players[k].dd_ath??h.players[k].dd_high);return `<tr><td>${KINGS[k].name} (${s.others&&s.currency==="EUR"?"Euro":"Dollar"})</td><td>−${de(v)} %</td></tr>`}).join("");
   if(s.rows&&s.rows.length){const p=s.plans,sp=document.getElementById("spar");
    sp.innerHTML=`<h4>Schattenbuch Sparplan</h4><div class="pair"><div><b style="color:var(--spy)">${eur0(p.regel.value)}</b><span>nach Regel</span></div><div><b>${eur0(p.sofort.value)}</b><span>immer sofort</span></div></div>
    ${chart(s.rows.map(r=>({date:r.date,shadow:r.regel/r.paid,hold:r.sofort/r.paid})),"Regel","sofort")}
-   <div class="mute">Seit ${fmtDay(s.start)} jeden Monat 100 € virtuell, eingezahlt ${eur0(p.regel.paid)}${p.regel.cash>0?`, davon ${eur0(p.regel.cash)} gerade gesammelt`:""}. Prüft live, ob „nicht am Hoch“ besser ist als sofort kaufen.</div>`;sp.hidden=false}};
+   <div class="mute">Seit ${fmtDay(s.start)} jeden Monat 100 € virtuell, eingezahlt ${eur0(p.regel.paid)}${p.regel.cash>0?`, davon ${eur0(p.regel.cash)} gerade gesammelt`:""}. Vergleich: Läuft „nicht am Hoch“ (kaufen erst 3 % unter dem Hoch) in Zukunft besser als sofort kaufen? Bisher nicht.</div>`;sp.hidden=false}};
  const eur0=x=>Math.round(x).toLocaleString("de-DE")+" €";
  fetch("sparplan.json",{cache:"no-store"}).then(r=>r.json()).then(go).catch(()=>{const s=h.players.SPY;go({dd_ath:s.dd_ath??s.dd_high,thresh:-0.03,currency:"USD"})});
  fetch("indicators.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{if(!j.indicators||!j.indicators.length)return;const L={gruen:"günstig/Chance",gelb:"mittel",rot:"teuer/Vorsicht"};

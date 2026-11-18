@@ -39,7 +39,7 @@ if st["last_date"] != date:
     st["rows"].append(dict(date=date, regel=round(val["regel"], 2), sofort=round(val["sofort"], 2), paid=st["plans"]["regel"]["paid"]))
     st["last_date"] = date
     json.dump(st, open("data/sparplan.json", "w"), indent=1)
-pub = dict(date=date, currency=cur, dd_ath=round(dd, 4), others=others, signal="kaufen" if buy else "sammeln", thresh=THRESH,
+pub = dict(date=date, currency=cur, dd_ath=round(dd, 4), others=others, signal="kaufen", regel_signal="kaufen" if buy else "sammeln", thresh=THRESH,
            start=st["start"], plans={k: dict(value=round(pl["units"] * price + pl["cash"], 2), cash=round(pl["cash"], 2), paid=pl["paid"]) for k, pl in st["plans"].items()},
            rows=st["rows"][-400:])
 json.dump(pub, open("site/sparplan.json", "w"), indent=1)
