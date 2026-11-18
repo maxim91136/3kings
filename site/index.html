@@ -111,6 +111,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <tr><td>Immer in den Stärksten investieren</td><td>kein Vorteil bei S&amp;P und Gold</td></tr></table>
  <div class="mute">Einzige belegte Ausnahme: Der Trend (200-Tage-Linie) senkt den schlimmsten Rückgang von 78 auf 22 %. Das gilt fürs Halten, nicht fürs Kaufen.</div>
  <div class="mute" style="margin-top:8px">US-Aktien, Vergangenheit, keine Garantie. Stand 18.11.2026, Details im Regelbuch.</div></section>
+ <section id="long" hidden></section>
  <section id="ind" hidden></section>
  <section id="spar" hidden></section>
  <section id="watch" hidden></section>
@@ -149,6 +150,21 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
    ${chart(s.rows.map(r=>({date:r.date,shadow:r.regel/r.paid,hold:r.sofort/r.paid})),"Regel","sofort")}
    <div class="mute">Seit ${fmtDay(s.start)} jeden Monat 100 € virtuell, eingezahlt ${eur0(p.regel.paid)}${p.regel.cash>0?`, davon ${eur0(p.regel.cash)} gerade gesammelt`:""}. Vergleich: Läuft „nicht am Hoch“ (kaufen erst 3 % unter dem Hoch) in Zukunft besser als sofort kaufen? Bisher nicht.</div>`;sp.hidden=false}};
  const eur0=x=>Math.round(x).toLocaleString("de-DE")+" €";
+ fetch("spx_long.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{
+  const R=j.rows,W=640,H=300,L=46,Rp=14,T=12,B=28,n=R.length,lg=Math.log10;
+  const v=R.map(r=>r[1]),lo=lg(Math.min(...v))-.3,hi=lg(Math.max(...v))+.08;
+  const x=i=>L+(W-L-Rp)*i/(n-1),y=p=>T+(H-T-B)*(1-(lg(p)-lo)/(hi-lo)),ix=ym=>R.findIndex(r=>r[0]>=ym);
+  let g="";
+  for(let d=1,k=0;d<1e6;d*=10)if(lg(d)>=lo&&lg(d)<=hi)g+=`<line x1="${L}" x2="${W-Rp}" y1="${y(d)}" y2="${y(d)}" stroke="#262B37"/><text x="${L-8}" y="${y(d)+4}" text-anchor="end" fill="#8A8F9C" font-size="12">${d.toLocaleString("de-DE")}</text>`;
+  for(let yr=1930;yr<=2020;yr+=10){const i=ix(yr+"-01");if(i>=0)g+=`<text x="${x(i)}" y="${H-8}" text-anchor="middle" fill="#8A8F9C" font-size="12">${yr}</text>`}
+  const C=[["1932-06","−86 %",1929],["1974-09","−48 %",1973],["2002-09","−49 %",2000],["2009-02","−57 %",2008],["2020-03","−34 %",2020]];
+  const c=C.map(([m,t,yr])=>{const i=ix(m);return i<0?"":`<circle cx="${x(i)}" cy="${y(v[i])}" r="3" fill="var(--bad)"/><text x="${x(i)}" y="${y(v[i])+18}" text-anchor="middle" fill="var(--bad)" font-size="11.5">${t}</text>`}).join("");
+  const path=R.map((r,i)=>(i?"L":"M")+x(i).toFixed(1)+" "+y(r[1]).toFixed(1)).join(" ");
+  const pc=x=>(x*100).toFixed(1).replace(".",",");
+  const s=document.getElementById("long");
+  s.innerHTML=`<h4>S&amp;P 500 seit 1928</h4><svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="S&amp;P 500 seit 1928, logarithmisch">${g}<path d="${path}" fill="none" stroke="var(--spy)" stroke-width="1.8"/>${c}</svg>
+   <div class="mute">Kursindex ohne Dividenden, Monatsendwerte, logarithmische Skala: gleicher Abstand bedeutet gleiche prozentuale Veränderung. ${pc(j.cagr)} % pro Jahr ohne Dividenden, mit Dividenden rund 10 %. Rot: größte Rückgänge vom Hoch bis zum Tief. Jeder davon wurde aufgeholt, am längsten dauerte es nach 1929 (Kursindex zurück auf dem Hoch erst 1954). Stand ${fmtDay(j.until)}.</div>`;
+  s.hidden=false}).catch(()=>{});
  fetch("watch.json",{cache:"no-store"}).then(r=>r.json()).then(w=>{
   const n1=x=>(x*100).toFixed(1).replace(".",","),n0=x=>Math.round(x*100),b2=x=>x.toFixed(2).replace(".",","),dm=s=>fmtDay(s).slice(0,5)+"."+s.slice(0,4);
   let t="";
