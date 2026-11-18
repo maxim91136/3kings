@@ -18,7 +18,8 @@ STRATS = ["Halten (Baseline)", "Trend SMA200 (Std.)", "Vol-Target 15% (Std.)"]
 COST = {"BTC": 0.0010}
 
 
-def run_team(P, names, players, cost_mult=1.0):
+def run_team(P, names, players, cost_mult=1.0, strats=None):
+    SP = {p: (strats or {}).get(p, STRATS) for p in players}      # Kandidaten je Spieler (Standard: STRATS)
     R = lab.returns(P)
     T = len(P)
     ix = {n: i for i, n in enumerate(names)}
@@ -26,14 +27,14 @@ def run_team(P, names, players, cost_mult=1.0):
     W, NET = {}, {}
     for p in players:                                                 # alle Strategien je Spieler
         fns = lab.build_strategies(names, cost[p])
-        for s in STRATS:
+        for s in SP[p]:
             w = fns[s](P, ix[p])
             W[p, s] = w
             NET[p, s] = lab.backtest(w, R[:, ix[p]], cost[p])
     sh = lambda x: x.mean() / max(x.std(ddof=1), 1e-12) * np.sqrt(lab.ANN)
 
     bounds = list(range(lab.WARM, T - 1, SEASON))                     # Saisonanfaenge
-    champ = {p: STRATS[0] for p in players}
+    champ = {p: SP[p][0] for p in players}
     w_real = {p: np.zeros(T) for p in players}
     w_hold = {p: W[p, STRATS[0]].copy() for p in players}
     alloc = np.zeros((T, len(players)))
@@ -41,7 +42,7 @@ def run_team(P, names, players, cost_mult=1.0):
     for t in bounds:
         end = min(t + SEASON, T - 1)
         for p in players:                                             # Champion-Wahl (nur Daten bis t)
-            sc = {s: sh(NET[p, s][t - LOOK + 1: t + 1]) for s in STRATS}
+            sc = {s: sh(NET[p, s][t - LOOK + 1: t + 1]) for s in SP[p]}
             best = max(sc, key=sc.get)
             if sc[best] > sc[champ[p]] + MARGIN:
                 champ[p] = best
