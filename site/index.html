@@ -134,7 +134,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
    document.getElementById("split").style.gridTemplateColumns=near?"1fr 1fr":"1fr";
    document.getElementById("note").textContent=near?"Danach „Schon gesammelt“ auf den neuen Stand setzen. Sobald hier „Kaufen“ steht, geht alles auf einmal rein.":(r>0?"Nach dem Kauf „Schon gesammelt“ auf 0 setzen.":"Nicht verkaufen, auch nicht im Crash. Bitcoin und Gold nicht nachkaufen.")};
   amt.addEventListener("input",upd);res.addEventListener("input",upd);upd();
-  document.getElementById("cheap").innerHTML=`<tr><td class="mute">Abstand zum Allzeithoch</td><td></td></tr><tr><td>S&amp;P 500 (${s.currency==="EUR"?"Euro":"Dollar"})</td><td>−${de(s.dd_ath)} %</td></tr>`+["BTC","GLD"].map(k=>`<tr><td>${KINGS[k].name} (Dollar)</td><td>−${de(h.players[k].dd_ath??h.players[k].dd_high,0)} %</td></tr>`).join("");
+  document.getElementById("cheap").innerHTML=`<tr><td class="mute">Abstand zum Allzeithoch</td><td></td></tr><tr><td>S&amp;P 500 (${s.currency==="EUR"?"Euro":"Dollar"})</td><td>−${de(s.dd_ath)} %</td></tr>`+["BTC","GLD"].map(k=>{const v=s.others?s.others[k]:(h.players[k].dd_ath??h.players[k].dd_high);return `<tr><td>${KINGS[k].name} (${s.others&&s.currency==="EUR"?"Euro":"Dollar"})</td><td>−${de(v)} %</td></tr>`}).join("");
   if(s.rows&&s.rows.length){const p=s.plans,sp=document.getElementById("spar");
    sp.innerHTML=`<h4>Schattenbuch Sparplan</h4><div class="pair"><div><b style="color:var(--spy)">${eur0(p.regel.value)}</b><span>nach Regel</span></div><div><b>${eur0(p.sofort.value)}</b><span>immer sofort</span></div></div>
    ${chart(s.rows.map(r=>({date:r.date,shadow:r.regel/r.paid,hold:r.sofort/r.paid})),"Regel","sofort")}

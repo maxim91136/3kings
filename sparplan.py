@@ -18,6 +18,12 @@ if USE_EUR and os.path.exists("data/ind_EURUSD.csv"):
         if last: out.append((d, p / last))
     if len(out) > 200: spy, cur = out, "EUR"
 ath = max(p for _, p in spy); date, price = spy[-1]
+others = {}                                                # Abstand zum Allzeithoch fuer Bitcoin und Gold in derselben Waehrung
+for k in ("BTC", "GLD"):
+    ser = [(r["date"], float(r[k])) for r in rows if r[k]]
+    if cur == "EUR":
+        ser = [(d, p / fx[d]) for d, p in ser if d in fx] or ser
+    others[k] = round(ser[-1][1] / max(p for _, p in ser) - 1, 4)
 dd = price / ath - 1; buy = dd <= THRESH
 
 st = json.load(open("data/sparplan.json")) if os.path.exists("data/sparplan.json") else \
@@ -33,7 +39,7 @@ if st["last_date"] != date:
     st["rows"].append(dict(date=date, regel=round(val["regel"], 2), sofort=round(val["sofort"], 2), paid=st["plans"]["regel"]["paid"]))
     st["last_date"] = date
     json.dump(st, open("data/sparplan.json", "w"), indent=1)
-pub = dict(date=date, currency=cur, dd_ath=round(dd, 4), signal="kaufen" if buy else "sammeln", thresh=THRESH,
+pub = dict(date=date, currency=cur, dd_ath=round(dd, 4), others=others, signal="kaufen" if buy else "sammeln", thresh=THRESH,
            start=st["start"], plans={k: dict(value=round(pl["units"] * price + pl["cash"], 2), cash=round(pl["cash"], 2), paid=pl["paid"]) for k, pl in st["plans"].items()},
            rows=st["rows"][-400:])
 json.dump(pub, open("site/sparplan.json", "w"), indent=1)

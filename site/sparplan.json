@@ -2,6 +2,10 @@
  "date": "2026-11-17",
  "currency": "EUR",
  "dd_ath": -0.0448,
+ "others": {
+  "BTC": -0.4462,
+  "GLD": -0.2309
+ },
  "signal": "kaufen",
  "thresh": -0.03,
  "start": "2026-11-17",

@@ -75,3 +75,6 @@ Ergebnis: keine Regel erfuellt das Kriterium, keine Aenderung. Test B (S&P/Gold)
 
 ## 2026-11-18: Kaufsignal in Euro (eurtest.py)
 Euro-Anleger 2004-2026, 10-Jahres-Fenster, Werte in Euro: sofort 2,121 | Signal in Dollar 2,125 | Signal in Euro 2,125 (in 100 % der Fenster mindestens so gut wie sofort). Signale unterscheiden sich an 21 % der Tage. -> Signal und Schattenbuch Sparplan rechnen ab jetzt mit dem S&P in Euro (sparplan.py, USE_EUR).
+
+## 2026-11-18: Euro-Sicht fuer die Mannschaft (nur Befund, keine Aenderung)
+Mannschaft 2017-2026 in Euro gerechnet: 15,4 %/J, Rueckgang 16 %, Sharpe 1,07 (in Dollar 17,6 %, 17 %, 1,26). Halten in Euro 22,9 %/J, Rueckgang 25 %. Der Abstand zum Halten ist in Euro groesser, weil der Cash-Anteil die Dollar-Gewinne nicht mitnimmt. Trendsignale Dollar vs Euro verschieden: Bitcoin 2 %, S&P 12 %, Gold 22 % der Tage. Ob die Mannschaft in Euro rechnen soll: Entscheidung zum Saisonende. Seite zeigt Abstand zum Allzeithoch fuer alle drei in Euro.
