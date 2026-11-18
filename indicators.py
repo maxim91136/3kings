@@ -67,7 +67,7 @@ for key, nm, sub in (("FNG", "Fear & Greed Aktien", "CNN, 0 = extreme Angst, 100
 if c:
     k = max(c); e = 1 / c[k]
     out.append(dict(key="expect", name="Erwartete Rendite pro Jahr", value=f"≈ {e*100:.1f} %", pct=None, since=None, light=None,
-                    text=f"Bei einem Shiller-KGV von {c[k]:.1f}".replace(".", ",") + ": grob diese Rendite über der Inflation in den nächsten 10 Jahren (US-Aktien). Faustregel: 1 geteilt durch das KGV. Richtung, keine Prognose.",
+                    text=f"Bei einem Shiller-KGV von {c[k]:.1f}".replace(".", ",") + ": grob diese Rendite über der Inflation in den nächsten 10 Jahren (US-Aktien). Faustregel: 1 geteilt durch das KGV. Grobe Richtung, keine Prognose.",
                     note="", higher=None))
 v = load("VIXCLS")
 if v:
