@@ -25,3 +25,12 @@ Grundsatz: kein Hin und Her. Regeln aendern sich nur zum Saisonende oder per aus
 
 ### Ergebnis Langzeittest S&P (2026-11-18, Preisindex 1930-2026, ohne Dividenden/Zins)
 Kriterium 1 erfuellt: Trend SMA200 senkt den Rueckgang in 1973-1982 (48 -> 16 %) und 2000-2009 (57 -> 26 %). Ueber alles: Rendite 6,3 % vs 6,2 % (Halten), Rueckgang 49 % vs 83 %. Schwaeche: 2010-2026 Trend 6,6 % vs Halten 11,8 %/J. Vol-Target schuetzt in Crashs deutlich schwaecher (1930er 72 %, 2000er 47 %), war 2010-2026 aber besser als Trend. Keine Regelaenderung.
+
+## 2026-11-18: Studie "Einstieg in Stufen" (vorab festgelegt, vor dem Rechnen)
+Idee: nach einem Trendbruch nicht alles auf einmal, sondern mit einem Teil frueher zurueck. Genau 3 Regeln, nichts nachtraeglich dazu (Mehrfachtest-Schutz):
+- R0 Basis: Trend SMA200 (ganz oder gar nicht).
+- R1 Zwei Stufen: 50 % investiert, wenn Kurs ueber SMA50; weitere 50 %, wenn ueber SMA200.
+- R2 Drei Stufen: je ein Drittel ueber SMA50, SMA100, SMA200.
+- R3 Tief-Stufe: wie R0, zusaetzlich 50 % investiert, wenn Kurs ueber SMA50 UND mindestens 20 % unter dem 252-Tage-Hoch lag (Erholung nach tiefem Rueckgang).
+Daten: S&P 500 ab 1930 (Epochen wie longtest.py), Bitcoin ab 2011 (btc_long.csv, vier Epochen). Kosten 5 bps (S&P) bzw. 10 bps (BTC) je Umschichtung.
+Kriterium: Eine Regel gilt als besser als R0 nur, wenn (a) ihr Sharpe in der Mehrzahl der Epochen mindestens so gut ist wie R0 (S&P: mind. 4 von 6, BTC: mind. 3 von 4), (b) ueber alles Sharpe mind. +0,03, (c) der maximale Rueckgang ueber alles nicht mehr als 3 Punkte und in den S&P-Krisenepochen 1973-1982 und 2000-2009 nicht mehr als 5 Punkte schlechter ist. Bestehen mehrere, gilt die einfachste. Gilt nur, wenn Kriterium fuer S&P UND Bitcoin erfuellt; sonst keine Aenderung. Einbau fruehestens zum Saisonende.
