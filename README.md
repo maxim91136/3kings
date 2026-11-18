@@ -27,5 +27,6 @@ Regeln ändern sich nur am Saisonende, nie mitten in der Saison. Der Kursabruf i
 | Was wurde wann an den Regeln geändert? | `REGELN.md` |
 | Was ist das Gedächtnis? | `data/ledger.csv` (Schattenbuch), `data/state.json` |
 | Wie sieht die Seite aus? | `site/index.html` |
-| Tests, die nichts verändern | `run_dip.py`, `run_sma100.py`, `horizon.py`, `accumulate.py` |
+| Neue Spieler testen / Daten holen | `admit.py` (Aufnahmeregeln), `fetch_candidates.py` + Workflow `candidates` (einmalig starten) |
+| Tests, die nichts verändern | `run_dip.py`, `run_sma100.py`, `horizon.py`, `accumulate.py`, `powerlaw.py` |
 | Ideen, noch nicht gebaut | `IDEAS.md` |

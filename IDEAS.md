@@ -37,3 +37,8 @@
 
 ## Seite: "Neues Geld"
 - Eigener Bereich: Wo zuerst nachlegen? Regel vorher festlegen, dann testen.
+
+## Stand 18.11. (Plan A-B-C)
+- A: Aktien-ETFs als Spieler (URTH, VT, QUAL, MTUM, USMV, XLK; Reserve TLT, IEF, EFA, EEM, ETH) -> `admit.py`, Daten per Workflow `candidates`
+- B: Power-Law als Günstig-Signal für Bitcoin, kausal: erster Test mit Daten ab 2015 schlechter als Halten (Sharpe 0,70/0,68 gegen 0,87); mit langer Historie (ab 2010) wiederholen
+- C: Langfrist-Plan als Kern, 3Kings als Steuerung für Neues Geld und taktischen Teil
