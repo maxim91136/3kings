@@ -21,6 +21,10 @@ jobs:
         continue-on-error: true
       - run: python indicators.py || true
       - run: python sparplan.py || true
+      - run: python fetch_elite.py || true
+        timeout-minutes: 6
+        continue-on-error: true
+      - run: python watch.py || true
       - run: python notify.py
         continue-on-error: true
         env:

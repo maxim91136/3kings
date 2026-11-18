@@ -113,6 +113,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <div class="mute" style="margin-top:8px">US-Aktien, Vergangenheit, keine Garantie. Stand 18.11.2026, Details im Regelbuch.</div></section>
  <section id="ind" hidden></section>
  <section id="spar" hidden></section>
+ <section id="watch" hidden></section>
  <section class="pruef"><h4>Prüfstand: Mannschaft</h4><div class="mute">Das taktische Modell mit allen drei Königen. Danach handelst du nicht, es läuft zum Testen mit.</div>`;
  o+=`<div class="verdict small ${act?"act":""}"><h2>${act?"Aktion empfohlen":"Nichts tun"}</h2><p>${act?"Mindestens ein Anteil weicht um "+pct(h.band)+" Punkte oder mehr ab.":"Der Bestand bleibt, keine Abweichung ab "+pct(h.band)+" Punkten."}</p></div><div class="banners">`;
  for(const[k,v]of Object.entries(h.players)){const K=KINGS[k],m=mv[k],held=h.held[k];
@@ -148,6 +149,21 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
    ${chart(s.rows.map(r=>({date:r.date,shadow:r.regel/r.paid,hold:r.sofort/r.paid})),"Regel","sofort")}
    <div class="mute">Seit ${fmtDay(s.start)} jeden Monat 100 € virtuell, eingezahlt ${eur0(p.regel.paid)}${p.regel.cash>0?`, davon ${eur0(p.regel.cash)} gerade gesammelt`:""}. Vergleich: Läuft „nicht am Hoch“ (kaufen erst 3 % unter dem Hoch) in Zukunft besser als sofort kaufen? Bisher nicht.</div>`;sp.hidden=false}};
  const eur0=x=>Math.round(x).toLocaleString("de-DE")+" €";
+ fetch("watch.json",{cache:"no-store"}).then(r=>r.json()).then(w=>{
+  const n1=x=>(x*100).toFixed(1).replace(".",","),n0=x=>Math.round(x*100),b2=x=>x.toFixed(2).replace(".",","),dm=s=>fmtDay(s).slice(0,5)+"."+s.slice(0,4);
+  let t="";
+  if(w.factor){const f=w.factor;t+=`<h4>Faktor-ETFs</h4><div class="mute">Gleiche Fragen, andere Zuschnitte des Marktes. Alles in Euro, ${fmtDay(f.since)} bis ${fmtDay(f.until)}, inklusive Ausschüttungen.</div>
+   <table class="pf"><tr><th>ETF</th><th>Rendite/Jahr</th><th>Rückgang</th><th>Beta</th></tr>${f.rows.map(r=>`<tr${r.key==="SPY"?' style="color:var(--spy)"':""}><td>${r.name}</td><td>${n1(r.cagr)} %</td><td>−${n0(r.mdd)} %</td><td>${b2(r.beta)}</td></tr>`).join("")}</table>
+   <div class="mute">Beta: 1 = schwankt wie der S&amp;P 500. Aufnahmetest vom 18.11.2026: Kein Faktor-ETF verbessert die Mannschaft nach unseren Regeln. Tech lief seit 2015 am besten, ab dem Jahr 2000 mit 80 % Rückgang aber nicht. Info, keine Empfehlung.</div>`}
+  if(w.elite){const e=w.elite;t+=`<h4 style="margin-top:44px">Elite 9</h4><div class="mute">Neun Einzelwerte aus deiner Liste. Nur Beobachtung, kein Geld, keine Empfehlung.</div>
+   <table class="pf"><tr><th>Aktie</th><th>Beta</th><th>10 Jahre p. a.</th></tr>${e.rows.map(r=>{if(r.missing)return`<tr><td>${r.name}</td><td colspan="2">Kurse fehlen</td></tr>`;const off=r.cagr10!=null&&Math.abs(r.cagr10*100-r.claim)>3;
+    return`<tr><td>${r.name}<br><span class="mute" style="font-size:11.5px">${r.branch}</span></td><td>${r.beta==null?"–":b2(r.beta)}</td><td>${r.cagr10==null?"–":n1(r.cagr10)+" %"}<br><span style="font-size:11.5px;color:${off?"var(--warn)":"var(--mute)"}">Liste: ${String(r.claim).replace(".",",")} %</span></td></tr>`}).join("")}</table>
+   <div class="mute">Beta und 10-Jahres-Rendite sind aus den Kursen berechnet (Beta: 5 Jahre, täglich, gegen den S&amp;P 500; Rendite in Heimatwährung inkl. Dividenden). Die Listenwerte stehen darunter, bei mehr als 3 Punkten Abweichung orange. Marge, Monopol, Zyklik, Verschuldung und Burggraben prüft das System nicht, sie sind aus der Liste übernommen.</div>`;
+   if(e.back)t+=`<div class="mute" style="margin-top:10px">Rückblick ${fmtDay(e.back.since)} bis ${fmtDay(e.back.until)}, gleich gewichtet, in Euro: Elite 9 ${n1(e.back.elite.cagr)} % pro Jahr, Rückgang ${n0(e.back.elite.mdd)} %. S&amp;P 500 ${n1(e.back.spy.cagr)} %, Rückgang ${n0(e.back.spy.mdd)} %. <b>Nicht aussagekräftig:</b> Die Liste wurde im Rückblick gewählt, Regel 7 nimmt nur frühere Gewinner.</div>`;
+   const rows=(e.shadow.rows||[]).map(r=>({date:r.date,shadow:r.elite,hold:r.spy}));
+   t+=`<h4 style="margin-top:34px">Schattenbuch Elite</h4><div class="pair"><div><b style="color:var(--gld)">${rows.length?b2(rows[rows.length-1].shadow):"1,00"}</b><span>Elite 9</span></div><div><b>${rows.length?b2(rows[rows.length-1].hold):"1,00"}</b><span>S&amp;P 500</span></div></div>${chart(rows,"Elite 9","S&P 500")}
+   <div class="mute">Seit ${fmtDay(e.shadow.start)} gleich gewichtet, in Euro, Start = 1,00. Das ist der echte Test. Bewertung nach drei Jahren: bewährt, wenn mindestens 2 Punkte pro Jahr über dem S&amp;P 500 bei nicht größerem Rückgang, gescheitert, wenn darunter.</div>`}
+  if(t){const s=document.getElementById("watch");s.innerHTML=t;s.hidden=false}}).catch(()=>{});
  fetch("sparplan.json",{cache:"no-store"}).then(r=>r.json()).then(go).catch(()=>{const s=h.players.SPY;go({dd_ath:s.dd_ath??s.dd_high,thresh:-0.03,currency:"USD"})});
  fetch("indicators.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{if(!j.indicators||!j.indicators.length)return;const L={gruen:"günstig/Chance",gelb:"mittel",rot:"teuer/Vorsicht"};
   const s=document.getElementById("ind");s.innerHTML=`<h4>Marktlage</h4>`+j.indicators.map(i=>`<div class="ind"><i class="${i.light||""}" title="${L[i.light]||"Info"}"></i><b>${i.name}</b><em>${i.value}</em><small>${i.pct!=null?`${i.higher==="teurer"?"Teurer":"Ängstlicher"} als an ${Math.round(i.pct*100)} % der Zeit seit ${i.since}. `:""}${i.text} <span style="opacity:.7">${i.note}</span></small></div>`).join("")+`<div class="mute" style="margin-top:8px">Nur zur Info. Die Indikatoren fließen erst in die Regeln ein, wenn sie einen Test bestanden haben.</div>`;s.hidden=false}).catch(()=>{});
