@@ -46,7 +46,7 @@ def load_state():
     return json.load(open(p)) if os.path.exists(p) else None
 
 
-def ledger_tail(n=30):
+def ledger_tail(n=400):
     p = os.path.join(DATA, "ledger.csv")
     if not os.path.exists(p):
         return []

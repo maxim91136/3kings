@@ -1,34 +1,114 @@
 <!DOCTYPE html>
-<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow"><title>3Kings</title>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0F1218">
+<title>3Kings</title>
 <style>
-:root{color-scheme:dark}body{margin:0;font:16px/1.45 system-ui,sans-serif;background:#0b0b0d;color:#e8e8ea;padding:18px;max-width:640px;margin:auto}
-h1{font-size:28px;margin:8px 0 4px;text-align:center;letter-spacing:.5px}.sub{color:#8b8b93;font-size:13px;margin-bottom:18px;text-align:center}
-.rec{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid #202026}.rec:last-child{border:0}.rec .why{color:#8b8b93;font-size:12px}.up{color:#4ade80}.down{color:#f59e0b}
-.card{background:#151519;border:1px solid #26262c;border-radius:12px;padding:14px;margin:12px 0}
-.act{border-color:#d9a400}.ok{border-color:#2a6b45}.bad{border-color:#b3261e;background:#2a1210}
-.row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #202026}.row:last-child{border:0}
-.m{color:#8b8b93;font-size:13px}b{font-weight:600}table{width:100%;font-size:12px;border-collapse:collapse}td,th{padding:3px 4px;text-align:right}th:first-child,td:first-child{text-align:left}
+:root{--ink:#0F1218;--slate:#171B24;--line:#262B37;--text:#E9E4D8;--mute:#8A8F9C;
+--btc:#E58A3A;--spy:#6C8FD6;--gld:#D9B34A;--ok:#6FBF8E;--warn:#E8A33D;--bad:#E26D5C;
+--serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--sans:system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{margin:0;background:var(--ink);color:var(--text);font:16px/1.5 var(--sans);-webkit-font-smoothing:antialiased;
+padding:max(22px,env(safe-area-inset-top)) 18px max(40px,env(safe-area-inset-bottom))}
+main{max-width:720px;margin:0 auto;text-align:center}
+.crown{width:34px;height:26px;color:var(--gld)}
+h1{font:600 40px/1.1 var(--serif);letter-spacing:.01em;margin:6px 0 6px}
+.stamp{color:var(--mute);font-size:13px}
+.alert{margin:18px 0 0;padding:12px 14px;border:1px solid var(--bad);border-radius:6px;color:#F3C4BC;background:#2A1512;text-align:left;font-size:14px}
+.verdict{margin:34px 0 8px}
+.verdict h2{font:500 34px/1.15 var(--serif);margin:0}
+.verdict p{margin:6px 0 0;color:var(--mute);font-size:14px}
+.verdict.act h2{color:var(--warn)}
+.banners{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0 0}
+.banner{display:flex;flex-direction:column;align-items:center;gap:10px}
+.banner h3{font:600 15px/1.2 var(--sans);margin:0;color:var(--text)}
+.pole{position:relative;width:100%;height:190px;background:var(--slate);border:1px solid var(--line);
+border-radius:3px 3px 36px 36px / 3px 3px 22px 22px;overflow:hidden}
+.fill{position:absolute;left:0;right:0;bottom:0;height:0;background:var(--c);opacity:.9;transition:height 1.1s cubic-bezier(.2,.8,.2,1)}
+.fill::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.14),transparent 30%,transparent 70%,rgba(0,0,0,.18))}
+.tick{position:absolute;left:0;right:0;height:0;border-top:2px dashed var(--text);opacity:.8}
+.pct{font:600 30px/1 var(--serif)}
+.pct small{font-size:16px}
+.verb{font-size:14px;min-height:2.6em}
+.verb.up{color:var(--ok)}.verb.down{color:var(--warn)}.verb.out{color:var(--mute)}
+.why{color:var(--mute);font-size:12px;line-height:1.35;max-width:14em}
+section{margin-top:44px;text-align:center}
+h4{font:500 22px/1.2 var(--serif);margin:0 0 14px}
+.bar{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--slate);border:1px solid var(--line)}
+.bar i{display:block;height:100%}
+.legend{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:13px;color:var(--mute)}
+.legend b{color:var(--text);font-weight:600}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.season{height:6px;background:var(--slate);border-radius:3px;overflow:hidden;margin:10px 0 8px}
+.season i{display:block;height:100%;background:var(--gld);width:0;transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.mute{color:var(--mute);font-size:14px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 16px}
+.pair div{border-top:1px solid var(--line);padding-top:10px}
+.pair b{display:block;font:600 30px/1.1 var(--serif)}
+.pair span{font-size:13px;color:var(--mute)}
+svg.chart{width:100%;height:auto;display:block}
+.empty{padding:22px 0;color:var(--mute);font-size:14px}
+details{margin-top:44px;text-align:left}
+summary{cursor:pointer;text-align:center;font:500 22px/1.2 var(--serif);list-style:none;padding:6px 0}
+summary::-webkit-details-marker{display:none}
+summary::after{content:" ▾";color:var(--mute);font-size:16px}details[open] summary::after{content:" ▴"}
+summary:focus-visible{outline:2px solid var(--gld);outline-offset:4px}
+table{width:100%;border-collapse:collapse;margin-top:14px;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{padding:7px 4px;text-align:right;border-bottom:1px solid var(--line)}
+th{color:var(--mute);font-weight:500}th:first-child,td:first-child{text-align:left}
+footer{margin-top:44px;color:var(--mute);font-size:12px}
+@media(min-width:560px){.pole{height:230px}.pct{font-size:36px}h1{font-size:48px}}
+@media(prefers-reduced-motion:reduce){.fill,.season i{transition:none}}
 </style></head><body>
-<h1>👑 3Kings</h1><div class="sub" id="sub">lädt …</div><div id="out"></div>
+<main id="app"><svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg>
+<h1>3Kings</h1><div class="stamp">lädt …</div></main>
 <script>
-const pct=x=>(x*100).toFixed(0)+" %";
+const pct=x=>Math.round(x*100);
+const fmtDay=s=>{const[a,b,c]=s.split("-");return c+"."+b+"."+a};
+const KINGS={BTC:{name:"Bitcoin",c:"var(--btc)"},SPY:{name:"S&P 500",c:"var(--spy)"},GLD:{name:"Gold",c:"var(--gld)"}};
+const why=v=>v.champion.startsWith("Trend")?`Kurs ${Math.abs(Math.round(v.vs_sma200*100))} % ${v.vs_sma200<0?"unter":"über"} dem 200-Tage-Schnitt`:
+ v.champion.startsWith("Vol")?"Anteil nach Schwankung":"voll dabei";
+function chart(rows){
+ if(rows.length<3) return `<div class="empty">Die Kurve füllt sich mit jedem Lauf.</div>`;
+ const W=640,H=220,L=44,R=70,T=14,B=26,xs=rows.map((_,i)=>L+(W-L-R)*i/(rows.length-1));
+ const all=rows.flatMap(r=>[+r.shadow,+r.hold]);let lo=Math.min(...all),hi=Math.max(...all);const pad=(hi-lo)*.15||.01;lo-=pad;hi+=pad;
+ const y=v=>T+(H-T-B)*(1-(v-lo)/(hi-lo));
+ const path=k=>rows.map((r,i)=>(i?"L":"M")+xs[i].toFixed(1)+" "+y(+r[k]).toFixed(1)).join(" ");
+ const last=rows[rows.length-1];
+ return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Schattenbuch gegen Halten">
+ <line x1="${L}" x2="${W-R}" y1="${y(1)}" y2="${y(1)}" stroke="#262B37"/><text x="${L-8}" y="${y(1)+4}" text-anchor="end" fill="#8A8F9C" font-size="12">1,00</text>
+ <path d="${path("hold")}" fill="none" stroke="#8A8F9C" stroke-width="2" stroke-dasharray="5 4"/>
+ <path d="${path("shadow")}" fill="none" stroke="#D9B34A" stroke-width="2.5"/>
+ <text x="${W-R+8}" y="${y(+last.shadow)+4}" fill="#D9B34A" font-size="13">Empfehlungen</text>
+ <text x="${W-R+8}" y="${y(+last.hold)+(Math.abs(y(+last.shadow)-y(+last.hold))<16?18:4)}" fill="#8A8F9C" font-size="13">Halten</text>
+ <text x="${L}" y="${H-6}" fill="#8A8F9C" font-size="12">${fmtDay(rows[0].date)}</text>
+ <text x="${W-R}" y="${H-6}" text-anchor="end" fill="#8A8F9C" font-size="12">${fmtDay(last.date)}</text></svg>`;
+}
 fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
- const age=(Date.now()-new Date(h.generated_at))/864e5, dage=(Date.now()-new Date(h.data_date))/864e5;
- let o="";
- if(age>3||dage>5) o+=`<div class="card bad"><b>⚠ Puls ausgefallen</b><br>Letzter Lauf vor ${age.toFixed(1)} Tagen, letzter Kurstag ${h.data_date}. GitHub-Lauf prüfen (Actions).</div>`;
- const mv={};h.moves.forEach(m=>mv[m.player]=m);
- const why=(v)=>v.champion.startsWith("Trend")?`Kurs ${Math.abs(v.vs_sma200*100).toFixed(0)} % ${v.vs_sma200<0?"unter":"über"} dem 200-Tage-Schnitt`:v.champion.startsWith("Vol")?"Anteil nach Schwankung (Vol-Target)":"voll dabei (Halten)";
- const lines=Object.entries(h.players).map(([k,v])=>{const m=mv[k];let verb;
-  if(m) verb=m.delta>0?`<span class="up">aufstocken auf <b>${pct(m.auf)}</b></span>`:`<span class="down">reduzieren auf <b>${pct(m.auf)}</b></span>`;
-  else verb=h.held[k]===0?`draußen bleiben`:`halten <b>${pct(h.held[k])}</b>`;
-  return `<div class="rec"><span>${k}<div class="why">${why(v)}</div></span><span>${verb}</span></div>`}).join("");
- o+=`<div class="card ${h.moves.length?"act":"ok"}"><b>${h.moves.length?"Aktion empfohlen":"Nichts tun – Bestand halten"}</b>${lines}<div class="m" style="margin-top:6px">Cash: ${pct(h.cash)} · umgeschichtet wird erst ab ${pct(h.band)}-Punkten Abweichung</div></div>`;
- o+=`<div class="card"><b>Aufstellung</b>`+Object.entries(h.players).map(([k,v])=>`<div class="row"><span>${k} · ${v.champion}</span><span><b>${pct(h.held[k])}</b> <span class="m">(Ziel ${pct(v.target)})</span></span></div>`).join("")+`<div class="row"><span>Cash</span><b>${pct(h.cash)}</b></div></div>`;
- o+=`<div class="card"><b>Saison</b><div class="m">Tag ${h.season.day_in_season} von 63 · Wahl in ${h.season.days_left} Handelstagen · Saison Nr. ${h.season.n_seasons}</div></div>`;
- o+=`<div class="card"><b>Schattenbuch seit ${h.since}</b><div class="row"><span>Empfehlungen befolgt</span><b>${h.shadow.toFixed(3)}</b></div><div class="row"><span>Alle drei gleich halten</span><b>${h.hold.toFixed(3)}</b></div><div class="m">Empfehlungen bisher: ${h.n_actions}. Papierrechnung ohne Steuern und Gebühren außer Handelskosten.</div></div>`;
- if(h.ledger_tail.length) o+=`<div class="card"><b>Verlauf</b><table><tr><th>Tag</th><th>BTC</th><th>SPY</th><th>GLD</th><th>Cash</th><th>Schatten</th></tr>`+h.ledger_tail.slice(-10).reverse().map(r=>`<tr><td>${r.date}</td><td>${pct(+r.BTC)}</td><td>${pct(+r.SPY)}</td><td>${pct(+r.GLD)}</td><td>${pct(+r.cash)}</td><td>${(+r.shadow).toFixed(3)}</td></tr>`).join("")+`</table></div>`;
- document.getElementById("out").innerHTML=o;
- document.getElementById("sub").textContent="Kurstag "+h.data_date+" · Lauf "+h.generated_at.replace("T"," ").slice(0,16)+" UTC";
-}).catch(e=>{document.getElementById("sub").textContent="Noch keine Daten (heartbeat.json fehlt).";});
+ const age=(Date.now()-new Date(h.generated_at))/864e5,dage=(Date.now()-new Date(h.data_date))/864e5;
+ const run=new Date(h.generated_at).toLocaleString("de-DE",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"});
+ const mv={};h.moves.forEach(m=>mv[m.player]=m);const act=h.moves.length>0;
+ let o=`<svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg><h1>3Kings</h1>
+ <div class="stamp">Kurse vom ${fmtDay(h.data_date)}, berechnet am ${run} Uhr</div>`;
+ if(age>3||dage>5) o+=`<div class="alert"><b>Puls ausgefallen.</b> Letzter Lauf vor ${age.toFixed(1)} Tagen, letzter Kurstag ${fmtDay(h.data_date)}. Bitte den GitHub-Lauf prüfen.</div>`;
+ o+=`<div class="verdict ${act?"act":""}"><h2>${act?"Aktion empfohlen":"Nichts tun"}</h2><p>${act?"Mindestens ein Anteil weicht um "+pct(h.band)+" Punkte oder mehr ab.":"Der Bestand bleibt, keine Abweichung ab "+pct(h.band)+" Punkten."}</p></div><div class="banners">`;
+ for(const[k,v]of Object.entries(h.players)){const K=KINGS[k],m=mv[k],held=h.held[k];
+  let verb,cls;
+  if(m){cls=m.delta>0?"up":"down";verb=(m.delta>0?"aufstocken auf ":"reduzieren auf ")+pct(m.auf)+" %"}
+  else if(held===0){cls="out";verb="draußen bleiben"}else{cls="";verb="halten"}
+  const tick=m||Math.abs(v.target-held)>=0.01?`<div class="tick" style="bottom:${Math.min(pct(v.target),100)}%"></div>`:"";
+  o+=`<div class="banner" style="--c:${K.c}"><h3>${K.name}</h3><div class="pole"><div class="fill" data-h="${Math.min(pct(held),100)}"></div>${tick}</div>
+  <div class="pct">${pct(held)}<small> %</small></div><div class="verb ${cls}">${verb}</div><div class="why">${why(v)}</div></div>`}
+ o+=`</div><section><h4>Verteilung</h4><div class="bar">${Object.entries(KINGS).map(([k,K])=>`<i style="width:${pct(h.held[k])}%;background:${K.c}"></i>`).join("")}</div>
+ <div class="legend">${Object.entries(KINGS).map(([k,K])=>`<span><span class="dot" style="background:${K.c}"></span>${K.name} <b>${pct(h.held[k])} %</b></span>`).join("")}<span><span class="dot" style="background:#262B37;border:1px solid #8A8F9C"></span>Cash <b>${pct(h.cash)} %</b></span></div></section>
+ <section><h4>Saison ${h.season.n_seasons}</h4><div class="season"><i data-w="${Math.round(h.season.day_in_season/63*100)}"></i></div>
+ <div class="mute">Tag ${h.season.day_in_season} von 63. Die nächste Champion-Wahl kommt in ${h.season.days_left} Handelstagen, bis dahin ändern sich die Regeln nicht.</div></section>
+ <section><h4>Schattenbuch</h4><div class="pair"><div><b style="color:var(--gld)">${h.shadow.toFixed(3).replace(".",",")}</b><span>Empfehlungen befolgt</span></div><div><b>${h.hold.toFixed(3).replace(".",",")}</b><span>alle drei gleich halten</span></div></div>
+ ${chart(h.ledger_tail)}<div class="mute">Seit ${fmtDay(h.since)}, ${h.n_actions} ${h.n_actions===1?"Empfehlung":"Empfehlungen"}. Papierrechnung, nur Handelskosten sind eingerechnet.</div></section>
+ <details><summary>Verlauf</summary><table><tr><th>Tag</th><th>BTC</th><th>S&amp;P</th><th>Gold</th><th>Cash</th><th>Schatten</th></tr>${h.ledger_tail.slice().reverse().slice(0,60).map(r=>`<tr><td>${fmtDay(r.date)}</td><td>${pct(+r.BTC)} %</td><td>${pct(+r.SPY)} %</td><td>${pct(+r.GLD)} %</td><td>${pct(+r.cash)} %</td><td>${(+r.shadow).toFixed(3)}</td></tr>`).join("")}</table></details>
+ <footer>Nur zur privaten Auswertung. Es werden keine Aufträge ausgelöst.</footer>`;
+ document.getElementById("app").innerHTML=o;
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{document.querySelectorAll(".fill").forEach(e=>e.style.height=e.dataset.h+"%");document.querySelectorAll(".season i").forEach(e=>e.style.width=e.dataset.w+"%")}));
+}).catch(()=>{document.querySelector(".stamp").textContent="Noch keine Daten. Der erste Lauf fehlt oder heartbeat.json ist nicht erreichbar."});
 </script></body></html>
