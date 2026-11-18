@@ -53,3 +53,4 @@ Startlage: fast nichts vorhanden, alles kommt aus kuenftigem Geld. Deshalb gibt 
 
 ### Kern (Entscheidung 2026-11-18)
 Vorhandene Bitcoin (ca. 0,31 BTC, davon 0,25 Familie, Rest Sparplan fuers Kind) sind KERN: werden gehalten, nie vom System bewegt, nicht in die Mannschaft eingerechnet. Die Mannschaft steuert nur NEUES Geld (ab 2027 groesser, Sparplaene/monatlich). Cash, das wegen Trend-Aus eines Spielers parkt, gehoert zum Plan und wird bei Signal investiert.
+Kern erweitert: auch Gold/Silber-Muenzen (ca. 10.000). Bitcoin + Edelmetalle zusammen schon ca. 30.000 -> Neues Geld faktisch NUR in S&P 500 (Spieler SPY), bis dessen Anteil am Gesamtvermoegen ungefaehr beim Ziel liegt (heute 32 %, also grob die ersten ~10.000 neues Geld). Bitcoin/Gold-Ziele der Seite fuer neues Geld ignorieren. Danach neu bewerten. Seite zeigt weiterhin nur Ziele, keinen Bestand.
