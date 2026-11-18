@@ -123,3 +123,6 @@ Beta und 10-Jahres-Rendite der Elite 6 gelten fest zum Stichtag 2026-11-18 (data
 
 ## 2026-11-18: Margenregel präzisiert (Entscheidung des Nutzers)
 Gemini-Prüfung: Cintas Bruttomarge 49,7 % (Q4 GJ 2025) knapp unter 50 %. Entscheidung: Cintas bleibt. Die Margenregel ist eine weiche Regel (Urteil) und gilt ab jetzt als "Bruttomarge rund 50 % oder mehr, Toleranz 1 Punkt". Die harten Regeln (Beta < 1,15, 10J >= 17 %) bleiben ohne Toleranz.
+
+## 2026-11-18: Schattenbuch Elite auf 5 Jahre verlängert (Entscheidung des Nutzers)
+Bewertung nach 5 statt 3 Jahren, also ab 2031-11. Kriterium sonst unverändert (mindestens +2 Punkte p. a. über S&P 500 bei nicht größerem Rückgang = bewährt; Rendite unter S&P = gescheitert). Zwischenstände jährlich, ohne Bewertung. Änderung vor dem ersten Datenpunkt, also ohne Kenntnis von Ergebnissen.
