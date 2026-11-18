@@ -3,7 +3,7 @@ import csv, os, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fetch_prices as fp
 
-T = {"RACE": "RACE", "MA": "MA", "V": "V", "CTAS": "CTAS", "MSFT": "MSFT", "IDXX": "IDXX", "ASML": "ASML"}
+T = {"RACE": "RACE", "MA": "MA", "V": "V", "CTAS": "CTAS", "MSFT": "MSFT", "IDXX": "IDXX"}
 data = {}
 for k, sym in T.items():
     for i in range(3):
