@@ -116,9 +116,19 @@ def dbnomics(sid):
     return out
 
 
+def z1_equities():
+    last = None
+    for sid in ("FED/Z1/LM103164103.Q", "FED/Z1/FL103164103.Q", "FED/Z1/LM103164103"):
+        try:
+            return dbnomics(sid)
+        except Exception as e:
+            last = e; print("  Z.1-Kandidat", sid, "->", e)
+    raise last
+
+
 for name, fn in (("VIXCLS", cboe_vix),
-                 ("GDP", lambda: dbnomics("BEA/NIPA-T10105/A191RC-Q")),
-                 ("NCBEILQ027S", lambda: dbnomics("FED/Z1/FL103164103.Q"))):
+                 ("GDP", lambda: {k: v / 1000 for k, v in dbnomics("BEA/NIPA-T10105/A191RC-Q").items()}),   # Mio -> Mrd $
+                 ("NCBEILQ027S", z1_equities)):
     try:
         d = fn()
         if len(d) < 20: raise ValueError(f"nur {len(d)} Werte")
