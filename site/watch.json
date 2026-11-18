@@ -1,0 +1,179 @@
+{
+ "generated": null,
+ "factor": {
+  "since": "2015-07-20",
+  "until": "2026-11-17",
+  "rows": [
+   {
+    "key": "SPY",
+    "name": "S&P 500",
+    "cagr": 0.1324,
+    "mdd": 0.331,
+    "sharpe": 0.75,
+    "beta": 1.0,
+    "corr": 1.0
+   },
+   {
+    "key": "QUAL",
+    "name": "Qualität (QUAL)",
+    "cagr": 0.1264,
+    "mdd": 0.334,
+    "sharpe": 0.72,
+    "beta": 0.99,
+    "corr": 0.98
+   },
+   {
+    "key": "MTUM",
+    "name": "Momentum (MTUM)",
+    "cagr": 0.1289,
+    "mdd": 0.335,
+    "sharpe": 0.65,
+    "beta": 1.06,
+    "corr": 0.89
+   },
+   {
+    "key": "USMV",
+    "name": "Min. Schwankung (USMV)",
+    "cagr": 0.1002,
+    "mdd": 0.324,
+    "sharpe": 0.68,
+    "beta": 0.75,
+    "corr": 0.9
+   },
+   {
+    "key": "XLK",
+    "name": "Tech (XLK)",
+    "cagr": 0.2065,
+    "mdd": 0.317,
+    "sharpe": 0.87,
+    "beta": 1.24,
+    "corr": 0.92
+   },
+   {
+    "key": "VT",
+    "name": "Welt, alle Länder (VT)",
+    "cagr": 0.1021,
+    "mdd": 0.335,
+    "sharpe": 0.63,
+    "beta": 0.93,
+    "corr": 0.97
+   },
+   {
+    "key": "URTH",
+    "name": "Welt, MSCI World (URTH)",
+    "cagr": 0.1092,
+    "mdd": 0.333,
+    "sharpe": 0.66,
+    "beta": 0.94,
+    "corr": 0.98
+   }
+  ]
+ },
+ "elite": {
+  "rows": [
+   {
+    "key": "CME",
+    "name": "CME Group",
+    "branch": "Börsen und Clearing",
+    "claim": 18.5,
+    "beta": 0.3,
+    "cagr10": 0.1477,
+    "until": "2026-11-17"
+   },
+   {
+    "key": "RACE",
+    "name": "Ferrari",
+    "branch": "Luxus-Autos",
+    "claim": 23.7,
+    "beta": 0.9,
+    "cagr10": 0.2326,
+    "until": "2026-11-17"
+   },
+   {
+    "key": "WM",
+    "name": "Waste Management",
+    "branch": "Müll-Infrastruktur",
+    "claim": 17.3,
+    "beta": 0.39,
+    "cagr10": 0.1548,
+    "until": "2026-11-17"
+   },
+   {
+    "key": "MA",
+    "name": "Mastercard",
+    "branch": "Zahlungs-Duopol",
+    "claim": 20.9,
+    "beta": 0.89,
+    "cagr10": 0.2069,
+    "until": "2026-11-17"
+   },
+   {
+    "key": "V",
+    "name": "Visa",
+    "branch": "Zahlungs-Duopol",
+    "claim": 16.9,
+    "beta": 0.82,
+    "cagr10": 0.1862,
+    "until": "2026-11-17"
+   },
+   {
+    "key": "CTAS",
+    "name": "Cintas",
+    "branch": "Wiederkehrende Dienste",
+    "claim": 25.6,
+    "beta": 0.77,
+    "cagr10": 0.2441,
+    "until": "2026-11-17"
+   },
+   {
+    "key": "RMS",
+    "name": "Hermès",
+    "branch": "Luxus (Paris, in Euro)",
+    "claim": 21.0,
+    "beta": 0.47,
+    "cagr10": 0.1404,
+    "until": "2026-11-17"
+   },
+   {
+    "key": "MSFT",
+    "name": "Microsoft",
+    "branch": "Cloud und KI",
+    "claim": 25.9,
+    "beta": 1.09,
+    "cagr10": 0.2504,
+    "until": "2026-11-17"
+   },
+   {
+    "key": "GOOGL",
+    "name": "Alphabet",
+    "branch": "Suche und Werbung",
+    "claim": 24.6,
+    "beta": 1.19,
+    "cagr10": 0.2182,
+    "until": "2026-11-17"
+   }
+  ],
+  "back": {
+   "since": "2016-11-17",
+   "until": "2026-11-17",
+   "elite": {
+    "cagr": 0.2192,
+    "mdd": 0.315
+   },
+   "spy": {
+    "cagr": 0.1452,
+    "mdd": 0.331
+   }
+  },
+  "shadow": {
+   "start": "2026-11-17",
+   "rows": [
+    {
+     "date": "2026-11-17",
+     "elite": 1.0,
+     "spy": 1.0
+    }
+   ]
+  }
+ }
+}
