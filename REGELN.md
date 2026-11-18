@@ -120,3 +120,6 @@ Ca. 40 von 130 bestehen die harten Regeln; nach den weichen Regeln (Urteil) blei
 
 ## 2026-11-18: Elite 6 Aufnahmewerte eingefroren
 Beta und 10-Jahres-Rendite der Elite 6 gelten fest zum Stichtag 2026-11-18 (data/elite_frozen.json), keine naechtliche Neuberechnung. Nach vorn misst nur das Schattenbuch. Neuer Stand nur bei ausdruecklicher Ueberpruefung durch den Nutzer.
+
+## 2026-11-18: Margenregel präzisiert (Entscheidung des Nutzers)
+Gemini-Prüfung: Cintas Bruttomarge 49,7 % (Q4 GJ 2025) knapp unter 50 %. Entscheidung: Cintas bleibt. Die Margenregel ist eine weiche Regel (Urteil) und gilt ab jetzt als "Bruttomarge rund 50 % oder mehr, Toleranz 1 Punkt". Die harten Regeln (Beta < 1,15, 10J >= 17 %) bleiben ohne Toleranz.
