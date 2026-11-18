@@ -39,7 +39,8 @@ def current_plan(P, names):
         sma = P[T - line_n:, ix[p]].mean()
         plan[p] = dict(champion=champ.split(" (")[0], strat_weight=round(w, 4), alloc=round(float(alloc[k]), 4),
                        target=round(float(alloc[k]) * w, 4), price=float(P[T - 1, ix[p]]),
-                       line_n=line_n, vs_line=round(float(P[T - 1, ix[p]] / sma - 1), 4))
+                       line_n=line_n, vs_line=round(float(P[T - 1, ix[p]] / sma - 1), 4),
+                       dd_high=round(float(P[T - 1, ix[p]] / P[max(0, T - 252):T, ix[p]].max() - 1), 4))
     left = t0 + team.SEASON - (T - 1)
     return plan, dict(day_in_season=int(T - 1 - t0), days_left=int(left), n_seasons=len(res["bounds"]))
 

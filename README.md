@@ -16,3 +16,16 @@ Es gibt **keine Auto-Trades**; es erzeugt nur eine tägliche Empfehlung und füh
 4. Optional Telegram: Secrets `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`.
 
 Regeln ändern sich nur am Saisonende, nie mitten in der Saison. Der Kursabruf ist vor dem ersten Lauf ungetestet.
+
+## Wo ist was (Überblick)
+| Frage | Datei |
+|---|---|
+| Was läuft täglich? | `.github/workflows/heartbeat.yml` (Kurse holen, rechnen, committen) |
+| Woher kommen die Kurse? | `fetch_prices.py` -> `data/prices.csv` |
+| Was empfiehlt der Heartbeat? | `heartbeat.py` -> `site/heartbeat.json` |
+| Welche Regeln gelten? | `core/lab.py` (Strategien), `core/team.py` (Saison, Champion) |
+| Was wurde wann an den Regeln geändert? | `REGELN.md` |
+| Was ist das Gedächtnis? | `data/ledger.csv` (Schattenbuch), `data/state.json` |
+| Wie sieht die Seite aus? | `site/index.html` |
+| Tests, die nichts verändern | `run_dip.py`, `run_sma100.py`, `horizon.py`, `accumulate.py` |
+| Ideen, noch nicht gebaut | `IDEAS.md` |
