@@ -23,7 +23,7 @@ btc = series("BTC"); b = stats(btc); b["price"] = round(btc[b["date"]], 0); b["u
 out.append(dict(key="BTC", **b))
 g = stats(series("GLD")); g["price"] = None; g["unit"] = "eur_oz"
 if os.path.exists("data/gold_spot.csv"):
-    gs = list(csv.DictReader(open("data/gold_spot.csv")))
+    gs = [r for r in csv.DictReader(open("data/gold_spot.csv")) if r["date"] <= g["date"]]
     if gs:
         g["price"] = round(float(gs[-1]["value"]) / rate(gs[-1]["date"]), 0); g["price_date"] = gs[-1]["date"]
 out.append(dict(key="GLD", **g))
