@@ -134,3 +134,6 @@ Ablauf je Aktie: ab 2006-01 (oder ab 10 Jahre Historie) jeden Monat 1 Einheit Ge
 Kriterium: Eine Warteregel gilt als belegt, wenn sie (a) im Median über alle Aktien mindestens 3 % mehr Endvermögen bringt, (b) bei mindestens 60 % der Aktien besser ist als sofort, und (c) beides auch im Zeitraum 2016-2026 allein gilt. Sonst: gilt nicht. Ergebnis ändert nur, was auf der Seite steht, keine Käufe.
 Anzeige: Abstand zum Hoch je Elite-Aktie (aktuell, nur Info).
 Ergebnis 2026-11-19 (138 Aktien, MMC ohne Daten): Warten ist bei Einzelaktien klar schlechter. Ab 2006 Median: 10 % -3,4 %, 15 % -6,9 %, 20 % -10,0 %, 25 % -16,3 %; besser nur bei 7-10 % der Aktien. Ab 2016: -4,5 / -8,1 / -13,3 / -21,4 %; besser bei 9-21 %. Kriterium in beiden Zeiträumen klar verfehlt. Warteregel für Einzelaktien: GILT NICHT. Rest-Bias: Universum aus heutigen Großunternehmen.
+
+## 2026-11-19: Kauf-Warten bei Bitcoin (gleicher Aufbau wie Einzelaktien, Monatsgeld, 2 % Zins auf Wartegeld)
+Rollierende Fenster ab 2013 (3 und 5 Jahre). Warten auf -20/-30/-40/-50/-60 % vom Hoch: Median -6 bis -17 %, besser nur in 10-27 % der Startmonate. Ganze Zeit 2013-2026: -30 bis -53 %. Gilt nicht. Einschränkung: nur ein Wert, kurze Historie.
