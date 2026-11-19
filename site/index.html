@@ -118,6 +118,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <div class="stamp">${T(`Kurse vom ${fmtDay(h.data_date)}, berechnet am ${run} Uhr`,`Prices as of ${fmtDay(h.data_date)}, calculated ${run}`)}</div>`;
  if(age>3||dage>5) o+=`<div class="alert"><b>${T("Puls ausgefallen.","Data feed down.")}</b> ${T(`Letzter Lauf vor ${fx(age,1)} Tagen, letzter Kurstag ${fmtDay(h.data_date)}. Bitte den GitHub-Lauf prüfen.`,`Last run ${fx(age,1)} days ago, last price date ${fmtDay(h.data_date)}. Check the GitHub run.`)}</div>`;
  o+=`<section id="news" hidden style="margin-top:22px"></section>
+ <section id="reports" hidden style="margin-top:18px"></section>
  <div class="verdict hero" id="hero"><h2 class="buy">${T("Kaufen","Buy")}</h2><p>${T("Sobald Geld da ist. Getestet für S&amp;P 500, Bitcoin und Gold: Warten auf Rücksetzer, günstigere Bewertung oder Angst brachte in keinem Test mehr.","As soon as there is money. Tested for the S&amp;P 500, bitcoin and gold: waiting for dips, cheaper valuations or fear never did better.")}</p></div>
  <div class="cards" id="cards"></div><div class="mute" id="cardnote" style="font-size:12px;margin-top:8px"></div>
  <section class="first"><h4>${T("Rechner","Calculator")}</h4><div class="money"><label for="amt" class="mute">${T("Neues Geld","New money")}</label><input id="amt" type="number" inputmode="numeric" min="0" step="100" value="1000"><span class="mute">€</span></div>
@@ -166,6 +167,12 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
     <dt>${T("Hoch","High")}</dt><dd>${a.dd_ath<0.005?T("am Hoch","at high"):"−"+fx(a.dd_ath*100,0)+" %"}</dd></dl></div>`}).join("");
   const d=A.SPY?A.SPY.date:h.data_date;
   document.getElementById("cardnote").textContent=T(`Schlusskurse vom ${fmtDay(d)}, Veränderungen in Euro. S&P 500 in Punkten, Gold je Feinunze.`,`Closing prices of ${fmtDay(d)}, changes in euros. S&P 500 in points, gold per troy ounce.`)}).catch(()=>{});
+ fetch("reports.json",{cache:"no-store"}).then(r=>r.json()).then(n=>{const it=(n.items||[]);if(!it.length)return;
+  const e=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  const one=x=>{const ti=EN&&x.title_en?x.title_en:x.title,ln=EN&&x.lines_en?x.lines_en:(x.lines||[]);
+   return `<details style="margin-top:10px"><summary style="font:600 15px/1.35 var(--sans);text-align:left">${x.type==="year"?T("Jahresbericht ","Annual report "):T("Monatsbericht ","Monthly report ")}${e(ti)}</summary><div style="text-align:left">${ln.map(l=>/^#\s/.test(l)?`<div style="font:600 13.5px var(--sans);margin:10px 0 4px;color:var(--text)">${e(l.slice(2))}</div>`:`<p style="margin:0 0 4px;font-size:13px;line-height:1.45;color:#C9C4B8">${e(l)}</p>`).join("")}
+   ${(x.sources||[]).length?`<div style="font-size:11.5px;color:var(--mute)">${T("Quellen","Sources")}: ${x.sources.map(s=>`<a href="${e(s.url)}" style="color:var(--mute)" rel="noopener" target="_blank">${e(s.title)}</a>`).join(" · ")}</div>`:""}</div></details>`};
+  const s=document.getElementById("reports");s.innerHTML=`<h4>${T("Berichte","Reports")}</h4>${it.slice(0,24).map(one).join("")}<div class="mute" style="margin-top:10px;font-size:12px">${T("Monatsbericht am 1. jedes Monats, Jahresbericht am 1. Januar. Keine Anlageberatung.","Monthly report on the 1st of each month, annual report on January 1. Not investment advice.")}</div>`;s.hidden=false}).catch(()=>{});
  fetch("news.json",{cache:"no-store"}).then(r=>r.json()).then(n=>{
   const it=(n.items||[]);if(!it.length)return;
   const e=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
