@@ -95,11 +95,11 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  let o=`<svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg><h1>3Kings</h1>
  <div class="stamp">Kurse vom ${fmtDay(h.data_date)}, berechnet am ${run} Uhr</div>`;
  if(age>3||dage>5) o+=`<div class="alert"><b>Puls ausgefallen.</b> Letzter Lauf vor ${age.toFixed(1)} Tagen, letzter Kurstag ${fmtDay(h.data_date)}. Bitte den GitHub-Lauf prüfen.</div>`;
- o+=`<div class="verdict hero" id="hero"><h2 id="sig">…</h2><p id="sigwhy"></p></div>
+ o+=`<section id="news" hidden style="margin-top:22px"></section>
+ <div class="verdict hero" id="hero"><h2 id="sig">…</h2><p id="sigwhy"></p></div>
  <section class="first"><div class="money"><label for="amt" class="mute">Neues Geld</label><input id="amt" type="number" inputmode="numeric" min="0" step="100" value="1000"><span class="mute">€</span></div>
  <div class="split" id="split"></div><div class="mute" id="note"></div>
  <table class="cheap" id="cheap"></table></section>
- <section id="news" hidden></section>
  <section class="proof"><h4>Der Beleg</h4>
  <div class="mute">Regel: Neues Kapital sofort investieren. Getestet beim S&amp;P 500 ab 1929, bei Gold, bei 138 Einzelaktien und bei Bitcoin. Keine Warte-Strategie war überlegen. Entscheidend ist, was gekauft wird, nicht wann.</div>
  <table class="pf"><tr><th>Idee</th><th>Ergebnis</th></tr>
@@ -159,8 +159,8 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
    ${(x.lines||[]).map(l=>`<p style="margin:0 0 6px;font-size:14.5px;color:#D6D1C5">${e(l)}</p>`).join("")}
    ${(x.sources||[]).length?`<div style="font-size:12.5px;color:var(--mute)">Quellen: ${x.sources.map(s=>`<a href="${e(s.url)}" style="color:var(--mute)" rel="noopener" target="_blank">${e(s.title)}</a>`).join(" · ")}</div>`:""}</div>`;
   const s=document.getElementById("news");
-  s.innerHTML=`<h4>Nachrichten</h4>${one(it[0],true)}${it.length>1?`<details><summary>Frühere Meldungen</summary>${it.slice(1,30).map(x=>one(x,false)).join("")}</details>`:""}
-   <div class="mute" style="margin-top:12px">Automatischer Bericht an Handelstagen gegen 7:45 Uhr. Gründe aus Nachrichtenquellen, keine Handlungsempfehlung.</div>`;
+  s.innerHTML=`${one(it[0],true)}${it.length>1?`<details><summary>Frühere Meldungen</summary>${it.slice(1,30).map(x=>one(x,false)).join("")}</details>`:""}
+   <div class="mute" style="margin-top:12px">Täglicher automatischer Bericht gegen 7:45 Uhr, sonntags und montags nur Bitcoin. Gründe aus Nachrichtenquellen, keine Handlungsempfehlung.</div>`;
   s.hidden=false}).catch(()=>{});
  fetch("spx_long.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{
   const R=j.rows,W=640,H=300,L=46,Rp=14,T=12,B=28,n=R.length,lg=Math.log10;
