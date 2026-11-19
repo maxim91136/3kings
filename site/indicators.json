@@ -35,7 +35,7 @@
   {
    "key": "fng",
    "name": "Fear & Greed Aktien",
-   "value": "25 · extreme Angst",
+   "value": "19 · extreme Angst",
    "pct": null,
    "since": null,
    "light": "gruen",
@@ -44,7 +44,7 @@
    "higher": null,
    "name_en": "Fear & Greed (stocks)",
    "text_en": "CNN, 0 = extreme fear, 100 = extreme greed. Extreme fear was often a buying opportunity.",
-   "value_en": "25 · extreme fear",
+   "value_en": "19 · extreme fear",
    "note_en": "As of Nov 19, 2026",
    "higher_en": null
   },
@@ -99,17 +99,17 @@
   {
    "key": "curve",
    "name": "Zinskurve 10 J − 2 J",
-   "value": "+0,27 %",
+   "value": "+0,28 %",
    "pct": null,
    "since": "2025",
    "light": "gelb",
    "text": "Unter null (invertiert) ging Rezessionen oft voraus, meist mit 6 bis 24 Monaten Abstand.",
-   "note": "Stand 18.11.2026",
+   "note": "Stand 19.11.2026",
    "higher": null,
    "name_en": "Yield curve 10Y − 2Y",
    "text_en": "Below zero (inverted) often preceded recessions, typically by 6 to 24 months.",
-   "value_en": "+0.27 %",
-   "note_en": "As of Nov 18, 2026",
+   "value_en": "+0.28 %",
+   "note_en": "As of Nov 19, 2026",
    "higher_en": null
   },
   {
@@ -120,12 +120,12 @@
    "since": null,
    "light": null,
    "text": "Zins für kurzfristig geparktes Geld in den USA. Grobe Richtung für Tagesgeld.",
-   "note": "Stand 18.11.2026",
+   "note": "Stand 19.11.2026",
    "higher": null,
    "name_en": "US money market rate",
    "text_en": "Interest on short-term cash in the US. Rough guide for savings rates.",
    "value_en": "4.34 %",
-   "note_en": "As of Nov 18, 2026",
+   "note_en": "As of Nov 19, 2026",
    "higher_en": null
   }
  ]

@@ -26,8 +26,9 @@
    "chg1y": -0.039,
    "dd_ath": 0.2552,
    "date": "2026-11-18",
-   "price": null,
-   "unit": "eur_oz"
+   "price": 3312.0,
+   "unit": "eur_oz",
+   "price_date": "2026-11-19"
   }
  ]
 }
