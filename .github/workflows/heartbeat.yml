@@ -38,6 +38,7 @@ jobs:
         run: |
           git config user.name "3kings-heartbeat"
           git config user.email "heartbeat@users.noreply.github.com"
+          cp REGELN.md site/REGELN.md
           git add -A
           git diff --cached --quiet || git commit -m "heartbeat $(date -u +%F)"
           git push
