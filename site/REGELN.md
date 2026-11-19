@@ -11,7 +11,7 @@ Regeln ändern sich nur am Saisonende oder nach ausdrücklicher Entscheidung. Je
 - Geprüfte Kandidaten: URTH, VT, QUAL, MTUM, USMV, XLK, TLT, IEF, EFA, EEM, ETH. Keiner hat die Regeln bestanden (Mannschaft-Sharpe 1,25 ohne, 1,00 bis 1,24 mit Kandidat). Kein Wechsel, keine Ersatzbank-Aufnahme.
 - Power-Law (kausal, Daten ab 2010): PL-Rampe Sharpe 0,87 = Halten, aber Rückgang 49 % statt 83 %. Keine bessere Rendite. Kein Signal in der Heartbeat-Regel; nur als Info möglich.
 
-## 2026-11-18: Bitcoin-Gewichtung Stufe 2 (Entscheidung des Nutzers)
+## 2026-11-18: Bitcoin-Gewichtung Stufe 2 (ausdrückliche Entscheidung)
 - Kapitalverteilung: Inverse Volatilität, Bitcoin-Gewicht x2 (Spot, kein Hebel, Summe nie über 100 %).
 - Test 2017-2026: Rendite 14,9 -> 17,6 %/J, Rückgang 15 -> 16 %, Sharpe 1,25 gleich. Stufen x3/x5 verworfen (Rückgang 21/29 %). Rückblick-Test, keine Garantie.
 - XLK als vierter König und Aufnahme der ETFs/ETH/Anleihen: nicht aufgenommen (kaum Effekt, zu nah an SPY).
@@ -50,8 +50,8 @@ Frage 1 ERFUELLT: nach Steuern 1930-2026 Trend SMA200 5,2 %/J, Rückgang 49 % vs
 Frage 2: 20-Jahres-Fenster Median Endwert/Eingezahlt: K1 sofort 2,14; K2 Kauf-Pause 2,14; K4 Dip-Reserve 2,08; K3 Trend voll 1,82; K5 Champion 1,69. Nach Kriterium empfohlen: K1 (sofort kaufen). K2 gleicher Median, schlimmster Buchverlust -38 statt -67 %, Median-Buchverlust nur 4 Punkte kleiner (Kriterium 10) -> nicht empfohlen, nur als ausdrückliche Entscheidung möglich.
 Seite: "Neues Geld / nur S&P 500" zeigt jetzt K1 (kaufen, ganzer Betrag) plus Trendlage als Info.
 
-## 2026-11-18: Kaufregel neues Geld = "nicht am Hoch" (ausdrückliche Entscheidung des Nutzers)
-Grundsatz des Nutzers: nicht am Allzeithoch kaufen. ath.py (S&P 1930-2026, monatlich, vor Steuern): "nicht am Hoch" (kaufen nur, wenn mind. 3 % unter dem Allzeithoch, sonst sammeln) 20 Jahre Median 2,43 vs sofort 2,44, besser in 41 % der Fenster - kostet praktisch nichts. "Warte auf -10 %" kostet deutlich (2,18). Kauf ab -20 % brachte im Schnitt mehr (5 Jahre 10,9 vs 8,7 %/J am Hoch), Kauf am Hoch war aber nicht öfter im Minus als bei -3 bis -20 %.
+## 2026-11-18: Kaufregel neues Geld = "nicht am Hoch" (ausdrückliche Entscheidung)
+Ausgangsidee: nicht am Allzeithoch kaufen. ath.py (S&P 1930-2026, monatlich, vor Steuern): "nicht am Hoch" (kaufen nur, wenn mind. 3 % unter dem Allzeithoch, sonst sammeln) 20 Jahre Median 2,43 vs sofort 2,44, besser in 41 % der Fenster - kostet praktisch nichts. "Warte auf -10 %" kostet deutlich (2,18). Kauf ab -20 % brachte im Schnitt mehr (5 Jahre 10,9 vs 8,7 %/J am Hoch), Kauf am Hoch war aber nicht öfter im Minus als bei -3 bis -20 %.
 Regel: S&P innerhalb 3 % vom Allzeithoch -> sammeln; sonst Betrag plus Reserve kaufen. Ersetzt K1 auf der Seite.
 
 ## 2026-11-18: Studie "Bewertung + Angst" für die Kaufregel (vorab festgelegt, valuation.py)
@@ -96,35 +96,35 @@ Frage B (Trend): Trend 10 Monate (~200 Tage) auf Total Return mit Cash-Zins gege
 ### Ergebnis Gegencheck Total Return (2026-11-18, totalreturn.py, Shiller 1929-2023)
 Frage A: Kriterium NICHT erfüllt (7 von 8 Varianten). Mit Dividenden und Zinsen kostet "nicht am Hoch" mehr als im Preisindex-Test: 20 J nominal Median 3,39 vs sofort 3,46 (ca. 2 % weniger), 10 J 1,74 vs 1,79 (ca. 3 %); besser als sofort nur in 1-12 % der Fenster (vorher 41 %). Einzelstarts Sept 1929, März 2000, Jan 1973: praktisch identisch zu sofort. Schlechteste 10 % nur ca. 1-4 % schlechter. Der frühere Befund "kostet praktisch nichts" gilt nur ohne Dividenden und war zu optimistisch; die Kritik war berechtigt.
 Frage B: Trend 10 Monate bleibt belegt: 1930-2023 Total Return 10,9 %/J, Rückgang 22 % vs Halten 9,8 %/J, 78 %; 1973-1982 11 vs 39 %, 2000-2009 6 vs 49 %. Schwäche bleibt 1983-1999 und 2010-2023 (2-3 Punkte/J hinter Halten).
-Die Regel "nicht am Hoch" ist eine ausdrückliche Entscheidung des Nutzers (Grundsatz); Kosten jetzt bekannt: ca. 2-3 % des Endvermögens im Median. Änderung nur auf seine Entscheidung.
+Die Regel "nicht am Hoch" war eine ausdrückliche Entscheidung (Grundsatz); Kosten jetzt bekannt: ca. 2-3 % des Endvermögens im Median. Änderung nur durch ausdrückliche Entscheidung.
 
-## 2026-11-18: Kaufregel neues Geld = sofort kaufen (Entscheidung des Nutzers, ersetzt "nicht am Hoch")
-Grund: Gegencheck Total Return (totalreturn.py): "nicht am Hoch" kostet 2-3 % Endvermögen, besser als sofort nur in 1-12 % der Fenster. Der Nutzer: Zahlen gehen vor Prinzip. Seite zeigt immer "Kaufen". "Nicht am Hoch" läuft als Vergleich im Schattenbuch Sparplan weiter (sparplan.py: regel_signal). Prüfung: nach einem Jahr. Rückgängig: signal in sparplan.py wieder an buy koppeln.
+## 2026-11-18: Kaufregel neues Geld = sofort kaufen (ausdrückliche Entscheidung, ersetzt "nicht am Hoch")
+Grund: Gegencheck Total Return (totalreturn.py): "nicht am Hoch" kostet 2-3 % Endvermögen, besser als sofort nur in 1-12 % der Fenster. Grundsatz: Zahlen gehen vor Prinzip. Seite zeigt immer "Kaufen". "Nicht am Hoch" läuft als Vergleich im Schattenbuch Sparplan weiter (sparplan.py: regel_signal). Prüfung: nach einem Jahr. Rückgängig: signal in sparplan.py wieder an buy koppeln.
 
-## 2026-11-18: Elite 9 und Faktor-ETFs (Wunsch des Nutzers, nur Anzeige und Schattenbuch, kein Geld)
+## 2026-11-18: Elite 9 und Faktor-ETFs (nur Anzeige und Schattenbuch, kein Geld)
 Ausnahme von "keine Einzelaktien": nur Beobachtung, keine Empfehlung, kein Einfluss auf die Kaufregel.
-Elite 9 (Liste des Nutzers vom 2026-11-18, Auswahl im RUECKBLICK, Quelle der Zahlen unklar): CME Group, Ferrari, Waste Management, Mastercard, Visa, Cintas, Hermès (Paris, EUR), Microsoft, Alphabet. 9 Regeln der Liste: Beta < 1,15; Bruttomarge > 50 %; Monopol/Duopol; keine Zyklizität; Preissetzungsmacht; kein existenzielles Disruptionsrisiko; 10-Jahres-Rendite (Total Return) ~17 % p. a.; Verschuldung/Eigenkapital < 1,0; Burggraben wächst.
+Elite 9 (Ausgangsliste vom 2026-11-18, Auswahl im RUECKBLICK, Quelle der Zahlen unklar): CME Group, Ferrari, Waste Management, Mastercard, Visa, Cintas, Hermès (Paris, EUR), Microsoft, Alphabet. 9 Regeln der Liste: Beta < 1,15; Bruttomarge > 50 %; Monopol/Duopol; keine Zyklizität; Preissetzungsmacht; kein existenzielles Disruptionsrisiko; 10-Jahres-Rendite (Total Return) ~17 % p. a.; Verschuldung/Eigenkapital < 1,0; Burggraben wächst.
 Automatisch berechnet (aus Kursen): Beta (täglich, 5 Jahre, gegen S&P 500) und 10-Jahres-Rendite p. a. Alles andere (Marge, Monopol, Zyklik, Disruption, Burggraben, Verschuldung) wird NICHT geprüft, nur übernommen. Die berechneten Werte werden mit den Listenwerten verglichen; Abweichung > 3 Punkte wird angezeigt.
 Ein Rückwärts-Test der Liste ist wertlos (Survivorship: Regel 7 wählt Gewinner der Vergangenheit). Er wird nur zur Illustration gezeigt und so gekennzeichnet. DER Test ist das Schattenbuch Elite ab 2026-11-18: 9 Aktien gleich gewichtet, in Euro, gegen S&P 500 in Euro.
 Kriterium (nach 3 Jahren, ab 2029-11): bewährt, wenn Rendite mindestens 2 Punkte pro Jahr über dem S&P UND der Rückgang nicht grösser; gescheitert, wenn die Rendite unter dem S&P liegt; sonst weiter beobachten. Nach 1 Jahr nur Zwischenstand, keine Bewertung.
 Faktor-ETFs: QUAL (Qualität), MTUM (Momentum), USMV (Min. Volatilität), XLK (Tech), dazu VT und URTH (Welt) gegen SPY, in Euro, ab 2015-07. Anzeige: Rendite pro Jahr, Rückgang, Sharpe, Beta. Aufnahmetest vom 2026-11-18: alle durchgefallen (siehe oben). Keine neue Regel.
 
-## 2026-11-18: Elite 9 wird Elite 5 (ausdrückliche Entscheidung des Nutzers: wer die Regeln nicht besteht, fliegt raus)
+## 2026-11-18: Elite 9 wird Elite 5 (ausdrückliche Entscheidung: wer die Regeln nicht besteht, fliegt raus)
 Prüfbar sind nur Regel 1 (Beta < 1,15) und Regel 7 (10-Jahres-Rendite >= 17 % p. a., hart gelesen). Ergebnis aus Kursen: Bestanden: Mastercard (0,89 / 20,7), Visa (0,82 / 18,6), Ferrari (0,90 / 23,3), Cintas (0,77 / 24,4), Microsoft (1,09 / 25,0). Raus: Alphabet (Beta 1,19), CME (14,8 %), Waste Management (15,5 %), Hermès (14,0 %). Die Liste ist ab jetzt eingefroren (keine automatische Änderung). Schattenbuch Elite startet neu mit den 5, gleich gewichtet, in Euro, gegen S&P 500; Kriterium unverändert (3 Jahre, +2 Punkte p. a., Rückgang nicht grösser). Die anderen sieben Regeln bleiben ungeprüft.
 
 ## 2026-11-18: Screening nach weiteren Elite-Kandidaten (vor dem Rechnen festgelegt)
-Universum: ca. 130 bekannte Qualitätsfirmen USA/Europa (Liste in screen.py). Harte Regeln wie bei Elite 5: Beta < 1,15 (5 Jahre täglich, in Euro gegen S&P 500 in Euro) UND 10-Jahres-Rendite >= 17 % p. a. (Heimatwährung, inkl. Dividenden). Wer besteht, wird danach von Hand gegen die weichen Regeln (Marge > 50 %, Monopol, nicht zyklisch, Verschuldung < 1, kein Disruptionsrisiko) eingeschätzt; diese Einschätzung ist Urteil, nicht Messung. Aufnahme nur durch ausdrückliche Entscheidung des Nutzers. Hinweis: Auswahl nach vergangener Rendite findet per Definition die Gewinner der Vergangenheit.
+Universum: ca. 130 bekannte Qualitätsfirmen USA/Europa (Liste in screen.py). Harte Regeln wie bei Elite 5: Beta < 1,15 (5 Jahre täglich, in Euro gegen S&P 500 in Euro) UND 10-Jahres-Rendite >= 17 % p. a. (Heimatwährung, inkl. Dividenden). Wer besteht, wird danach von Hand gegen die weichen Regeln (Marge > 50 %, Monopol, nicht zyklisch, Verschuldung < 1, kein Disruptionsrisiko) eingeschätzt; diese Einschätzung ist Urteil, nicht Messung. Aufnahme nur durch ausdrückliche Entscheidung. Hinweis: Auswahl nach vergangener Rendite findet per Definition die Gewinner der Vergangenheit.
 
-## 2026-11-18: Screening-Ergebnis, Elite 5 wird Elite 6 (Entscheidung des Nutzers)
+## 2026-11-18: Screening-Ergebnis, Elite 5 wird Elite 6 (ausdrückliche Entscheidung)
 Ca. 40 von 130 bestehen die harten Regeln; nach den weichen Regeln (Urteil) bleiben IDEXX (Beta 1,09 / 19,7 %), ASML (30,3 %, aber zyklisch), Constellation Software (18,8 %), Deutsche Börse (18,3 %; Beta europäischer Werte wegen Zeitzonen zu niedrig gemessen). Aufgenommen: nur IDEXX. ASML nicht (zyklisch, Regel gilt), obwohl einzigartig. Schattenbuch startet neu mit 6, Kriterium unverändert.
 
 ## 2026-11-18: Elite 6 Aufnahmewerte eingefroren
-Beta und 10-Jahres-Rendite der Elite 6 gelten fest zum Stichtag 2026-11-18 (data/elite_frozen.json), keine nächtliche Neuberechnung. Nach vorn misst nur das Schattenbuch. Neuer Stand nur bei ausdrücklicher Überprüfung durch den Nutzer.
+Beta und 10-Jahres-Rendite der Elite 6 gelten fest zum Stichtag 2026-11-18 (data/elite_frozen.json), keine nächtliche Neuberechnung. Nach vorn misst nur das Schattenbuch. Neuer Stand nur bei ausdrücklicher Überprüfung.
 
-## 2026-11-18: Margenregel präzisiert (Entscheidung des Nutzers)
+## 2026-11-18: Margenregel präzisiert (ausdrückliche Entscheidung)
 Gemini-Prüfung: Cintas Bruttomarge 49,7 % (Q4 GJ 2025) knapp unter 50 %. Entscheidung: Cintas bleibt. Die Margenregel ist eine weiche Regel (Urteil) und gilt ab jetzt als "Bruttomarge rund 50 % oder mehr, Toleranz 1 Punkt". Die harten Regeln (Beta < 1,15, 10J >= 17 %) bleiben ohne Toleranz.
 
-## 2026-11-18: Schattenbuch Elite auf 5 Jahre verlängert (Entscheidung des Nutzers)
+## 2026-11-18: Schattenbuch Elite auf 5 Jahre verlängert (ausdrückliche Entscheidung)
 Bewertung nach 5 statt 3 Jahren, also ab 2031-11. Kriterium sonst unverändert (mindestens +2 Punkte p. a. über S&P 500 bei nicht größerem Rückgang = bewährt; Rendite unter S&P = gescheitert). Zwischenstände jährlich, ohne Bewertung. Änderung vor dem ersten Datenpunkt, also ohne Kenntnis von Ergebnissen.
 
 ## 2026-11-19: Test Kaufregel für Einzelaktien (vor dem Rechnen festgelegt)
@@ -142,3 +142,9 @@ Rollierende Fenster ab 2013 (3 und 5 Jahre). Warten auf -20/-30/-40/-50/-60 % vo
 Der iShares S&P 500 Top 20 (IE000VA628D5) existiert erst seit 11/2024, zu kurz. Ersatz mit gleicher Idee: XLG (S&P 500 Top 50, ab 2005) und OEF (S&P 100, ab 2000), gegen SPY, Kurse inkl. Ausschüttungen, in Euro.
 Kriterium (wie Faktor-ETFs): Aufnahme nur, wenn Rendite p. a. höher UND in BEIDEN Hälften (bis 2015 / ab 2015) höher UND maximaler Rückgang nicht größer als SPY. Sonst nur Anzeige.
 Ergebnis (in Euro, 2005-06 bis 2026-11): XLG 11,4 %/J (Rückgang 47 %) vs SPY 11,3 % (51 %); bis 2015 6,8 vs 8,0 %; ab 2015 15,3 vs 14,0 %. OEF: 11,5 vs 11,3 %; bis 2015 7,3 vs 8,0; ab 2015 15,0 vs 14,0. Über 21 Jahre praktisch gleich, Vorsprung nur seit 2015 (Mega-Cap-Phase), davor schlechter. Kriterium (beide Hälften) verfehlt. Nicht aufgenommen. Der Top 20 ist noch konzentrierter (NVIDIA, Apple, Microsoft allein über 40 %), also eine Wette auf die Fortsetzung der letzten zehn Jahre.
+
+## 2026-11-19: Kauf-Warten bei Gold (gleicher Aufbau wie Bitcoin und Einzelaktien)
+Monatsgeld, 2 % Zins auf Wartegeld, rollierende 5- und 10-Jahres-Fenster ab 1975 (Monatsdaten in Dollar). Warten auf −10 bis −30 % vom Hoch: Median ±0 % (Gold lag 1980–2008 fast immer unter dem alten Hoch, die Regel kaufte dann ohnehin sofort), besser nur in 14–35 % der Startmonate, schlechtester Fall −54 %, bester +19 %. Gilt nicht. Damit ist "sofort kaufen" für alle drei Assets (S&P 500, Bitcoin, Gold) und für Einzelaktien geprüft.
+
+## 2026-11-19: Seite allgemein und zweisprachig
+Die Seite wird ohne Bezug auf einen persönlichen Bestand formuliert und behandelt alle drei Assets gleich. Kopfbereich: je Asset Kurs, Veränderung, Abstand zum Hoch und das Testergebnis "Kaufen". Rechner mit frei wählbarer Aufteilung (voreingestellt je ein Drittel, keine Gewichtungsempfehlung). Sprachen Deutsch und Englisch.

@@ -1,0 +1,33 @@
+{
+ "assets": [
+  {
+   "key": "SPY",
+   "chg1d": -0.0026,
+   "chg1y": 0.179,
+   "dd_ath": 0.0473,
+   "date": "2026-11-18",
+   "price": 7323.63,
+   "unit": "pts",
+   "price_date": "2026-11-18"
+  },
+  {
+   "key": "BTC",
+   "chg1d": -0.0287,
+   "chg1y": -0.2853,
+   "dd_ath": 0.4621,
+   "date": "2026-11-18",
+   "price": 57293.0,
+   "unit": "eur",
+   "price_date": "2026-11-18"
+  },
+  {
+   "key": "GLD",
+   "chg1d": -0.0316,
+   "chg1y": -0.039,
+   "dd_ath": 0.2552,
+   "date": "2026-11-18",
+   "price": null,
+   "unit": "eur_oz"
+  }
+ ]
+}

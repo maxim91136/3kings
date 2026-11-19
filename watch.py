@@ -28,6 +28,7 @@ out = dict(generated=None)
 cand = load("data/candidates.csv")
 if cand and spy:
     names = {"SPY": "S&P 500", "QUAL": "Qualität (QUAL)", "MTUM": "Momentum (MTUM)", "USMV": "Min. Schwankung (USMV)", "XLK": "Tech (XLK)", "VT": "Welt, alle Länder (VT)", "URTH": "Welt, MSCI World (URTH)"}
+    names_en = {"SPY": "S&P 500", "QUAL": "Quality (QUAL)", "MTUM": "Momentum (MTUM)", "USMV": "Min. volatility (USMV)", "XLK": "Tech (XLK)", "VT": "World, all countries (VT)", "URTH": "World, MSCI World (URTH)"}
     series = {"SPY": spy}
     for k in names:
         if k != "SPY":
@@ -38,11 +39,12 @@ if cand and spy:
     rows = []
     for k, s in series.items():
         st = stats(s, dates); b, c = beta(s, dates)
-        rows.append(dict(key=k, name=names[k], cagr=round(st["cagr"], 4), mdd=round(st["mdd"], 3), sharpe=round(st["sharpe"], 2), beta=round(b, 2), corr=round(c, 2)))
+        rows.append(dict(key=k, name=names[k], name_en=names_en[k], cagr=round(st["cagr"], 4), mdd=round(st["mdd"], 3), sharpe=round(st["sharpe"], 2), beta=round(b, 2), corr=round(c, 2)))
     out["factor"] = dict(since=dates[0], until=dates[-1], rows=rows)
 
 # ---------------- Elite 6 (2026-11-18: 5 aus Liste + IDEXX aus Screening)
 el = load("data/elite.csv")
+BR_EN = {"RACE": "Luxury cars", "MA": "Payments duopoly", "V": "Payments duopoly", "CTAS": "Recurring services", "MSFT": "Cloud and AI", "IDXX": "Veterinary diagnostics"}
 NAMES = {"RACE": ("Ferrari", "Luxus-Autos", 23.7), "MA": ("Mastercard", "Zahlungs-Duopol", 20.9), "V": ("Visa", "Zahlungs-Duopol", 16.9),
          "CTAS": ("Cintas", "Wiederkehrende Dienste", 25.6), "MSFT": ("Microsoft", "Cloud und KI", 25.9),
          "IDXX": ("IDEXX", "Tierarzt-Diagnostik", None)}
@@ -61,11 +63,11 @@ if el and spy:
         return (s[d1] / s[i0]) ** (1 / yrs) - 1
     rows = []
     for k, (nm, br, claim) in NAMES.items():
-        if k not in local: rows.append(dict(key=k, name=nm, branch=br, claim=claim, missing=True)); continue
+        if k not in local: rows.append(dict(key=k, name=nm, branch=br, branch_en=BR_EN.get(k, br), claim=claim, missing=True)); continue
         d1 = max(local[k]); ds = [d for d in sorted(local[k]) if d in spy and d in ep[k]][-1260:]
         b, _ = beta(ep[k], [d for d in ds if d in spy]) if len(ds) > 300 else (None, None)
         c = cagr10(local[k], d1)
-        rows.append(dict(key=k, name=nm, branch=br, claim=claim, beta=None if b is None else round(b, 2), cagr10=None if c is None else round(c, 4), until=d1, dd=round(1 - local[k][d1] / max(local[k].values()), 3)))
+        rows.append(dict(key=k, name=nm, branch=br, branch_en=BR_EN.get(k, br), claim=claim, beta=None if b is None else round(b, 2), cagr10=None if c is None else round(c, 4), until=d1, dd=round(1 - local[k][d1] / max(local[k].values()), 3)))
     fz = json.load(open("data/elite_frozen.json")) if os.path.exists("data/elite_frozen.json") else None
     if fz:  # Aufnahmewerte vom Stichtag, eingefroren
         fm = {r["key"]: r for r in fz["rows"]}

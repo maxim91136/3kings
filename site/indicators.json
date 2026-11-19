@@ -9,7 +9,12 @@
    "light": "rot",
    "text": "Börsenwert aller US-Firmen (Wilshire 5000) im Verhältnis zur Wirtschaftsleistung. Hoch heißt teuer.",
    "note": "Wilshire 18.11.2026, Wirtschaftsleistung Quartal ab 01.07.2026",
-   "higher": "teurer"
+   "higher": "teurer",
+   "name_en": "Buffett Indicator",
+   "text_en": "Market value of US companies relative to economic output (GDP). High means expensive.",
+   "value_en": "221 %",
+   "note_en": "Wilshire Nov 18, 2026, GDP quarter from Jul 1, 2026",
+   "higher_en": "pricier"
   },
   {
    "key": "cape",
@@ -20,7 +25,12 @@
    "light": "rot",
    "text": "Kurs geteilt durch den Durchschnittsgewinn der letzten 10 Jahre. Hoch heißt teuer.",
    "note": "Stand 18.11.2026",
-   "higher": "teurer"
+   "higher": "teurer",
+   "name_en": "Shiller P/E (CAPE)",
+   "text_en": "Price divided by average earnings of the last 10 years. High means expensive.",
+   "value_en": "38.6",
+   "note_en": "As of Nov 18, 2026",
+   "higher_en": "pricier"
   },
   {
    "key": "fng",
@@ -31,7 +41,12 @@
    "light": "gruen",
    "text": "CNN, 0 = extreme Angst, 100 = extreme Gier. Extreme Angst war oft eine Kaufgelegenheit.",
    "note": "Stand 19.11.2026",
-   "higher": null
+   "higher": null,
+   "name_en": "Fear & Greed (stocks)",
+   "text_en": "CNN, 0 = extreme fear, 100 = extreme greed. Extreme fear was often a buying opportunity.",
+   "value_en": "25 · extreme fear",
+   "note_en": "As of Nov 19, 2026",
+   "higher_en": null
   },
   {
    "key": "cfng",
@@ -42,7 +57,12 @@
    "light": "gruen",
    "text": "alternative.me, 0 = extreme Angst, 100 = extreme Gier. Extreme Angst war oft eine Kaufgelegenheit.",
    "note": "Stand 19.11.2026",
-   "higher": null
+   "higher": null,
+   "name_en": "Fear & Greed (crypto)",
+   "text_en": "alternative.me, 0 = extreme fear, 100 = extreme greed. Extreme fear was often a buying opportunity.",
+   "value_en": "10 · extreme fear",
+   "note_en": "As of Nov 19, 2026",
+   "higher_en": null
   },
   {
    "key": "expect",
@@ -53,7 +73,12 @@
    "light": null,
    "text": "Bei einem Shiller-KGV von 38,6: grob diese Rendite über der Inflation in den nächsten 10 Jahren (US-Aktien). Faustregel: 1 geteilt durch das KGV. Grobe Richtung, keine Prognose.",
    "note": "",
-   "higher": null
+   "higher": null,
+   "name_en": "Expected return per year",
+   "text_en": "At a Shiller P/E of 38.6: roughly this return above inflation over the next 10 years (US stocks). Rule of thumb: 1 divided by the P/E. Rough direction, not a forecast.",
+   "value_en": "≈ 2.6 %",
+   "note_en": "",
+   "higher_en": null
   },
   {
    "key": "vix",
@@ -64,7 +89,12 @@
    "light": "gruen",
    "text": "Erwartete Schwankung. Viel Angst war oft eine Kaufgelegenheit, sehr wenig Angst heißt Sorglosigkeit.",
    "note": "Stand 18.11.2026",
-   "higher": "ängstlicher"
+   "higher": "ängstlicher",
+   "name_en": "Fear index VIX",
+   "text_en": "Expected volatility. High fear was often a buying opportunity; very low fear signals complacency.",
+   "value_en": "24.6",
+   "note_en": "As of Nov 18, 2026",
+   "higher_en": "more fearful"
   },
   {
    "key": "curve",
@@ -75,7 +105,12 @@
    "light": "gelb",
    "text": "Unter null (invertiert) ging Rezessionen oft voraus, meist mit 6 bis 24 Monaten Abstand.",
    "note": "Stand 18.11.2026",
-   "higher": null
+   "higher": null,
+   "name_en": "Yield curve 10Y − 2Y",
+   "text_en": "Below zero (inverted) often preceded recessions, typically by 6 to 24 months.",
+   "value_en": "+0.27 %",
+   "note_en": "As of Nov 18, 2026",
+   "higher_en": null
   },
   {
    "key": "rate",
@@ -86,7 +121,12 @@
    "light": null,
    "text": "Zins für kurzfristig geparktes Geld in den USA. Grobe Richtung für Tagesgeld.",
    "note": "Stand 18.11.2026",
-   "higher": null
+   "higher": null,
+   "name_en": "US money market rate",
+   "text_en": "Interest on short-term cash in the US. Rough guide for savings rates.",
+   "value_en": "4.34 %",
+   "note_en": "As of Nov 18, 2026",
+   "higher_en": null
   }
  ]
 }

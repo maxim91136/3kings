@@ -7,6 +7,7 @@
    {
     "key": "SPY",
     "name": "S&P 500",
+    "name_en": "S&P 500",
     "cagr": 0.1324,
     "mdd": 0.331,
     "sharpe": 0.75,
@@ -16,6 +17,7 @@
    {
     "key": "QUAL",
     "name": "Qualität (QUAL)",
+    "name_en": "Quality (QUAL)",
     "cagr": 0.1264,
     "mdd": 0.334,
     "sharpe": 0.72,
@@ -25,6 +27,7 @@
    {
     "key": "MTUM",
     "name": "Momentum (MTUM)",
+    "name_en": "Momentum (MTUM)",
     "cagr": 0.1289,
     "mdd": 0.335,
     "sharpe": 0.65,
@@ -34,6 +37,7 @@
    {
     "key": "USMV",
     "name": "Min. Schwankung (USMV)",
+    "name_en": "Min. volatility (USMV)",
     "cagr": 0.1002,
     "mdd": 0.324,
     "sharpe": 0.68,
@@ -43,6 +47,7 @@
    {
     "key": "XLK",
     "name": "Tech (XLK)",
+    "name_en": "Tech (XLK)",
     "cagr": 0.2065,
     "mdd": 0.317,
     "sharpe": 0.87,
@@ -52,6 +57,7 @@
    {
     "key": "VT",
     "name": "Welt, alle Länder (VT)",
+    "name_en": "World, all countries (VT)",
     "cagr": 0.1021,
     "mdd": 0.335,
     "sharpe": 0.63,
@@ -61,6 +67,7 @@
    {
     "key": "URTH",
     "name": "Welt, MSCI World (URTH)",
+    "name_en": "World, MSCI World (URTH)",
     "cagr": 0.1092,
     "mdd": 0.333,
     "sharpe": 0.66,
@@ -76,6 +83,7 @@
     "key": "RACE",
     "name": "Ferrari",
     "branch": "Luxus-Autos",
+    "branch_en": "Luxury cars",
     "claim": 23.7,
     "beta": 0.9,
     "cagr10": 0.2326,
@@ -86,6 +94,7 @@
     "key": "MA",
     "name": "Mastercard",
     "branch": "Zahlungs-Duopol",
+    "branch_en": "Payments duopoly",
     "claim": 20.9,
     "beta": 0.89,
     "cagr10": 0.2069,
@@ -96,6 +105,7 @@
     "key": "V",
     "name": "Visa",
     "branch": "Zahlungs-Duopol",
+    "branch_en": "Payments duopoly",
     "claim": 16.9,
     "beta": 0.82,
     "cagr10": 0.1862,
@@ -106,6 +116,7 @@
     "key": "CTAS",
     "name": "Cintas",
     "branch": "Wiederkehrende Dienste",
+    "branch_en": "Recurring services",
     "claim": 25.6,
     "beta": 0.77,
     "cagr10": 0.2441,
@@ -116,6 +127,7 @@
     "key": "MSFT",
     "name": "Microsoft",
     "branch": "Cloud und KI",
+    "branch_en": "Cloud and AI",
     "claim": 25.9,
     "beta": 1.09,
     "cagr10": 0.2504,
@@ -126,6 +138,7 @@
     "key": "IDXX",
     "name": "IDEXX",
     "branch": "Tierarzt-Diagnostik",
+    "branch_en": "Veterinary diagnostics",
     "claim": null,
     "beta": 1.09,
     "cagr10": 0.1961,

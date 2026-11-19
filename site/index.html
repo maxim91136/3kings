@@ -63,138 +63,158 @@ th{color:var(--mute);font-weight:500}th:first-child,td:first-child{text-align:le
 footer{margin-top:44px;color:var(--mute);font-size:12px}
 @media(min-width:560px){.pole{height:230px}.pct{font-size:36px}h1{font-size:48px}}
 @media(prefers-reduced-motion:reduce){.fill,.season i{transition:none}}
+.lang{display:flex;justify-content:flex-end;gap:2px;font-size:12px;margin-bottom:-8px}.lang a{color:var(--mute);text-decoration:none;padding:4px 8px;border:1px solid var(--line);border-radius:4px}.lang a.on{color:var(--ink);background:var(--gld);border-color:var(--gld)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:22px 0 0}.card{background:var(--slate);border:1px solid var(--line);border-top:3px solid var(--c);border-radius:6px;padding:10px 8px 8px}.card h3{font:600 13px/1.2 var(--sans);margin:0 0 4px;color:var(--mute)}.card .px{font:600 19px/1.15 var(--serif)}.card dl{display:grid;grid-template-columns:1fr auto;gap:2px 4px;margin:8px 0 0;font-size:12px;text-align:left}.card dt{color:var(--mute)}.card dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}
+.weights{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 14px}.weights label{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--mute);border-top:2px solid var(--c);padding-top:6px}.weights input{width:4.2em;background:var(--slate);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:6px;font:600 16px var(--sans);text-align:right}.weights input:focus-visible{outline:2px solid var(--gld);outline-offset:2px}.weights em{font-style:normal;display:none}
 </style></head><body>
 <main id="app"><svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg>
-<h1>3Kings</h1><div class="stamp">lädt …</div></main>
+<h1>3Kings</h1><div class="stamp">…</div></main>
 <script>
+const qs=new URLSearchParams(location.search);
+let LANG=qs.get("lang")||(()=>{try{return localStorage.getItem("lang")}catch(e){return null}})()||(navigator.language||"de").slice(0,2);
+if(LANG!=="en")LANG="de";try{localStorage.setItem("lang",LANG)}catch(e){}
+document.documentElement.lang=LANG;
+const EN=LANG==="en",T=(de,en)=>EN?en:de,LOC=EN?"en-US":"de-DE",DS=EN?".":",";
+const fx=(x,d)=>(+x).toFixed(d).replace(".",DS);
 const pct=x=>Math.round(x*100);
-const fmtDay=s=>{const[a,b,c]=s.split("-");return c+"."+b+"."+a};
-const KINGS={BTC:{name:"Bitcoin",c:"var(--btc)"},SPY:{name:"S&P 500",c:"var(--spy)"},GLD:{name:"Gold",c:"var(--gld)"}};
-const why=v=>v.champion.startsWith("Trend")?(x=>`Kurs ${Math.abs(x)<0.01?(Math.abs(x)*100).toFixed(1).replace(".",","):Math.abs(Math.round(x*100))} % ${x<0?"unter":"über"} dem ${v.line_n||200}-Tage-Schnitt`)(v.vs_line??v.vs_sma200):
- v.champion.startsWith("Vol")?"Anteil nach Schwankung":"voll dabei";
-function chart(rows,la="Empfehlungen",lb="Halten"){
- if(rows.length<2) return `<div class="empty">Die Kurve füllt sich mit jedem Lauf.</div>`;
- const W=640,H=220,L=44,R=150,T=14,B=26,xs=rows.map((_,i)=>L+(W-L-R)*i/(rows.length-1));
+const fmtDay=s=>{const[a,b,c]=s.split("-");return EN?new Date(+a,+b-1,+c).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}):c+"."+b+"."+a};
+const eur0=x=>new Intl.NumberFormat(LOC,{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(x);
+const sgn=(x,d=1)=>(x>0?"+":x<0?"−":"±")+fx(Math.abs(x*100),d)+" %";
+const KINGS={SPY:{name:"S&P 500",c:"var(--spy)"},BTC:{name:"Bitcoin",c:"var(--btc)"},GLD:{name:T("Gold","Gold"),c:"var(--gld)"}};
+const why=v=>v.champion.startsWith("Trend")?(x=>T(`Kurs ${Math.abs(x)<0.01?fx(Math.abs(x)*100,1):Math.abs(Math.round(x*100))} % ${x<0?"unter":"über"} dem ${v.line_n||200}-Tage-Schnitt`,`Price ${Math.abs(x)<0.01?fx(Math.abs(x)*100,1):Math.abs(Math.round(x*100))} % ${x<0?"below":"above"} the ${v.line_n||200}-day average`))(v.vs_line??v.vs_sma200):
+ v.champion.startsWith("Vol")?T("Anteil nach Schwankung","Weight by volatility"):T("voll dabei","fully in");
+function chart(rows,la=T("Empfehlungen","Signals"),lb=T("Halten","Hold")){
+ if(rows.length<2) return `<div class="empty">${T("Die Kurve füllt sich mit jedem Lauf.","The curve fills in with every run.")}</div>`;
+ const W=640,H=220,L=44,R=150,Tp=14,B=26,xs=rows.map((_,i)=>L+(W-L-R)*i/(rows.length-1));
  const all=rows.flatMap(r=>[+r.shadow,+r.hold]);let lo=Math.min(...all),hi=Math.max(...all);const pad=(hi-lo)*.15||.01;lo-=pad;hi+=pad;
- const y=v=>T+(H-T-B)*(1-(v-lo)/(hi-lo));
+ const y=v=>Tp+(H-Tp-B)*(1-(v-lo)/(hi-lo));
  const path=k=>rows.map((r,i)=>(i?"L":"M")+xs[i].toFixed(1)+" "+y(+r[k]).toFixed(1)).join(" ");
  const last=rows[rows.length-1];
- return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Schattenbuch gegen Halten">
- <line x1="${L}" x2="${W-R}" y1="${y(1)}" y2="${y(1)}" stroke="#262B37"/><text x="${L-8}" y="${y(1)+4}" text-anchor="end" fill="#8A8F9C" font-size="12">1,00</text>
+ return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${la} / ${lb}">
+ <line x1="${L}" x2="${W-R}" y1="${y(1)}" y2="${y(1)}" stroke="#262B37"/><text x="${L-8}" y="${y(1)+4}" text-anchor="end" fill="#8A8F9C" font-size="12">${fx(1,2)}</text>
  <path d="${path("hold")}" fill="none" stroke="#8A8F9C" stroke-width="2" stroke-dasharray="5 4"/>
  <path d="${path("shadow")}" fill="none" stroke="#D9B34A" stroke-width="2.5"/>
- <text x="${W-R+8}" y="${y(+last.shadow)+4}" fill="#D9B34A" font-size="13">${la} ${(+last.shadow).toFixed(3).replace(".",",")}</text>
- <text x="${W-R+8}" y="${y(+last.hold)+(Math.abs(y(+last.shadow)-y(+last.hold))<16?18:4)}" fill="#8A8F9C" font-size="13">${lb} ${(+last.hold).toFixed(3).replace(".",",")}</text>
+ <text x="${W-R+8}" y="${y(+last.shadow)+4}" fill="#D9B34A" font-size="13">${la} ${fx(last.shadow,3)}</text>
+ <text x="${W-R+8}" y="${y(+last.hold)+(Math.abs(y(+last.shadow)-y(+last.hold))<16?18:4)}" fill="#8A8F9C" font-size="13">${lb} ${fx(last.hold,3)}</text>
  <text x="${L}" y="${H-6}" fill="#8A8F9C" font-size="12">${fmtDay(rows[0].date)}</text>
  <text x="${W-R}" y="${H-6}" text-anchor="end" fill="#8A8F9C" font-size="12">${fmtDay(last.date)}</text></svg>`;
 }
+const PROOF=[["Auf Rücksetzer warten (−10 %)","Wait for a dip (−10 %)","2,18 statt 2,44 pro eingezahltem €","2.18 instead of 2.44 per € paid in"],
+ ["Nicht am Hoch kaufen","Don't buy at the high","2–3 % weniger Endvermögen","2–3 % less final wealth"],
+ ["Teure Bewertung als Bremse","Expensive valuation as a brake","2,26 statt 2,43, bis zu 6 Jahre Wartezeit","2.26 instead of 2.43, waits of up to 6 years"],
+ ["Extreme Angst (VIX) als Kaufsignal","Extreme fear (VIX) as a buy signal","identisch, der Markt war da schon gefallen","identical, the market had already fallen"],
+ ["In Stufen einsteigen","Buy in stages","beim S&amp;P in 3 von 6 Epochen besser, zu wenig","better for the S&amp;P in only 3 of 6 epochs, not enough"],
+ ["20 % als Reserve für Crashs halten","Keep 20 % as a crash reserve","2,08 statt 2,14","2.08 instead of 2.14"],
+ ["Immer in den Stärksten investieren","Always invest in the strongest","kein Vorteil bei S&amp;P und Gold","no advantage for S&amp;P and gold"],
+ ["Gold erst 10–30 % unter dem Hoch kaufen","Buy gold only 10–30 % below the high","Median ±0 %, besser nur in 14–35 % der Startmonate, schlechtester Fall −54 % (ab 1975)","median ±0 %, better in only 14–35 % of start months, worst case −54 % (since 1975)"],
+ ["Bitcoin erst 20–60 % unter dem Hoch kaufen","Buy bitcoin only 20–60 % below the high","6–17 % weniger, besser nur in jedem 4. bis 10. Startmonat (ab 2013)","6–17 % less, better in only 1 in 4 to 1 in 10 start months (since 2013)"],
+ ["Einzelaktien erst 10–25 % unter dem Hoch kaufen","Buy single stocks only 10–25 % below the high","3–21 % weniger, nur bei jeder 10. Aktie besser (138 Aktien, ab 2006)","3–21 % less, better for only 1 in 10 stocks (138 stocks, since 2006)"]];
 fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  const age=(Date.now()-new Date(h.generated_at))/864e5,dage=(Date.now()-new Date(h.data_date))/864e5;
- const run=new Date(h.generated_at).toLocaleString("de-DE",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"});
+ const run=new Date(h.generated_at).toLocaleString(LOC,{day:"2-digit",month:EN?"short":"2-digit",hour:"2-digit",minute:"2-digit"});
  const mv={};h.moves.forEach(m=>mv[m.player]=m);const act=h.moves.length>0;
- let o=`<svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg><h1>3Kings</h1>
- <div class="stamp">Kurse vom ${fmtDay(h.data_date)}, berechnet am ${run} Uhr</div>`;
- if(age>3||dage>5) o+=`<div class="alert"><b>Puls ausgefallen.</b> Letzter Lauf vor ${age.toFixed(1)} Tagen, letzter Kurstag ${fmtDay(h.data_date)}. Bitte den GitHub-Lauf prüfen.</div>`;
+ let o=`<div class="lang"><a href="?lang=de" class="${EN?"":"on"}" hreflang="de">DE</a><a href="?lang=en" class="${EN?"on":""}" hreflang="en">EN</a></div>
+ <svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg><h1>3Kings</h1>
+ <div class="stamp">${T(`Kurse vom ${fmtDay(h.data_date)}, berechnet am ${run} Uhr`,`Prices as of ${fmtDay(h.data_date)}, calculated ${run}`)}</div>`;
+ if(age>3||dage>5) o+=`<div class="alert"><b>${T("Puls ausgefallen.","Data feed down.")}</b> ${T(`Letzter Lauf vor ${fx(age,1)} Tagen, letzter Kurstag ${fmtDay(h.data_date)}. Bitte den GitHub-Lauf prüfen.`,`Last run ${fx(age,1)} days ago, last price date ${fmtDay(h.data_date)}. Check the GitHub run.`)}</div>`;
  o+=`<section id="news" hidden style="margin-top:22px"></section>
- <div class="verdict hero" id="hero"><h2 id="sig">…</h2><p id="sigwhy"></p></div>
- <section class="first"><div class="money"><label for="amt" class="mute">Neues Geld</label><input id="amt" type="number" inputmode="numeric" min="0" step="100" value="1000"><span class="mute">€</span></div>
- <div class="split" id="split"></div><div class="mute" id="note"></div>
- <table class="cheap" id="cheap"></table></section>
- <section class="proof"><h4>Der Beleg</h4>
- <div class="mute">Regel: Neues Kapital sofort investieren. Getestet beim S&amp;P 500 ab 1929, bei Gold, bei 138 Einzelaktien und bei Bitcoin. Keine Warte-Strategie war überlegen. Entscheidend ist, was gekauft wird, nicht wann.</div>
- <table class="pf"><tr><th>Idee</th><th>Ergebnis</th></tr>
- <tr><td>Auf Rücksetzer warten (−10 %)</td><td>2,18 statt 2,44 pro eingezahltem €</td></tr>
- <tr><td>Nicht am Hoch kaufen</td><td>2–3 % weniger Endvermögen</td></tr>
- <tr><td>Teure Bewertung als Bremse</td><td>2,26 statt 2,43, bis zu 6 Jahre Wartezeit</td></tr>
- <tr><td>Extreme Angst (VIX) als Kaufsignal</td><td>identisch, der Markt war da schon gefallen</td></tr>
- <tr><td>In Stufen einsteigen</td><td>beim S&amp;P in 3 von 6 Epochen besser, zu wenig</td></tr>
- <tr><td>20 % als Reserve für Crashs halten</td><td>2,08 statt 2,14</td></tr>
- <tr><td>Immer in den Stärksten investieren</td><td>kein Vorteil bei S&amp;P und Gold</td></tr><tr><td>Einzelaktien erst 10–25 % unter dem Hoch kaufen</td><td>3–21 % weniger, nur bei jeder 10. Aktie besser (138 Aktien, ab 2006)</td></tr><tr><td>Bitcoin erst 20–60 % unter dem Hoch kaufen</td><td>6–17 % weniger, besser nur in jedem 4. bis 10. Startmonat (ab 2013)</td></tr></table>
- <div class="mute">Einzige belegte Ausnahme: Der Trend (200-Tage-Linie) senkt den schlimmsten Rückgang von 78 auf 22 %. Das gilt fürs Halten, nicht fürs Kaufen.</div>
- <div class="mute" style="margin-top:8px">Gilt für Anlagen, die langfristig steigen. Vergangenheit, keine Garantie. Stand 19.11.2026, Details im <a href="regeln.html" style="color:var(--gld)">Regelbuch</a>.</div></section>
+ <div class="verdict hero" id="hero"><h2 class="buy">${T("Kaufen","Buy")}</h2><p>${T("Sobald Geld da ist. Getestet für S&amp;P 500, Bitcoin und Gold: Warten auf Rücksetzer, günstigere Bewertung oder Angst brachte in keinem Test mehr.","As soon as there is money. Tested for the S&amp;P 500, bitcoin and gold: waiting for dips, cheaper valuations or fear never did better.")}</p></div>
+ <div class="cards" id="cards"></div><div class="mute" id="cardnote" style="font-size:12px;margin-top:8px"></div>
+ <section class="first"><h4>${T("Rechner","Calculator")}</h4><div class="money"><label for="amt" class="mute">${T("Neues Geld","New money")}</label><input id="amt" type="number" inputmode="numeric" min="0" step="100" value="1000"><span class="mute">€</span></div>
+ <div class="weights">${Object.entries(KINGS).map(([k,K],i)=>`<label style="--c:${K.c}"><span>${K.name}</span><input type="number" inputmode="numeric" min="0" max="100" step="5" data-k="${k}" value="${i===0?34:33}"><em>%</em></label>`).join("")}</div>
+ <div class="split" id="split"></div><div class="mute" id="note"></div></section>
+ <section class="proof"><h4>${T("Der Beleg","The evidence")}</h4>
+ <div class="mute">${T("Regel: Neues Kapital sofort investieren. Getestet beim S&amp;P 500 ab 1929, bei Gold ab 1975, bei Bitcoin ab 2013 und bei 138 Einzelaktien. Keine Warte-Strategie war überlegen. Entscheidend ist, was gekauft wird, nicht wann.","Rule: invest new money right away. Tested on the S&amp;P 500 since 1929, gold since 1975, bitcoin since 2013 and 138 single stocks. No waiting strategy did better. What is bought matters, not when.")}</div>
+ <table class="pf"><tr><th>${T("Idee","Idea")}</th><th>${T("Ergebnis","Result")}</th></tr>${PROOF.map(p=>`<tr><td>${EN?p[1]:p[0]}</td><td>${EN?p[3]:p[2]}</td></tr>`).join("")}</table>
+ <div class="mute">${T("Einzige belegte Ausnahme: Der Trend (200-Tage-Linie) senkte beim S&amp;P 500 den schlimmsten Rückgang von 78 auf 22 %. Das gilt fürs Halten, nicht fürs Kaufen.","Only proven exception: the trend (200-day line) cut the worst S&amp;P 500 drawdown from 78 to 22 %. That applies to holding, not to buying.")}</div>
+ <div class="mute" style="margin-top:8px">${T("Gilt für Anlagen, die langfristig steigen. Vergangenheit, keine Garantie. Stand 19.11.2026, Details im","Applies to assets that rise over the long term. Past results, no guarantee. As of Nov 19, 2026, details in the")} <a href="regeln.html?lang=${LANG}" style="color:var(--gld)">${T("Regelbuch","rule book")}</a>.</div></section>
  <section id="long" hidden></section>
  <section id="ind" hidden></section>
  <section id="spar" hidden></section>
  <section id="watch" hidden></section>
- <section class="pruef"><h4>Prüfstand: Mannschaft</h4><div class="mute">Taktisches Modell mit allen drei Königen. Ohne Handelsrelevanz, läuft zu Testzwecken mit.</div>`;
- o+=`<div class="verdict small ${act?"act":""}"><h2>${act?"Aktion empfohlen":"Nichts tun"}</h2><p>${act?"Mindestens ein Anteil weicht um "+pct(h.band)+" Punkte oder mehr ab.":"Der Bestand bleibt, keine Abweichung ab "+pct(h.band)+" Punkten."}</p></div><div class="banners">`;
- for(const[k,v]of Object.entries(h.players)){const K=KINGS[k],m=mv[k],held=h.held[k];
+ <section class="pruef"><h4>${T("Prüfstand: Mannschaft","Test bench: team model")}</h4><div class="mute">${T("Taktisches Modell mit allen drei Assets. Ohne Handelsrelevanz, läuft zu Testzwecken mit.","Tactical model across all three assets. Not used for decisions; runs for testing only.")}</div>`;
+ o+=`<div class="verdict small ${act?"act":""}"><h2>${act?T("Aktion empfohlen","Action suggested"):T("Nichts tun","Do nothing")}</h2><p>${act?T("Mindestens ein Anteil weicht um "+pct(h.band)+" Punkte oder mehr ab.","At least one weight is off by "+pct(h.band)+" points or more."):T("Der Bestand bleibt, keine Abweichung ab "+pct(h.band)+" Punkten.","Holdings stay; no deviation of "+pct(h.band)+" points or more.")}</p></div><div class="banners">`;
+ for(const k of ["BTC","SPY","GLD"]){const v=h.players[k];if(!v)continue;const K=KINGS[k],m=mv[k],held=h.held[k];
   let verb,cls;
-  if(m){cls=m.delta>0?"up":"down";verb=(m.delta>0?"aufstocken auf ":"reduzieren auf ")+pct(m.auf)+" %"}
-  else if(held===0){cls="out";verb="draußen bleiben"}else{cls="";verb="halten"}
+  if(m){cls=m.delta>0?"up":"down";verb=(m.delta>0?T("aufstocken auf ","increase to "):T("reduzieren auf ","reduce to "))+pct(m.auf)+" %"}
+  else if(held===0){cls="out";verb=T("draußen bleiben","stay out")}else{cls="";verb=T("halten","hold")}
   const tick=m||Math.abs(v.target-held)>=0.01?`<div class="tick" style="bottom:${Math.min(pct(v.target),100)}%"></div>`:"";
   o+=`<div class="banner" style="--c:${K.c}"><h3>${K.name}</h3><div class="pole"><div class="fill" data-h="${Math.min(pct(held),100)}"></div>${tick}</div>
   <div class="pct">${pct(held)}<small> %</small></div><div class="verb ${cls}">${verb}</div><div class="why">${why(v)}</div></div>`}
- o+=`</div><section><h4>Verteilung</h4><div class="bar">${Object.entries(KINGS).map(([k,K])=>`<i style="width:${pct(h.held[k])}%;background:${K.c}"></i>`).join("")}</div>
- <div class="legend">${Object.entries(KINGS).map(([k,K])=>`<span><span class="dot" style="background:${K.c}"></span>${K.name} <b>${pct(h.held[k])} %</b></span>`).join("")}<span><span class="dot" style="background:#262B37;border:1px solid #8A8F9C"></span>Cash <b>${pct(h.cash)} %</b></span></div></section>`;
+ o+=`</div><section><h4>${T("Verteilung","Allocation")}</h4><div class="bar">${["BTC","SPY","GLD"].map(k=>`<i style="width:${pct(h.held[k])}%;background:${KINGS[k].c}"></i>`).join("")}</div>
+ <div class="legend">${["BTC","SPY","GLD"].map(k=>`<span><span class="dot" style="background:${KINGS[k].c}"></span>${KINGS[k].name} <b>${pct(h.held[k])} %</b></span>`).join("")}<span><span class="dot" style="background:#262B37;border:1px solid #8A8F9C"></span>Cash <b>${pct(h.cash)} %</b></span></div></section>`;
  o+=`</section>`;
- o+=`<section><h4>Saison ${h.season.n_seasons}</h4><div class="season"><i data-w="${Math.round(h.season.day_in_season/63*100)}"></i></div>
- <div class="mute">Tag ${h.season.day_in_season} von 63. Die nächste Strategie-Wahl kommt in ${h.season.days_left} Handelstagen, bis dahin ändern sich die Regeln nicht.</div></section>
- <section><h4>Schattenbuch Mannschaft</h4><div class="pair"><div><b style="color:var(--gld)">${h.shadow.toFixed(3).replace(".",",")}</b><span>Empfehlungen befolgt</span></div><div><b>${h.hold.toFixed(3).replace(".",",")}</b><span>alle drei gleich halten</span></div></div>
- ${chart(h.ledger_tail)}<div class="mute">Seit ${fmtDay(h.since)}, ${h.n_actions} ${h.n_actions===1?"Empfehlung":"Empfehlungen"}. Papierrechnung, nur Handelskosten sind eingerechnet.</div></section>
- <details><summary>Verlauf</summary><table><tr><th>Tag</th><th>BTC</th><th>S&amp;P</th><th>Gold</th><th>Cash</th><th>Schatten</th></tr>${h.ledger_tail.slice().reverse().slice(0,60).map(r=>`<tr><td>${fmtDay(r.date)}</td><td>${pct(+r.BTC)} %</td><td>${pct(+r.SPY)} %</td><td>${pct(+r.GLD)} %</td><td>${pct(+r.cash)} %</td><td>${(+r.shadow).toFixed(3).replace(".",",")}</td></tr>`).join("")}</table></details>
- <footer><a href="regeln.html" style="color:var(--gld)">Regelbuch</a><br>Nur zur privaten Auswertung. Es werden keine Aufträge ausgelöst.</footer>`;
+ o+=`<section><h4>${T("Saison","Season")} ${h.season.n_seasons}</h4><div class="season"><i data-w="${Math.round(h.season.day_in_season/63*100)}"></i></div>
+ <div class="mute">${T(`Tag ${h.season.day_in_season} von 63. Die nächste Strategie-Wahl kommt in ${h.season.days_left} Handelstagen, bis dahin ändern sich die Regeln nicht.`,`Day ${h.season.day_in_season} of 63. The next strategy selection is in ${h.season.days_left} trading days; until then the rules do not change.`)}</div></section>
+ <section><h4>${T("Schattenbuch Mannschaft","Shadow book: team model")}</h4><div class="pair"><div><b style="color:var(--gld)">${fx(h.shadow,3)}</b><span>${T("Empfehlungen befolgt","Following the signals")}</span></div><div><b>${fx(h.hold,3)}</b><span>${T("alle drei gleich halten","Holding all three equally")}</span></div></div>
+ ${chart(h.ledger_tail)}<div class="mute">${T(`Seit ${fmtDay(h.since)}, ${h.n_actions} ${h.n_actions===1?"Empfehlung":"Empfehlungen"}. Papierrechnung, nur Handelskosten sind eingerechnet.`,`Since ${fmtDay(h.since)}, ${h.n_actions} ${h.n_actions===1?"signal":"signals"}. Paper calculation; only trading costs included.`)}</div></section>
+ <details><summary>${T("Verlauf","History")}</summary><table><tr><th>${T("Tag","Day")}</th><th>BTC</th><th>S&amp;P</th><th>Gold</th><th>Cash</th><th>${T("Schatten","Shadow")}</th></tr>${h.ledger_tail.slice().reverse().slice(0,60).map(r=>`<tr><td>${fmtDay(r.date)}</td><td>${pct(+r.BTC)} %</td><td>${pct(+r.SPY)} %</td><td>${pct(+r.GLD)} %</td><td>${pct(+r.cash)} %</td><td>${fx(r.shadow,3)}</td></tr>`).join("")}</table></details>
+ <footer><a href="regeln.html?lang=${LANG}" style="color:var(--gld)">${T("Regelbuch","Rule book")}</a><br>${T("Nur zur Information. Es werden keine Aufträge ausgelöst. Keine Anlageberatung.","For information only. No orders are placed. Not investment advice.")}</footer>`;
  document.getElementById("app").innerHTML=o;
- const de=(x,d=1)=>Math.abs(x*100).toFixed(d).replace(".",",");
- const go=s=>{const cur=s.currency==="EUR"?"in Euro":"in Dollar";
-  const sig=document.getElementById("sig");sig.textContent="Kaufen";sig.className="buy";
-  document.getElementById("sigwhy").textContent="Neues Geld sofort in den S&P 500. Warten auf Rücksetzer, Bewertung oder Angst hat in keinem Test etwas gebracht.";
-  const amt=document.getElementById("amt");
-  const upd=()=>{const a=Math.max(0,+amt.value||0);
-   document.getElementById("split").innerHTML=`<div style="--c:var(--spy)"><b>${Math.round(a).toLocaleString("de-DE")} €</b><span>in den S&amp;P 500</span></div>`;
-   document.getElementById("split").style.gridTemplateColumns="1fr";
-   document.getElementById("note").textContent="Nicht verkaufen, auch nicht im Crash. Bitcoin und Gold nicht nachkaufen."};
-  amt.addEventListener("input",upd);upd();
-  document.getElementById("cheap").innerHTML=`<tr><td class="mute">Abstand zum Allzeithoch (nur Info)</td><td></td></tr><tr><td>S&amp;P 500 (${s.currency==="EUR"?"Euro":"Dollar"})</td><td>−${de(s.dd_ath)} %</td></tr>`+["BTC","GLD"].map(k=>{const v=s.others?s.others[k]:(h.players[k].dd_ath??h.players[k].dd_high);return `<tr><td>${KINGS[k].name} (${s.others&&s.currency==="EUR"?"Euro":"Dollar"})</td><td>−${de(v)} %</td></tr>`}).join("");
-  if(s.rows&&s.rows.length){const p=s.plans,sp=document.getElementById("spar");
-   sp.innerHTML=`<h4>Schattenbuch Sparplan</h4><div class="pair"><div><b style="color:var(--spy)">${eur0(p.regel.value)}</b><span>nach Regel</span></div><div><b>${eur0(p.sofort.value)}</b><span>immer sofort</span></div></div>
-   ${chart(s.rows.map(r=>({date:r.date,shadow:r.regel/r.paid,hold:r.sofort/r.paid})),"Regel","sofort")}
-   <div class="mute">Seit ${fmtDay(s.start)} jeden Monat 100 € virtuell, eingezahlt ${eur0(p.regel.paid)}${p.regel.cash>0?`, davon ${eur0(p.regel.cash)} gerade gesammelt`:""}. Vergleich: Läuft „nicht am Hoch“ (kaufen erst 3 % unter dem Hoch) in Zukunft besser als sofort kaufen? Bisher nicht.</div>`;sp.hidden=false}};
- const eur0=x=>Math.round(x).toLocaleString("de-DE")+" €";
+ const amt=document.getElementById("amt"),ws=[...document.querySelectorAll(".weights input")];
+ const upd=()=>{const a=Math.max(0,+amt.value||0),sum=ws.reduce((s,w)=>s+Math.max(0,+w.value||0),0);
+  document.getElementById("split").style.gridTemplateColumns="repeat(3,1fr)";document.getElementById("split").innerHTML=ws.map(w=>{const k=w.dataset.k,p=Math.max(0,+w.value||0);return `<div style="--c:${KINGS[k].c}"><b>${eur0(sum?a*p/sum:0)}</b><span>${KINGS[k].name}</span></div>`}).join("");
+  document.getElementById("note").innerHTML=(sum!==100?`<span style="color:var(--warn)">${T("Summe","Total")} ${sum} %, ${T("Beträge anteilig umgerechnet.","amounts scaled proportionally.")}</span> `:"")+T("Aufteilung frei wählbar, voreingestellt etwa je ein Drittel. Keine Empfehlung für eine Gewichtung. Nicht verkaufen, auch nicht im Crash.","Choose any split; the default is roughly one third each. No recommendation on weights. Don't sell, not even in a crash.")};
+ [amt,...ws].forEach(i=>i.addEventListener("input",upd));upd();
+ fetch("assets.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{const A={};j.assets.forEach(a=>A[a.key]=a);
+  document.getElementById("cards").innerHTML=["SPY","BTC","GLD"].filter(k=>A[k]).map(k=>{const a=A[k],K=KINGS[k];
+   const px=a.price==null?"–":a.unit==="pts"?Math.round(a.price).toLocaleString(LOC)+T(" Pkt."," pts"):eur0(a.price)+(a.unit==="eur_oz"?"/oz":"");
+   const col=x=>x>0?"var(--ok)":x<0?"var(--bad)":"var(--mute)";
+   return `<div class="card" style="--c:${K.c}"><h3>${K.name}</h3><div class="px">${px}</div><dl>
+    <dt>${T("Tag","Day")}</dt><dd style="color:${col(a.chg1d)}">${sgn(a.chg1d)}</dd>
+    <dt>${T("1 Jahr","1 year")}</dt><dd style="color:${col(a.chg1y)}">${a.chg1y==null?"–":sgn(a.chg1y,0)}</dd>
+    <dt>${T("Hoch","High")}</dt><dd>${a.dd_ath<0.005?T("am Hoch","at high"):"−"+fx(a.dd_ath*100,0)+" %"}</dd></dl></div>`}).join("");
+  const d=A.SPY?A.SPY.date:h.data_date;
+  document.getElementById("cardnote").textContent=T(`Schlusskurse vom ${fmtDay(d)}, Veränderungen in Euro. S&P 500 in Punkten, Gold je Feinunze.`,`Closing prices of ${fmtDay(d)}, changes in euros. S&P 500 in points, gold per troy ounce.`)}).catch(()=>{});
  fetch("news.json",{cache:"no-store"}).then(r=>r.json()).then(n=>{
   const it=(n.items||[]);if(!it.length)return;
   const e=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
-  const one=(x,big)=>`<div style="text-align:left;margin:${big?"14px 0 0":"18px 0 0"}"><div style="font-size:12px;color:var(--mute)">${/^Wochenende/.test(x.headline)?"Bitcoin am Wochenende":"Börsentag "+fmtDay(x.date)}${x.published?" · Bericht "+e(x.published):""}</div>
-   <div style="font:600 ${big?"15px":"14px"}/1.35 var(--sans);margin:2px 0 4px;color:${x.move?"var(--warn)":"var(--text)"}">${e(x.headline)}</div>
-   ${(x.lines||[]).map(l=>`<p style="margin:0 0 4px;font-size:13px;line-height:1.45;color:#C9C4B8">${e(l)}</p>`).join("")}
-   ${(x.sources||[]).length?`<div style="font-size:11.5px;color:var(--mute)">Quellen: ${x.sources.map(s=>`<a href="${e(s.url)}" style="color:var(--mute)" rel="noopener" target="_blank">${e(s.title)}</a>`).join(" · ")}</div>`:""}</div>`;
+  const one=(x,big)=>{const hl=EN&&x.headline_en?x.headline_en:x.headline,ln=EN&&x.lines_en?x.lines_en:(x.lines||[]),we=/^(Wochenende|Weekend)/.test(x.headline);
+   return `<div style="text-align:left;margin:${big?"14px 0 0":"18px 0 0"}"><div style="font-size:12px;color:var(--mute)">${we?T("Bitcoin am Wochenende","Bitcoin weekend"):T("Börsentag ","Trading day ")+fmtDay(x.date)}${x.published?" · "+T("Bericht ","Report ")+e(EN&&x.published_en?x.published_en:x.published):""}</div>
+   <div style="font:600 ${big?"15px":"14px"}/1.35 var(--sans);margin:2px 0 4px;color:${x.move?"var(--warn)":"var(--text)"}">${e(hl)}</div>
+   ${ln.map(l=>`<p style="margin:0 0 4px;font-size:13px;line-height:1.45;color:#C9C4B8">${e(l)}</p>`).join("")}
+   ${(x.sources||[]).length?`<div style="font-size:11.5px;color:var(--mute)">${T("Quellen","Sources")}: ${x.sources.map(s=>`<a href="${e(s.url)}" style="color:var(--mute)" rel="noopener" target="_blank">${e(s.title)}</a>`).join(" · ")}</div>`:""}</div>`};
   const s=document.getElementById("news");
-  s.innerHTML=`<h4>News</h4>${one(it[0],true)}${it.length>1?`<details><summary>Frühere Meldungen</summary>${it.slice(1,30).map(x=>one(x,false)).join("")}</details>`:""}
-   <div class="mute" style="margin-top:10px;font-size:12px">Täglicher automatischer Bericht gegen 7:45 Uhr, sonntags und montags nur Bitcoin. Gründe aus Nachrichtenquellen, keine Handlungsempfehlung.</div>`;
+  s.innerHTML=`<h4>News</h4>${one(it[0],true)}${it.length>1?`<details><summary>${T("Frühere Meldungen","Earlier reports")}</summary>${it.slice(1,30).map(x=>one(x,false)).join("")}</details>`:""}
+   <div class="mute" style="margin-top:10px;font-size:12px">${T("Täglicher automatischer Bericht gegen 7:45 Uhr, sonntags und montags nur Bitcoin. Gründe aus Nachrichtenquellen, keine Handlungsempfehlung.","Automatic daily report around 7:45 CET, Sundays and Mondays bitcoin only. Reasons from news sources, not investment advice.")}</div>`;
   s.hidden=false}).catch(()=>{});
  fetch("spx_long.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{
-  const R=j.rows,W=640,H=300,L=46,Rp=14,T=12,B=28,n=R.length,lg=Math.log10;
+  const R=j.rows,W=640,H=300,L=46,Rp=14,Tp=12,B=28,n=R.length,lg=Math.log10;
   const v=R.map(r=>r[1]),lo=lg(Math.min(...v))-.3,hi=lg(Math.max(...v))+.08;
-  const x=i=>L+(W-L-Rp)*i/(n-1),y=p=>T+(H-T-B)*(1-(lg(p)-lo)/(hi-lo)),ix=ym=>R.findIndex(r=>r[0]>=ym);
+  const x=i=>L+(W-L-Rp)*i/(n-1),y=p=>Tp+(H-Tp-B)*(1-(lg(p)-lo)/(hi-lo)),ix=ym=>R.findIndex(r=>r[0]>=ym);
   let g="";
-  for(let d=1,k=0;d<1e6;d*=10)if(lg(d)>=lo&&lg(d)<=hi)g+=`<line x1="${L}" x2="${W-Rp}" y1="${y(d)}" y2="${y(d)}" stroke="#262B37"/><text x="${L-8}" y="${y(d)+4}" text-anchor="end" fill="#8A8F9C" font-size="12">${d.toLocaleString("de-DE")}</text>`;
+  for(let d=1;d<1e6;d*=10)if(lg(d)>=lo&&lg(d)<=hi)g+=`<line x1="${L}" x2="${W-Rp}" y1="${y(d)}" y2="${y(d)}" stroke="#262B37"/><text x="${L-8}" y="${y(d)+4}" text-anchor="end" fill="#8A8F9C" font-size="12">${d.toLocaleString(LOC)}</text>`;
   for(let yr=1930;yr<=2020;yr+=10){const i=ix(yr+"-01");if(i>=0)g+=`<text x="${x(i)}" y="${H-8}" text-anchor="middle" fill="#8A8F9C" font-size="12">${yr}</text>`}
-  const C=[["1932-06","−86 %",1929],["1974-09","−48 %",1973],["2002-09","−49 %",2000],["2009-02","−57 %",2008],["2020-03","−34 %",2020]];
-  const c=C.map(([m,t,yr])=>{const i=ix(m);return i<0?"":`<circle cx="${x(i)}" cy="${y(v[i])}" r="3" fill="var(--bad)"/><text x="${x(i)}" y="${y(v[i])+18}" text-anchor="middle" fill="var(--bad)" font-size="11.5">${t}</text>`}).join("");
+  const C=[["1932-06","−86 %"],["1974-09","−48 %"],["2002-09","−49 %"],["2009-02","−57 %"],["2020-03","−34 %"]];
+  const c=C.map(([m,t])=>{const i=ix(m);return i<0?"":`<circle cx="${x(i)}" cy="${y(v[i])}" r="3" fill="var(--bad)"/><text x="${x(i)}" y="${y(v[i])+18}" text-anchor="middle" fill="var(--bad)" font-size="11.5">${t}</text>`}).join("");
   const path=R.map((r,i)=>(i?"L":"M")+x(i).toFixed(1)+" "+y(r[1]).toFixed(1)).join(" ");
-  const pc=x=>(x*100).toFixed(1).replace(".",",");
   const s=document.getElementById("long");
-  s.innerHTML=`<h4>S&amp;P 500 seit 1928</h4><svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="S&amp;P 500 seit 1928, logarithmisch">${g}<path d="${path}" fill="none" stroke="var(--spy)" stroke-width="1.8"/>${c}</svg>
-   <div class="mute">Kursindex ohne Dividenden, Monatsendwerte, logarithmische Skala: gleicher Abstand bedeutet gleiche prozentuale Veränderung. ${pc(j.cagr)} % pro Jahr ohne Dividenden, mit Dividenden rund 10 %. Rot: größte Rückgänge vom Hoch bis zum Tief. Jeder davon wurde aufgeholt, am längsten dauerte es nach 1929 (Kursindex zurück auf dem Hoch erst 1954). Stand ${fmtDay(j.until)}.</div>`;
+  s.innerHTML=`<h4>${T("S&amp;P 500 seit 1928","S&amp;P 500 since 1928")}</h4><svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${T("S&amp;P 500 seit 1928, logarithmisch","S&amp;P 500 since 1928, log scale")}">${g}<path d="${path}" fill="none" stroke="var(--spy)" stroke-width="1.8"/>${c}</svg>
+   <div class="mute">${T(`Kursindex ohne Dividenden, Monatsendwerte, logarithmische Skala: gleicher Abstand bedeutet gleiche prozentuale Veränderung. ${fx(j.cagr*100,1)} % pro Jahr ohne Dividenden, mit Dividenden rund 10 %. Rot: größte Rückgänge vom Hoch bis zum Tief. Jeder davon wurde aufgeholt, am längsten dauerte es nach 1929 (Kursindex zurück auf dem Hoch erst 1954). Stand ${fmtDay(j.until)}.`,`Price index without dividends, month-end values, log scale: equal distance means equal percentage change. ${fx(j.cagr*100,1)} % per year without dividends, about 10 % with dividends. Red: largest declines from high to low. Every one was recovered; the longest took until 1954 after the 1929 crash (price index). As of ${fmtDay(j.until)}.`)}</div>`;
   s.hidden=false}).catch(()=>{});
  fetch("watch.json",{cache:"no-store"}).then(r=>r.json()).then(w=>{
-  const n1=x=>(x*100).toFixed(1).replace(".",","),n0=x=>Math.round(x*100),b2=x=>x.toFixed(2).replace(".",","),b3=x=>(+x).toFixed(3).replace(".",","),dm=s=>fmtDay(s).slice(0,5)+"."+s.slice(0,4);
+  const n1=x=>fx(x*100,1),n0=x=>Math.round(x*100),b2=x=>fx(x,2),b3=x=>fx(x,3);
   let t="";
-  if(w.factor){const f=w.factor;t+=`<h4>Faktor-ETFs</h4><div class="mute">Gleiche Fragen, andere Zuschnitte des Marktes. Alles in Euro, ${fmtDay(f.since)} bis ${fmtDay(f.until)}, inklusive Ausschüttungen.</div>
-   <table class="pf"><tr><th>ETF</th><th>Rendite/Jahr</th><th>Rückgang</th><th>Beta</th></tr>${f.rows.map(r=>`<tr${r.key==="SPY"?' style="color:var(--spy)"':""}><td>${r.name}</td><td>${n1(r.cagr)} %</td><td>−${n0(r.mdd)} %</td><td>${b2(r.beta)}</td></tr>`).join("")}</table>
-   <div class="mute">Beta: 1 = schwankt wie der S&amp;P 500. Aufnahmetest vom 18.11.2026: Kein Faktor-ETF erfüllt die Aufnahmeregeln. Ebenso „nur die Größten“ (Top 50 und S&amp;P 100 als Ersatz für den jungen Top 20): seit 2005 gleichauf mit dem S&amp;P 500, bis 2015 schlechter, erst danach besser. Tech lief seit 2015 am besten, ab dem Jahr 2000 mit 80 % Rückgang aber nicht. Nur zur Information, keine Empfehlung.</div>`}
-  if(w.elite){const e=w.elite;t+=`<h4 style="margin-top:44px">Elite 6</h4><div class="mute">Einzelwerte, die beide messbaren Kriterien erfüllen: Beta unter 1,15 und mindestens 17 % Rendite pro Jahr über zehn Jahre. Rangfolge nach 10-Jahres-Rendite. Ausgeschieden: CME Group, Waste Management, Hermès (Rendite), Alphabet (Beta), ASML (zyklisch). Beobachtungsportfolio ohne Kapitaleinsatz, keine Empfehlung.</div>
-   <table class="pf"><tr><th>Aktie</th><th>Beta</th><th>10 Jahre p. a.</th><th>vom Hoch</th></tr>${[...e.rows].sort((a,b)=>(b.cagr10??-9)-(a.cagr10??-9)).map((r,i)=>{if(r.missing)return`<tr><td>${r.name}</td><td colspan="2">Kurse fehlen</td></tr>`;const off=r.cagr10!=null&&r.claim!=null&&Math.abs(r.cagr10*100-r.claim)>3;
-    return`<tr><td>${i+1}. ${r.name}<br><span class="mute" style="font-size:11.5px">${r.branch}</span></td><td>${r.beta==null?"–":b2(r.beta)}</td><td>${r.cagr10==null?"–":n1(r.cagr10)+" %"}</td><td>${r.dd==null?"–":(r.dd<0.005?"am Hoch":"−"+n1(r.dd)+" %")}</td></tr>`}).join("")}</table>
-   <div class="mute">Beta und 10-Jahres-Rendite: Aufnahmewerte vom ${e.stand?fmtDay(e.stand):"–"}, eingefroren. Vom Hoch: aktueller Abstand zum Allzeithoch, täglich neu. Beta: 5 Jahre, täglich, in Euro gegen den S&amp;P 500. Rendite: Heimatwährung, inklusive Dividenden. Bruttomarge, Marktstellung, Zyklik, Verschuldung und Burggraben werden nicht automatisch geprüft.</div>`;
-   if(e.back)t+=`<div class="mute" style="margin-top:10px">Rückblick ${fmtDay(e.back.since)} bis ${fmtDay(e.back.until)}, gleich gewichtet, in Euro: Elite 6 ${n1(e.back.elite.cagr)} % pro Jahr, Rückgang ${n0(e.back.elite.mdd)} %. S&amp;P 500 ${n1(e.back.spy.cagr)} %, Rückgang ${n0(e.back.spy.mdd)} %. <b>Einordnung:</b> Auswahlkriterium ist die nachgewiesene Entwicklung der letzten zehn Jahre, der Rückblick bestätigt dieses Kriterium. Einschränkung: Die Auswahl erfolgte 2026. Unternehmen, die 2016 vergleichbar aussahen und später scheiterten, sind nicht enthalten. Den Test nach vorn liefert das Schattenbuch.</div>`;
+  if(w.factor){const f=w.factor;t+=`<h4>${T("Faktor-ETFs","Factor ETFs")}</h4><div class="mute">${T(`Gleiche Fragen, andere Zuschnitte des Marktes. Alles in Euro, ${fmtDay(f.since)} bis ${fmtDay(f.until)}, inklusive Ausschüttungen.`,`Same question, different slices of the market. All in euros, ${fmtDay(f.since)} to ${fmtDay(f.until)}, including distributions.`)}</div>
+   <table class="pf"><tr><th>ETF</th><th>${T("Rendite/Jahr","Return/yr")}</th><th>${T("Rückgang","Drawdown")}</th><th>Beta</th></tr>${f.rows.map(r=>`<tr${r.key==="SPY"?' style="color:var(--spy)"':""}><td>${EN&&r.name_en?r.name_en:r.name}</td><td>${n1(r.cagr)} %</td><td>−${n0(r.mdd)} %</td><td>${b2(r.beta)}</td></tr>`).join("")}</table>
+   <div class="mute">${T("Beta: 1 = schwankt wie der S&amp;P 500. Aufnahmetest vom 18.11.2026: Kein Faktor-ETF erfüllt die Aufnahmeregeln. Ebenso „nur die Größten“ (Top 50 und S&amp;P 100 als Ersatz für den jungen Top 20): seit 2005 gleichauf mit dem S&amp;P 500, bis 2015 schlechter, erst danach besser. Tech lief seit 2015 am besten, ab dem Jahr 2000 mit 80 % Rückgang aber nicht. Nur zur Information, keine Empfehlung.","Beta: 1 = moves like the S&amp;P 500. Admission test Nov 18, 2026: no factor ETF meets the admission rules. Same for “only the largest” (Top 50 and S&amp;P 100 as stand-ins for the young Top 20): level with the S&amp;P 500 since 2005, worse until 2015, better only afterwards. Tech did best since 2015, but not from 2000, with an 80 % drawdown. For information only, not a recommendation.")}</div>`}
+  if(w.elite){const e=w.elite;t+=`<h4 style="margin-top:44px">Elite 6</h4><div class="mute">${T("Einzelwerte, die beide messbaren Kriterien erfüllen: Beta unter 1,15 und mindestens 17 % Rendite pro Jahr über zehn Jahre. Rangfolge nach 10-Jahres-Rendite. Ausgeschieden: CME Group, Waste Management, Hermès (Rendite), Alphabet (Beta), ASML (zyklisch). Beobachtungsportfolio ohne Kapitaleinsatz, keine Empfehlung.","Single stocks that meet both measurable criteria: beta below 1.15 and at least 17 % return per year over ten years. Ranked by 10-year return. Dropped: CME Group, Waste Management, Hermès (return), Alphabet (beta), ASML (cyclical). Watch portfolio without capital, not a recommendation.")}</div>
+   <table class="pf"><tr><th>${T("Aktie","Stock")}</th><th>Beta</th><th>${T("10 Jahre p. a.","10 yrs p.a.")}</th><th>${T("vom Hoch","from high")}</th></tr>${[...e.rows].sort((a,b)=>(b.cagr10??-9)-(a.cagr10??-9)).map((r,i)=>{if(r.missing)return`<tr><td>${r.name}</td><td colspan="3">${T("Kurse fehlen","No prices")}</td></tr>`;
+    return`<tr><td>${i+1}. ${r.name}<br><span class="mute" style="font-size:11.5px">${EN&&r.branch_en?r.branch_en:r.branch}</span></td><td>${r.beta==null?"–":b2(r.beta)}</td><td>${r.cagr10==null?"–":n1(r.cagr10)+" %"}</td><td>${r.dd==null?"–":(r.dd<0.005?T("am Hoch","at high"):"−"+n1(r.dd)+" %")}</td></tr>`}).join("")}</table>
+   <div class="mute">${T(`Beta und 10-Jahres-Rendite: Aufnahmewerte vom ${e.stand?fmtDay(e.stand):"–"}, eingefroren. Vom Hoch: aktueller Abstand zum Allzeithoch, täglich neu. Beta: 5 Jahre, täglich, in Euro gegen den S&amp;P 500. Rendite: Heimatwährung, inklusive Dividenden. Bruttomarge, Marktstellung, Zyklik, Verschuldung und Burggraben werden nicht automatisch geprüft.`,`Beta and 10-year return: admission values from ${e.stand?fmtDay(e.stand):"–"}, frozen. From high: current distance to the all-time high, updated daily. Beta: 5 years, daily, in euros against the S&amp;P 500. Return: home currency, including dividends. Gross margin, market position, cyclicality, debt and moat are not checked automatically.`)}</div>`;
+   if(e.back)t+=`<div class="mute" style="margin-top:10px">${T(`Rückblick ${fmtDay(e.back.since)} bis ${fmtDay(e.back.until)}, gleich gewichtet, in Euro: Elite 6 ${n1(e.back.elite.cagr)} % pro Jahr, Rückgang ${n0(e.back.elite.mdd)} %. S&amp;P 500 ${n1(e.back.spy.cagr)} %, Rückgang ${n0(e.back.spy.mdd)} %. <b>Einordnung:</b> Auswahlkriterium ist die nachgewiesene Entwicklung der letzten zehn Jahre, der Rückblick bestätigt dieses Kriterium. Einschränkung: Die Auswahl erfolgte 2026. Unternehmen, die 2016 vergleichbar aussahen und später scheiterten, sind nicht enthalten. Den Test nach vorn liefert das Schattenbuch.`,`Look-back ${fmtDay(e.back.since)} to ${fmtDay(e.back.until)}, equal weight, in euros: Elite 6 ${n1(e.back.elite.cagr)} % per year, drawdown ${n0(e.back.elite.mdd)} %. S&amp;P 500 ${n1(e.back.spy.cagr)} %, drawdown ${n0(e.back.spy.mdd)} %. <b>Context:</b> the selection criterion is the proven record of the last ten years, so the look-back confirms that criterion. Limitation: the selection was made in 2026. Companies that looked similar in 2016 and later failed are not included. The forward test is the shadow book.`)}</div>`;
    const rows=(e.shadow.rows||[]).map(r=>({date:r.date,shadow:r.elite,hold:r.spy}));
-   t+=`<h4 style="margin-top:34px">Schattenbuch Elite</h4><div class="pair"><div><b style="color:var(--gld)">${rows.length?b3(rows[rows.length-1].shadow):"1,000"}</b><span>Elite 6</span></div><div><b>${rows.length?b3(rows[rows.length-1].hold):"1,000"}</b><span>S&amp;P 500</span></div></div>${chart(rows,"Elite 6","S&P 500")}
-   <div class="mute">Seit ${fmtDay(e.shadow.start)} gleich gewichtet, in Euro, Start = 1,00. Bewertung nach fünf Jahren (November 2031): bewährt bei mindestens 2 Prozentpunkten Mehrrendite pro Jahr gegenüber dem S&amp;P 500 ohne größeren Rückgang, gescheitert bei Rendite unter dem S&amp;P 500.</div>${rows.length?`<details><summary>Verlauf</summary><table><tr><th>Tag</th><th>Elite 6</th><th>S&amp;P 500</th><th>Abstand</th></tr>${rows.slice().reverse().slice(0,60).map(r=>{const d=(r.shadow-r.hold)*100;return`<tr><td>${fmtDay(r.date)}</td><td>${b3(r.shadow)}</td><td>${b3(r.hold)}</td><td style="color:${d>0?"var(--ok)":d<0?"var(--bad)":"var(--mute)"}">${(d>0?"+":d<0?"−":"")+Math.abs(d).toFixed(1).replace(".",",")} Pkt.</td></tr>`}).join("")}</table></details>`:""}`}
+   t+=`<h4 style="margin-top:34px">${T("Schattenbuch Elite","Shadow book: Elite")}</h4><div class="pair"><div><b style="color:var(--gld)">${rows.length?b3(rows[rows.length-1].shadow):fx(1,3)}</b><span>Elite 6</span></div><div><b>${rows.length?b3(rows[rows.length-1].hold):fx(1,3)}</b><span>S&amp;P 500</span></div></div>${chart(rows,"Elite 6","S&P 500")}
+   <div class="mute">${T(`Seit ${fmtDay(e.shadow.start)} gleich gewichtet, in Euro, Start = 1,00. Bewertung nach fünf Jahren (November 2031): bewährt bei mindestens 2 Prozentpunkten Mehrrendite pro Jahr gegenüber dem S&amp;P 500 ohne größeren Rückgang, gescheitert bei Rendite unter dem S&amp;P 500.`,`Since ${fmtDay(e.shadow.start)}, equal weight, in euros, start = 1.00. Verdict after five years (November 2031): proven with at least 2 percentage points more return per year than the S&amp;P 500 without a larger drawdown; failed if the return is below the S&amp;P 500.`)}</div>${rows.length?`<details><summary>${T("Verlauf","History")}</summary><table><tr><th>${T("Tag","Day")}</th><th>Elite 6</th><th>S&amp;P 500</th><th>${T("Abstand","Gap")}</th></tr>${rows.slice().reverse().slice(0,60).map(r=>{const d=(r.shadow-r.hold)*100;return`<tr><td>${fmtDay(r.date)}</td><td>${b3(r.shadow)}</td><td>${b3(r.hold)}</td><td style="color:${d>0?"var(--ok)":d<0?"var(--bad)":"var(--mute)"}">${(d>0?"+":d<0?"−":"")+fx(Math.abs(d),1)} ${T("Pkt.","pts")}</td></tr>`}).join("")}</table></details>`:""}`}
   if(t){const s=document.getElementById("watch");s.innerHTML=t;s.hidden=false}}).catch(()=>{});
- fetch("sparplan.json",{cache:"no-store"}).then(r=>r.json()).then(go).catch(()=>{const s=h.players.SPY;go({dd_ath:s.dd_ath??s.dd_high,thresh:-0.03,currency:"USD"})});
- fetch("indicators.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{if(!j.indicators||!j.indicators.length)return;const L={gruen:"günstig/Chance",gelb:"mittel",rot:"teuer/Vorsicht"};
-  const s=document.getElementById("ind");s.innerHTML=`<h4>Marktlage</h4>`+j.indicators.map(i=>`<div class="ind"><i class="${i.light||""}" title="${L[i.light]||"Info"}"></i><b>${i.name}</b><em>${i.value}</em><small>${i.pct!=null?`${i.higher==="teurer"?"Teurer":"Ängstlicher"} als an ${Math.round(i.pct*100)} % der Zeit seit ${i.since}. `:""}${i.text} <span style="opacity:.7">${i.note}</span></small></div>`).join("")+`<div class="mute" style="margin-top:8px">Nur zur Info. Die Indikatoren fließen erst in die Regeln ein, wenn sie einen Test bestanden haben.</div>`;s.hidden=false}).catch(()=>{});
+ fetch("sparplan.json",{cache:"no-store"}).then(r=>r.json()).then(s=>{if(!(s.rows&&s.rows.length))return;const p=s.plans,sp=document.getElementById("spar");
+   sp.innerHTML=`<h4>${T("Schattenbuch Sparplan","Shadow book: savings plan")}</h4><div class="pair"><div><b style="color:var(--spy)">${eur0(p.regel.value)}</b><span>${T("nach Regel","by rule")}</span></div><div><b>${eur0(p.sofort.value)}</b><span>${T("immer sofort","always immediately")}</span></div></div>
+   ${chart(s.rows.map(r=>({date:r.date,shadow:r.regel/r.paid,hold:r.sofort/r.paid})),T("Regel","Rule"),T("sofort","immediate"))}
+   <div class="mute">${T(`Seit ${fmtDay(s.start)} jeden Monat 100 € virtuell in den S&amp;P 500, eingezahlt ${eur0(p.regel.paid)}${p.regel.cash>0?`, davon ${eur0(p.regel.cash)} gerade gesammelt`:""}. Vergleich: Läuft „nicht am Hoch“ (kaufen erst 3 % unter dem Hoch) in Zukunft besser als sofort kaufen? Bisher nicht.`,`Since ${fmtDay(s.start)}, 100 € per month on paper into the S&amp;P 500, paid in ${eur0(p.regel.paid)}${p.regel.cash>0?`, of which ${eur0(p.regel.cash)} currently held back`:""}. Comparison: does “not at the high” (buy only 3 % below the high) do better than buying immediately going forward? So far, no.`)}</div>`;sp.hidden=false}).catch(()=>{});
+ fetch("indicators.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{if(!j.indicators||!j.indicators.length)return;const L=EN?{gruen:"cheap/opportunity",gelb:"neutral",rot:"expensive/caution"}:{gruen:"günstig/Chance",gelb:"mittel",rot:"teuer/Vorsicht"};
+  const s=document.getElementById("ind");s.innerHTML=`<h4>${T("Marktlage","Market conditions")}</h4>`+j.indicators.map(i=>{const nm=EN&&i.name_en?i.name_en:i.name,val=EN&&i.value_en?i.value_en:i.value,tx=EN&&i.text_en?i.text_en:i.text,nt=EN&&i.note_en!=null?i.note_en:i.note;
+   const hi=i.higher==="teurer"?T("Teurer","Pricier"):T("Ängstlicher","More fearful");
+   return `<div class="ind"><i class="${i.light||""}" title="${L[i.light]||"Info"}"></i><b>${nm}</b><em>${val}</em><small>${i.pct!=null?T(`${hi} als an ${Math.round(i.pct*100)} % der Zeit seit ${i.since}. `,`${hi} than ${Math.round(i.pct*100)} % of the time since ${i.since}. `):""}${tx} <span style="opacity:.7">${nt}</span></small></div>`}).join("")+`<div class="mute" style="margin-top:8px">${T("Nur zur Info. Die Indikatoren fließen erst in die Regeln ein, wenn sie einen Test bestanden haben.","For information only. Indicators enter the rules only after passing a test.")}</div>`;s.hidden=false}).catch(()=>{});
  requestAnimationFrame(()=>requestAnimationFrame(()=>{document.querySelectorAll(".fill").forEach(e=>e.style.height=e.dataset.h+"%");document.querySelectorAll(".season i").forEach(e=>e.style.width=e.dataset.w+"%")}));
-}).catch(()=>{document.querySelector(".stamp").textContent="Noch keine Daten. Der erste Lauf fehlt oder heartbeat.json ist nicht erreichbar."});
+}).catch(()=>{document.querySelector(".stamp").textContent=T("Noch keine Daten. Der erste Lauf fehlt oder heartbeat.json ist nicht erreichbar.","No data yet. The first run is missing or heartbeat.json is unreachable.")});
 </script></body></html>

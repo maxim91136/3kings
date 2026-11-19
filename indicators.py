@@ -89,6 +89,34 @@ if t:
     out.append(dict(key="rate", name="US-Geldmarktzins", value=f"{t[k]:.2f} %", pct=None, since=None, light=None,
                     text="Zins für kurzfristig geparktes Geld in den USA. Grobe Richtung für Tagesgeld.", note=f"Stand {k}", higher=None))
 import re
+from datetime import date as _d
+def _en_date(m):
+    return _d(int(m.group(1)), int(m.group(2)), int(m.group(3))).strftime("%b %d, %Y").replace(" 0", " ")
+EN = {"buffett": ("Buffett Indicator", "Market value of US companies relative to economic output (GDP). High means expensive."),
+      "cape": ("Shiller P/E (CAPE)", "Price divided by average earnings of the last 10 years. High means expensive."),
+      "fng": ("Fear & Greed (stocks)", "CNN, 0 = extreme fear, 100 = extreme greed. Extreme fear was often a buying opportunity."),
+      "cfng": ("Fear & Greed (crypto)", "alternative.me, 0 = extreme fear, 100 = extreme greed. Extreme fear was often a buying opportunity."),
+      "vix": ("Fear index VIX", "Expected volatility. High fear was often a buying opportunity; very low fear signals complacency."),
+      "curve": (None, "Below zero (inverted) often preceded recessions, typically by 6 to 24 months."),
+      "rate": ("US money market rate", "Interest on short-term cash in the US. Rough guide for savings rates.")}
+LAB = [("extreme Angst", "extreme fear"), ("extreme Gier", "extreme greed"), ("Angst", "fear"), ("Gier", "greed")]
+for i in out:
+    nm, tx = EN.get(i["key"], (None, None))
+    if i["key"] == "curve": nm = i["name"].replace("Zinskurve", "Yield curve").replace(" J", "Y").replace(" M", "M")
+    if i["key"] == "expect":
+        nm = "Expected return per year"
+        cape = re.search(r"von ([\d.,]+)", i["text"]).group(1).replace(",", ".")
+        tx = f"At a Shiller P/E of {cape}: roughly this return above inflation over the next 10 years (US stocks). Rule of thumb: 1 divided by the P/E. Rough direction, not a forecast."
+    v = i["value"]
+    for a_, b_ in LAB: v = v.replace(a_, b_)
+    n = i["note"]
+    n = re.sub(r"Wilshire (\S+), Wirtschaftsleistung Quartal ab (\S+)", r"Wilshire \1, GDP quarter from \2", n)
+    n = re.sub(r"Quartal bis (\S+), mit S&P-Kurs bis (\S+) fortgeschrieben", r"Quarter to \1, extended with S&P to \2", n)
+    n = re.sub(r"^Stand ", "As of ", n)
+    n = re.sub(r"(\d{4})-(\d{2})-(\d{2})", _en_date, n)
+    n = re.sub(r"(\d{2})\.(\d{2})\.(\d{4})", lambda m: _d(int(m.group(3)), int(m.group(2)), int(m.group(1))).strftime("%b %d, %Y").replace(" 0", " "), n)
+    i.update(name_en=nm or i["name"], text_en=tx or i["text"], value_en=v, note_en=n,
+             higher_en={"teurer": "pricier", "ängstlicher": "more fearful"}.get(i["higher"]))
 for i in out:
     i["value"] = re.sub(r"(\d)\.(\d)", r"\1,\2", i["value"])
     i["note"] = re.sub(r"(\d)\.(\d)", r"\1,\2", i["note"])

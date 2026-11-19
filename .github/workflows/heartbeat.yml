@@ -29,6 +29,10 @@ jobs:
         timeout-minutes: 3
         continue-on-error: true
       - run: python longchart.py || true
+      - run: python fetch_spot.py || true
+        timeout-minutes: 3
+        continue-on-error: true
+      - run: python assets.py || true
       - run: python notify.py
         continue-on-error: true
         env:
@@ -38,7 +42,7 @@ jobs:
         run: |
           git config user.name "3kings-heartbeat"
           git config user.email "heartbeat@users.noreply.github.com"
-          cp REGELN.md site/REGELN.md
+          cp REGELN.md site/REGELN.md; cp REGELN.en.md site/REGELN.en.md
           git add -A
           git diff --cached --quiet || git commit -m "heartbeat $(date -u +%F)"
           git push
