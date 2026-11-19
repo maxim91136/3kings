@@ -34,8 +34,15 @@ if os.path.exists("site/news.json"):
             hl = x.get("headline_en") if en and x.get("headline_en") else x.get("headline", "")
             ln = x.get("lines_en") if en and x.get("lines_en") else x.get("lines", [])
             icon = "🔶" if x.get("move") else "👑"
+            from datetime import date as _d
+            y_, m_, d_ = map(int, str(x.get("date", "2000-01-01")).split("-"))
+            dt = _d(y_, m_, d_)
+            wd = (["Mo.", "Di.", "Mi.", "Do.", "Fr.", "Sa.", "So."] if not en else ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"])[dt.weekday()]
+            weekend = str(x.get("headline", "")).startswith("Wochenende")
+            if en: head = f"📅 {'Bitcoin weekend' if weekend else 'Trading day'} {wd}, {dt.strftime('%b')} {dt.day}, {dt.year}"
+            else: head = f"📅 {'Bitcoin am Wochenende' if weekend else 'Börsentag'} {wd}, {dt:%d.%m.%Y}"
             src = "\n".join(f'<a href="{esc(s["url"])}">{esc(s["title"])}</a>' for s in x.get("sources", [])[:3])
-            out.append(("news", key, f"{icon} <b>{esc(hl)}</b>\n\n" + "\n\n".join(esc(l) for l in ln if public(l)) + (f"\n\n{src}" if src else "")))
+            out.append(("news", key, f"<i>{head}</i>\n{icon} <b>{esc(hl)}</b>\n\n" + "\n\n".join(esc(l) for l in ln if public(l)) + (f"\n\n{src}" if src else "")))
 if os.path.exists("site/reports.json"):
     for x in ([] if TEST else reversed(json.load(open("site/reports.json")).get("items", [])[:2])):
         key = f"{x.get('type')}|{x.get('period')}|{x.get('published')}"
