@@ -126,3 +126,10 @@ Gemini-Prüfung: Cintas Bruttomarge 49,7 % (Q4 GJ 2025) knapp unter 50 %. Entsch
 
 ## 2026-11-18: Schattenbuch Elite auf 5 Jahre verlängert (Entscheidung des Nutzers)
 Bewertung nach 5 statt 3 Jahren, also ab 2031-11. Kriterium sonst unverändert (mindestens +2 Punkte p. a. über S&P 500 bei nicht größerem Rückgang = bewährt; Rendite unter S&P = gescheitert). Zwischenstände jährlich, ohne Bewertung. Änderung vor dem ersten Datenpunkt, also ohne Kenntnis von Ergebnissen.
+
+## 2026-11-19: Test Kaufregel für Einzelaktien (vor dem Rechnen festgelegt)
+Frage: Lohnt bei Einzelaktien Warten auf Abstand zum Allzeithoch?
+Universum: alle ca. 130 Firmen aus screen.py (nicht nur Elite 6, sonst Survivorship maximal). Rest-Bias: auch das Universum besteht aus heutigen Großunternehmen.
+Ablauf je Aktie: ab 2006-01 (oder ab 10 Jahre Historie) jeden Monat 1 Einheit Geld. "sofort": sofort kaufen. "warten X" (X = 10, 15, 20, 25 %): Geld sammeln (2 % Zins p. a.), alles kaufen, sobald Kurs <= (1 - X) * bisheriges Hoch. Ende 2026-11: Wert pro eingezahlter Einheit, Rest-Cash zählt mit Zins. Kurse bereinigt (inkl. Dividenden), Heimatwährung, Monatsendwerte.
+Kriterium: Eine Warteregel gilt als belegt, wenn sie (a) im Median über alle Aktien mindestens 3 % mehr Endvermögen bringt, (b) bei mindestens 60 % der Aktien besser ist als sofort, und (c) beides auch im Zeitraum 2016-2026 allein gilt. Sonst: gilt nicht. Ergebnis ändert nur, was auf der Seite steht, keine Käufe.
+Anzeige: Abstand zum Hoch je Elite-Aktie (aktuell, nur Info).
