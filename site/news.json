@@ -2,15 +2,19 @@
  "items": [
   {
    "date": "2026-11-18",
-   "published": "19.11., 22:22 Uhr",
+   "published": "19.11., 22:24 Uhr",
    "move": true,
-   "headline": "Gold −3,2 % auf ca. 3.410 €/oz: Erwartung weiterer Fed-Zinserhöhungen stärkt den Dollar",
+   "headline": "Gold −3,2 % auf unter 3.460 €/oz: Erwartung weiterer Fed-Zinserhöhungen stärkt den Dollar",
    "lines": [
-    "S&P 500 7.324 Pkt. (−0,3 % in €) · Bitcoin 57.293 € (−2,9 %) · Gold ca. 3.410 €/oz (−3,2 %)",
+    "S&P 500 7.324 Pkt. (−0,3 % in €) · Bitcoin 57.293 € (−2,9 %) · Gold unter 3.460 €/oz (−3,2 %)",
     "Elite 6 1,007 · S&P 500 0,997 (Schattenbuch in €, seit 17.11.2026)",
-    "Gold (ca. 3.410 €/oz, −3,2 %; GLD 341,19 $): Laut Marktberichten fiel Gold unter 3.800 $/oz auf ein 14-Monats-Tief; gestiegene Wetten auf weitere Fed-Zinserhöhungen stützten den Dollar und belasteten Edelmetalle."
+    "Gold (−3,2 % in €, gemessen an GLD): Spot fiel am 18.11. unter 3.800 $/oz (umgerechnet unter rund 3.460 €) auf den tiefsten Stand seit über einem Jahr; 25,5 % unter dem Hoch vom 02.03.2026 in Euro. Marktberichte nennen den festeren Dollar und eine Wahrscheinlichkeit von rund 96 % für eine Fed-Zinserhöhung um 25 Basispunkte im Dezember nach restriktiven Aussagen von Fed-Vertretern."
    ],
    "sources": [
+    {
+     "title": "Trading Economics: Gold Hovers at Near 14-Month Low",
+     "url": "https://tradingeconomics.com/commodity/gold/news/601731"
+    },
     {
      "title": "USAGOLD: Gold Breaks Below $3,800 As Fed Hike Odds Lift The Dollar",
      "url": "https://www.usagold.com/daily-precious-metals-market-report-november-18-2026/"
