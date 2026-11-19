@@ -15,7 +15,12 @@ if len(sys.argv) > 1 and sys.argv[1] == "setup":
     print("Chat-IDs:", ", ".join(map(str, ids)) if ids else "keine - erst dem Bot eine Nachricht schreiben (z. B. /start)")
     sys.exit()
 if not chat: sys.exit("TELEGRAM_CHAT_ID fehlt (GitHub Secret anlegen)")
-def esc(s): return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+def esc(s):
+    s = str(s).replace("€/oz", " € je Unze" if LANG == "de" else " € per oz").replace("$/oz", " $ je Unze" if LANG == "de" else " $ per oz").replace("/oz", " je Unze" if LANG == "de" else " per oz")
+    s = s.replace("  ", " ").replace("€ € ", "€ ")
+    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+def public(l):  # interne Begriffe (Schattenbuch, Elite 6) nicht in Telegram
+    return not any(w in l for w in ("Schattenbuch", "shadow book", "Elite 6"))
 st_path = "data/tg_sent.json"
 TEST = len(sys.argv) > 1 and sys.argv[1] == "test"
 st = {} if TEST else (json.load(open(st_path)) if os.path.exists(st_path) else {})
@@ -30,7 +35,7 @@ if os.path.exists("site/news.json"):
             ln = x.get("lines_en") if en and x.get("lines_en") else x.get("lines", [])
             icon = "🔶" if x.get("move") else "👑"
             src = "\n".join(f'<a href="{esc(s["url"])}">{esc(s["title"])}</a>' for s in x.get("sources", [])[:3])
-            out.append(("news", key, f"{icon} <b>{esc(hl)}</b>\n\n" + "\n\n".join(esc(l) for l in ln) + (f"\n\n{src}" if src else "")))
+            out.append(("news", key, f"{icon} <b>{esc(hl)}</b>\n\n" + "\n\n".join(esc(l) for l in ln if public(l)) + (f"\n\n{src}" if src else "")))
 if os.path.exists("site/reports.json"):
     for x in ([] if TEST else reversed(json.load(open("site/reports.json")).get("items", [])[:2])):
         key = f"{x.get('type')}|{x.get('period')}|{x.get('published')}"
@@ -38,7 +43,7 @@ if os.path.exists("site/reports.json"):
         ti = x.get("title_en") if en and x.get("title_en") else x.get("title", "")
         ln = x.get("lines_en") if en and x.get("lines_en") else x.get("lines", [])
         kind = ("Annual report" if x.get("type") == "year" else "Monthly report") if en else ("Jahresbericht" if x.get("type") == "year" else "Monatsbericht")
-        body = "\n".join(f"\n<b>{esc(l[2:])}</b>" if l.startswith("# ") else esc(l) for l in ln)
+        body = "\n".join(f"\n<b>{esc(l[2:])}</b>" if l.startswith("# ") else esc(l) for l in ln if public(l) and not l.startswith(("# Elite", "# Schattenb", "# Shadow")))
         out.append(("report", key, f"📊 <b>{kind} {esc(ti)}</b>\n{body}"))
 for kind, key, text in out:
     for i in range(0, len(text), 3900):
