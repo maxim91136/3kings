@@ -74,7 +74,7 @@ const why=v=>v.champion.startsWith("Trend")?(x=>`Kurs ${Math.abs(x)<0.01?(Math.a
  v.champion.startsWith("Vol")?"Anteil nach Schwankung":"voll dabei";
 function chart(rows,la="Empfehlungen",lb="Halten"){
  if(rows.length<3) return `<div class="empty">Die Kurve füllt sich mit jedem Lauf.</div>`;
- const W=640,H=220,L=44,R=70,T=14,B=26,xs=rows.map((_,i)=>L+(W-L-R)*i/(rows.length-1));
+ const W=640,H=220,L=44,R=110,T=14,B=26,xs=rows.map((_,i)=>L+(W-L-R)*i/(rows.length-1));
  const all=rows.flatMap(r=>[+r.shadow,+r.hold]);let lo=Math.min(...all),hi=Math.max(...all);const pad=(hi-lo)*.15||.01;lo-=pad;hi+=pad;
  const y=v=>T+(H-T-B)*(1-(v-lo)/(hi-lo));
  const path=k=>rows.map((r,i)=>(i?"L":"M")+xs[i].toFixed(1)+" "+y(+r[k]).toFixed(1)).join(" ");
@@ -131,7 +131,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <div class="mute">Tag ${h.season.day_in_season} von 63. Die nächste Strategie-Wahl kommt in ${h.season.days_left} Handelstagen, bis dahin ändern sich die Regeln nicht.</div></section>
  <section><h4>Schattenbuch Mannschaft</h4><div class="pair"><div><b style="color:var(--gld)">${h.shadow.toFixed(3).replace(".",",")}</b><span>Empfehlungen befolgt</span></div><div><b>${h.hold.toFixed(3).replace(".",",")}</b><span>alle drei gleich halten</span></div></div>
  ${chart(h.ledger_tail)}<div class="mute">Seit ${fmtDay(h.since)}, ${h.n_actions} ${h.n_actions===1?"Empfehlung":"Empfehlungen"}. Papierrechnung, nur Handelskosten sind eingerechnet.</div></section>
- <details><summary>Verlauf</summary><table><tr><th>Tag</th><th>BTC</th><th>S&amp;P</th><th>Gold</th><th>Cash</th><th>Schatten</th></tr>${h.ledger_tail.slice().reverse().slice(0,60).map(r=>`<tr><td>${fmtDay(r.date)}</td><td>${pct(+r.BTC)} %</td><td>${pct(+r.SPY)} %</td><td>${pct(+r.GLD)} %</td><td>${pct(+r.cash)} %</td><td>${(+r.shadow).toFixed(3)}</td></tr>`).join("")}</table></details>
+ <details><summary>Verlauf</summary><table><tr><th>Tag</th><th>BTC</th><th>S&amp;P</th><th>Gold</th><th>Cash</th><th>Schatten</th></tr>${h.ledger_tail.slice().reverse().slice(0,60).map(r=>`<tr><td>${fmtDay(r.date)}</td><td>${pct(+r.BTC)} %</td><td>${pct(+r.SPY)} %</td><td>${pct(+r.GLD)} %</td><td>${pct(+r.cash)} %</td><td>${(+r.shadow).toFixed(3).replace(".",",")}</td></tr>`).join("")}</table></details>
  <footer>Nur zur privaten Auswertung. Es werden keine Aufträge ausgelöst.</footer>`;
  document.getElementById("app").innerHTML=o;
  const de=(x,d=1)=>Math.abs(x*100).toFixed(d).replace(".",",");
