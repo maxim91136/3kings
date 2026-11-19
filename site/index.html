@@ -73,7 +73,7 @@ const KINGS={BTC:{name:"Bitcoin",c:"var(--btc)"},SPY:{name:"S&P 500",c:"var(--sp
 const why=v=>v.champion.startsWith("Trend")?(x=>`Kurs ${Math.abs(x)<0.01?(Math.abs(x)*100).toFixed(1).replace(".",","):Math.abs(Math.round(x*100))} % ${x<0?"unter":"über"} dem ${v.line_n||200}-Tage-Schnitt`)(v.vs_line??v.vs_sma200):
  v.champion.startsWith("Vol")?"Anteil nach Schwankung":"voll dabei";
 function chart(rows,la="Empfehlungen",lb="Halten"){
- if(rows.length<3) return `<div class="empty">Die Kurve füllt sich mit jedem Lauf.</div>`;
+ if(rows.length<2) return `<div class="empty">Die Kurve füllt sich mit jedem Lauf.</div>`;
  const W=640,H=220,L=44,R=110,T=14,B=26,xs=rows.map((_,i)=>L+(W-L-R)*i/(rows.length-1));
  const all=rows.flatMap(r=>[+r.shadow,+r.hold]);let lo=Math.min(...all),hi=Math.max(...all);const pad=(hi-lo)*.15||.01;lo-=pad;hi+=pad;
  const y=v=>T+(H-T-B)*(1-(v-lo)/(hi-lo));
@@ -166,7 +166,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
    <div class="mute">Kursindex ohne Dividenden, Monatsendwerte, logarithmische Skala: gleicher Abstand bedeutet gleiche prozentuale Veränderung. ${pc(j.cagr)} % pro Jahr ohne Dividenden, mit Dividenden rund 10 %. Rot: größte Rückgänge vom Hoch bis zum Tief. Jeder davon wurde aufgeholt, am längsten dauerte es nach 1929 (Kursindex zurück auf dem Hoch erst 1954). Stand ${fmtDay(j.until)}.</div>`;
   s.hidden=false}).catch(()=>{});
  fetch("watch.json",{cache:"no-store"}).then(r=>r.json()).then(w=>{
-  const n1=x=>(x*100).toFixed(1).replace(".",","),n0=x=>Math.round(x*100),b2=x=>x.toFixed(2).replace(".",","),dm=s=>fmtDay(s).slice(0,5)+"."+s.slice(0,4);
+  const n1=x=>(x*100).toFixed(1).replace(".",","),n0=x=>Math.round(x*100),b2=x=>x.toFixed(2).replace(".",","),b3=x=>(+x).toFixed(3).replace(".",","),dm=s=>fmtDay(s).slice(0,5)+"."+s.slice(0,4);
   let t="";
   if(w.factor){const f=w.factor;t+=`<h4>Faktor-ETFs</h4><div class="mute">Gleiche Fragen, andere Zuschnitte des Marktes. Alles in Euro, ${fmtDay(f.since)} bis ${fmtDay(f.until)}, inklusive Ausschüttungen.</div>
    <table class="pf"><tr><th>ETF</th><th>Rendite/Jahr</th><th>Rückgang</th><th>Beta</th></tr>${f.rows.map(r=>`<tr${r.key==="SPY"?' style="color:var(--spy)"':""}><td>${r.name}</td><td>${n1(r.cagr)} %</td><td>−${n0(r.mdd)} %</td><td>${b2(r.beta)}</td></tr>`).join("")}</table>
@@ -177,8 +177,8 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
    <div class="mute">Aufnahmewerte vom ${e.stand?fmtDay(e.stand):"–"}, eingefroren. Beta: 5 Jahre, täglich, in Euro gegen den S&amp;P 500. Rendite: Heimatwährung, inklusive Dividenden. Bruttomarge, Marktstellung, Zyklik, Verschuldung und Burggraben werden nicht automatisch geprüft.</div>`;
    if(e.back)t+=`<div class="mute" style="margin-top:10px">Rückblick ${fmtDay(e.back.since)} bis ${fmtDay(e.back.until)}, gleich gewichtet, in Euro: Elite 6 ${n1(e.back.elite.cagr)} % pro Jahr, Rückgang ${n0(e.back.elite.mdd)} %. S&amp;P 500 ${n1(e.back.spy.cagr)} %, Rückgang ${n0(e.back.spy.mdd)} %. <b>Einordnung:</b> Auswahlkriterium ist die nachgewiesene Entwicklung der letzten zehn Jahre, der Rückblick bestätigt dieses Kriterium. Einschränkung: Die Auswahl erfolgte 2026. Unternehmen, die 2016 vergleichbar aussahen und später scheiterten, sind nicht enthalten. Den Test nach vorn liefert das Schattenbuch.</div>`;
    const rows=(e.shadow.rows||[]).map(r=>({date:r.date,shadow:r.elite,hold:r.spy}));
-   t+=`<h4 style="margin-top:34px">Schattenbuch Elite</h4><div class="pair"><div><b style="color:var(--gld)">${rows.length?b2(rows[rows.length-1].shadow):"1,00"}</b><span>Elite 6</span></div><div><b>${rows.length?b2(rows[rows.length-1].hold):"1,00"}</b><span>S&amp;P 500</span></div></div>${chart(rows,"Elite 6","S&P 500")}
-   <div class="mute">Seit ${fmtDay(e.shadow.start)} gleich gewichtet, in Euro, Start = 1,00. Bewertung nach fünf Jahren (November 2031): bewährt bei mindestens 2 Prozentpunkten Mehrrendite pro Jahr gegenüber dem S&amp;P 500 ohne größeren Rückgang, gescheitert bei Rendite unter dem S&amp;P 500.</div>`}
+   t+=`<h4 style="margin-top:34px">Schattenbuch Elite</h4><div class="pair"><div><b style="color:var(--gld)">${rows.length?b3(rows[rows.length-1].shadow):"1,000"}</b><span>Elite 6</span></div><div><b>${rows.length?b3(rows[rows.length-1].hold):"1,000"}</b><span>S&amp;P 500</span></div></div>${chart(rows,"Elite 6","S&P 500")}
+   <div class="mute">Seit ${fmtDay(e.shadow.start)} gleich gewichtet, in Euro, Start = 1,00. Bewertung nach fünf Jahren (November 2031): bewährt bei mindestens 2 Prozentpunkten Mehrrendite pro Jahr gegenüber dem S&amp;P 500 ohne größeren Rückgang, gescheitert bei Rendite unter dem S&amp;P 500.</div>${rows.length?`<details><summary>Verlauf</summary><table><tr><th>Tag</th><th>Elite 6</th><th>S&amp;P 500</th><th>Abstand</th></tr>${rows.slice().reverse().slice(0,60).map(r=>{const d=(r.shadow-r.hold)*100;return`<tr><td>${fmtDay(r.date)}</td><td>${b3(r.shadow)}</td><td>${b3(r.hold)}</td><td style="color:${d>0?"var(--ok)":d<0?"var(--bad)":"var(--mute)"}">${(d>0?"+":d<0?"−":"")+Math.abs(d).toFixed(1).replace(".",",")} Pkt.</td></tr>`}).join("")}</table></details>`:""}`}
   if(t){const s=document.getElementById("watch");s.innerHTML=t;s.hidden=false}}).catch(()=>{});
  fetch("sparplan.json",{cache:"no-store"}).then(r=>r.json()).then(go).catch(()=>{const s=h.players.SPY;go({dd_ath:s.dd_ath??s.dd_high,thresh:-0.03,currency:"USD"})});
  fetch("indicators.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{if(!j.indicators||!j.indicators.length)return;const L={gruen:"günstig/Chance",gelb:"mittel",rot:"teuer/Vorsicht"};
