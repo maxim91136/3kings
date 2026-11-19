@@ -1,10 +1,10 @@
 {
- "date": "2026-11-17",
+ "date": "2026-11-18",
  "currency": "EUR",
- "dd_ath": -0.0448,
+ "dd_ath": -0.0473,
  "others": {
-  "BTC": -0.4462,
-  "GLD": -0.2309
+  "BTC": -0.4621,
+  "GLD": -0.2552
  },
  "signal": "kaufen",
  "regel_signal": "kaufen",
@@ -12,12 +12,12 @@
  "start": "2026-11-17",
  "plans": {
   "regel": {
-   "value": 100.0,
+   "value": 99.74,
    "cash": 0.0,
    "paid": 100.0
   },
   "sofort": {
-   "value": 100.0,
+   "value": 99.74,
    "cash": 0.0,
    "paid": 100.0
   }
@@ -27,6 +27,12 @@
    "date": "2026-11-17",
    "regel": 100.0,
    "sofort": 100.0,
+   "paid": 100.0
+  },
+  {
+   "date": "2026-11-18",
+   "regel": 99.74,
+   "sofort": 99.74,
    "paid": 100.0
   }
  ]

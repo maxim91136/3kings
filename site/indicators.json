@@ -3,45 +3,45 @@
   {
    "key": "buffett",
    "name": "Buffett-Indikator",
-   "value": "222 %",
+   "value": "221 %",
    "pct": 0.987,
    "since": "1989",
    "light": "rot",
    "text": "Börsenwert aller US-Firmen (Wilshire 5000) im Verhältnis zur Wirtschaftsleistung. Hoch heißt teuer.",
-   "note": "Wilshire 17.11.2026, Wirtschaftsleistung Quartal ab 01.07.2026",
+   "note": "Wilshire 18.11.2026, Wirtschaftsleistung Quartal ab 01.07.2026",
    "higher": "teurer"
   },
   {
    "key": "cape",
    "name": "Shiller-KGV",
-   "value": "38,8",
+   "value": "38,6",
    "pct": 0.981,
    "since": "1871",
    "light": "rot",
    "text": "Kurs geteilt durch den Durchschnittsgewinn der letzten 10 Jahre. Hoch heißt teuer.",
-   "note": "Stand 17.11.2026",
+   "note": "Stand 18.11.2026",
    "higher": "teurer"
   },
   {
    "key": "fng",
    "name": "Fear & Greed Aktien",
-   "value": "24 · extreme Angst",
+   "value": "25 · extreme Angst",
    "pct": null,
    "since": null,
    "light": "gruen",
    "text": "CNN, 0 = extreme Angst, 100 = extreme Gier. Extreme Angst war oft eine Kaufgelegenheit.",
-   "note": "Stand 18.11.2026",
+   "note": "Stand 19.11.2026",
    "higher": null
   },
   {
    "key": "cfng",
    "name": "Fear & Greed Krypto",
-   "value": "11 · extreme Angst",
+   "value": "10 · extreme Angst",
    "pct": null,
    "since": null,
    "light": "gruen",
    "text": "alternative.me, 0 = extreme Angst, 100 = extreme Gier. Extreme Angst war oft eine Kaufgelegenheit.",
-   "note": "Stand 18.11.2026",
+   "note": "Stand 19.11.2026",
    "higher": null
   },
   {
@@ -51,41 +51,41 @@
    "pct": null,
    "since": null,
    "light": null,
-   "text": "Bei einem Shiller-KGV von 38,8: grob diese Rendite über der Inflation in den nächsten 10 Jahren (US-Aktien). Faustregel: 1 geteilt durch das KGV. Grobe Richtung, keine Prognose.",
+   "text": "Bei einem Shiller-KGV von 38,6: grob diese Rendite über der Inflation in den nächsten 10 Jahren (US-Aktien). Faustregel: 1 geteilt durch das KGV. Grobe Richtung, keine Prognose.",
    "note": "",
    "higher": null
   },
   {
    "key": "vix",
    "name": "Angst-Index VIX",
-   "value": "25,5",
-   "pct": 0.84,
+   "value": "24,6",
+   "pct": 0.815,
    "since": "1990",
    "light": "gruen",
    "text": "Erwartete Schwankung. Viel Angst war oft eine Kaufgelegenheit, sehr wenig Angst heißt Sorglosigkeit.",
-   "note": "Stand 17.11.2026",
+   "note": "Stand 18.11.2026",
    "higher": "ängstlicher"
   },
   {
    "key": "curve",
    "name": "Zinskurve 10 J − 2 J",
-   "value": "+0,30 %",
+   "value": "+0,27 %",
    "pct": null,
    "since": "2025",
    "light": "gelb",
    "text": "Unter null (invertiert) ging Rezessionen oft voraus, meist mit 6 bis 24 Monaten Abstand.",
-   "note": "Stand 17.11.2026",
+   "note": "Stand 18.11.2026",
    "higher": null
   },
   {
    "key": "rate",
    "name": "US-Geldmarktzins",
-   "value": "4,33 %",
+   "value": "4,34 %",
    "pct": null,
    "since": null,
    "light": null,
    "text": "Zins für kurzfristig geparktes Geld in den USA. Grobe Richtung für Tagesgeld.",
-   "note": "Stand 17.11.2026",
+   "note": "Stand 18.11.2026",
    "higher": null
   }
  ]
