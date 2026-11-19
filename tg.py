@@ -17,7 +17,8 @@ if len(sys.argv) > 1 and sys.argv[1] == "setup":
 if not chat: sys.exit("TELEGRAM_CHAT_ID fehlt (GitHub Secret anlegen)")
 def esc(s): return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 st_path = "data/tg_sent.json"
-st = json.load(open(st_path)) if os.path.exists(st_path) else {}
+TEST = len(sys.argv) > 1 and sys.argv[1] == "test"
+st = {} if TEST else (json.load(open(st_path)) if os.path.exists(st_path) else {})
 en = LANG == "en"
 out = []
 if os.path.exists("site/news.json"):
@@ -31,7 +32,7 @@ if os.path.exists("site/news.json"):
             src = "\n".join(f'<a href="{esc(s["url"])}">{esc(s["title"])}</a>' for s in x.get("sources", [])[:3])
             out.append(("news", key, f"{icon} <b>{esc(hl)}</b>\n\n" + "\n\n".join(esc(l) for l in ln) + (f"\n\n{src}" if src else "") + f"\n\n{SITE}"))
 if os.path.exists("site/reports.json"):
-    for x in reversed(json.load(open("site/reports.json")).get("items", [])[:2]):
+    for x in ([] if TEST else reversed(json.load(open("site/reports.json")).get("items", [])[:2])):
         key = f"{x.get('type')}|{x.get('period')}|{x.get('published')}"
         if key in st.get("reports", []): continue
         ti = x.get("title_en") if en and x.get("title_en") else x.get("title", "")
@@ -47,5 +48,5 @@ for kind, key, text in out:
     if kind == "news": st["news"] = key
     else: st.setdefault("reports", []).append(key); st["reports"] = st["reports"][-50:]
     print("gesendet:", kind, key)
-json.dump(st, open(st_path, "w"), indent=1)
+if not TEST: json.dump(st, open(st_path, "w"), indent=1)
 if not out: print("nichts Neues")
