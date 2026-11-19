@@ -137,3 +137,7 @@ Ergebnis 2026-11-19 (138 Aktien, MMC ohne Daten): Warten ist bei Einzelaktien kl
 
 ## 2026-11-19: Kauf-Warten bei Bitcoin (gleicher Aufbau wie Einzelaktien, Monatsgeld, 2 % Zins auf Wartegeld)
 Rollierende Fenster ab 2013 (3 und 5 Jahre). Warten auf -20/-30/-40/-50/-60 % vom Hoch: Median -6 bis -17 %, besser nur in 10-27 % der Startmonate. Ganze Zeit 2013-2026: -30 bis -53 %. Gilt nicht. Einschränkung: nur ein Wert, kurze Historie.
+
+## 2026-11-19: Test "nur die Größten" (S&P 500 Top 20) - vor dem Rechnen festgelegt
+Der iShares S&P 500 Top 20 (IE000VA628D5) existiert erst seit 11/2024, zu kurz. Ersatz mit gleicher Idee: XLG (S&P 500 Top 50, ab 2005) und OEF (S&P 100, ab 2000), gegen SPY, Kurse inkl. Ausschüttungen, in Euro.
+Kriterium (wie Faktor-ETFs): Aufnahme nur, wenn Rendite p. a. höher UND in BEIDEN Hälften (bis 2015 / ab 2015) höher UND maximaler Rückgang nicht größer als SPY. Sonst nur Anzeige.
