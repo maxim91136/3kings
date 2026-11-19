@@ -30,7 +30,7 @@ if os.path.exists("site/news.json"):
             ln = x.get("lines_en") if en and x.get("lines_en") else x.get("lines", [])
             icon = "🔶" if x.get("move") else "👑"
             src = "\n".join(f'<a href="{esc(s["url"])}">{esc(s["title"])}</a>' for s in x.get("sources", [])[:3])
-            out.append(("news", key, f"{icon} <b>{esc(hl)}</b>\n\n" + "\n\n".join(esc(l) for l in ln) + (f"\n\n{src}" if src else "") + f"\n\n{SITE}"))
+            out.append(("news", key, f"{icon} <b>{esc(hl)}</b>\n\n" + "\n\n".join(esc(l) for l in ln) + (f"\n\n{src}" if src else "")))
 if os.path.exists("site/reports.json"):
     for x in ([] if TEST else reversed(json.load(open("site/reports.json")).get("items", [])[:2])):
         key = f"{x.get('type')}|{x.get('period')}|{x.get('published')}"
@@ -39,7 +39,7 @@ if os.path.exists("site/reports.json"):
         ln = x.get("lines_en") if en and x.get("lines_en") else x.get("lines", [])
         kind = ("Annual report" if x.get("type") == "year" else "Monthly report") if en else ("Jahresbericht" if x.get("type") == "year" else "Monatsbericht")
         body = "\n".join(f"\n<b>{esc(l[2:])}</b>" if l.startswith("# ") else esc(l) for l in ln)
-        out.append(("report", key, f"📊 <b>{kind} {esc(ti)}</b>\n{body}\n\n{SITE}"))
+        out.append(("report", key, f"📊 <b>{kind} {esc(ti)}</b>\n{body}"))
 for kind, key, text in out:
     for i in range(0, len(text), 3900):
         for c in [c.strip() for c in chat.split(",") if c.strip()]:
