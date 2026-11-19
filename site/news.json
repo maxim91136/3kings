@@ -1,1 +1,25 @@
-{"items": [{"date": "2026-11-18", "move": true, "headline": "Gold −3,2 %: Steigende Erwartung weiterer Fed-Zinserhöhungen stärkt den Dollar", "lines": ["S&P 500 −0,3 % · Bitcoin −2,9 % · Gold −3,2 % · Elite 6 1,0067 vs. S&P 500 0,9974 (Schattenbuch)", "Gold (GLD −3,2 %): Gold fiel unter 3.800 $/oz auf ein 14-Monats-Tief. Laut Marktberichten trieben gestiegene Wetten auf weitere Zinserhöhungen der Fed den Dollar an und belasteten Edelmetalle; Silber gab rund 3 % nach."], "sources": [{"title": "USAGOLD: Gold Breaks Below $3,800 As Fed Hike Odds Lift The Dollar", "url": "https://www.usagold.com/daily-precious-metals-market-report-november-18-2026/"}, {"title": "24/7 Wall St.: Gold Is at a 14-Month Low as Traders Bet on More Fed Hikes", "url": "https://247wallst.com/investing/2026/11/18/gold-is-at-a-14-month-low-as-traders-bet-on-more-fed-hikes/"}]}]}
+{
+ "items": [
+  {
+   "date": "2026-11-18",
+   "published": "19.11., 22:22 Uhr",
+   "move": true,
+   "headline": "Gold −3,2 %: Wetten auf weitere Fed-Zinserhöhungen stärken den Dollar",
+   "lines": [
+    "S&P 500 7.324 Pkt. (−0,2 %) · Bitcoin 62.982 $ (−2,9 %) · Gold (GLD) 341,19 $ (−3,2 %)",
+    "Elite 6 1,007 · S&P 500 0,997 (Schattenbuch seit 17.11.2026)",
+    "Gold (GLD 341,19 $, −3,2 %): Gold fiel laut Marktberichten unter 3.800 $/oz auf ein 14-Monats-Tief; gestiegene Wetten auf weitere Fed-Zinserhöhungen stützten den Dollar und belasteten Edelmetalle. GLD liegt 31 % unter seinem Hoch vom 29.01.2026."
+   ],
+   "sources": [
+    {
+     "title": "USAGOLD: Gold Breaks Below $3,800 As Fed Hike Odds Lift The Dollar",
+     "url": "https://www.usagold.com/daily-precious-metals-market-report-november-18-2026/"
+    },
+    {
+     "title": "24/7 Wall St.: Gold Is at a 14-Month Low as Traders Bet on More Fed Hikes",
+     "url": "https://247wallst.com/investing/2026/11/18/gold-is-at-a-14-month-low-as-traders-bet-on-more-fed-hikes/"
+    }
+   ]
+  }
+ ]
+}
