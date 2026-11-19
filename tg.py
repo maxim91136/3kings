@@ -11,7 +11,7 @@ def api(method, **kw):
     return json.load(urllib.request.urlopen(f"https://api.telegram.org/bot{tok}/{method}", data, timeout=20))
 if len(sys.argv) > 1 and sys.argv[1] == "setup":
     ups = api("getUpdates").get("result", [])
-    ids = {(u.get("message") or u.get("my_chat_member") or {}).get("chat", {}).get("id") for u in ups} - {None}
+    ids = {f'{c.get("id")} ({c.get("type")}{": " + c["title"] if c.get("title") else ""})' for u in ups for c in [(u.get("message") or u.get("channel_post") or u.get("my_chat_member") or {}).get("chat", {})] if c.get("id")}
     print("Chat-IDs:", ", ".join(map(str, ids)) if ids else "keine - erst dem Bot eine Nachricht schreiben (z. B. /start)")
     sys.exit()
 if not chat: sys.exit("TELEGRAM_CHAT_ID fehlt (GitHub Secret anlegen)")
@@ -41,7 +41,9 @@ if os.path.exists("site/reports.json"):
         out.append(("report", key, f"📊 <b>{kind} {esc(ti)}</b>\n{body}\n\n{SITE}"))
 for kind, key, text in out:
     for i in range(0, len(text), 3900):
-        api("sendMessage", chat_id=chat, text=text[i:i + 3900], parse_mode="HTML", disable_web_page_preview="true")
+        for c in [c.strip() for c in chat.split(",") if c.strip()]:
+            try: api("sendMessage", chat_id=c, text=text[i:i + 3900], parse_mode="HTML", disable_web_page_preview="true")
+            except Exception as e: print("Fehler bei", c, e)
     if kind == "news": st["news"] = key
     else: st.setdefault("reports", []).append(key); st["reports"] = st["reports"][-50:]
     print("gesendet:", kind, key)
