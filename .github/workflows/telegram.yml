@@ -1,0 +1,32 @@
+name: telegram
+on:
+  push:
+    branches: [main]
+    paths: ["site/news.json", "site/reports.json"]
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "send oder setup (zeigt Chat-ID)"
+        default: send
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    concurrency: telegram
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: { python-version: "3.12" }
+      - run: python tg.py ${{ github.event.inputs.mode == 'setup' && 'setup' || '' }}
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - name: Gesendet merken
+        if: github.event.inputs.mode != 'setup'
+        run: |
+          git config user.name "3kings-telegram"
+          git config user.email "telegram@users.noreply.github.com"
+          git add data/tg_sent.json 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "telegram gesendet" && git pull --rebase && git push)
