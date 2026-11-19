@@ -41,6 +41,6 @@ if st["last_date"] != date:
     json.dump(st, open("data/sparplan.json", "w"), indent=1)
 pub = dict(date=date, currency=cur, dd_ath=round(dd, 4), others=others, signal="kaufen", regel_signal="kaufen" if buy else "sammeln", thresh=THRESH,
            start=st["start"], plans={k: dict(value=round(pl["units"] * price + pl["cash"], 2), cash=round(pl["cash"], 2), paid=pl["paid"]) for k, pl in st["plans"].items()},
-           rows=st["rows"][-400:])
+           rows=st["rows"])
 json.dump(pub, open("site/sparplan.json", "w"), indent=1)
 print(f"Sparplan {date}: S&P {dd*100:+.1f} % zum Allzeithoch ({cur}) -> {pub['signal']}; Regel {pub['plans']['regel']['value']:.2f} / sofort {pub['plans']['sofort']['value']:.2f} (eingezahlt {pub['plans']['regel']['paid']:.0f})")

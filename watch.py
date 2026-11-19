@@ -89,7 +89,7 @@ if el and spy:
     if last_d >= st["start"] and (not st["rows"] or st["rows"][-1]["date"] != last_d) and last_d in spy:
         e = float(np.mean([ep[k][last_d] / st["p0"][k] for k in ks if k in st["p0"]])); st["rows"].append(dict(date=last_d, elite=round(e, 4), spy=round(spy[last_d] / st["spy0"], 4)))
         json.dump(st, open(sp_path, "w"), indent=1)
-    out["elite"] = dict(stand=fz["stand"] if fz else None, rows=rows, back=back, shadow=dict(start=st["start"], rows=st["rows"][-400:]))
+    out["elite"] = dict(stand=fz["stand"] if fz else None, rows=rows, back=back, shadow=dict(start=st["start"], rows=st["rows"]))
 json.dump(out, open("site/watch.json", "w"), ensure_ascii=False, indent=1)
 print("watch.json:", ", ".join(k for k in out if k != "generated"))
 if "factor" in out:
