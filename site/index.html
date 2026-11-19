@@ -74,7 +74,7 @@ const why=v=>v.champion.startsWith("Trend")?(x=>`Kurs ${Math.abs(x)<0.01?(Math.a
  v.champion.startsWith("Vol")?"Anteil nach Schwankung":"voll dabei";
 function chart(rows,la="Empfehlungen",lb="Halten"){
  if(rows.length<2) return `<div class="empty">Die Kurve füllt sich mit jedem Lauf.</div>`;
- const W=640,H=220,L=44,R=110,T=14,B=26,xs=rows.map((_,i)=>L+(W-L-R)*i/(rows.length-1));
+ const W=640,H=220,L=44,R=150,T=14,B=26,xs=rows.map((_,i)=>L+(W-L-R)*i/(rows.length-1));
  const all=rows.flatMap(r=>[+r.shadow,+r.hold]);let lo=Math.min(...all),hi=Math.max(...all);const pad=(hi-lo)*.15||.01;lo-=pad;hi+=pad;
  const y=v=>T+(H-T-B)*(1-(v-lo)/(hi-lo));
  const path=k=>rows.map((r,i)=>(i?"L":"M")+xs[i].toFixed(1)+" "+y(+r[k]).toFixed(1)).join(" ");
@@ -83,8 +83,8 @@ function chart(rows,la="Empfehlungen",lb="Halten"){
  <line x1="${L}" x2="${W-R}" y1="${y(1)}" y2="${y(1)}" stroke="#262B37"/><text x="${L-8}" y="${y(1)+4}" text-anchor="end" fill="#8A8F9C" font-size="12">1,00</text>
  <path d="${path("hold")}" fill="none" stroke="#8A8F9C" stroke-width="2" stroke-dasharray="5 4"/>
  <path d="${path("shadow")}" fill="none" stroke="#D9B34A" stroke-width="2.5"/>
- <text x="${W-R+8}" y="${y(+last.shadow)+4}" fill="#D9B34A" font-size="13">${la}</text>
- <text x="${W-R+8}" y="${y(+last.hold)+(Math.abs(y(+last.shadow)-y(+last.hold))<16?18:4)}" fill="#8A8F9C" font-size="13">${lb}</text>
+ <text x="${W-R+8}" y="${y(+last.shadow)+4}" fill="#D9B34A" font-size="13">${la} ${(+last.shadow).toFixed(3).replace(".",",")}</text>
+ <text x="${W-R+8}" y="${y(+last.hold)+(Math.abs(y(+last.shadow)-y(+last.hold))<16?18:4)}" fill="#8A8F9C" font-size="13">${lb} ${(+last.hold).toFixed(3).replace(".",",")}</text>
  <text x="${L}" y="${H-6}" fill="#8A8F9C" font-size="12">${fmtDay(rows[0].date)}</text>
  <text x="${W-R}" y="${H-6}" text-anchor="end" fill="#8A8F9C" font-size="12">${fmtDay(last.date)}</text></svg>`;
 }
