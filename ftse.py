@@ -31,6 +31,10 @@ for sym, cur in (("VWRL.AS", "EUR"), ("VWRD.L", "USD")):
     except Exception as e: print(sym, e)
 S = usd2eur(fp.yahoo("SPY"))
 ks = sorted(set(S) & set(F))
+# Datenbrüche: Tagesbewegung des FTSE über 12 %, während SPY unter 5 % bewegt -> Start nach dem letzten Bruch
+brk = [ks[i] for i in range(1, len(ks)) if abs(F[ks[i]] / F[ks[i-1]] - 1) > .12 and abs(S[ks[i]] / S[ks[i-1]] - 1) < .05]
+print("Datenbrüche:", brk)
+if brk: ks = [k for k in ks if k >= brk[-1]]
 # Monatsende-Reihe
 m = {}
 for k in ks: m[k[:7]] = k
@@ -41,7 +45,7 @@ def mdd(d, keys):
     for k in keys: hi = max(hi, d[k]); w = min(w, d[k] / hi - 1)
     return w
 a, b = ks[0], ks[-1]; mid = ks[len(ks) // 2]
-res = {"src": src, "from": a, "until": b, "mid": mid}
+res = {"breaks": brk, "src": src, "from": a, "until": b, "mid": mid}
 for name, d in (("spy", S), ("ftse", F)):
     res[name] = {"cagr": cagr(d, a, b), "h1": cagr(d, a, mid), "h2": cagr(d, mid, b), "mdd": mdd(d, ks), "x": d[b] / d[a]}
 win = [(mk[i], mk[i + 60]) for i in range(len(mk) - 60)]
