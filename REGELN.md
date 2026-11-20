@@ -174,3 +174,9 @@ Kriterium NICHT erfüllt, keine Regeländerung: SMA200 bleibt.
 - Kurzes Fenster 2017-2026 (Teil 1): S&P- und Gold-Linien liegen alle unter Halten bei der Rendite (SPY 7-10,5 % vs 13,9 %), mit etwa 20 % statt 34 % Rückgang.
 - Teil 2 (Mannschaft, 2017-2026): Rückblick 504 liegt auf einem Plateau (Sharpe 1,11-1,14, Rückgang 14-17 %, über alle drei Saisonlängen). Rückblick 252 ist schwächer (Sharpe 1,04-1,08, Rückgang 22-25 %). Der Spitzenwert Rückblick 756 / Saison 126 (1,23) hat schwächere Nachbarn (1,06 und 1,14): Einzelspitze, nicht übernehmen.
 Offen für Saisonende: Bitcoin-Linie (SMA50/100 schlagen SMA200 bei Bitcoin allein; SMA100 ist bereits als Kandidat im Bitcoin-Kader, Data-Snooping-Vorbehalt von 2026-11-18 gilt).
+
+## 2026-11-21: Test "FTSE All-World gegen S&P 500" (vorab festgelegt, vor dem Rechnen; ftse.py)
+Frage: Ist ein weltweiter Index als Kern besser als der S&P 500?
+Daten: echter FTSE All-World über den Vanguard FTSE All-World ETF (VWRL, Start 05/2012; älter frei nicht verfügbar) gegen SPY, Kurse inkl. Ausschüttungen, in Euro, gleicher Zeitraum. Kosten der ETFs sind im Kurs enthalten.
+Kennzahlen: Rendite p. a., maximaler Rückgang, beide Hälften des Zeitraums, Anteil rollierender 5-Jahres-Fenster mit Vorsprung, Sparplan 100 €/Monat.
+Kriterium (wie Faktor-ETFs und Top 20): Der FTSE All-World ersetzt den S&P 500 als Kern nur, wenn Rendite p. a. höher UND in BEIDEN Hälften höher UND maximaler Rückgang nicht größer. Sonst nur Anzeige auf der Seite.
