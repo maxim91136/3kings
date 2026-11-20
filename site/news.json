@@ -2,13 +2,20 @@
  "items": [
   {
    "date": "2026-11-18",
-   "published": "19.11., 22:24 Uhr",
+   "published": "20.11., 07:42 Uhr",
+   "published_en": "Nov 20, 7:42 AM CET",
    "move": true,
-   "headline": "Gold −3,2 % auf unter 3.460 €/oz: Erwartung weiterer Fed-Zinserhöhungen stärkt den Dollar",
+   "headline": "Gold −3,2 % auf 3.404 € je Unze: Erwartung weiterer US-Zinserhöhungen stärkt den Dollar",
+   "headline_en": "Gold −3.2 % to €3,404 per ounce: expectations of further US rate hikes lift the dollar",
    "lines": [
-    "S&P 500 7.324 Pkt. (−0,3 % in €) · Bitcoin 57.293 € (−2,9 %) · Gold unter 3.460 €/oz (−3,2 %)",
-    "Elite 6 1,007 · S&P 500 0,997 (Schattenbuch in €, seit 17.11.2026)",
-    "Gold (−3,2 % in €, gemessen an GLD): Spot fiel am 18.11. unter 3.800 $/oz (umgerechnet unter rund 3.460 €) auf den tiefsten Stand seit über einem Jahr; 25,5 % unter dem Hoch vom 02.03.2026 in Euro. Marktberichte nennen den festeren Dollar und eine Wahrscheinlichkeit von rund 96 % für eine Fed-Zinserhöhung um 25 Basispunkte im Dezember nach restriktiven Aussagen von Fed-Vertretern."
+    "S&P 500 7.324 Pkt. (−0,3 % in €) · Bitcoin 57.293 € (−2,9 %) · Gold 3.404 € je Unze (−3,2 %)",
+    "Schattenbuch: Elite 6 1,007 · S&P 500 0,997 (in €, seit 17.11.2026)",
+    "Gold (−3,2 % in €): Der Goldpreis fiel am 18.11. auf rund 3.404 € je Unze, den tiefsten Stand seit über einem Jahr, und liegt 25,5 % unter seinem Hoch vom 02.03.2026. Marktberichte nennen den festeren Dollar und eine Wahrscheinlichkeit von rund 96 % für eine Zinserhöhung der US-Notenbank um 0,25 Prozentpunkte im Dezember nach restriktiven Aussagen von Notenbankvertretern."
+   ],
+   "lines_en": [
+    "S&P 500 7,324 pts (−0.3 % in €) · Bitcoin €57,293 (−2.9 %) · Gold €3,404 per ounce (−3.2 %)",
+    "Shadow book: Elite 6 1.007 · S&P 500 0.997 (in €, since Nov 17, 2026)",
+    "Gold (−3.2 % in €): the gold price fell to around €3,404 per ounce on Nov 18, its lowest level in over a year, and is 25.5 % below its high of Mar 2, 2026. Market reports cite a firmer dollar and a roughly 96 % probability of a 0.25 percentage point rate hike by the US Federal Reserve in December after hawkish comments from Fed officials."
    ],
    "sources": [
     {
@@ -23,14 +30,7 @@
      "title": "24/7 Wall St.: Gold Is at a 14-Month Low as Traders Bet on More Fed Hikes",
      "url": "https://247wallst.com/investing/2026/11/18/gold-is-at-a-14-month-low-as-traders-bet-on-more-fed-hikes/"
     }
-   ],
-   "headline_en": "Gold −3.2 % to below €3,460/oz: expectations of further Fed rate hikes lift the dollar",
-   "lines_en": [
-    "S&P 500 7,324 pts (−0.3 % in €) · Bitcoin €57,293 (−2.9 %) · Gold below €3,460/oz (−3.2 %)",
-    "Elite 6 1.007 · S&P 500 0.997 (shadow book in €, since Nov 17, 2026)",
-    "Gold (−3.2 % in €, measured by GLD): spot fell below $3,800/oz on Nov 18 (roughly below €3,460), its lowest level in over a year; 25.5 % below the high of Mar 2, 2026 in euros. Market reports cite a firmer dollar and a roughly 96 % probability of a 25 basis point Fed hike in December after hawkish comments from Fed officials."
-   ],
-   "published_en": "Nov 19, 10:24 PM CET"
+   ]
   }
  ]
 }
