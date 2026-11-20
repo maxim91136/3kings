@@ -174,3 +174,14 @@ Kriterium NICHT erfüllt, keine Regeländerung: SMA200 bleibt.
 - Kurzes Fenster 2017-2026 (Teil 1): S&P- und Gold-Linien liegen alle unter Halten bei der Rendite (SPY 7-10,5 % vs 13,9 %), mit etwa 20 % statt 34 % Rückgang.
 - Teil 2 (Mannschaft, 2017-2026): Rückblick 504 liegt auf einem Plateau (Sharpe 1,11-1,14, Rückgang 14-17 %, über alle drei Saisonlängen). Rückblick 252 ist schwächer (Sharpe 1,04-1,08, Rückgang 22-25 %). Der Spitzenwert Rückblick 756 / Saison 126 (1,23) hat schwächere Nachbarn (1,06 und 1,14): Einzelspitze, nicht übernehmen.
 Offen für Saisonende: Bitcoin-Linie (SMA50/100 schlagen SMA200 bei Bitcoin allein; SMA100 ist bereits als Kandidat im Bitcoin-Kader, Data-Snooping-Vorbehalt von 2026-11-18 gilt).
+
+## 2026-11-21: Test "FTSE All-World gegen S&P 500" (vorab festgelegt, vor dem Rechnen; ftse.py)
+Frage: Ist ein weltweiter Index als Kern besser als der S&P 500?
+Daten: echter FTSE All-World über den Vanguard FTSE All-World ETF (VWRL, Start 05/2012; älter frei nicht verfügbar) gegen SPY, Kurse inkl. Ausschüttungen, in Euro, gleicher Zeitraum. Kosten der ETFs sind im Kurs enthalten.
+Kennzahlen: Rendite p. a., maximaler Rückgang, beide Hälften des Zeitraums, Anteil rollierender 5-Jahres-Fenster mit Vorsprung, Sparplan 100 €/Monat.
+Kriterium (wie Faktor-ETFs und Top 20): Der FTSE All-World ersetzt den S&P 500 als Kern nur, wenn Rendite p. a. höher UND in BEIDEN Hälften höher UND maximaler Rückgang nicht größer. Sonst nur Anzeige auf der Seite.
+Datenkorrektur (vor der Auswertung, nach dem ersten Lauf bemerkt): Die Yahoo-Reihe des VWRL hat 2013 einen Sprung von −24 % an einem Tag ohne entsprechende Marktbewegung (Datenfehler). Regel: Tagesbewegung über 12 % beim FTSE bei weniger als 5 % beim SPY gilt als Datenbruch; der Test beginnt nach dem letzten Bruch. Das Kriterium bleibt unverändert.
+
+### Ergebnis "FTSE All-World gegen S&P 500" (2026-11-21, ftse.py)
+Zeitraum 06/2013 bis 11/2026 in Euro, inkl. Ausschüttungen. S&P 500 15,2 %/J (x6,68), FTSE All-World 11,8 %/J (x4,46). Hälften (Teilung 03/2020): bis 2020 15,3 vs 10,3 %, ab 2020 15,1 vs 13,3 %. Maximaler Rückgang 33,1 vs 33,3 %: die breitere Streuung hat den Rückgang nicht verringert. Rollierende 5-Jahres-Fenster: FTSE in 0 von 102 vorn. Sparplan 100 €/Monat (16.200 € eingezahlt): 46.076 vs 37.433 €.
+Kriterium NICHT erfüllt (in keinem Punkt). Der S&P 500 bleibt Kern. Einschränkung: nur 13 Jahre und eine Phase mit starkem US-Vorsprung; davor (z. B. 2000-2009) lag die Welt vor den USA. Der Test zeigt also nur diese Phase, nicht, dass es immer so ist.

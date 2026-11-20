@@ -181,3 +181,7 @@ Daten: echter FTSE All-World über den Vanguard FTSE All-World ETF (VWRL, Start 
 Kennzahlen: Rendite p. a., maximaler Rückgang, beide Hälften des Zeitraums, Anteil rollierender 5-Jahres-Fenster mit Vorsprung, Sparplan 100 €/Monat.
 Kriterium (wie Faktor-ETFs und Top 20): Der FTSE All-World ersetzt den S&P 500 als Kern nur, wenn Rendite p. a. höher UND in BEIDEN Hälften höher UND maximaler Rückgang nicht größer. Sonst nur Anzeige auf der Seite.
 Datenkorrektur (vor der Auswertung, nach dem ersten Lauf bemerkt): Die Yahoo-Reihe des VWRL hat 2013 einen Sprung von −24 % an einem Tag ohne entsprechende Marktbewegung (Datenfehler). Regel: Tagesbewegung über 12 % beim FTSE bei weniger als 5 % beim SPY gilt als Datenbruch; der Test beginnt nach dem letzten Bruch. Das Kriterium bleibt unverändert.
+
+### Ergebnis "FTSE All-World gegen S&P 500" (2026-11-21, ftse.py)
+Zeitraum 06/2013 bis 11/2026 in Euro, inkl. Ausschüttungen. S&P 500 15,2 %/J (x6,68), FTSE All-World 11,8 %/J (x4,46). Hälften (Teilung 03/2020): bis 2020 15,3 vs 10,3 %, ab 2020 15,1 vs 13,3 %. Maximaler Rückgang 33,1 vs 33,3 %: die breitere Streuung hat den Rückgang nicht verringert. Rollierende 5-Jahres-Fenster: FTSE in 0 von 102 vorn. Sparplan 100 €/Monat (16.200 € eingezahlt): 46.076 vs 37.433 €.
+Kriterium NICHT erfüllt (in keinem Punkt). Der S&P 500 bleibt Kern. Einschränkung: nur 13 Jahre und eine Phase mit starkem US-Vorsprung; davor (z. B. 2000-2009) lag die Welt vor den USA. Der Test zeigt also nur diese Phase, nicht, dass es immer so ist.

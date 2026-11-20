@@ -130,6 +130,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <div class="mute">${T("Einzige belegte Ausnahme: Der Trend (200-Tage-Linie) senkte beim S&amp;P 500 den schlimmsten Rückgang von 78 auf 22 %. Das gilt fürs Halten, nicht fürs Kaufen.","Only proven exception: the trend (200-day line) cut the worst S&amp;P 500 drawdown from 78 to 22 %. That applies to holding, not to buying.")}</div>
  <div class="mute" style="margin-top:8px">${T("Gilt für Anlagen, die langfristig steigen. Vergangenheit, keine Garantie. Stand 19.11.2026, Details im","Applies to assets that rise over the long term. Past results, no guarantee. As of Nov 19, 2026, details in the")} <a href="regeln.html?lang=${LANG}" style="color:var(--gld)">${T("Regelbuch","rule book")}</a>.</div></section>
  <section id="long" hidden></section>
+ <section id="ftse" hidden></section>
  <section id="ind" hidden></section>
  <section id="spar" hidden></section>
  <section id="watch" hidden></section>
@@ -198,6 +199,22 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
   const s=document.getElementById("long");
   s.innerHTML=`<h4>${T("S&amp;P 500 seit 1928","S&amp;P 500 since 1928")}</h4><svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${T("S&amp;P 500 seit 1928, logarithmisch","S&amp;P 500 since 1928, log scale")}">${g}<path d="${path}" fill="none" stroke="var(--spy)" stroke-width="1.8"/>${c}</svg>
    <div class="mute">${T(`Kursindex ohne Dividenden, Monatsendwerte, logarithmische Skala: gleicher Abstand bedeutet gleiche prozentuale Veränderung. ${fx(j.cagr*100,1)} % pro Jahr ohne Dividenden, mit Dividenden rund 10 %. Rot: größte Rückgänge vom Hoch bis zum Tief. Jeder davon wurde aufgeholt, am längsten dauerte es nach 1929 (Kursindex zurück auf dem Hoch erst 1954). Stand ${fmtDay(j.until)}.`,`Price index without dividends, month-end values, log scale: equal distance means equal percentage change. ${fx(j.cagr*100,1)} % per year without dividends, about 10 % with dividends. Red: largest declines from high to low. Every one was recovered; the longest took until 1954 after the 1929 crash (price index). As of ${fmtDay(j.until)}.`)}</div>`;
+  s.hidden=false}).catch(()=>{});
+ fetch("ftse.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{if(!(j.rows&&j.rows.length))return;
+  const rows=j.rows.map((r,i)=>({date:i===j.rows.length-1?j.until:(i?r[0]+"-01":j.from),shadow:r[1],hold:r[2]}));
+  const a=j.spy,b=j.ftse,P=x=>fx(x*100,1)+" %",tr=(l,x,y)=>`<tr><td>${l}</td><td>${x}</td><td>${y}</td></tr>`;
+  const s=document.getElementById("ftse");
+  s.innerHTML=`<h4>${T("Test: FTSE All-World gegen S&amp;P 500","Test: FTSE All-World vs S&amp;P 500")}</h4>
+   <div class="verdict small"><h2>${j.pass?T("Bestanden","Passed"):T("Nicht bestanden, S&amp;P 500 bleibt Kern","Not passed, the S&amp;P 500 stays the core")}</h2></div>
+   ${chart(rows,"S&amp;P 500","FTSE All-World")}
+   <table><thead><tr><th></th><th>S&amp;P 500</th><th>FTSE All-World</th></tr></thead><tbody>
+   ${tr(T("Rendite pro Jahr","Return per year"),P(a.cagr),P(b.cagr))}
+   ${tr(T("bis "+j.mid.slice(0,4),"until "+j.mid.slice(0,4)),P(a.h1),P(b.h1))}
+   ${tr(T("ab "+j.mid.slice(0,4),"from "+j.mid.slice(0,4)),P(a.h2),P(b.h2))}
+   ${tr(T("Größter Rückgang","Largest drawdown"),"−"+P(-a.mdd),"−"+P(-b.mdd))}
+   ${tr(T(`Sparplan 100 €/Monat (${eur0(j.plan.paid)} eingezahlt)`,`Savings plan €100/month (${eur0(j.plan.paid)} paid in)`),eur0(j.plan.spy),eur0(j.plan.ftse))}
+   </tbody></table>
+   <div class="mute">${T(`Echter FTSE All-World über den Vanguard-ETF (VWRL) gegen SPY, beide mit Ausschüttungen, in Euro, ETF-Kosten enthalten. ${fmtDay(j.from)} bis ${fmtDay(j.until)}. In ${j.roll5.ftse_better} von ${j.roll5.n} rollierenden 5-Jahres-Zeiträumen lag der FTSE vorn. Kriterium vorab festgelegt: höhere Rendite insgesamt und in beiden Hälften, Rückgang nicht größer. Einschränkung: nur eine Phase mit starkem US-Vorsprung; 2000 bis 2009 lag die Welt vor den USA.`,`The actual FTSE All-World via the Vanguard ETF (VWRL) vs SPY, both with distributions, in euros, ETF costs included. ${fmtDay(j.from)} to ${fmtDay(j.until)}. The FTSE was ahead in ${j.roll5.ftse_better} of ${j.roll5.n} rolling 5-year periods. Criterion fixed beforehand: higher return overall and in both halves, drawdown not larger. Caveat: only one period with strong US outperformance; from 2000 to 2009 the world was ahead of the US.`)}</div>`;
   s.hidden=false}).catch(()=>{});
  fetch("watch.json",{cache:"no-store"}).then(r=>r.json()).then(w=>{
   const n1=x=>fx(x*100,1),n0=x=>Math.round(x*100),b2=x=>fx(x,2),b3=x=>fx(x,3);

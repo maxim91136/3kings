@@ -174,3 +174,14 @@ Criterion NOT met, no rule change: SMA200 stays.
 - Short window 2017-2026 (part 1): S&P and gold lines all trail holding on return (SPY 7-10.5 % vs 13.9 %), with about 20 % instead of 34 % drawdown.
 - Part 2 (team model, 2017-2026): look-back 504 sits on a plateau (Sharpe 1.11-1.14, drawdown 14-17 %, across all three season lengths). Look-back 252 is weaker (Sharpe 1.04-1.08, drawdown 22-25 %). The peak value look-back 756 / season 126 (1.23) has weaker neighbours (1.06 and 1.14): isolated peak, not adopted.
 Open for end of season: bitcoin line (SMA50/100 beat SMA200 for bitcoin alone; SMA100 is already a candidate in the bitcoin squad, the data-snooping caveat of 2026-11-18 applies).
+
+## 2026-11-21: Test "FTSE All-World vs S&P 500" (fixed before computing; ftse.py)
+Question: is a global index better than the S&P 500 as the core?
+Data: the actual FTSE All-World via the Vanguard FTSE All-World ETF (VWRL, launched 05/2012; older data not freely available) vs SPY, prices including distributions, in euros, same period. ETF costs are included in the prices.
+Metrics: return p.a., maximum drawdown, both halves of the period, share of rolling 5-year windows with a lead, savings plan €100/month.
+Criterion (as for factor ETFs and the Top 20): the FTSE All-World replaces the S&P 500 as the core only if return p.a. is higher AND higher in BOTH halves AND the maximum drawdown is not larger. Otherwise display only.
+Data correction (before evaluation, noticed after the first run): the Yahoo series for VWRL has a one-day jump of −24 % in 2013 without a matching market move (data error). Rule: a daily FTSE move above 12 % while SPY moves less than 5 % counts as a data break; the test starts after the last break. The criterion is unchanged.
+
+### Result "FTSE All-World vs S&P 500" (2026-11-21, ftse.py)
+Period 06/2013 to 11/2026 in euros, including distributions. S&P 500 15.2 %/yr (x6.68), FTSE All-World 11.8 %/yr (x4.46). Halves (split 03/2020): until 2020 15.3 vs 10.3 %, from 2020 15.1 vs 13.3 %. Maximum drawdown 33.1 vs 33.3 %: broader diversification did not reduce the drawdown. Rolling 5-year windows: FTSE ahead in 0 of 102. Savings plan €100/month (€16,200 paid in): €46,076 vs €37,433.
+Criterion NOT met (on any point). The S&P 500 remains the core. Caveat: only 13 years and a period of strong US outperformance; before that (e.g. 2000-2009) the world was ahead of the US. The test therefore only covers this period, not that it is always so.
