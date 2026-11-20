@@ -2,6 +2,8 @@ name: heartbeat
 on:
   schedule:
     - cron: "30 0 * * 2-6"      # 00:30 UTC: US-Boerse und Bitcoin-Tag sind beendet (Di-Sa = Schluss Mo-Fr)
+    - cron: "13 3 * * 2-6"      # Ersatzlauf, falls GitHub den ersten verschiebt oder auslaesst
+    - cron: "43 4 * * 2-6"      # zweiter Ersatzlauf (vor dem News-Monitor um 06:41 UTC)
   workflow_dispatch:
 permissions:
   contents: write
