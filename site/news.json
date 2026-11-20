@@ -1,6 +1,23 @@
 {
  "items": [
   {
+   "date": "2026-11-19",
+   "published": "20.11., 07:49 Uhr",
+   "published_en": "Nov 20, 7:49 AM CET",
+   "move": false,
+   "headline": "Keine größeren Bewegungen",
+   "headline_en": "No major moves",
+   "lines": [
+    "S&P 500 7.176 Pkt. (−1,8 % in €) · Bitcoin 56.428 € (−1,5 %) · Gold 3.359 € je Unze (−1,6 %)",
+    "Schattenbuch: Elite 6 0,989 · S&P 500 0,980 (in €, seit 17.11.2026)"
+   ],
+   "lines_en": [
+    "S&P 500 7,176 pts (−1.8 % in €) · Bitcoin €56,428 (−1.5 %) · Gold €3,359 per ounce (−1.6 %)",
+    "Shadow book: Elite 6 0.989 · S&P 500 0.980 (in €, since Nov 17, 2026)"
+   ],
+   "sources": []
+  },
+  {
    "date": "2026-11-18",
    "published": "20.11., 07:42 Uhr",
    "published_en": "Nov 20, 7:42 AM CET",
