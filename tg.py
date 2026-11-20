@@ -29,7 +29,7 @@ out = []
 if os.path.exists("site/news.json"):
     it = json.load(open("site/news.json")).get("items", [])
     if it:
-        x = it[0]; key = f"{x.get('date')}|{x.get('published')}|{x.get('headline')}"
+        x = it[0]; key = f"{x.get('date')}|{str(x.get('headline','')).startswith('Wochenende')}"
         if st.get("news") != key:
             hl = x.get("headline_en") if en and x.get("headline_en") else x.get("headline", "")
             ln = x.get("lines_en") if en and x.get("lines_en") else x.get("lines", [])
