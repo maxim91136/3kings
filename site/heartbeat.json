@@ -1,44 +1,44 @@
 {
- "generated_at": "2026-11-19T21:41:58Z",
- "data_date": "2026-11-18",
+ "generated_at": "2026-11-20T06:47:00Z",
+ "data_date": "2026-11-19",
  "players": {
   "BTC": {
    "champion": "Trend SMA100",
    "strat_weight": 0.0,
    "alloc": 0.2814,
    "target": 0.0,
-   "price": 57292.55890111889,
+   "price": 56428.39044841415,
    "line_n": 100,
-   "vs_line": -0.114,
-   "dd_high": -0.312,
-   "dd_ath": -0.4621
+   "vs_line": -0.1281,
+   "dd_high": -0.3224,
+   "dd_ath": -0.4702
   },
   "SPY": {
    "champion": "Trend SMA200",
    "strat_weight": 1.0,
    "alloc": 0.4909,
    "target": 0.4909,
-   "price": 664.2408914763942,
+   "price": 652.4516906671528,
    "line_n": 200,
-   "vs_line": 0.0475,
-   "dd_high": -0.0473,
-   "dd_ath": -0.0473
+   "vs_line": 0.0283,
+   "dd_high": -0.0642,
+   "dd_ath": -0.0642
   },
   "GLD": {
    "champion": "Trend SMA200",
    "strat_weight": 0.0,
    "alloc": 0.2277,
    "target": 0.0,
-   "price": 310.3702374238152,
+   "price": 305.48668702150934,
    "line_n": 200,
-   "vs_line": -0.1207,
-   "dd_high": -0.2552,
-   "dd_ath": -0.2552
+   "vs_line": -0.1335,
+   "dd_high": -0.2669,
+   "dd_ath": -0.2669
   }
  },
  "season": {
-  "day_in_season": 16,
-  "days_left": 47,
+  "day_in_season": 17,
+  "days_left": 46,
   "n_seasons": 38
  },
  "held": {
@@ -48,8 +48,8 @@
  },
  "cash": 0.5052,
  "moves": [],
- "shadow": 0.9949,
- "hold": 0.9769,
+ "shadow": 0.9862,
+ "hold": 0.9611,
  "since": "2026-11-16",
  "n_actions": 1,
  "band": 0.05,
@@ -82,6 +82,16 @@
    "cash": "0.5052",
    "shadow": "0.99495",
    "hold": "0.97692",
+   "action": "-"
+  },
+  {
+   "date": "2026-11-19",
+   "BTC": "0.0",
+   "SPY": "0.4948",
+   "GLD": "0.0",
+   "cash": "0.5052",
+   "shadow": "0.98621",
+   "hold": "0.9611",
    "action": "-"
   }
  ]
