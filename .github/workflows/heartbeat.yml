@@ -47,4 +47,4 @@ jobs:
           cp REGELN.md site/REGELN.md; cp REGELN.en.md site/REGELN.en.md
           git add -A
           git diff --cached --quiet || git commit -m "heartbeat $(date -u +%F)"
-          git push
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
