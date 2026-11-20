@@ -148,3 +148,20 @@ Monatsgeld, 2 % Zins auf Wartegeld, rollierende 5- und 10-Jahres-Fenster ab 1975
 
 ## 2026-11-19: Seite allgemein und zweisprachig
 Die Seite wird ohne Bezug auf einen persönlichen Bestand formuliert und behandelt alle drei Assets gleich. Kopfbereich: je Asset Kurs, Veränderung, Abstand zum Hoch und das Testergebnis "Kaufen". Rechner mit frei wählbarer Aufteilung (voreingestellt je ein Drittel, keine Gewichtungsempfehlung). Sprachen Deutsch und Englisch.
+
+## 2026-11-20: Studie "Zeithorizonte" (vorab festgelegt, vor dem Rechnen; horizon.py + horizonlong.py)
+Frage: Ist SMA200 als Trendlinie ein Zufallstreffer, oder liegt es auf einem Plateau? Und passen Rückblick 504 / Saison 63 der Mannschaft?
+Feste Auswahl (nichts nachträglich dazu, ALLE Ergebnisse werden gezeigt):
+- Linien: SMA 50, 100, 150, 200, 300 (Kurs darüber = investiert, sonst Cash). Gold nur monatlich: 3, 5, 7, 10, 14 Monate (entspricht etwa 63..294 Tage).
+- Teil 1 kurz (horizon.py, echte Kurse 2015-2026, Euro-Sicht nicht enthalten): Linien je Spieler.
+- Teil 1 lang (horizonlong.py): S&P 500 ab 1930 in den Epochen von longtest.py (6 Epochen); Bitcoin ab 2011 in 4 Epochen (2011-2014, 2015-2018, 2019-2022, 2023-2026); Gold monatlich ab 1971 (informativ). Preisindex, Cash ohne Zins, Kosten 5 bps (BTC 10 bps).
+- Teil 2 (horizon.py, 2015-2026): Mannschaft Rückblick 252/504/756 x Saison 21/63/126, nur Information.
+Kriterium Linie (Ersatz von SMA200): Eine andere Linie N ersetzt SMA200 nur, wenn sie für S&P UND Bitcoin Folgendes erfüllt:
+ (a) Sharpe über alles mindestens +0,05 gegenüber SMA200;
+ (b) Sharpe in der Mehrzahl der Epochen mindestens so gut wie SMA200 (S&P mind. 4 von 6, BTC mind. 3 von 4);
+ (c) maximaler Rückgang über alles höchstens 3 Punkte schlechter, in den S&P-Krisenepochen 1973-1982 und 2000-2009 höchstens 5 Punkte schlechter als SMA200;
+ (d) Plateau: beide Nachbarlinien von N (in der Reihenfolge 50-100-150-200-300) haben über alles mindestens den Sharpe von SMA200 (kein Einzelspitzenwert).
+ Mehrfachtest-Schutz: 4 Alternativen je Wert, deshalb gelten (a) bis (d) gemeinsam und für beide Werte. Bestehen mehrere, gilt die einfachste (SMA200 bleibt bei Gleichstand).
+ Gold: nur Information, keine Regeländerung (Gold ist fest SMA200 nach Langzeittest).
+Kriterium Teil 2: keine Regeländerung aus Teil 2 allein (nur 11 Jahre, ein Regime). Befund nur nach Plateau beurteilen. Änderung frühestens zum Saisonende per ausdrücklicher Entscheidung.
+Ist das Kriterium nicht erfüllt: SMA200 bleibt, die Linienwahl gilt als nicht belegt anders.
