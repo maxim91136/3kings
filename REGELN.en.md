@@ -148,3 +148,29 @@ Monthly money, 2 % interest on waiting money, rolling 5- and 10-year windows fro
 
 ## 2026-11-19: Site general and bilingual
 The site is written without reference to any personal holdings and treats all three assets equally. Header: per asset the price, change, distance to the high and the test result "Buy". Calculator with a freely chosen split (default one third each, no weighting recommendation). Languages German and English.
+
+## 2026-11-20: Study "time horizons" (fixed in advance, before computing; horizon.py + horizonlong.py)
+Question: is SMA200 as the trend line a lucky hit, or does it sit on a plateau? And do the team model's look-back 504 / season 63 fit?
+Fixed selection (nothing added later, ALL results are shown):
+- Lines: SMA 50, 100, 150, 200, 300 (price above = invested, otherwise cash). Gold monthly only: 3, 5, 7, 10, 14 months (roughly 63..294 days).
+- Part 1 short (horizon.py, real prices 2015-2026, euro view not included): lines per player.
+- Part 1 long (horizonlong.py): S&P 500 from 1930 in the epochs of longtest.py (6 epochs); bitcoin from 2011 in 4 epochs (2011-2014, 2015-2018, 2019-2022, 2023-2026); gold monthly from 1971 (information). Price index, cash without interest, costs 5 bps (BTC 10 bps).
+- Part 2 (horizon.py, 2015-2026): team model look-back 252/504/756 x season 21/63/126, information only.
+Criterion for a line (replacing SMA200): another line N replaces SMA200 only if, for the S&P AND bitcoin:
+ (a) overall Sharpe at least +0.05 versus SMA200;
+ (b) Sharpe at least as good as SMA200 in most epochs (S&P at least 4 of 6, BTC at least 3 of 4);
+ (c) overall maximum drawdown no more than 3 points worse, and in the S&P crisis epochs 1973-1982 and 2000-2009 no more than 5 points worse than SMA200;
+ (d) plateau: both neighbouring lines of N (in the order 50-100-150-200-300) have an overall Sharpe at least that of SMA200 (no isolated peak).
+ Multiple-testing protection: 4 alternatives per asset, so (a) to (d) apply jointly and for both assets. If several pass, the simplest applies (SMA200 stays on a tie).
+ Gold: information only, no rule change (gold is fixed at SMA200 after the long-term test).
+Criterion part 2: no rule change from part 2 alone (only 11 years, one regime). Judge findings only by plateau. Change at the earliest at end of season by explicit decision.
+If the criterion is not met: SMA200 stays; a different line choice counts as not proven.
+
+### Result study "time horizons" (2026-11-20, horizon.py + horizonlong.py)
+Criterion NOT met, no rule change: SMA200 stays.
+- S&P 1930-2026 (overall Sharpe): SMA50 0.52 | 100 0.53 | 150 0.53 | 200 0.57 | 300 0.56 (holding 0.42). Drawdown 47-53 % instead of 83 %. All lines sit on a plateau; the length hardly matters, the trend filter itself counts. No alternative passes (a) and (b) (epochs better than SMA200: 2-3 of 6, 4 needed). SMA300 is almost equal (plateau, drawdown ok), but not +0.05 better.
+- Bitcoin 2011-2026 (overall Sharpe): SMA50 1.27 | 100 1.16 | 150 1.07 | 200 1.03 | 300 0.99 (holding 0.90). SMA50 and SMA100 pass all four points for bitcoin, but not for the S&P; the test requires both. Caveat: short lines switch often (13 and 8 times per year), costs of 10 bps included, taxes not.
+- Gold monthly (information only): 3 to 14 months all Sharpe 0.66-0.72, drawdown 29-40 % instead of 62 %; again a plateau.
+- Short window 2017-2026 (part 1): S&P and gold lines all trail holding on return (SPY 7-10.5 % vs 13.9 %), with about 20 % instead of 34 % drawdown.
+- Part 2 (team model, 2017-2026): look-back 504 sits on a plateau (Sharpe 1.11-1.14, drawdown 14-17 %, across all three season lengths). Look-back 252 is weaker (Sharpe 1.04-1.08, drawdown 22-25 %). The peak value look-back 756 / season 126 (1.23) has weaker neighbours (1.06 and 1.14): isolated peak, not adopted.
+Open for end of season: bitcoin line (SMA50/100 beat SMA200 for bitcoin alone; SMA100 is already a candidate in the bitcoin squad, the data-snooping caveat of 2026-11-18 applies).
