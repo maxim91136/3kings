@@ -10,9 +10,23 @@ def usd2eur(d):
         if last: out[k] = d[k] / last
     return out
 src = None
+def tr(sym):
+    """Gesamtrendite selbst gerechnet: Schlusskurs plus wiederangelegte Ausschüttungen (Yahoo-adjclose fehlt bei EU-Listings oft)."""
+    import time
+    j = json.loads(fp.get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}?period1=946684800&period2={int(time.time())}&interval=1d&events=div"))["chart"]["result"][0]
+    cl = j["indicators"]["quote"][0]["close"]; adj = (j["indicators"].get("adjclose") or [{}])[0].get("adjclose")
+    divs = {fp.day(int(t)): v["amount"] for t, v in (j.get("events", {}).get("dividends") or {}).items()}
+    print(sym, "Ausschüttungen:", len(divs), "Summe", round(sum(divs.values()), 2), "| adj/close Start", adj and round(adj[0] / cl[0], 3))
+    out, units = {}, 1.0
+    for t, c in zip(j["timestamp"], cl):
+        if not c: continue
+        k = fp.day(t)
+        if k in divs: units *= 1 + divs[k] / c
+        out[k] = c * units
+    return out
 for sym, cur in (("VWRL.AS", "EUR"), ("VWRD.L", "USD")):
     try:
-        d = fp.yahoo(sym)
+        d = tr(sym)
         if len(d) > 2000: F = d if cur == "EUR" else usd2eur(d); src = sym; break
     except Exception as e: print(sym, e)
 S = usd2eur(fp.yahoo("SPY"))
