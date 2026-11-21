@@ -320,3 +320,6 @@ thesen.py, nightly. A (VIX above 30 as proxy for Fear & Greed): S&P 500 12 month
 
 ## 2026-11-21: Page reordered (explicit decision, no rule change)
 Power law check directly below market conditions. Buy and calculator are one block. New under experiments: "Shadow books overview" with all four books (Crown Jewels lump sum and savings plan, S&P 500 savings plan, tactical model) and the gap to each benchmark.
+
+## 2026-11-21: Note on multiple testing for the barometer hypotheses
+Added after an external review: four hypotheses on the same data, one may fit by chance; p-values are not meaningful because of overlapping 12-month windows. No rule change.

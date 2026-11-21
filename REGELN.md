@@ -320,3 +320,6 @@ thesen.py, nächtlich. A (VIX über 30 als Ersatz für Angst und Gier): S&P 500 
 
 ## 2026-11-21: Seite neu geordnet (ausdrückliche Entscheidung, keine Regeländerung)
 Power-Law-Check direkt unter der Marktlage. Kaufen und Rechner sind ein Block. Neu unter Experimente: „Schattenbücher im Überblick“ mit allen vier Büchern (Kronjuwelen Einmalanlage und Sparplan, Sparplan S&P 500, Taktikmodell) und dem Abstand zum jeweiligen Vergleich.
+
+## 2026-11-21: Hinweis Mehrfachtest bei den Barometer-Thesen
+Nach externer Prüfung ergänzt: Vier Thesen auf denselben Daten, eine kann auch zufällig passen; p-Werte sind wegen überlappender 12-Monats-Fenster nicht aussagekräftig. Keine Regeländerung.
