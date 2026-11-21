@@ -19,8 +19,8 @@ def esc(s):
     s = str(s).replace("€/oz", " € je Unze" if LANG == "de" else " € per oz").replace("$/oz", " $ je Unze" if LANG == "de" else " $ per oz").replace("/oz", " je Unze" if LANG == "de" else " per oz")
     s = s.replace("  ", " ").replace("€ € ", "€ ")
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-def public(l):  # interne Begriffe (Schattenbuch, Elite 6) nicht in Telegram
-    return not any(w in l for w in ("Schattenbuch", "shadow book", "Elite 6", "Kronjuwelen", "Crown Jewels"))
+def public(l):  # Schattenbücher nicht in Telegram; Kronjuwelen (öffentlicher Index) dürfen in Berichte
+    return not any(w in l for w in ("Schattenbuch", "Schattenbücher", "shadow book", "Shadow book", "Elite 6"))
 st_path = "data/tg_sent.json"
 TEST = len(sys.argv) > 1 and sys.argv[1] == "test"
 st = {} if TEST else (json.load(open(st_path)) if os.path.exists(st_path) else {})
