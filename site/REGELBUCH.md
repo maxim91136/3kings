@@ -35,7 +35,7 @@
 
 ## Schattenbücher (Test nach vorn, kein echtes Geld)
 - **Kronjuwelen** seit 17.11.2026, als Einmalanlage und als Sparplan (100 € pro Monat), jeweils gegen den S&P 500. Bewertung November 2031: bewährt bei mindestens 2 Punkten Mehrrendite pro Jahr, gescheitert unter dem S&P 500. (seit 21.11.2026)
-- **Sparplan** seit 17.11.2026: „immer sofort“ gegen „nicht am Hoch“ (kaufen erst 3 % unter dem Allzeithoch), S&P 500 in Euro. Prüfung nach einem Jahr. (seit 18.11.2026)
+- **Sparplan S&P 500** seit 17.11.2026: „immer sofort“ gegen „nicht am Hoch“ (kaufen erst 3 % unter dem Allzeithoch), S&P 500 in Euro. Prüfung nach einem Jahr. (seit 18.11.2026)
 - **Mannschaft** gegen alle drei gehalten. (seit 18.11.2026)
 
 ## Automatik und Seite

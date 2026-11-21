@@ -35,7 +35,7 @@
 
 ## Shadow books (forward test, no real money)
 - **Crown Jewels** since Nov 17, 2026, as a lump sum and as a savings plan (€100 per month), each against the S&P 500. Verdict November 2031: proven with at least 2 points more return per year, failed below the S&P 500. (since Nov 21, 2026)
-- **Savings plan** since Nov 17, 2026: "always immediately" vs "not at the high" (buy only 3 % below the all-time high), S&P 500 in euros. Review after one year. (since Nov 18, 2026)
+- **S&P 500 savings plan** since Nov 17, 2026: "always immediately" vs "not at the high" (buy only 3 % below the all-time high), S&P 500 in euros. Review after one year. (since Nov 18, 2026)
 - **Team model** against all three held. (since Nov 18, 2026)
 
 ## Automation and site
