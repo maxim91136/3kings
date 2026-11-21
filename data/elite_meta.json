@@ -84,9 +84,9 @@
   "cur": "USD"
  },
  "AAPL": {
-  "name": "Apple Inc.",
-  "branch": "Technology Hardware, Storage & Peripherals",
-  "branch_en": "Technology Hardware, Storage & Peripherals",
+  "name": "Apple",
+  "branch": "iPhone, Mac, Services",
+  "branch_en": "iPhone, Mac, services",
   "cur": "USD"
  }
 }
