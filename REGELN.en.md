@@ -295,3 +295,6 @@ The Crown Jewels section of the monthly report was accidentally filtered out in 
 
 ## 2026-11-21: Names sharpened (explicit decision)
 "Savings plan shadow book" is now "S&P 500 savings plan shadow book". "Team model" is now "Tactical model 3 Kings": each season it chooses the strategy per asset (trend, for bitcoin from candidates) and allocates capital by volatility, so it is more than a pure trend model. Content unchanged.
+
+## 2026-11-21: Tactical model: signal stays visible, private message (bug fix)
+Bug: the night run executes several times. The first run applied the signal in the shadow book; later runs the same night saw no deviation and showed "Do nothing". So the sale of Nov 20 (S&P 500 49 % → 0 %) was never visible on the site. Now: a data day's signal stays visible until the next data day ("Signal at the close of …, to be carried out on the next trading day"); each new signal triggers a private Telegram message. Open point (unchanged): the shadow book applies the rebalancing at the signal day's close; in practice only the next trading day is possible.

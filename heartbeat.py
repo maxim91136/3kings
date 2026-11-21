@@ -113,6 +113,17 @@ def main():
         for m in moves:
             state["held"][m["player"]] = target[m["player"]]
     cash = round(1 - sum(state["held"].values()), 4)
+    # Empfehlung des Datentags festhalten: spätere Läufe derselben Nacht zeigen sie weiter an (sonst stünde dort "Nichts tun")
+    if moves:
+        state["last_moves"] = dict(date=last, moves=moves)
+        if new_day:   # private Telegram-Meldung (Simulation, Umsetzung am nächsten Handelstag)
+            q = json.load(open(os.path.join(DATA, "elite_notify.json"))) if os.path.exists(os.path.join(DATA, "elite_notify.json")) else []
+            verb = lambda m: "kaufen" if m["delta"] > 0 else "verkaufen"
+            q.append("🎯 <b>Taktikmodell 3 Könige (Simulation)</b>\nSignal zum Schlusskurs vom " + ".".join(reversed(last.split("-"))) + ":\n"
+                     + "\n".join(f"{m['name']}: {m['von']*100:.0f} % → {m['auf']*100:.0f} % ({verb(m)})" for m in moves)
+                     + f"\nDanach Cash {cash*100:.0f} %. Umsetzung am nächsten Handelstag. Nur Prüfstand, keine Anlageberatung.")
+            json.dump(q, open(os.path.join(DATA, "elite_notify.json"), "w"), ensure_ascii=False)
+    shown = moves or (state.get("last_moves", {}).get("moves", []) if state.get("last_moves", {}).get("date") == last else [])
 
     if new_day:
         os.makedirs(DATA, exist_ok=True)
@@ -130,7 +141,7 @@ def main():
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     out = dict(generated_at=now, data_date=last, players=plan, season=season, held=state["held"], cash=cash,
-               moves=moves, shadow=round(state["shadow"], 4), hold=round(state["hold"], 4), since=state["start"],
+               moves=shown, moves_date=last if shown else None, shadow=round(state["shadow"], 4), hold=round(state["hold"], 4), since=state["start"],
                n_actions=state["n_actions"], band=BAND, ledger_tail=ledger_tail())
     os.makedirs(SITE, exist_ok=True)
     json.dump(out, open(os.path.join(SITE, "heartbeat.json"), "w"), indent=1)

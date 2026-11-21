@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-21T10:55:30Z",
+ "generated_at": "2026-11-21T11:39:25Z",
  "data_date": "2026-11-20",
  "players": {
   "BTC": {
@@ -47,7 +47,16 @@
   "GLD": 0.0
  },
  "cash": 1.0,
- "moves": [],
+ "moves": [
+  {
+   "player": "SPY",
+   "name": "S&P 500",
+   "von": 0.4948,
+   "auf": 0.0,
+   "delta": -0.4948
+  }
+ ],
+ "moves_date": "2026-11-20",
  "shadow": 0.9674,
  "hold": 0.9201,
  "since": "2026-11-16",

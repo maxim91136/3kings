@@ -295,3 +295,6 @@ Der Kronjuwelen-Abschnitt des Monatsberichts wurde in Telegram versehentlich her
 
 ## 2026-11-21: Namen geschärft (ausdrückliche Entscheidung)
 "Schattenbuch Sparplan" heißt "Schattenbuch Sparplan S&P 500". "Mannschaft" heißt "Taktikmodell 3 Könige": Es wählt je Saison die Strategie pro Wert (Trend, für Bitcoin aus Kandidaten) und verteilt das Kapital nach Schwankung, ist also mehr als ein reines Trendmodell. Inhalt unverändert.
+
+## 2026-11-21: Taktikmodell: Signal bleibt sichtbar, private Meldung (Fehlerbehebung)
+Fehler: Die Nacht läuft mehrmals. Der erste Lauf führte das Signal im Schattenbuch aus, spätere Läufe derselben Nacht sahen keine Abweichung mehr und zeigten "Nichts tun". So war der Verkauf vom 20.11. (S&P 500 49 % → 0 %) auf der Seite nie zu sehen. Jetzt: Das Signal eines Datentags bleibt bis zum nächsten Datentag sichtbar ("Signal zum Schlusskurs vom …, Umsetzung am nächsten Handelstag"); bei jedem neuen Signal kommt eine private Telegram-Meldung. Offener Punkt (nicht geändert): Das Schattenbuch rechnet die Umschichtung zum Schlusskurs des Signaltags; real ist erst der nächste Handelstag möglich.
