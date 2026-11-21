@@ -21,6 +21,7 @@
 - **Umsetzung:** Aufnahmen und Ausscheiden gelten in den Schattenbüchern erst ab dem Schlusskurs des nächsten Handelstags nach der Saisonprüfung. (seit 21.11.2026)
 - **Gewichtung:** gleich. Die Rangfolge nach 10-Jahres-Rendite wird nur angezeigt. (seit 21.11.2026)
 - **Nachbildung als Sparplan:** neues Geld gleich verteilt auf die aktuellen Mitglieder; Ausgeschiedene werden nicht verkauft, bekommen aber kein neues Geld. (seit 21.11.2026)
+- **Größe des Index:** keine Obergrenze, jeder, der die Regeln erfüllt, ist dabei. Steht unter Beobachtung. (seit 21.11.2026)
 - **Saisonprüfung:** automatisch an jedem Saisonende (63 Handelstage, nächste ca. Ende Januar 2027). Ergebnis privat per Telegram mit konkreten Sparplan-Schritten, im Monatsbericht und im Protokoll. (seit 21.11.2026)
 - **Status:** Experiment. Im Regeltest 2016 bis 2026 (nur Kursregeln) lag die Auswahl hinter dem S&P 500 (Einmalanlage 14,0 % gegen 14,3 %, Sparplan 11,3 % gegen 13,9 % pro Jahr). (seit 21.11.2026)
 

@@ -21,6 +21,7 @@
 - **Execution:** admissions and removals take effect in the shadow books only from the close of the next trading day after the season review. (since Nov 21, 2026)
 - **Weighting:** equal. The ranking by 10-year return is only displayed. (since Nov 21, 2026)
 - **Replication as a savings plan:** new money split equally across current members; removed stocks are not sold but get no new money. (since Nov 21, 2026)
+- **Index size:** no cap; every stock that meets the rules is in. Under observation. (since Nov 21, 2026)
 - **Season review:** automatic at every season end (63 trading days, next around late January 2027). Result privately via Telegram with concrete savings-plan steps, in the monthly report and in the log. (since Nov 21, 2026)
 - **Status:** experiment. In the rule test 2016 to 2026 (price rules only) the selection lagged the S&P 500 (lump sum 14.0 % vs 14.3 %, savings plan 11.3 % vs 13.9 % per year). (since Nov 21, 2026)
 

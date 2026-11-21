@@ -323,3 +323,6 @@ Power law check directly below market conditions. Buy and calculator are one blo
 
 ## 2026-11-21: Note on multiple testing for the barometer hypotheses
 Added after an external review: four hypotheses on the same data, one may fit by chance; p-values are not meaningful because of overlapping 12-month windows. No rule change.
+
+## 2026-11-21: Crown Jewels size under observation
+No cap on the number of members, no rule change. The size of the index is being observed.

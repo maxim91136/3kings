@@ -323,3 +323,6 @@ Power-Law-Check direkt unter der Marktlage. Kaufen und Rechner sind ein Block. N
 
 ## 2026-11-21: Hinweis Mehrfachtest bei den Barometer-Thesen
 Nach externer Prüfung ergänzt: Vier Thesen auf denselben Daten, eine kann auch zufällig passen; p-Werte sind wegen überlappender 12-Monats-Fenster nicht aussagekräftig. Keine Regeländerung.
+
+## 2026-11-21: Größe der Kronjuwelen unter Beobachtung
+Keine Obergrenze für die Zahl der Mitglieder, keine Regeländerung. Die Größe des Index wird beobachtet.
