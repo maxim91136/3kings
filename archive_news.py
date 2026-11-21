@@ -24,6 +24,8 @@ if os.path.exists("site/watch.json"):
     el = json.load(open("site/watch.json")).get("elite", {}).get("shadow", {})
     for r in el.get("lump", []): sh.setdefault(r["date"][:7], {}).setdefault(r["date"], {}).update(kj=r["elite"], kj_spy=r["spy"])
     for r in el.get("rows", []): sh.setdefault(r["date"][:7], {}).setdefault(r["date"], {}).update(kjp=r["elite"], kjp_spy=r["spy"])
+if os.path.exists("site/sparplan.json"):
+    for r in json.load(open("site/sparplan.json")).get("rows", []): sh.setdefault(r["date"][:7], {}).setdefault(r["date"], {}).update(sp_rule=r["regel"], sp_now=r["sofort"], sp_paid=r["paid"])
 for m, days in sh.items():
     json.dump({"month": m, "rows": [dict(date=d, **v) for d, v in sorted(days.items(), reverse=True)]}, open(f"site/archive/shadow-{m}.json", "w"))
 months = {f[5:12] for f in os.listdir("site/archive") if f.startswith("news-")} | set(sh)
