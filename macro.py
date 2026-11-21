@@ -50,14 +50,14 @@ signal.alarm(20)
 try:   # Inflation Eurozone: Eurostat HICP, ab 2026 nach neuer Klassifikation (teicp000, Jahresrate)
     j = json.loads(get("https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/teicp000?geo=EA&lastTimePeriod=3", 15))
     ids, size = j["id"], j["size"]; cat = {d: j["dimension"][d]["category"]["index"] for d in ids}
-    fix = {d: (next((k for k in cat[d] if k.startswith("RCH_A")), None) if d == "unit" else None) for d in ids}
+    fix = {d: (next((k for k in cat[d] if k in ("RCH_A", "PCH_M12")), None) if d == "unit" else None) for d in ids}
     per = sorted(cat["time"], key=cat["time"].get); v = []
     for p_ in per:
         pos = {d: (cat[d][p_] if d == "time" else cat[d][fix[d]] if fix[d] else 0) for d in ids}
         n = 0
         for d, sz in zip(ids, size): n = n * sz + pos[d]
         if str(n) in j["value"]: v.append((p_, float(j["value"][str(n)])))
-    out["cpi_ez"] = dict(month=v[-1][0], value=round(v[-1][1] / 100, 4), prev=round(v[-2][1] / 100, 4) if len(v) > 1 else None, units=list(cat.get("unit", {})))
+    out["cpi_ez"] = dict(month=v[-1][0], value=round(v[-1][1] / 100, 4), prev=round(v[-2][1] / 100, 4) if len(v) > 1 else None)
 except Exception as e: err["cpi_ez"] = str(e)
 signal.alarm(0)
 old = json.load(open("site/macro.json")) if os.path.exists("site/macro.json") else {}
