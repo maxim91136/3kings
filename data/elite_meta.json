@@ -1,32 +1,32 @@
 {
  "LLY": {
-  "name": "Lilly (Eli)",
-  "branch": "Pharmaceuticals",
-  "branch_en": "Pharmaceuticals",
+  "name": "Eli Lilly",
+  "branch": "Pharma (Diabetes, Adipositas)",
+  "branch_en": "Pharma (diabetes, obesity)",
   "cur": "USD"
  },
  "VEEV": {
   "name": "Veeva Systems",
-  "branch": "Health Care Technology",
-  "branch_en": "Health Care Technology",
+  "branch": "Branchensoftware Pharma",
+  "branch_en": "Life-sciences software",
   "cur": "USD"
  },
  "CBOE": {
   "name": "Cboe Global Markets",
-  "branch": "Financial Exchanges & Data",
-  "branch_en": "Financial Exchanges & Data",
+  "branch": "Börse und Optionen",
+  "branch_en": "Exchange and options",
   "cur": "USD"
  },
  "VRTX": {
   "name": "Vertex Pharmaceuticals",
-  "branch": "Biotechnology",
-  "branch_en": "Biotechnology",
+  "branch": "Biotech (Mukoviszidose)",
+  "branch_en": "Biotech (cystic fibrosis)",
   "cur": "USD"
  },
  "MCO": {
-  "name": "Moody's Corporation",
-  "branch": "Financial Exchanges & Data",
-  "branch_en": "Financial Exchanges & Data",
+  "name": "Moody's",
+  "branch": "Ratings und Daten",
+  "branch_en": "Ratings and data",
   "cur": "USD"
  }
 }
