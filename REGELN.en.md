@@ -286,3 +286,6 @@ Homepage: latest report, below it collapsible only the last 7 days. Reports olde
 
 ## 2026-11-21: Site restructured (explicit decision)
 Order by priority: Current (news compact with collapsible details, reports, buy, three cards, calculator, market conditions, bitcoin power law), Evidence (the evidence, King of Kings with FTSE test, world vs USA and factor ETFs as collapsible details, S&P 500 since 1928), Experiments (Crown Jewels, savings-plan shadow book, team test bench). History tables (team, Crown Jewels, savings plan) on the homepage: last 7 days (as with the news); all daily shadow-book values in the archive by month. Menu top left with the same groups. Content and figures unchanged.
+
+## 2026-11-21: Rule book and log separated (explicit decision)
+The rule book (REGELBUCH.en.md, page regeln.html) shows only what applies today, by topic, with a "since" date per rule. This file is now the log (page protokoll.html, newest entries first). Every rule change: update the rule book AND add an entry here. Automatic season reviews write only to the log.

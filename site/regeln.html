@@ -22,16 +22,16 @@ code{font-size:13px;background:#171B24;padding:1px 5px;border-radius:3px}
 </style></head><body><main>
 <div class="top"><a class="back" id="back" href="./">← Zurück zur Übersicht</a><span class="lang"><a href="?lang=de" id="lde">DE</a><a href="?lang=en" id="len">EN</a></span></div>
 <h1 id="ttl">Regelbuch</h1>
-<p class="lead" id="lead">Jede Regel, jede Entscheidung und jedes Testergebnis mit Datum. Prüfkriterien werden vor dem Rechnen festgelegt.</p>
+<p class="lead" id="lead">Was heute gilt, nach Themen. Herleitung und frühere Fassungen im <a href="protokoll.html" id="pk">Protokoll</a>.</p>
 <div id="doc">…</div>
 </main>
 <script>
 const qs=new URLSearchParams(location.search);let LANG=qs.get("lang")||(()=>{try{return localStorage.getItem("lang")}catch(e){return null}})()||(navigator.language||"de").slice(0,2);if(LANG!=="en")LANG="de";try{localStorage.setItem("lang",LANG)}catch(e){}
-const EN=LANG==="en";document.documentElement.lang=LANG;document.getElementById(EN?"len":"lde").className="on";document.getElementById("back").href="./?lang="+LANG;
-if(EN){document.title="3Kings · Rule book";document.getElementById("back").textContent="← Back to overview";document.getElementById("ttl").textContent="Rule book";document.getElementById("lead").textContent="Every rule, decision and test result with its date. Test criteria are fixed before computing."}
+const EN=LANG==="en";setTimeout(()=>{const a=document.getElementById("pk");if(a)a.href="protokoll.html?lang="+LANG},0);document.documentElement.lang=LANG;document.getElementById(EN?"len":"lde").className="on";document.getElementById("back").href="./?lang="+LANG;
+if(EN){document.title="3Kings · Rule book";document.getElementById("back").textContent="← Back to overview";document.getElementById("ttl").textContent="Rule book";document.getElementById("lead").innerHTML='What applies today, by topic. Derivation and earlier versions in the <a href="protokoll.html?lang=en">log</a>.'}
 const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 const inl=s=>esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/`(.+?)`/g,"<code>$1</code>")
- .replace(/\b(\d+)\.(\d+)\b/g,EN?"$1.$2":"$1,$2");
+ ;   // Regelbuch ist bereits im richtigen Zahlenformat
 function md(t){let o="",list=false,para=[];
  const fp=()=>{if(para.length){o+="<p>"+inl(para.join(" "))+"</p>";para=[]}};
  const fl=()=>{if(list){o+="</ul>";list=false}};
@@ -44,9 +44,5 @@ function md(t){let o="",list=false,para=[];
   if(list&&/^\s{2,}/.test(raw)){o=o.replace(/<\/li>$/," "+inl(l.trim())+"</li>");continue}
   fl();para.push(l.trim())}
  fp();fl();return o}
-fetch(EN?"REGELN.en.md":"REGELN.md",{cache:"no-store"}).then(r=>r.text()).then(t=>{
- const parts=t.split(/\n(?=## )/),head=parts.shift(),secs=parts.reverse();   // neueste Einträge zuerst
- const last=(secs[0]||"").match(/^## (\d{4}-\d{2}-\d{2})/);
- document.getElementById("doc").innerHTML=`<h2 style="border-top:0;padding-top:0;margin-top:0">${EN?"Principles":"Grundsätze"}</h2>`+md(head)+(last?`<h2>${EN?"Entries, newest first":"Einträge, neueste zuerst"}</h2><p class="lead" style="margin:0 0 8px">${EN?"Latest entry: ":"Letzter Eintrag: "}${last[1].split("-").reverse().join(".")}</p>`:"")+md(secs.join("\n"))})
- .catch(()=>{document.getElementById("doc").textContent=EN?"Rule book could not be loaded.":"Regelbuch konnte nicht geladen werden."});
+fetch(EN?"REGELBUCH.en.md":"REGELBUCH.md",{cache:"no-store"}).then(r=>r.text()).then(t=>{document.getElementById("doc").innerHTML=md(t)+`<h2>${EN?"Log":"Protokoll"}</h2><p><a href="protokoll.html?lang=${LANG}">${EN?"All decisions, tests and earlier versions with dates":"Alle Entscheidungen, Tests und früheren Fassungen mit Datum"} →</a></p>`}).catch(()=>{document.getElementById("doc").textContent=EN?"Rule book could not be loaded.":"Regelbuch konnte nicht geladen werden."});
 </script></body></html>

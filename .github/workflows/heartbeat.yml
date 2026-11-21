@@ -53,7 +53,7 @@ jobs:
         run: |
           git config user.name "3kings-heartbeat"
           git config user.email "heartbeat@users.noreply.github.com"
-          cp REGELN.md site/REGELN.md; cp REGELN.en.md site/REGELN.en.md
+          cp REGELN.md site/REGELN.md; cp REGELN.en.md site/REGELN.en.md; cp REGELBUCH.md site/REGELBUCH.md; cp REGELBUCH.en.md site/REGELBUCH.en.md
           git add -A
           git diff --cached --quiet || git commit -m "heartbeat $(date -u +%F)"
           for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done

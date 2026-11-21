@@ -1,4 +1,4 @@
-# Regeländerungen (Protokoll)
+# Protokoll
 
 Regeln ändern sich nur am Saisonende oder nach ausdrücklicher Entscheidung. Jede Änderung steht hier.
 
@@ -286,3 +286,6 @@ Startseite: neueste Meldung, darunter aufklappbar nur die letzten 7 Tage. Meldun
 
 ## 2026-11-21: Seite neu gegliedert (ausdrückliche Entscheidung)
 Reihenfolge nach Priorität: Aktuell (News kompakt mit aufklappbaren Details, Berichte, Kaufen, drei Karten, Rechner, Marktlage, Bitcoin Power Law), Belege (Der Beleg, König der Könige mit FTSE-Test, Welt gegen USA und Faktor-ETFs als aufklappbare Details, S&P 500 seit 1928), Experimente (Kronjuwelen, Schattenbuch Sparplan, Prüfstand Mannschaft). Verlaufstabellen (Mannschaft, Kronjuwelen, Sparplan) auf der Startseite: letzte 7 Tage (wie bei den News); alle Tageswerte der Schattenbücher im Archiv je Monat. Menü oben links mit denselben Gruppen. Inhalte und Zahlen unverändert.
+
+## 2026-11-21: Regelbuch und Protokoll getrennt (ausdrückliche Entscheidung)
+Das Regelbuch (REGELBUCH.md, Seite regeln.html) zeigt nur, was heute gilt, nach Themen, mit "seit"-Datum je Regel. Diese Datei ist ab jetzt das Protokoll (Seite protokoll.html, neueste Einträge zuerst). Jede Regeländerung: Regelbuch anpassen UND Eintrag hier. Automatische Saisonprüfungen schreiben nur ins Protokoll.
