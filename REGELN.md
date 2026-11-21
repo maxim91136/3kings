@@ -330,3 +330,6 @@ Keine Obergrenze für die Zahl der Mitglieder, keine Regeländerung. Die Größe
 ## 2026-11-21: Kronjuwelen, Unterbranchen-Ausschluss gestrichen (ausdrückliche Entscheidung)
 Anlass: Apple wurde als „Technology Hardware“ gar nicht gerechnet, obwohl ein großer Teil des Geschäfts aus Services stammt. Statt einer Ausnahme für Apple gilt ein Grundsatz: Ausgeschlossen bleiben nur die Sektoren Energie, Rohstoffe und Immobilien; über Konjunkturschwankung entscheidet bei allen anderen das Beta. Alle anderen Regeln bleiben, die Marge bleibt bei 49 % (Ursprung: „über 50 %“ aus der Elite-9-Liste, 1 Punkt Toleranz seit 18.11.2026). Gilt ab der nächsten Saisonprüfung (ca. Ende Januar 2027), Aufnahme wie immer erst nach zwei bestandenen Prüfungen in Folge.
 Prüfung vorab (nur Information): 185 Firmen kommen zusätzlich in die Wertung. Heute würden 4 alle Regeln erfüllen: Evolution (Beta 0,44, 10 J. 32,9 %), ASML (1,08; 29,3 %), Garmin (0,86; 20,8 %), Investor AB (0,64; 20,7 %). Apple: Beta 1,14, 10 J. 29,6 %, Marge 48,8 % (0,2 Punkte zu wenig), Schulden 0,2: scheitert nur an der Marge (Jahresmarge 2025: 46,9 %, Rekord seit den 1990ern).
+
+## 2026-11-21: Keine Ausschlüsse aus moralischen Gründen (ausdrückliche Entscheidung)
+Branchen wie Glücksspiel oder Rüstung werden nicht aus Überzeugung ausgeschlossen. Es zählen nur die Regeln. Keine Regeländerung.
