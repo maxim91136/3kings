@@ -78,7 +78,10 @@ section,.kj{scroll-margin-top:16px}.grp-h{margin:72px 0 -18px;padding-top:22px;b
 .kjm b{display:block;font:600 15px/1.25 var(--sans)}.kjm span{font-size:12px;color:var(--mute)}
 .kjv{text-align:right}.kjv b{display:block;font:500 20px/1.1 var(--serif);color:var(--text)}.kjv span{font-size:11px;color:var(--mute)}
 .kjb{grid-column:2/4;height:3px;background:#1E2330;border-radius:2px;overflow:hidden}.kjb i{display:block;height:100%;background:linear-gradient(90deg,#8C7330,var(--gld))}
-.kjx{grid-column:2/4;display:flex;justify-content:space-between;font-size:12px;color:var(--mute)}</style></head><body>
+.kjx{grid-column:2/4;display:flex;justify-content:space-between;font-size:12px;color:var(--mute)}.disc{color:var(--mute);font-size:12px;margin:0 0 6px}
+.glance{margin-top:20px}.glance .gg{display:grid;grid-template-columns:1fr 1fr;gap:8px}@media(min-width:700px){.glance .gg{grid-template-columns:repeat(5,1fr)}}
+.gt{border:1px solid var(--line);border-radius:8px;padding:9px 10px;text-align:left;background:#12161E}.gt span{display:block;font-size:11.5px;color:var(--mute)}.gt b{display:block;font:500 18px/1.2 var(--serif);margin-top:2px}.gt i{font-style:normal;font-size:12px}.gt i.up{color:var(--ok)}.gt i.dn{color:var(--bad)}.gt i.n{color:var(--mute)}
+.glance .gn{font-size:11.5px;color:var(--mute);margin-top:6px;text-align:left}</style></head><body>
 <button class="totop" id="totop" type="button"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="totopl">Nach oben</span></button>
 <meta name="build" content="2026-11-21T11:05:00Z">
 <main id="app"><svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg>
@@ -128,10 +131,11 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  const run=new Date(h.generated_at).toLocaleString(LOC,{day:"2-digit",month:EN?"short":"2-digit",hour:"2-digit",minute:"2-digit"});
  const mv={};h.moves.forEach(m=>mv[m.player]=m);const act=h.moves.length>0;
  let o=`<div class="lang"><button class="menu" id="navbtn" aria-expanded="false" aria-controls="nav" aria-label="${T("Menü","Menu")}"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11M2.5 8h11M2.5 12h11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><nav class="nav" id="nav" hidden></nav><span class="l"><a href="?lang=de&amp;v=${Date.now()}" class="${EN?"":"on"}" hreflang="de">DE</a><a href="?lang=en&amp;v=${Date.now()}" class="${EN?"on":""}" hreflang="en">EN</a></span></div>
- <svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg><h1>3Kings</h1><div class="sub">${T("Marktmonitor","Market monitor")}</div>
+ <svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg><h1>3Kings</h1><div class="sub">${T("Marktmonitor","Market monitor")}</div><div class="disc">${T("Eigene Modelle und Tests. Keine Anlageberatung.","Own models and tests. Not investment advice.")}</div>
  <div class="stamp">${T(`Kurse vom ${fmtDay(h.data_date)}, berechnet am ${run} Uhr`,`Prices as of ${fmtDay(h.data_date)}, calculated ${run}`)}</div>`;
  if(age>3||dage>5) o+=`<div class="alert"><b>${T("Puls ausgefallen.","Data feed down.")}</b> ${T(`Letzter Lauf vor ${fx(age,1)} Tagen, letzter Kurstag ${fmtDay(h.data_date)}. Bitte den GitHub-Lauf prüfen.`,`Last run ${fx(age,1)} days ago, last price date ${fmtDay(h.data_date)}. Check the GitHub run.`)}</div>`;
- o+=`<section id="news" hidden style="margin-top:22px"></section>
+ o+=`<section id="glance" class="glance" hidden></section>
+ <section id="news" hidden style="margin-top:22px"></section>
  <section id="reports" hidden style="margin-top:18px"></section>
  <div class="verdict hero" id="hero"><h2 class="buy">${T("Kaufen","Buy")}</h2><p>${T("Sobald Geld da ist. Getestet für S&amp;P 500, Bitcoin und Gold: Warten auf Rücksetzer, günstigere Bewertung oder Angst brachte in keinem Test mehr.","As soon as there is money. Tested for the S&amp;P 500, bitcoin and gold: waiting for dips, cheaper valuations or fear never did better.")}</p></div>
  <div class="cards" id="cards"></div><div class="mute" id="cardnote" style="font-size:12px;margin-top:8px"></div>
@@ -191,6 +195,26 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
    return `<details style="margin-top:10px"><summary style="font:600 15px/1.35 var(--sans);text-align:left">${x.type==="year"?T("Jahresbericht ","Annual report "):T("Monatsbericht ","Monthly report ")}${e(ti)}</summary><div style="text-align:left">${ln.map(l=>/^#\s/.test(l)?`<div style="font:600 13.5px var(--sans);margin:10px 0 4px;color:var(--text)">${e(l.slice(2))}</div>`:`<p style="margin:0 0 4px;font-size:13px;line-height:1.45;color:#C9C4B8">${e(l)}</p>`).join("")}
    ${(x.sources||[]).length?`<div style="font-size:11.5px;color:var(--mute)">${T("Quellen","Sources")}: ${x.sources.map(s=>`<a href="${e(s.url)}" style="color:var(--mute)" rel="noopener" target="_blank">${e(s.title)}</a>`).join(" · ")}</div>`:""}</div></details>`};
   const s=document.getElementById("reports");s.innerHTML=`<h4>${T("Berichte","Reports")}</h4>${it.slice(0,24).map(one).join("")}<div class="mute" style="margin-top:10px;font-size:12px">${T("Monatsbericht am 1. jedes Monats, Jahresbericht am 1. Januar. Keine Anlageberatung.","Monthly report on the 1st of each month, annual report on January 1. Not investment advice.")}</div>`;s.hidden=false}).catch(()=>{});
+ Promise.all(["assets.json","indicators.json","macro.json"].map(u=>fetch(u,{cache:"no-store"}).then(r=>r.ok?r.json():null).catch(()=>null))).then(([a,ind,m])=>{
+  const A={};((a&&a.assets)||[]).forEach(x=>A[x.key]=x);const I={};((ind&&ind.indicators)||[]).forEach(x=>I[x.key]=x);m=m||{};
+  const ch=(x,lbl)=>x==null?"":`<i class="${x>0?"up":x<0?"dn":"n"}">${sgn(x)}${lbl?" "+lbl:""}</i>`;
+  const pp=(x,d=1)=>x==null?"–":fx(x*100,d)+" %",num=(x,d=0)=>x==null?"–":(+x).toLocaleString(LOC,{minimumFractionDigits:d,maximumFractionDigits:d});
+  const tile=(l,v,c)=>`<div class="gt"><span>${l}</span><b>${v}</b>${c||""}</div>`;
+  const t=[];
+  if(A.SPY)t.push(tile("S&amp;P 500",num(A.SPY.price),ch(A.SPY.chg1d,T("Tag","day"))));
+  if(A.BTC)t.push(tile("Bitcoin",eur0(A.BTC.price),ch(A.BTC.chg1d,T("Tag","day"))));
+  if(A.GLD)t.push(tile(T("Gold je Unze","Gold per ounce"),eur0(A.GLD.price),ch(A.GLD.chg1d,T("Tag","day"))));
+  t.push(tile(T("Öl (Brent)","Oil (Brent)"),m.oil?eur0(m.oil.eur)+(EN?"":""):"–",m.oil?ch(m.oil.chg1m,T("Monat","month")):""));
+  t.push(tile(T("US-Zins 10 J.","US 10-yr yield"),m.us10y?fx(m.us10y.value,2)+" %":"–",m.us10y?`<i class="n">${m.us10y.chg1m>0?"+":m.us10y.chg1m<0?"−":"±"}${fx(Math.abs(m.us10y.chg1m),2)} ${T("Pkt. Monat","pts month")}</i>`:""));
+  t.push(tile(T("EZB-Einlagenzins","ECB deposit rate"),m.ecb?fx(m.ecb.value,2)+" %":"–",m.ecb&&m.ecb.changed?`<i class="n">${T("seit","since")} ${fmtDay(m.ecb.changed)}</i>`:""));
+  t.push(tile(T("Euro in Dollar","Euro in dollars"),m.eurusd?fx(m.eurusd.value,4):"–",m.eurusd?ch(m.eurusd.chg1m,T("Monat","month")):""));
+  t.push(tile(T("Inflation USA","Inflation US"),m.cpi_us?pp(m.cpi_us.value):"–",m.cpi_us?`<i class="n">${m.cpi_us.month.slice(5,7)}/${m.cpi_us.month.slice(0,4)}</i>`:""));
+  t.push(tile(T("Inflation Eurozone","Inflation euro area"),m.cpi_ez?pp(m.cpi_ez.value):"–",m.cpi_ez?`<i class="n">${m.cpi_ez.month.slice(5,7)}/${m.cpi_ez.month.slice(0,4)}</i>`:""));
+  if(I.fng)t.push(tile(T("Angst und Gier (Aktien)","Fear &amp; Greed (stocks)"),String(EN&&I.fng.value_en?I.fng.value_en:I.fng.value).split(" · ")[0],`<i class="n">${(String(EN&&I.fng.value_en?I.fng.value_en:I.fng.value).split(" · ")[1]||"")}</i>`));
+  if(I.cfng)t.push(tile(T("Angst und Gier (Krypto)","Fear &amp; Greed (crypto)"),String(EN&&I.cfng.value_en?I.cfng.value_en:I.cfng.value).split(" · ")[0],`<i class="n">${(String(EN&&I.cfng.value_en?I.cfng.value_en:I.cfng.value).split(" · ")[1]||"")}</i>`));
+  if(I.vix)t.push(tile(T("VIX (Schwankung)","VIX (volatility)"),EN&&I.vix.value_en?I.vix.value_en:I.vix.value,""));
+  const g=document.getElementById("glance");if(!g)return;
+  g.innerHTML=`<div class="gg">${t.join("")}</div><div class="gn">${T("Kurse in Euro, S&amp;P 500 in Punkten. Stand der Kurse: ","Prices in euros, S&amp;P 500 in points. Prices as of: ")}${A.SPY?fmtDay(A.SPY.date):"–"}. ${T("Makrodaten mit eigenem Stand, nur Information.","Macro data with their own dates, information only.")}</div>`;g.hidden=false});
  fetch("news.json",{cache:"no-store"}).then(r=>r.json()).then(n=>{
   const it=(n.items||[]);if(!it.length)return;
   const e=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
@@ -328,7 +352,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  requestAnimationFrame(()=>requestAnimationFrame(()=>{document.querySelectorAll(".fill").forEach(e=>e.style.height=e.dataset.h+"%");document.querySelectorAll(".season i").forEach(e=>e.style.width=e.dataset.w+"%")}));
 }).catch(()=>{document.querySelector(".stamp").textContent=T("Noch keine Daten. Der erste Lauf fehlt oder heartbeat.json ist nicht erreichbar.","No data yet. The first run is missing or heartbeat.json is unreachable.")});
 
-{const G=[[T("Aktuell","Current"),[["news","News"],["reports",T("Berichte","Reports")],["hero",T("Kaufen","Buy")],["calc",T("Rechner","Calculator")],["ind",T("Marktlage","Market conditions")],["pl",T("Bitcoin: Power Law","Bitcoin: power law")]]],
+{const G=[[T("Aktuell","Current"),[["glance",T("Lage auf einen Blick","At a glance")],["news","News"],["reports",T("Berichte","Reports")],["hero",T("Kaufen","Buy")],["calc",T("Rechner","Calculator")],["ind",T("Marktlage","Market conditions")],["pl",T("Bitcoin: Power Law","Bitcoin: power law")]]],
   [T("Belege","Evidence"),[["beleg",T("Der Beleg","The evidence")],["king",T("König der Könige","King of Kings")],["long",T("S&amp;P 500 seit 1928","S&amp;P 500 since 1928")]]],
   [T("Experimente","Experiments"),[["jewels",T("Kronjuwelen","Crown Jewels")],["spar",T("Schattenbuch Sparplan S&amp;P 500","Shadow book: S&amp;P 500 savings plan")],["pruef",T("Taktikmodell 3 Könige","Tactical model 3 Kings")]]]];
  const el=id=>document.getElementById(id),close=()=>{const n=el("nav"),b=el("navbtn");if(n){n.hidden=true;b.setAttribute("aria-expanded","false")}};
