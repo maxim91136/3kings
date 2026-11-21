@@ -185,3 +185,9 @@ Data correction (before evaluation, noticed after the first run): the Yahoo seri
 ### Result "FTSE All-World vs S&P 500" (2026-11-21, ftse.py)
 Period 06/2013 to 11/2026 in euros, including distributions. S&P 500 15.2 %/yr (x6.68), FTSE All-World 11.8 %/yr (x4.46). Halves (split 03/2020): until 2020 15.3 vs 10.3 %, from 2020 15.1 vs 13.3 %. Maximum drawdown 33.1 vs 33.3 %: broader diversification did not reduce the drawdown. Rolling 5-year windows: FTSE ahead in 0 of 102. Savings plan €100/month (€16,200 paid in): €46,076 vs €37,433.
 Criterion NOT met (on any point). The S&P 500 remains the core. Caveat: only 13 years and a period of strong US outperformance; before that (e.g. 2000-2009) the world was ahead of the US. The test therefore only covers this period, not that it is always so.
+
+## 2026-11-21: Monthly power law check for bitcoin (powerlaw.py, fixed before evaluation)
+Midline (fair value): 1.0117e-17 × days^5.82 (days since Jan 3, 2009, in dollars). Floor: 0.42 × midline, matched to the red floor on bitbo on Nov 21, 2026 (about $68,000).
+Check: every completed month at the monthly close (last daily close, dollars). A close below the floor = "floor broken this month". Prices within the month do not count. Shown: current status, consecutive months below, and all months below since 2015.
+Consequence: information only. The buy rule (buy as soon as there is money) is unaffected; the model is adjusted only by explicit decision.
+First evaluation (data from 07/2015): monthly closes below the floor so far only 06/2026 ($58,524, 1.7 % below). Lowest earlier monthly closes: 12/2022 and 09/2015 (each just above the line, 0.43 × midline). November 2026 is running at about 0.36 × midline (as of Nov 20).

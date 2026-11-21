@@ -185,3 +185,9 @@ Datenkorrektur (vor der Auswertung, nach dem ersten Lauf bemerkt): Die Yahoo-Rei
 ### Ergebnis "FTSE All-World gegen S&P 500" (2026-11-21, ftse.py)
 Zeitraum 06/2013 bis 11/2026 in Euro, inkl. Ausschüttungen. S&P 500 15,2 %/J (x6,68), FTSE All-World 11,8 %/J (x4,46). Hälften (Teilung 03/2020): bis 2020 15,3 vs 10,3 %, ab 2020 15,1 vs 13,3 %. Maximaler Rückgang 33,1 vs 33,3 %: die breitere Streuung hat den Rückgang nicht verringert. Rollierende 5-Jahres-Fenster: FTSE in 0 von 102 vorn. Sparplan 100 €/Monat (16.200 € eingezahlt): 46.076 vs 37.433 €.
 Kriterium NICHT erfüllt (in keinem Punkt). Der S&P 500 bleibt Kern. Einschränkung: nur 13 Jahre und eine Phase mit starkem US-Vorsprung; davor (z. B. 2000-2009) lag die Welt vor den USA. Der Test zeigt also nur diese Phase, nicht, dass es immer so ist.
+
+## 2026-11-21: Monatlicher Power-Law-Check Bitcoin (powerlaw.py, festgelegt vor der Auswertung)
+Mittellinie (fairer Wert): 1,0117e-17 × Tage^5,82 (Tage seit 3.1.2009, in Dollar). Untergrenze: 0,42 × Mittellinie, abgestimmt auf die rote Untergrenze bei bitbo am 21.11.2026 (rund 68.000 $).
+Prüfung: jeden abgeschlossenen Monat am Monatsschluss (letzter Tagesschluss, Dollar). Schluss unter der Untergrenze = "Untergrenze in diesem Monat gebrochen". Kurse innerhalb des Monats zählen nicht. Gezeigt werden Stand, Monate in Folge darunter und alle Monate darunter seit 2015.
+Folge: nur Information. Die Kaufregel (kaufen, sobald Geld da ist) bleibt unberührt; eine Anpassung des Modells nur per ausdrücklicher Entscheidung.
+Erste Auswertung (Daten ab 07/2015): Monatsschlüsse unter der Untergrenze bisher nur 06/2026 (58.524 $, 1,7 % darunter). Tiefste frühere Monatsschlüsse: 12/2022 und 09/2015 (je knapp über der Linie, 0,43 × Mittellinie). November 2026 liegt laufend bei etwa 0,36 × Mittellinie (Stand 20.11.).

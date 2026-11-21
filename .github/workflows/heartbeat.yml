@@ -34,6 +34,7 @@ jobs:
       - run: python fetch_spot.py || true
         timeout-minutes: 3
         continue-on-error: true
+      - run: python powerlaw.py || true
       - run: python assets.py || true
       - run: python notify.py
         continue-on-error: true

@@ -129,6 +129,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <table class="pf"><tr><th>${T("Idee","Idea")}</th><th>${T("Ergebnis","Result")}</th></tr>${PROOF.map(p=>`<tr><td>${EN?p[1]:p[0]}</td><td>${EN?p[3]:p[2]}</td></tr>`).join("")}</table>
  <div class="mute">${T("Einzige belegte Ausnahme: Der Trend (200-Tage-Linie) senkte beim S&amp;P 500 den schlimmsten Rückgang von 78 auf 22 %. Das gilt fürs Halten, nicht fürs Kaufen.","Only proven exception: the trend (200-day line) cut the worst S&amp;P 500 drawdown from 78 to 22 %. That applies to holding, not to buying.")}</div>
  <div class="mute" style="margin-top:8px">${T("Gilt für Anlagen, die langfristig steigen. Vergangenheit, keine Garantie. Stand 19.11.2026, Details im","Applies to assets that rise over the long term. Past results, no guarantee. As of Nov 19, 2026, details in the")} <a href="regeln.html?lang=${LANG}" style="color:var(--gld)">${T("Regelbuch","rule book")}</a>.</div></section>
+ <section id="pl" hidden></section>
  <section id="long" hidden></section>
  <section id="ftse" hidden></section>
  <section id="ind" hidden></section>
@@ -185,6 +186,28 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
   const s=document.getElementById("news");
   s.innerHTML=`<h4>News</h4>${one(it[0],true)}${it.length>1?`<details><summary>${T("Frühere Meldungen","Earlier reports")}</summary>${it.slice(1,30).map(x=>one(x,false)).join("")}</details>`:""}
    <div class="mute" style="margin-top:10px;font-size:12px">${T("Täglicher automatischer Bericht gegen 7:45 Uhr, sonntags und montags nur Bitcoin. Gründe aus Nachrichtenquellen, keine Handlungsempfehlung.","Automatic daily report around 7:45 CET, Sundays and Mondays bitcoin only. Reasons from news sources, not investment advice.")}</div>`;
+  s.hidden=false}).catch(()=>{});
+ fetch("powerlaw.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{if(!(j.rows&&j.rows.length))return;
+  const R=j.rows,W=640,H=300,L=52,Rp=14,Tp=12,B=28,n=R.length,lg=Math.log10;
+  const all=R.flatMap(r=>[r[1],r[2],r[3]]),lo=lg(Math.min(...all))-.1,hi=lg(Math.max(...all))+.08;
+  const x=i=>L+(W-L-Rp)*i/(n-1),y=p=>Tp+(H-Tp-B)*(1-(lg(p)-lo)/(hi-lo));
+  const usd=v=>EN?"$"+(+v).toLocaleString(LOC,{maximumFractionDigits:0}):(+v).toLocaleString(LOC,{maximumFractionDigits:0})+" $";
+  let g="";for(let d=100;d<1e8;d*=10)if(lg(d)>=lo&&lg(d)<=hi)g+=`<line x1="${L}" x2="${W-Rp}" y1="${y(d)}" y2="${y(d)}" stroke="#262B37"/><text x="${L-8}" y="${y(d)+4}" text-anchor="end" fill="#8A8F9C" font-size="12">${d>=1e6?(d/1e6)+"M":d>=1e3?(d/1e3)+"k":d}</text>`;
+  R.forEach((r,i)=>{if(r[0].endsWith("-01")&&+r[0].slice(0,4)%2===0)g+=`<text x="${x(i)}" y="${H-8}" text-anchor="middle" fill="#8A8F9C" font-size="12">${r[0].slice(0,4)}</text>`});
+  const P=k=>R.map((r,i)=>(i?"L":"M")+x(i).toFixed(1)+" "+y(r[k]).toFixed(1)).join(" ");
+  const dots=R.map((r,i)=>r[1]<r[3]?`<circle cx="${x(i)}" cy="${y(r[1])}" r="3.5" fill="var(--bad)"/>`:"").join("");
+  const lm=j.last_month,br=j.broken_months||[],mo=m=>{const[a,b]=m.split("-");return new Date(+a,+b-1,1).toLocaleDateString(LOC,{month:"long",year:"numeric"})};
+  const head=j.streak>0?T(`Untergrenze gebrochen (${j.streak} ${j.streak===1?"Monat":"Monate"} in Folge)`,`Floor broken (${j.streak} ${j.streak===1?"month":"months"} in a row)`):j.below_now?T("Derzeit unter der Untergrenze, der Monatsschluss entscheidet","Currently below the floor, the monthly close decides"):T("Untergrenze hält","Floor holds");
+  const s=document.getElementById("pl");
+  s.innerHTML=`<h4>${T("Bitcoin: Power-Law-Check","Bitcoin: power law check")}</h4>
+   <div class="verdict small"><h2>${head}</h2></div>
+   <svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${T("Bitcoin mit Power-Law-Linien, logarithmisch","Bitcoin with power law lines, log scale")}">${g}
+   <path d="${P(2)}" fill="none" stroke="#8A8F9C" stroke-width="1.5" stroke-dasharray="5 4"/><path d="${P(3)}" fill="none" stroke="var(--bad)" stroke-width="1.5"/>
+   <path d="${P(1)}" fill="none" stroke="var(--btc)" stroke-width="2"/>${dots}</svg>
+   <table class="pf" style="white-space:nowrap"><tr><th></th><th>${T("Kurs","Price")}</th><th>${T("Untergrenze","Floor")}</th><th>${T("Mittellinie","Midline")}</th></tr>
+   <tr><td>${T("Aktuell","Now")}</td><td style="color:${j.below_now?"var(--bad)":"inherit"}">${usd(j.price)}</td><td>${usd(j.floor)}</td><td>${usd(j.fair)}</td></tr>
+   ${lm?`<tr><td>${T("Schluss","Close")} ${new Date(+lm.m.slice(0,4),+lm.m.slice(5)-1,1).toLocaleDateString(LOC,{month:"short",year:"numeric"})}</td><td style="color:${lm.below?"var(--bad)":"inherit"}">${usd(lm.close)}</td><td>${usd(lm.floor)}</td><td>${usd(lm.fair)}</td></tr>`:""}</table>
+   <div class="mute">${T(`Monatsschlüsse in Dollar, logarithmisch. Gestrichelt: Mittellinie (fairer Wert nach Power Law). Rot: Untergrenze (0,42 × Mittellinie). Geprüft wird jeden Monat nur der Schlusskurs; Kurse innerhalb des Monats zählen nicht. Stand ${fmtDay(j.until)}: ${fx(j.ratio,2)} × Mittellinie. Monatsschlüsse unter der Untergrenze seit 2015: ${br.length?br.map(mo).join(", "):"keine"} (von ${j.n_months}). Nur Information, die Kaufregel bleibt unverändert.`,`Monthly closes in dollars, log scale. Dashed: midline (fair value by power law). Red: floor (0.42 × midline). Only the monthly close is checked; prices within the month do not count. As of ${fmtDay(j.until)}: ${fx(j.ratio,2)} × midline. Monthly closes below the floor since 2015: ${br.length?br.map(mo).join(", "):"none"} (of ${j.n_months}). Information only, the buy rule is unchanged.`)}</div>`;
   s.hidden=false}).catch(()=>{});
  fetch("spx_long.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{
   const R=j.rows,W=640,H=300,L=46,Rp=14,Tp=12,B=28,n=R.length,lg=Math.log10;
