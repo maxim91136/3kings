@@ -1,8 +1,8 @@
 {
  "season": 38,
  "date": "2026-11-20",
- "n_pool": 269,
- "n_cyclic": 262,
+ "n_pool": 454,
+ "n_cyclic": 77,
  "rows": [
   {
    "sym": "LLY",
@@ -16,8 +16,44 @@
    "nd_ebitda": 0.96,
    "passed": true,
    "why": [],
-   "streak": 2,
+   "fail_out": false,
+   "out_why": [],
+   "streak": 1,
    "member": true
+  },
+  {
+   "sym": "EVO.ST",
+   "name": "Evolution",
+   "cur": "SEK",
+   "branch": "",
+   "branch_en": "",
+   "beta": 0.44,
+   "cagr10": 0.329,
+   "margin": 1.0,
+   "nd_ebitda": -0.44,
+   "passed": true,
+   "why": [],
+   "fail_out": false,
+   "out_why": [],
+   "streak": 1,
+   "member": false
+  },
+  {
+   "sym": "ASML.AS",
+   "name": "ASML",
+   "cur": "EUR",
+   "branch": "",
+   "branch_en": "",
+   "beta": 1.08,
+   "cagr10": 0.293,
+   "margin": 0.543,
+   "nd_ebitda": -0.67,
+   "passed": true,
+   "why": [],
+   "fail_out": false,
+   "out_why": [],
+   "streak": 1,
+   "member": false
   },
   {
    "sym": "MSFT",
@@ -31,6 +67,8 @@
    "nd_ebitda": 0.34,
    "passed": true,
    "why": [],
+   "fail_out": false,
+   "out_why": [],
    "streak": 1,
    "member": true
   },
@@ -46,6 +84,8 @@
    "nd_ebitda": 0.76,
    "passed": true,
    "why": [],
+   "fail_out": false,
+   "out_why": [],
    "streak": 1,
    "member": true
   },
@@ -61,8 +101,44 @@
    "nd_ebitda": 0.56,
    "passed": true,
    "why": [],
+   "fail_out": false,
+   "out_why": [],
    "streak": 1,
    "member": true
+  },
+  {
+   "sym": "GRMN",
+   "name": "Garmin",
+   "cur": "USD",
+   "branch": "Consumer Electronics",
+   "branch_en": "Consumer Electronics",
+   "beta": 0.86,
+   "cagr10": 0.2081,
+   "margin": 0.604,
+   "nd_ebitda": -0.88,
+   "passed": true,
+   "why": [],
+   "fail_out": false,
+   "out_why": [],
+   "streak": 1,
+   "member": false
+  },
+  {
+   "sym": "INVE-B.ST",
+   "name": "Investor AB",
+   "cur": "SEK",
+   "branch": "",
+   "branch_en": "",
+   "beta": 0.64,
+   "cagr10": 0.2073,
+   "margin": 0.876,
+   "nd_ebitda": 0.49,
+   "passed": true,
+   "why": [],
+   "fail_out": false,
+   "out_why": [],
+   "streak": 1,
+   "member": false
   },
   {
    "sym": "VEEV",
@@ -76,7 +152,9 @@
    "nd_ebitda": -6.59,
    "passed": true,
    "why": [],
-   "streak": 2,
+   "fail_out": false,
+   "out_why": [],
+   "streak": 1,
    "member": true
   },
   {
@@ -91,6 +169,8 @@
    "nd_ebitda": 0.59,
    "passed": true,
    "why": [],
+   "fail_out": false,
+   "out_why": [],
    "streak": 1,
    "member": true
   },
@@ -106,7 +186,9 @@
    "nd_ebitda": -0.53,
    "passed": true,
    "why": [],
-   "streak": 2,
+   "fail_out": false,
+   "out_why": [],
+   "streak": 1,
    "member": true
   },
   {
@@ -121,7 +203,9 @@
    "nd_ebitda": 0.03,
    "passed": true,
    "why": [],
-   "streak": 2,
+   "fail_out": false,
+   "out_why": [],
+   "streak": 1,
    "member": true
   },
   {
@@ -136,6 +220,8 @@
    "nd_ebitda": 0.46,
    "passed": true,
    "why": [],
+   "fail_out": false,
+   "out_why": [],
    "streak": 1,
    "member": true
   },
@@ -151,6 +237,8 @@
    "nd_ebitda": 0.28,
    "passed": true,
    "why": [],
+   "fail_out": false,
+   "out_why": [],
    "streak": 1,
    "member": true
   },
@@ -166,7 +254,9 @@
    "nd_ebitda": 1.48,
    "passed": true,
    "why": [],
-   "streak": 2,
+   "fail_out": false,
+   "out_why": [],
+   "streak": 1,
    "member": true
   },
   {
@@ -183,6 +273,29 @@
    "why": [
     "margin"
    ],
+   "fail_out": true,
+   "out_why": [
+    "margin"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "AAPL",
+   "name": "Apple Inc.",
+   "cur": "USD",
+   "branch": "Technology Hardware, Storage & Peripherals",
+   "branch_en": "Technology Hardware, Storage & Peripherals",
+   "beta": 1.14,
+   "cagr10": 0.296,
+   "margin": 0.488,
+   "nd_ebitda": 0.22,
+   "passed": false,
+   "why": [
+    "margin"
+   ],
+   "fail_out": false,
+   "out_why": [],
    "streak": 0,
    "member": false
   },
@@ -200,6 +313,8 @@
    "why": [
     "debt"
    ],
+   "fail_out": false,
+   "out_why": [],
    "streak": 0,
    "member": false
   },
@@ -215,6 +330,31 @@
    "nd_ebitda": 0.4,
    "passed": false,
    "why": [
+    "margin"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "margin"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "EME",
+   "name": "Emcor",
+   "cur": "USD",
+   "branch": "Construction & Engineering",
+   "branch_en": "Construction & Engineering",
+   "beta": 1.1,
+   "cagr10": 0.2457,
+   "margin": 0.196,
+   "nd_ebitda": -0.1,
+   "passed": false,
+   "why": [
+    "margin"
+   ],
+   "fail_out": true,
+   "out_why": [
     "margin"
    ],
    "streak": 0,
@@ -234,6 +374,10 @@
    "why": [
     "margin"
    ],
+   "fail_out": true,
+   "out_why": [
+    "margin"
+   ],
    "streak": 0,
    "member": false
   },
@@ -249,6 +393,10 @@
    "nd_ebitda": 3.29,
    "passed": false,
    "why": [
+    "debt"
+   ],
+   "fail_out": true,
+   "out_why": [
     "debt"
    ],
    "streak": 0,
@@ -268,6 +416,117 @@
    "why": [
     "margin"
    ],
+   "fail_out": true,
+   "out_why": [
+    "margin"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "TT",
+   "name": "Trane Technologies",
+   "cur": "USD",
+   "branch": "Building Products",
+   "branch_en": "Building Products",
+   "beta": 1.07,
+   "cagr10": 0.2269,
+   "margin": 0.35,
+   "nd_ebitda": 0.66,
+   "passed": false,
+   "why": [
+    "margin"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "margin"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "DE",
+   "name": "Deere & Company",
+   "cur": "USD",
+   "branch": "Agricultural & Farm Machinery",
+   "branch_en": "Agricultural & Farm Machinery",
+   "beta": 0.78,
+   "cagr10": 0.2263,
+   "margin": 0.252,
+   "nd_ebitda": 6.7,
+   "passed": false,
+   "why": [
+    "margin",
+    "debt"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "margin",
+    "debt"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "MSI",
+   "name": "Motorola Solutions",
+   "cur": "USD",
+   "branch": "Communications Equipment",
+   "branch_en": "Communications Equipment",
+   "beta": 0.72,
+   "cagr10": 0.2241,
+   "margin": 0.517,
+   "nd_ebitda": 2.7,
+   "passed": false,
+   "why": [
+    "debt"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "debt"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "PHM",
+   "name": "PulteGroup",
+   "cur": "USD",
+   "branch": "Homebuilding",
+   "branch_en": "Homebuilding",
+   "beta": 0.94,
+   "cagr10": 0.2215,
+   "margin": 0.253,
+   "nd_ebitda": 0.4,
+   "passed": false,
+   "why": [
+    "margin"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "margin"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "HLT",
+   "name": "Hilton Worldwide",
+   "cur": "USD",
+   "branch": "Hotels, Resorts & Cruise Lines",
+   "branch_en": "Hotels, Resorts & Cruise Lines",
+   "beta": 1.0,
+   "cagr10": 0.2205,
+   "margin": 0.795,
+   "nd_ebitda": 4.09,
+   "passed": false,
+   "why": [
+    "debt"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "debt"
+   ],
    "streak": 0,
    "member": false
   },
@@ -284,6 +543,29 @@
    "passed": false,
    "why": [
     "debt"
+   ],
+   "fail_out": false,
+   "out_why": [],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "GWW",
+   "name": "W. W. Grainger",
+   "cur": "USD",
+   "branch": "Industrial Machinery & Supplies & Components",
+   "branch_en": "Industrial Machinery & Supplies & Components",
+   "beta": 0.8,
+   "cagr10": 0.2159,
+   "margin": 0.394,
+   "nd_ebitda": 0.69,
+   "passed": false,
+   "why": [
+    "margin"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "margin"
    ],
    "streak": 0,
    "member": false
@@ -303,6 +585,33 @@
     "margin",
     "debt"
    ],
+   "fail_out": true,
+   "out_why": [
+    "margin",
+    "debt"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "CAT",
+   "name": "Caterpillar Inc.",
+   "cur": "USD",
+   "branch": "Construction Machinery & Heavy Transportation Equipment",
+   "branch_en": "Construction Machinery & Heavy Transportation Equipment",
+   "beta": 1.12,
+   "cagr10": 0.2114,
+   "margin": 0.295,
+   "nd_ebitda": 2.25,
+   "passed": false,
+   "why": [
+    "margin",
+    "debt"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "margin"
+   ],
    "streak": 0,
    "member": false
   },
@@ -314,10 +623,14 @@
    "branch_en": "Consumer Staples Merchandise Retail",
    "beta": 0.45,
    "cagr10": 0.2067,
-   "margin": 0.248,
-   "nd_ebitda": 1.44,
+   "margin": 0.253,
+   "nd_ebitda": 1.39,
    "passed": false,
    "why": [
+    "margin"
+   ],
+   "fail_out": true,
+   "out_why": [
     "margin"
    ],
    "streak": 0,
@@ -335,6 +648,10 @@
    "nd_ebitda": 6.08,
    "passed": false,
    "why": [
+    "debt"
+   ],
+   "fail_out": true,
+   "out_why": [
     "debt"
    ],
    "streak": 0,
@@ -355,6 +672,11 @@
     "margin",
     "debt"
    ],
+   "fail_out": true,
+   "out_why": [
+    "margin",
+    "debt"
+   ],
    "streak": 0,
    "member": false
   },
@@ -370,6 +692,10 @@
    "nd_ebitda": 1.7,
    "passed": false,
    "why": [
+    "margin"
+   ],
+   "fail_out": true,
+   "out_why": [
     "margin"
    ],
    "streak": 0,
@@ -389,6 +715,31 @@
    "why": [
     "margin"
    ],
+   "fail_out": true,
+   "out_why": [
+    "margin"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "ODFL",
+   "name": "Old Dominion",
+   "cur": "USD",
+   "branch": "Cargo Ground Transportation",
+   "branch_en": "Cargo Ground Transportation",
+   "beta": 1.11,
+   "cagr10": 0.1979,
+   "margin": 0.399,
+   "nd_ebitda": -0.24,
+   "passed": false,
+   "why": [
+    "margin"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "margin"
+   ],
    "streak": 0,
    "member": false
   },
@@ -406,6 +757,31 @@
    "why": [
     "debt"
    ],
+   "fail_out": true,
+   "out_why": [
+    "debt"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "FAST",
+   "name": "Fastenal",
+   "cur": "USD",
+   "branch": "Trading Companies & Distributors",
+   "branch_en": "Trading Companies & Distributors",
+   "beta": 0.79,
+   "cagr10": 0.192,
+   "margin": 0.446,
+   "nd_ebitda": 0.12,
+   "passed": false,
+   "why": [
+    "margin"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "margin"
+   ],
    "streak": 0,
    "member": false
   },
@@ -421,6 +797,52 @@
    "nd_ebitda": 1.12,
    "passed": false,
    "why": [
+    "margin"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "margin"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "MAR",
+   "name": "Marriott International",
+   "cur": "USD",
+   "branch": "Hotels, Resorts & Cruise Lines",
+   "branch_en": "Hotels, Resorts & Cruise Lines",
+   "beta": 1.0,
+   "cagr10": 0.191,
+   "margin": 0.788,
+   "nd_ebitda": 3.49,
+   "passed": false,
+   "why": [
+    "debt"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "debt"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "DHI",
+   "name": "D. R. Horton",
+   "cur": "USD",
+   "branch": "Homebuilding",
+   "branch_en": "Homebuilding",
+   "beta": 0.82,
+   "cagr10": 0.1891,
+   "margin": 0.212,
+   "nd_ebitda": 1.03,
+   "passed": false,
+   "why": [
+    "margin"
+   ],
+   "fail_out": true,
+   "out_why": [
     "margin"
    ],
    "streak": 0,
@@ -440,6 +862,10 @@
    "why": [
     "debt"
    ],
+   "fail_out": true,
+   "out_why": [
+    "debt"
+   ],
    "streak": 0,
    "member": false
   },
@@ -455,6 +881,10 @@
    "nd_ebitda": -0.17,
    "passed": false,
    "why": [
+    "margin"
+   ],
+   "fail_out": true,
+   "out_why": [
     "margin"
    ],
    "streak": 0,
@@ -474,6 +904,8 @@
    "why": [
     "debt"
    ],
+   "fail_out": false,
+   "out_why": [],
    "streak": 0,
    "member": false
   },
@@ -489,6 +921,10 @@
    "nd_ebitda": 1.35,
    "passed": false,
    "why": [
+    "margin"
+   ],
+   "fail_out": true,
+   "out_why": [
     "margin"
    ],
    "streak": 0,
@@ -509,6 +945,34 @@
     "margin",
     "debt"
    ],
+   "fail_out": true,
+   "out_why": [
+    "margin",
+    "debt"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "JPM",
+   "name": "JPMorgan Chase",
+   "cur": "USD",
+   "branch": "Diversified Banks",
+   "branch_en": "Diversified Banks",
+   "beta": 0.88,
+   "cagr10": 0.1785,
+   "margin": 0.0,
+   "nd_ebitda": null,
+   "passed": false,
+   "why": [
+    "margin",
+    "debt"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "margin",
+    "debt"
+   ],
    "streak": 0,
    "member": false
   },
@@ -526,6 +990,8 @@
    "why": [
     "debt"
    ],
+   "fail_out": false,
+   "out_why": [],
    "streak": 0,
    "member": false
   },
@@ -542,6 +1008,31 @@
    "passed": false,
    "why": [
     "margin"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "margin"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "AMP",
+   "name": "Ameriprise Financial",
+   "cur": "USD",
+   "branch": "Asset Management & Custody Banks",
+   "branch_en": "Asset Management & Custody Banks",
+   "beta": 1.03,
+   "cagr10": 0.1769,
+   "margin": 0.546,
+   "nd_ebitda": null,
+   "passed": false,
+   "why": [
+    "debt"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "debt"
    ],
    "streak": 0,
    "member": false
@@ -561,6 +1052,11 @@
     "margin",
     "debt"
    ],
+   "fail_out": true,
+   "out_why": [
+    "margin",
+    "debt"
+   ],
    "streak": 0,
    "member": false
   },
@@ -577,6 +1073,116 @@
    "passed": false,
    "why": [
     "margin"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "margin"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "AME",
+   "name": "Ametek",
+   "cur": "USD",
+   "branch": "Electrical Components & Equipment",
+   "branch_en": "Electrical Components & Equipment",
+   "beta": 0.92,
+   "cagr10": 0.1747,
+   "margin": 0.37,
+   "nd_ebitda": 2.41,
+   "passed": false,
+   "why": [
+    "margin",
+    "debt"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "margin"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "FERG",
+   "name": "Ferguson Enterprises",
+   "cur": "USD",
+   "branch": "Trading Companies & Distributors",
+   "branch_en": "Trading Companies & Distributors",
+   "beta": 0.9,
+   "cagr10": 0.1732,
+   "margin": 0.305,
+   "nd_ebitda": 2.42,
+   "passed": false,
+   "why": [
+    "margin",
+    "debt"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "margin"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "TDY",
+   "name": "Teledyne Technologies",
+   "cur": "USD",
+   "branch": "Electronic Equipment & Instruments",
+   "branch_en": "Electronic Equipment & Instruments",
+   "beta": 0.91,
+   "cagr10": 0.1728,
+   "margin": 0.436,
+   "nd_ebitda": 0.88,
+   "passed": false,
+   "why": [
+    "margin"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "margin"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "CSX",
+   "name": "CSX Corporation",
+   "cur": "USD",
+   "branch": "Rail Transportation",
+   "branch_en": "Rail Transportation",
+   "beta": 0.84,
+   "cagr10": 0.1719,
+   "margin": 0.478,
+   "nd_ebitda": 2.5,
+   "passed": false,
+   "why": [
+    "margin",
+    "debt"
+   ],
+   "fail_out": false,
+   "out_why": [],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "AXP",
+   "name": "American Express",
+   "cur": "USD",
+   "branch": "Consumer Finance",
+   "branch_en": "Consumer Finance",
+   "beta": 1.08,
+   "cagr10": 0.1706,
+   "margin": 0.62,
+   "nd_ebitda": null,
+   "passed": false,
+   "why": [
+    "debt"
+   ],
+   "fail_out": true,
+   "out_why": [
+    "debt"
    ],
    "streak": 0,
    "member": false
