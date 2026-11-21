@@ -97,6 +97,19 @@ def main():
         state = dict(start=last, last_date=last, shadow=1.0, hold=1.0, held={p: 0.0 for p in PLAYERS}, n_actions=0)
     elif last > state["last_date"]:
         advance(state, dates, P, names)
+    new_day = first or (last > state.get("last_logged", ""))
+    # Regel seit 2026-11-21: Signal zum Schlusskurs, Umsetzung erst zum Schlusskurs des NÄCHSTEN Handelstags
+    done = []
+    pend = state.get("pending")
+    if pend and pend["date"] < last:
+        done = pend["moves"]
+        cost = sum(abs(m["delta"]) * team.COST.get(m["player"], 0.0005) for m in done)
+        state["shadow"] *= 1 - cost
+        for m in done:
+            state["held"][m["player"]] = m["auf"]
+        state["n_actions"] += 1
+        state["executed"] = dict(date=last, signal_date=pend["date"], moves=done)
+        state["pending"] = None
 
     target = {p: plan[p]["target"] for p in PLAYERS}
     moves = []
@@ -104,26 +117,23 @@ def main():
         d = target[p] - state["held"][p]
         if abs(d) >= BAND:
             moves.append(dict(player=p, name=LABEL[p], von=round(state["held"][p], 4), auf=target[p], delta=round(d, 4)))
-    new_day = first or (last > state.get("last_logged", ""))
-    if moves:                                                  # Empfehlung befolgt: gehaltenes Soll = neues Ziel
-        cost = sum(abs(m["delta"]) * team.COST.get(m["player"], 0.0005) for m in moves)
-        state["shadow"] *= 1 - cost
-        if new_day:
-            state["n_actions"] += 1
+    if first and moves:                                        # Start: sofort einbuchen
         for m in moves:
-            state["held"][m["player"]] = target[m["player"]]
+            state["held"][m["player"]] = m["auf"]
+        moves = []
     cash = round(1 - sum(state["held"].values()), 4)
-    # Empfehlung des Datentags festhalten: spätere Läufe derselben Nacht zeigen sie weiter an (sonst stünde dort "Nichts tun")
-    if moves:
-        state["last_moves"] = dict(date=last, moves=moves)
-        if new_day:   # private Telegram-Meldung (Simulation, Umsetzung am nächsten Handelstag)
+    pend = state.get("pending")
+    if moves and not (pend and pend["date"] == last):
+        state["pending"] = pend = dict(date=last, moves=moves)
+        if new_day:   # private Telegram-Meldung (Simulation)
             q = json.load(open(os.path.join(DATA, "elite_notify.json"))) if os.path.exists(os.path.join(DATA, "elite_notify.json")) else []
             verb = lambda m: "kaufen" if m["delta"] > 0 else "verkaufen"
             q.append("🎯 <b>Taktikmodell 3 Könige (Simulation)</b>\nSignal zum Schlusskurs vom " + ".".join(reversed(last.split("-"))) + ":\n"
                      + "\n".join(f"{m['name']}: {m['von']*100:.0f} % → {m['auf']*100:.0f} % ({verb(m)})" for m in moves)
-                     + f"\nDanach Cash {cash*100:.0f} %. Umsetzung am nächsten Handelstag. Nur Prüfstand, keine Anlageberatung.")
+                     + "\nUmsetzung am nächsten Handelstag. Nur Prüfstand, keine Anlageberatung.")
             json.dump(q, open(os.path.join(DATA, "elite_notify.json"), "w"), ensure_ascii=False)
-    shown = moves or (state.get("last_moves", {}).get("moves", []) if state.get("last_moves", {}).get("date") == last else [])
+    shown = pend["moves"] if pend and pend["date"] == last else []
+    state.pop("last_moves", None)
 
     if new_day:
         os.makedirs(DATA, exist_ok=True)
@@ -135,13 +145,13 @@ def main():
                 w.writerow(["date", "BTC", "SPY", "GLD", "cash", "shadow", "hold", "action"])
             w.writerow([last] + [state["held"][p] for p in PLAYERS] + [cash, round(state["shadow"], 5),
                                                                        round(state["hold"], 5),
-                                                                       "; ".join(f"{m['name']} {m['von']:.2f}->{m['auf']:.2f}" for m in moves) or "-"])
+                                                                       "; ".join([f"ausgeführt {m['name']} {m['von']:.2f}->{m['auf']:.2f}" for m in done] + [f"Signal {m['name']} {m['von']:.2f}->{m['auf']:.2f}" for m in shown]) or "-"])
         state["last_logged"] = last
     json.dump(state, open(os.path.join(DATA, "state.json"), "w"), indent=1)
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     out = dict(generated_at=now, data_date=last, players=plan, season=season, held=state["held"], cash=cash,
-               moves=shown, moves_date=last if shown else None, shadow=round(state["shadow"], 4), hold=round(state["hold"], 4), since=state["start"],
+               moves=shown, moves_date=last if shown else None, executed=state.get("executed"), shadow=round(state["shadow"], 4), hold=round(state["hold"], 4), since=state["start"],
                n_actions=state["n_actions"], band=BAND, ledger_tail=ledger_tail())
     os.makedirs(SITE, exist_ok=True)
     json.dump(out, open(os.path.join(SITE, "heartbeat.json"), "w"), indent=1)

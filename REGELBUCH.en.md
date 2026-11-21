@@ -30,6 +30,7 @@
 ## Tactical model 3 Kings (test bench, no trading relevance)
 - Three kings: S&P 500, bitcoin, gold, in euros. S&P 500 and gold play trend (200-day line) fixed; for bitcoin a strategy is chosen from the candidates at the start of each season (look-back 504 trading days). (since Nov 18, 2026)
 - Capital split by volatility (inverse volatility), bitcoin weight doubled, never more than 100 %, no leverage. Rebalanced only from a 5-point deviation. (since Nov 18, 2026)
+- Signal at the close; the shadow book rebalances only at the close of the next trading day (as is possible in practice). Each signal is shown until then and reported privately via Telegram. (since Nov 21, 2026)
 - A season lasts 63 trading days; rules change only at season end. (since Nov 18, 2026)
 - Verdict after four seasons (around November 2027): confirmed if the drawdown is smaller than holding and the return at most 2 points below. (since Nov 18, 2026)
 

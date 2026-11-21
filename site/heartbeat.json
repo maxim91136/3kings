@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-21T11:39:25Z",
+ "generated_at": "2026-11-21T11:41:30Z",
  "data_date": "2026-11-20",
  "players": {
   "BTC": {
@@ -43,10 +43,10 @@
  },
  "held": {
   "BTC": 0.0,
-  "SPY": 0.0,
+  "SPY": 0.4948,
   "GLD": 0.0
  },
- "cash": 1.0,
+ "cash": 0.5052,
  "moves": [
   {
    "player": "SPY",
@@ -57,10 +57,11 @@
   }
  ],
  "moves_date": "2026-11-20",
- "shadow": 0.9674,
+ "executed": null,
+ "shadow": 0.9676,
  "hold": 0.9201,
  "since": "2026-11-16",
- "n_actions": 2,
+ "n_actions": 1,
  "band": 0.05,
  "ledger_tail": [
   {
@@ -106,12 +107,12 @@
   {
    "date": "2026-11-20",
    "BTC": "0.0",
-   "SPY": "0.0",
+   "SPY": "0.4948",
    "GLD": "0.0",
-   "cash": "1.0",
-   "shadow": "0.96739",
+   "cash": "0.5052",
+   "shadow": "0.96763",
    "hold": "0.92005",
-   "action": "S&P 500 0.49->0.00"
+   "action": "Signal S&P 500 0.49->0.00"
   }
  ]
 }
