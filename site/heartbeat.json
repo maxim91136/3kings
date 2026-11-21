@@ -1,57 +1,65 @@
 {
- "generated_at": "2026-11-20T07:40:25Z",
- "data_date": "2026-11-19",
+ "generated_at": "2026-11-21T06:42:02Z",
+ "data_date": "2026-11-20",
  "players": {
   "BTC": {
    "champion": "Trend SMA100",
    "strat_weight": 0.0,
    "alloc": 0.2814,
    "target": 0.0,
-   "price": 56428.39044841415,
+   "price": 53511.955236102265,
    "line_n": 100,
-   "vs_line": -0.1281,
-   "dd_high": -0.3224,
-   "dd_ath": -0.4702
+   "vs_line": -0.1732,
+   "dd_high": -0.3574,
+   "dd_ath": -0.4976
   },
   "SPY": {
    "champion": "Trend SMA200",
-   "strat_weight": 1.0,
+   "strat_weight": 0.0,
    "alloc": 0.4909,
-   "target": 0.4909,
-   "price": 652.4516906671528,
+   "target": 0.0,
+   "price": 627.6135001364753,
    "line_n": 200,
-   "vs_line": 0.0283,
-   "dd_high": -0.0642,
-   "dd_ath": -0.0642
+   "vs_line": -0.0113,
+   "dd_high": -0.0998,
+   "dd_ath": -0.0998
   },
   "GLD": {
    "champion": "Trend SMA200",
    "strat_weight": 0.0,
    "alloc": 0.2277,
    "target": 0.0,
-   "price": 305.48668702150934,
+   "price": 293.75852515694663,
    "line_n": 200,
-   "vs_line": -0.1335,
-   "dd_high": -0.2669,
-   "dd_ath": -0.2669
+   "vs_line": -0.1658,
+   "dd_high": -0.295,
+   "dd_ath": -0.295
   }
  },
  "season": {
-  "day_in_season": 17,
-  "days_left": 46,
+  "day_in_season": 18,
+  "days_left": 45,
   "n_seasons": 38
  },
  "held": {
   "BTC": 0.0,
-  "SPY": 0.4948,
+  "SPY": 0.0,
   "GLD": 0.0
  },
- "cash": 0.5052,
- "moves": [],
- "shadow": 0.9862,
- "hold": 0.9611,
+ "cash": 1.0,
+ "moves": [
+  {
+   "player": "SPY",
+   "name": "S&P 500",
+   "von": 0.4948,
+   "auf": 0.0,
+   "delta": -0.4948
+  }
+ ],
+ "shadow": 0.9674,
+ "hold": 0.9201,
  "since": "2026-11-16",
- "n_actions": 1,
+ "n_actions": 2,
  "band": 0.05,
  "ledger_tail": [
   {
@@ -93,6 +101,16 @@
    "shadow": "0.98621",
    "hold": "0.9611",
    "action": "-"
+  },
+  {
+   "date": "2026-11-20",
+   "BTC": "0.0",
+   "SPY": "0.0",
+   "GLD": "0.0",
+   "cash": "1.0",
+   "shadow": "0.96739",
+   "hold": "0.92005",
+   "action": "S&P 500 0.49->0.00"
   }
  ]
 }
