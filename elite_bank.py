@@ -41,7 +41,12 @@ def test(sym):
     mid = say(card(c, "Kronjuwelen: Aufnahme (TEST)") + "\n\nTest: Die Antwort ändert nichts.", btn(sym))
     q["current"] = dict(sym=sym, row=c, msg=mid, created=now(), reminded=False, test=True); save(PEND, q)
 def notify():
-    """Meldungen aus der Saisonprüfung privat senden (data/elite_notify.json)."""
+    """Meldungen aus der Saisonprüfung privat senden (data/elite_notify.json). Räumt alte Test-Vorschläge mit Knöpfen ab."""
+    q = load(PEND, {}); cur = q.get("current")
+    if cur:
+        try: api("editMessageReplyMarkup", chat_id=USER, message_id=cur["msg"], reply_markup={"inline_keyboard": []})
+        except Exception: pass
+        q["current"] = None; save(PEND, q)
     m = load("data/elite_notify.json", [])
     for t in m: say(t)
     if m: save("data/elite_notify.json", [])
