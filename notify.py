@@ -9,13 +9,17 @@ st = json.load(open(st_path)) if os.path.exists(st_path) else {}
 s = json.load(open("site/sparplan.json"))
 ind = {i["key"]: i for i in json.load(open("site/indicators.json")).get("indicators", [])} if os.path.exists("site/indicators.json") else {}
 msgs = []
+import sys
+TEST = "--test" in sys.argv
+if TEST: msgs.append("🧪 TEST Sparplan S&P 500: So sieht eine Signalmeldung aus, z. B. „Neues Geld jetzt SAMMELN“ oder die seltene Lage „günstig plus extreme Angst“. Nur ein Test.")
 if st.get("signal") and st["signal"] != s["signal"]:
     msgs.append(f"3Kings: Neues Geld jetzt {s['signal'].upper()}. S&P 500 {abs(s['dd_ath'])*100:.1f} % unter dem Allzeithoch ({s['currency']}).")
 cheap_fear = ind.get("cape", {}).get("light") not in (None, "rot") and ind.get("fng", {}).get("light") == "gruen"
 if cheap_fear and not st.get("cheap_fear"):
     msgs.append("3Kings: Seltene Lage - Bewertung nicht mehr teuer und extreme Angst im Markt.")
-st.update(signal=s["signal"], cheap_fear=cheap_fear)
-json.dump(st, open(st_path, "w"))
+if not TEST:
+    st.update(signal=s["signal"], cheap_fear=cheap_fear)
+    json.dump(st, open(st_path, "w"))
 tok, chat = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
 if not msgs:
     raise SystemExit("keine Meldung noetig")
