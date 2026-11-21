@@ -1,0 +1,23 @@
+{
+ "sym": "TKO",
+ "name": "TKO Group Holdings",
+ "row": {
+  "sym": "TKO",
+  "name": "TKO Group Holdings",
+  "cur": "USD",
+  "branch": "Movies & Entertainment",
+  "branch_en": "Movies & Entertainment",
+  "beta": 0.65,
+  "cagr10": 0.272,
+  "margin": 0.603,
+  "de": 0.6,
+  "passed": true,
+  "streak": 1,
+  "member": false
+ },
+ "msg": 11,
+ "created": "2026-11-21T08:32:37Z",
+ "reminded": false,
+ "rejected": [],
+ "test": true
+}
