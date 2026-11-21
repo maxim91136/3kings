@@ -16,8 +16,8 @@
    "nd_ebitda": 0.96,
    "passed": true,
    "why": [],
-   "streak": 1,
-   "member": false
+   "streak": 2,
+   "member": true
   },
   {
    "sym": "MSFT",
@@ -76,8 +76,8 @@
    "nd_ebitda": -6.59,
    "passed": true,
    "why": [],
-   "streak": 1,
-   "member": false
+   "streak": 2,
+   "member": true
   },
   {
    "sym": "MA",
@@ -106,8 +106,8 @@
    "nd_ebitda": -0.53,
    "passed": true,
    "why": [],
-   "streak": 1,
-   "member": false
+   "streak": 2,
+   "member": true
   },
   {
    "sym": "VRTX",
@@ -121,8 +121,8 @@
    "nd_ebitda": 0.03,
    "passed": true,
    "why": [],
-   "streak": 1,
-   "member": false
+   "streak": 2,
+   "member": true
   },
   {
    "sym": "IDXX",
@@ -166,8 +166,8 @@
    "nd_ebitda": 1.48,
    "passed": true,
    "why": [],
-   "streak": 1,
-   "member": false
+   "streak": 2,
+   "member": true
   },
   {
    "sym": "HWM",

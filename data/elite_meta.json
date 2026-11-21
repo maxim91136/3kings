@@ -1,0 +1,32 @@
+{
+ "LLY": {
+  "name": "Lilly (Eli)",
+  "branch": "Pharmaceuticals",
+  "branch_en": "Pharmaceuticals",
+  "cur": "USD"
+ },
+ "VEEV": {
+  "name": "Veeva Systems",
+  "branch": "Health Care Technology",
+  "branch_en": "Health Care Technology",
+  "cur": "USD"
+ },
+ "CBOE": {
+  "name": "Cboe Global Markets",
+  "branch": "Financial Exchanges & Data",
+  "branch_en": "Financial Exchanges & Data",
+  "cur": "USD"
+ },
+ "VRTX": {
+  "name": "Vertex Pharmaceuticals",
+  "branch": "Biotechnology",
+  "branch_en": "Biotechnology",
+  "cur": "USD"
+ },
+ "MCO": {
+  "name": "Moody's Corporation",
+  "branch": "Financial Exchanges & Data",
+  "branch_en": "Financial Exchanges & Data",
+  "cur": "USD"
+ }
+}

@@ -1,5 +1,12 @@
 {
  "last_season": 38,
  "reviews": [],
- "strikes": {}
+ "strikes": {
+  "MSFT": 0,
+  "CTAS": 0,
+  "RACE": 0,
+  "MA": 0,
+  "IDXX": 0,
+  "V": 0
+ }
 }

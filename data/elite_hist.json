@@ -9,5 +9,75 @@
    "MSFT",
    "IDXX"
   ]
+ },
+ {
+  "date": "2026-11-20",
+  "members": [
+   "RACE",
+   "MA",
+   "V",
+   "CTAS",
+   "MSFT",
+   "IDXX",
+   "LLY"
+  ]
+ },
+ {
+  "date": "2026-11-20",
+  "members": [
+   "RACE",
+   "MA",
+   "V",
+   "CTAS",
+   "MSFT",
+   "IDXX",
+   "LLY",
+   "VEEV"
+  ]
+ },
+ {
+  "date": "2026-11-20",
+  "members": [
+   "RACE",
+   "MA",
+   "V",
+   "CTAS",
+   "MSFT",
+   "IDXX",
+   "LLY",
+   "VEEV",
+   "CBOE"
+  ]
+ },
+ {
+  "date": "2026-11-20",
+  "members": [
+   "RACE",
+   "MA",
+   "V",
+   "CTAS",
+   "MSFT",
+   "IDXX",
+   "LLY",
+   "VEEV",
+   "CBOE",
+   "VRTX"
+  ]
+ },
+ {
+  "date": "2026-11-20",
+  "members": [
+   "RACE",
+   "MA",
+   "V",
+   "CTAS",
+   "MSFT",
+   "IDXX",
+   "LLY",
+   "VEEV",
+   "CBOE",
+   "VRTX",
+   "MCO"
+  ]
  }
 ]

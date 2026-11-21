@@ -265,3 +265,18 @@ Ergebnis Einmalanlage (2026-11-21): Start 05.04.2016, S&P 500 14,3 % p. a. Ohne 
 Grund: Die Anwärter hatten nur Serie 1, weil erst am 21.11. gerechnet wurde, nicht weil sie vorher nicht bestanden hätten.
 Regel: Die vorige Saisonprüfung (Beginn der laufenden Saison) wird nachgerechnet. Beta (Wochenkurse, 5 J., Euro) und 10-J.-Rendite aus Kursen bis zum Stichtag; Marge und Nettoverschuldung/EBITDA mit den heutigen Werten (Annahme: in drei Monaten praktisch unverändert, historisch frei nicht verfügbar). Das Screening vom 21.11. zählt als Prüfung der laufenden Saison.
 Folge: Wer zum Stichtag UND am 21.11. alle Regeln erfüllt, wird jetzt aufgenommen (Änderung in beiden Schattenbüchern ab dem 20.11., dem letzten Kurstag). Mitglieder, die zum Stichtag klar verfehlt hätten (Puffer-Grenzen), erhalten eine Verwarnung; bei klarer Verfehlung an beiden Terminen scheiden sie aus. Einmalig zum Start.
+
+## 2026-11-20: Kronjuwelen-Aufnahme (Start: Saisonprüfungen 2026-10-27 und 2026-11-20 bestanden)
+Lilly (Eli) (LLY): 10 J. 35,2 % p. a., Beta 0,65, Bruttomarge 83,6 %, Nettoverschuldung 0,96× EBITDA, alle Regeln 2 Saisons in Folge bestanden. Ab jetzt neues Geld gleich verteilt auf 7 Werte.
+
+## 2026-11-20: Kronjuwelen-Aufnahme (Start: Saisonprüfungen 2026-10-27 und 2026-11-20 bestanden)
+Veeva Systems (VEEV): 10 J. 20,4 % p. a., Beta 0,99, Bruttomarge 75,0 %, Nettoverschuldung -6,59× EBITDA, alle Regeln 2 Saisons in Folge bestanden. Ab jetzt neues Geld gleich verteilt auf 8 Werte.
+
+## 2026-11-20: Kronjuwelen-Aufnahme (Start: Saisonprüfungen 2026-10-27 und 2026-11-20 bestanden)
+Cboe Global Markets (CBOE): 10 J. 19,5 % p. a., Beta 0,15, Bruttomarge 53,9 %, Nettoverschuldung -0,53× EBITDA, alle Regeln 2 Saisons in Folge bestanden. Ab jetzt neues Geld gleich verteilt auf 9 Werte.
+
+## 2026-11-20: Kronjuwelen-Aufnahme (Start: Saisonprüfungen 2026-10-27 und 2026-11-20 bestanden)
+Vertex Pharmaceuticals (VRTX): 10 J. 19,2 % p. a., Beta 0,54, Bruttomarge 54,8 %, Nettoverschuldung 0,03× EBITDA, alle Regeln 2 Saisons in Folge bestanden. Ab jetzt neues Geld gleich verteilt auf 10 Werte.
+
+## 2026-11-20: Kronjuwelen-Aufnahme (Start: Saisonprüfungen 2026-10-27 und 2026-11-20 bestanden)
+Moody's Corporation (MCO): 10 J. 17,6 % p. a., Beta 0,97, Bruttomarge 74,6 %, Nettoverschuldung 1,48× EBITDA, alle Regeln 2 Saisons in Folge bestanden. Ab jetzt neues Geld gleich verteilt auf 11 Werte.

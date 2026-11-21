@@ -265,3 +265,18 @@ Result lump sum (2026-11-21): start Apr 5, 2016, S&P 500 14.3 % p.a. No buffer 1
 Reason: the candidates only had streak 1 because the calculation was first made on Nov 21, not because they had failed before.
 Rule: the previous season review (start of the current season) is recalculated. Beta (weekly prices, 5 yrs, euros) and 10-year return from prices up to the reference date; margin and net debt/EBITDA with today's values (assumption: practically unchanged within three months; not freely available historically). The screening of Nov 21 counts as the review of the current season.
 Consequence: whoever meets all rules on the reference date AND on Nov 21 is admitted now (change in both shadow books from Nov 20, the last price day). Members that would have clearly missed on the reference date (buffer limits) get a warning; with a clear miss on both dates they are dropped. One-off at the start.
+
+## 2026-11-20: Crown Jewels admission (start: season reviews 2026-10-27 and 2026-11-20 passed)
+Lilly (Eli) (LLY): 10 yrs 35.2 % p.a., beta 0.65, gross margin 83.6 %, net debt 0.96x EBITDA, passed all rules 2 seasons in a row. From now on new money equally split across 7 stocks.
+
+## 2026-11-20: Crown Jewels admission (start: season reviews 2026-10-27 and 2026-11-20 passed)
+Veeva Systems (VEEV): 10 yrs 20.4 % p.a., beta 0.99, gross margin 75.0 %, net debt -6.59x EBITDA, passed all rules 2 seasons in a row. From now on new money equally split across 8 stocks.
+
+## 2026-11-20: Crown Jewels admission (start: season reviews 2026-10-27 and 2026-11-20 passed)
+Cboe Global Markets (CBOE): 10 yrs 19.5 % p.a., beta 0.15, gross margin 53.9 %, net debt -0.53x EBITDA, passed all rules 2 seasons in a row. From now on new money equally split across 9 stocks.
+
+## 2026-11-20: Crown Jewels admission (start: season reviews 2026-10-27 and 2026-11-20 passed)
+Vertex Pharmaceuticals (VRTX): 10 yrs 19.2 % p.a., beta 0.54, gross margin 54.8 %, net debt 0.03x EBITDA, passed all rules 2 seasons in a row. From now on new money equally split across 10 stocks.
+
+## 2026-11-20: Crown Jewels admission (start: season reviews 2026-10-27 and 2026-11-20 passed)
+Moody's Corporation (MCO): 10 yrs 17.6 % p.a., beta 0.97, gross margin 74.6 %, net debt 1.48x EBITDA, passed all rules 2 seasons in a row. From now on new money equally split across 11 stocks.

@@ -78,7 +78,7 @@
  },
  "elite": {
   "stand": "2026-11-18",
-  "n": 6,
+  "n": 11,
   "check": {
    "date": "2026-11-20",
    "season": {
@@ -128,64 +128,60 @@
      "cagr10": 0.1903,
      "pass": true,
      "why": []
+    },
+    {
+     "key": "LLY",
+     "beta": 0.65,
+     "cagr10": 0.3524,
+     "pass": true,
+     "why": []
+    },
+    {
+     "key": "VEEV",
+     "beta": 0.99,
+     "cagr10": 0.2036,
+     "pass": true,
+     "why": []
+    },
+    {
+     "key": "CBOE",
+     "beta": 0.15,
+     "cagr10": 0.1948,
+     "pass": true,
+     "why": []
+    },
+    {
+     "key": "VRTX",
+     "beta": 0.54,
+     "cagr10": 0.1919,
+     "pass": true,
+     "why": []
+    },
+    {
+     "key": "MCO",
+     "beta": 0.97,
+     "cagr10": 0.1761,
+     "pass": true,
+     "why": []
     }
    ]
   },
   "reviews": [],
-  "strikes": {},
+  "strikes": {
+   "MSFT": 0,
+   "CTAS": 0,
+   "RACE": 0,
+   "MA": 0,
+   "IDXX": 0,
+   "V": 0
+  },
   "screen": {
    "date": "2026-11-20",
    "season": 38,
    "n_pool": 269,
    "n_cyclic": 262,
    "bank": [],
-   "rows": [
-    {
-     "sym": "LLY",
-     "name": "Lilly (Eli)",
-     "beta": 0.65,
-     "cagr10": 0.3524,
-     "margin": 0.836,
-     "nd": 0.96,
-     "streak": 1
-    },
-    {
-     "sym": "VEEV",
-     "name": "Veeva Systems",
-     "beta": 0.99,
-     "cagr10": 0.2036,
-     "margin": 0.75,
-     "nd": -6.59,
-     "streak": 1
-    },
-    {
-     "sym": "CBOE",
-     "name": "Cboe Global Markets",
-     "beta": 0.15,
-     "cagr10": 0.1948,
-     "margin": 0.539,
-     "nd": -0.53,
-     "streak": 1
-    },
-    {
-     "sym": "VRTX",
-     "name": "Vertex Pharmaceuticals",
-     "beta": 0.54,
-     "cagr10": 0.1919,
-     "margin": 0.548,
-     "nd": 0.03,
-     "streak": 1
-    },
-    {
-     "sym": "MCO",
-     "name": "Moody's Corporation",
-     "beta": 0.97,
-     "cagr10": 0.1761,
-     "margin": 0.746,
-     "nd": 1.48,
-     "streak": 1
-    }
-   ]
+   "rows": []
   },
   "pending": null,
   "rows": [
@@ -254,14 +250,69 @@
     "cagr10": 0.1961,
     "until": "2026-11-20",
     "dd": 0.118
+   },
+   {
+    "key": "LLY",
+    "name": "Lilly (Eli)",
+    "branch": "Pharmaceuticals",
+    "branch_en": "Pharmaceuticals",
+    "claim": null,
+    "beta": 0.65,
+    "cagr10": 0.3524,
+    "until": "2026-11-20",
+    "dd": 0.067
+   },
+   {
+    "key": "VEEV",
+    "name": "Veeva Systems",
+    "branch": "Health Care Technology",
+    "branch_en": "Health Care Technology",
+    "claim": null,
+    "beta": 0.99,
+    "cagr10": 0.2036,
+    "until": "2026-11-20",
+    "dd": 0.219
+   },
+   {
+    "key": "CBOE",
+    "name": "Cboe Global Markets",
+    "branch": "Financial Exchanges & Data",
+    "branch_en": "Financial Exchanges & Data",
+    "claim": null,
+    "beta": 0.15,
+    "cagr10": 0.1948,
+    "until": "2026-11-20",
+    "dd": 0.052
+   },
+   {
+    "key": "VRTX",
+    "name": "Vertex Pharmaceuticals",
+    "branch": "Biotechnology",
+    "branch_en": "Biotechnology",
+    "claim": null,
+    "beta": 0.54,
+    "cagr10": 0.1919,
+    "until": "2026-11-20",
+    "dd": 0.078
+   },
+   {
+    "key": "MCO",
+    "name": "Moody's Corporation",
+    "branch": "Financial Exchanges & Data",
+    "branch_en": "Financial Exchanges & Data",
+    "claim": null,
+    "beta": 0.97,
+    "cagr10": 0.1761,
+    "until": "2026-11-20",
+    "dd": 0.127
    }
   ],
   "back": {
    "since": "2016-11-21",
    "until": "2026-11-20",
    "elite": {
-    "cagr": 0.2307,
-    "mdd": 0.358
+    "cagr": 0.2453,
+    "mdd": 0.313
    },
    "spy": {
     "cagr": 0.1351,

@@ -1,0 +1,126 @@
+{
+ "D": "2026-10-27",
+ "rows": [
+  {
+   "sym": "LLY",
+   "name": "Lilly (Eli)",
+   "member": false,
+   "beta_D": 0.67,
+   "cagr10_D": 0.3472,
+   "pass_D": true,
+   "fail_out_D": false,
+   "pass_now": true,
+   "fail_out_now": false
+  },
+  {
+   "sym": "MSFT",
+   "name": "Microsoft",
+   "member": true,
+   "beta_D": 1.06,
+   "cagr10_D": 0.2584,
+   "pass_D": true,
+   "fail_out_D": false,
+   "pass_now": true,
+   "fail_out_now": false
+  },
+  {
+   "sym": "CTAS",
+   "name": "Cintas",
+   "member": true,
+   "beta_D": 0.74,
+   "cagr10_D": 0.2467,
+   "pass_D": true,
+   "fail_out_D": false,
+   "pass_now": true,
+   "fail_out_now": false
+  },
+  {
+   "sym": "RACE",
+   "name": "Ferrari",
+   "member": true,
+   "beta_D": 0.87,
+   "cagr10_D": 0.2304,
+   "pass_D": true,
+   "fail_out_D": false,
+   "pass_now": true,
+   "fail_out_now": false
+  },
+  {
+   "sym": "VEEV",
+   "name": "Veeva Systems",
+   "member": false,
+   "beta_D": 0.98,
+   "cagr10_D": 0.2358,
+   "pass_D": true,
+   "fail_out_D": false,
+   "pass_now": true,
+   "fail_out_now": false
+  },
+  {
+   "sym": "MA",
+   "name": "Mastercard",
+   "member": true,
+   "beta_D": 0.86,
+   "cagr10_D": 0.201,
+   "pass_D": true,
+   "fail_out_D": false,
+   "pass_now": true,
+   "fail_out_now": false
+  },
+  {
+   "sym": "CBOE",
+   "name": "Cboe Global Markets",
+   "member": false,
+   "beta_D": 0.18,
+   "cagr10_D": 0.1947,
+   "pass_D": true,
+   "fail_out_D": false,
+   "pass_now": true,
+   "fail_out_now": false
+  },
+  {
+   "sym": "VRTX",
+   "name": "Vertex Pharmaceuticals",
+   "member": false,
+   "beta_D": 0.5,
+   "cagr10_D": 0.2126,
+   "pass_D": true,
+   "fail_out_D": false,
+   "pass_now": true,
+   "fail_out_now": false
+  },
+  {
+   "sym": "IDXX",
+   "name": "Idexx Laboratories",
+   "member": true,
+   "beta_D": 1.16,
+   "cagr10_D": 0.1826,
+   "pass_D": false,
+   "fail_out_D": false,
+   "pass_now": true,
+   "fail_out_now": false
+  },
+  {
+   "sym": "V",
+   "name": "Visa Inc.",
+   "member": true,
+   "beta_D": 0.76,
+   "cagr10_D": 0.1807,
+   "pass_D": true,
+   "fail_out_D": false,
+   "pass_now": true,
+   "fail_out_now": false
+  },
+  {
+   "sym": "MCO",
+   "name": "Moody's Corporation",
+   "member": false,
+   "beta_D": 0.99,
+   "cagr10_D": 0.1769,
+   "pass_D": true,
+   "fail_out_D": false,
+   "pass_now": true,
+   "fail_out_now": false
+  }
+ ]
+}
