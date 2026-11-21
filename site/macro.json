@@ -6,20 +6,32 @@
   "chg1m": -0.1288,
   "chg1y": 0.5366
  },
+ "us10y": {
+  "date": "2026-11-20",
+  "value": 4.91,
+  "chg1m": -0.23,
+  "chg1y": 0.81
+ },
+ "ecb": {
+  "date": "2026-11-21",
+  "value": 2.5,
+  "changed": "2026-09-16"
+ },
  "eurusd": {
   "date": "2026-11-20",
   "value": 1.097,
   "chg1m": -0.0236,
   "chg1y": -0.0495
  },
- "cpi_ez": {
-  "month": "2025-12",
-  "value": 0.019,
-  "prev": 0.021
+ "cpi_us": {
+  "month": "2026-09",
+  "value": 0.0374,
+  "prev": 0.034
  },
- "errors": {
-  "us10y": "The read operation timed out",
-  "ecb": "The read operation timed out",
-  "cpi_us": "The read operation timed out"
- }
+ "cpi_ez": {
+  "month": "2026-10",
+  "value": 0.04,
+  "prev": 0.038
+ },
+ "errors": {}
 }
