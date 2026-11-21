@@ -208,3 +208,7 @@ Checked: the hard rules with current prices, same method as the screening: beta 
 Shadow book: continues chained (value at the time of removal = new base, the remaining stocks equally weighted from the review date). The final verdict in November 2031 is unchanged.
 Admission values are re-frozen on the review date. Every review is entered here automatically. The soft rules (margin around 50 % with 1 point tolerance, market position, cyclicality, debt) are not checked automatically.
 Status at introduction (prices Nov 20, 2026): all 6 pass (Ferrari 0.90 / 23.0 %; Mastercard 0.88 / 20.1 %; Visa 0.81 / 18.1 %; Cintas 0.76 / 24.0 %; Microsoft 1.09 / 24.5 %; IDEXX 1.09 / 19.0 %). Close: Microsoft and IDEXX on beta (1.09 of 1.15), Visa on return (18.1 of 17 %).
+
+## 2026-11-21: Elite season review changed: two seasons in a row (explicit decision)
+Reason: a single review is a snapshot; borderline cases (e.g. Visa 18.1 % against a limit of 17 %) could be dropped through noise, with no automatic re-entry. An annual review would also be just a snapshot, only less frequent.
+New: a stock that fails a season review is warned. A stock that fails two season reviews IN A ROW is dropped (no exceptions). A stock that passes again after a warning is back to zero. Real decline is thus detected after about half a year. Everything else from the previous entry is unchanged. Change made before the first review, i.e. without knowledge of any result.

@@ -208,3 +208,7 @@ Geprüft: die harten Regeln mit aktuellen Kursen, gleiche Methode wie beim Scree
 Schattenbuch: läuft verkettet weiter (Stand beim Ausscheiden = neue Basis, die Verbleibenden gleich gewichtet ab dem Prüftag). Die Endbewertung November 2031 bleibt unverändert.
 Aufnahmewerte werden zum Prüftag neu eingefroren. Jede Prüfung wird hier automatisch eingetragen. Die weichen Regeln (Marge rund 50 % mit 1 Punkt Toleranz, Marktstellung, Zyklik, Verschuldung) werden nicht automatisch geprüft.
 Stand bei Einführung (Kurse 20.11.2026): alle 6 bestehen (Ferrari 0,90 / 23,0 %; Mastercard 0,88 / 20,1 %; Visa 0,81 / 18,1 %; Cintas 0,76 / 24,0 %; Microsoft 1,09 / 24,5 %; IDEXX 1,09 / 19,0 %). Knapp: Microsoft und IDEXX beim Beta (1,09 von 1,15), Visa bei der Rendite (18,1 von 17 %).
+
+## 2026-11-21: Elite-Saisonprüfung geändert: zwei Saisons in Folge (ausdrückliche Entscheidung)
+Grund: Eine einzelne Prüfung ist eine Momentaufnahme; Grenzfälle (z. B. Visa 18,1 % bei Grenze 17 %) könnten durch Rauschen ausscheiden, ohne automatischen Wiedereinstieg. Eine jährliche Prüfung wäre ebenfalls nur eine Momentaufnahme, nur seltener.
+Neu: Wer eine Saisonprüfung nicht besteht, wird verwarnt. Wer zwei Saisonprüfungen IN FOLGE nicht besteht, scheidet aus (ohne Ausnahme). Wer nach einer Verwarnung wieder besteht, ist zurück auf null. Echter Verfall wird damit nach etwa einem halben Jahr erkannt. Alles andere aus dem Eintrag zuvor gilt unverändert. Änderung vor der ersten Prüfung, also ohne Kenntnis eines Ergebnisses.
