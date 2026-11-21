@@ -292,3 +292,6 @@ Das Regelbuch (REGELBUCH.md, Seite regeln.html) zeigt nur, was heute gilt, nach 
 
 ## 2026-11-21: Telegram-Filter korrigiert (Durchsicht)
 Der Kronjuwelen-Abschnitt des Monatsberichts wurde in Telegram versehentlich herausgefiltert (Filter stammte aus der Zeit der internen Elite 6). Jetzt: Kronjuwelen-Zeilen gehen neutral in den Kanal; Schattenbuch-Zeilen bleiben intern; Sparplan-Schritte nur privat.
+
+## 2026-11-21: Namen geschärft (ausdrückliche Entscheidung)
+"Schattenbuch Sparplan" heißt "Schattenbuch Sparplan S&P 500". "Mannschaft" heißt "Taktikmodell 3 Könige": Es wählt je Saison die Strategie pro Wert (Trend, für Bitcoin aus Kandidaten) und verteilt das Kapital nach Schwankung, ist also mehr als ein reines Trendmodell. Inhalt unverändert.

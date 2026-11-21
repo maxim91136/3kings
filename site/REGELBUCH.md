@@ -27,8 +27,8 @@
 - Mittellinie: 1,0117e-17 × Tage seit 3.1.2009 hoch 5,82 (Dollar). Untergrenze: 0,42 × Mittellinie (entspricht der roten Linie bei bitbo). (seit 21.11.2026)
 - Geprüft wird nur der Monatsschluss. Schluss unter der Untergrenze = Untergrenze in diesem Monat gebrochen. Nur Information, die Kaufregel bleibt unberührt. (seit 21.11.2026)
 
-## Prüfstand Mannschaft (taktisches Modell, ohne Handelsrelevanz)
-- Drei Spieler: S&P 500, Bitcoin, Gold, in Euro. S&P 500 und Gold spielen fest Trend (200-Tage-Linie); für Bitcoin wird zum Saisonstart aus den Kandidaten gewählt (Rückblick 504 Handelstage). (seit 18.11.2026)
+## Taktikmodell 3 Könige (Prüfstand, ohne Handelsrelevanz)
+- Die drei Könige S&P 500, Bitcoin und Gold, in Euro. S&P 500 und Gold spielen fest Trend (200-Tage-Linie); für Bitcoin wird zum Saisonstart aus den Kandidaten gewählt (Rückblick 504 Handelstage). (seit 18.11.2026)
 - Kapitalverteilung nach Schwankung (inverse Volatilität), Bitcoin-Gewicht doppelt, nie mehr als 100 %, kein Hebel. Umgeschichtet wird erst ab 5 Punkten Abweichung. (seit 18.11.2026)
 - Eine Saison dauert 63 Handelstage; Regeln ändern sich nur am Saisonende. (seit 18.11.2026)
 - Bewertung nach vier Saisons (ca. November 2027): bestätigt, wenn der Rückgang kleiner ist als beim Halten und die Rendite höchstens 2 Punkte darunter liegt. (seit 18.11.2026)
@@ -36,7 +36,7 @@
 ## Schattenbücher (Test nach vorn, kein echtes Geld)
 - **Kronjuwelen** seit 17.11.2026, als Einmalanlage und als Sparplan (100 € pro Monat), jeweils gegen den S&P 500. Bewertung November 2031: bewährt bei mindestens 2 Punkten Mehrrendite pro Jahr, gescheitert unter dem S&P 500. (seit 21.11.2026)
 - **Sparplan S&P 500** seit 17.11.2026: „immer sofort“ gegen „nicht am Hoch“ (kaufen erst 3 % unter dem Allzeithoch), S&P 500 in Euro. Prüfung nach einem Jahr. (seit 18.11.2026)
-- **Mannschaft** gegen alle drei gehalten. (seit 18.11.2026)
+- **Taktikmodell 3 Könige** gegen alle drei gehalten. (seit 18.11.2026)
 
 ## Automatik und Seite
 - **News-Monitor** täglich gegen 7:45 Uhr, sonntags und montags nur Bitcoin. Gründe werden gesucht ab: S&P 500 ±2 %, Gold ±2,5 %, Bitcoin ±5 %, jede Kronjuwelen-Aktie ±4 % (gerundeter Wert, Tagesveränderung in Euro); dann bekommen alle drei Hauptwerte eine Zeile. (seit 21.11.2026)

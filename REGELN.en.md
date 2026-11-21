@@ -292,3 +292,6 @@ The rule book (REGELBUCH.en.md, page regeln.html) shows only what applies today,
 
 ## 2026-11-21: Telegram filter corrected (review)
 The Crown Jewels section of the monthly report was accidentally filtered out in Telegram (filter dated from the internal Elite 6). Now: Crown Jewels lines go neutrally to the channel; shadow-book lines stay internal; savings-plan steps privately only.
+
+## 2026-11-21: Names sharpened (explicit decision)
+"Savings plan shadow book" is now "S&P 500 savings plan shadow book". "Team model" is now "Tactical model 3 Kings": each season it chooses the strategy per asset (trend, for bitcoin from candidates) and allocates capital by volatility, so it is more than a pure trend model. Content unchanged.

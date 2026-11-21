@@ -27,8 +27,8 @@
 - Midline: 1.0117e-17 × days since Jan 3, 2009 to the power of 5.82 (dollars). Floor: 0.42 × midline (matches the red line on bitbo). (since Nov 21, 2026)
 - Only the monthly close is checked. A close below the floor = floor broken this month. Information only, the buy rule is unaffected. (since Nov 21, 2026)
 
-## Test bench: team model (tactical, no trading relevance)
-- Three players: S&P 500, bitcoin, gold, in euros. S&P 500 and gold play trend (200-day line) fixed; for bitcoin a strategy is chosen from the candidates at the start of each season (look-back 504 trading days). (since Nov 18, 2026)
+## Tactical model 3 Kings (test bench, no trading relevance)
+- Three kings: S&P 500, bitcoin, gold, in euros. S&P 500 and gold play trend (200-day line) fixed; for bitcoin a strategy is chosen from the candidates at the start of each season (look-back 504 trading days). (since Nov 18, 2026)
 - Capital split by volatility (inverse volatility), bitcoin weight doubled, never more than 100 %, no leverage. Rebalanced only from a 5-point deviation. (since Nov 18, 2026)
 - A season lasts 63 trading days; rules change only at season end. (since Nov 18, 2026)
 - Verdict after four seasons (around November 2027): confirmed if the drawdown is smaller than holding and the return at most 2 points below. (since Nov 18, 2026)
@@ -36,7 +36,7 @@
 ## Shadow books (forward test, no real money)
 - **Crown Jewels** since Nov 17, 2026, as a lump sum and as a savings plan (€100 per month), each against the S&P 500. Verdict November 2031: proven with at least 2 points more return per year, failed below the S&P 500. (since Nov 21, 2026)
 - **S&P 500 savings plan** since Nov 17, 2026: "always immediately" vs "not at the high" (buy only 3 % below the all-time high), S&P 500 in euros. Review after one year. (since Nov 18, 2026)
-- **Team model** against all three held. (since Nov 18, 2026)
+- **Tactical model 3 Kings** against all three held. (since Nov 18, 2026)
 
 ## Automation and site
 - **News monitor** daily around 7:45 CET, Sundays and Mondays bitcoin only. Reasons are researched from: S&P 500 ±2 %, gold ±2.5 %, bitcoin ±5 %, each Crown Jewels stock ±4 % (rounded value, daily change in euros); then all three main assets get a line. (since Nov 21, 2026)
