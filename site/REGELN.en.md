@@ -280,3 +280,6 @@ Vertex Pharmaceuticals (VRTX): 10 yrs 19.2 % p.a., beta 0.54, gross margin 54.8 
 
 ## 2026-11-20: Crown Jewels admission (start: season reviews 2026-10-27 and 2026-11-20 passed)
 Moody's Corporation (MCO): 10 yrs 17.6 % p.a., beta 0.97, gross margin 74.6 %, net debt 1.48x EBITDA, passed all rules 2 seasons in a row. From now on new money equally split across 11 stocks.
+
+## 2026-11-21: News archive (explicit decision)
+Homepage: latest report, below it collapsible only the last 7 days. Reports older than 30 days are moved by the nightly run into monthly files (site/archive/news-YYYY-MM.json, archive_news.py); nothing is deleted. Archive page archiv.html with month selection, daily reports and monthly/annual reports. The 60-entry limit in the news monitor is dropped.

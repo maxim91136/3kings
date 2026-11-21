@@ -280,3 +280,6 @@ Vertex Pharmaceuticals (VRTX): 10 J. 19,2 % p. a., Beta 0,54, Bruttomarge 54,8 %
 
 ## 2026-11-20: Kronjuwelen-Aufnahme (Start: Saisonprüfungen 2026-10-27 und 2026-11-20 bestanden)
 Moody's Corporation (MCO): 10 J. 17,6 % p. a., Beta 0,97, Bruttomarge 74,6 %, Nettoverschuldung 1,48× EBITDA, alle Regeln 2 Saisons in Folge bestanden. Ab jetzt neues Geld gleich verteilt auf 11 Werte.
+
+## 2026-11-21: News-Archiv (ausdrückliche Entscheidung)
+Startseite: neueste Meldung, darunter aufklappbar nur die letzten 7 Tage. Meldungen älter als 30 Tage verschiebt der nächtliche Lauf in Monatsdateien (site/archive/news-JJJJ-MM.json, archive_news.py); nichts wird gelöscht. Archivseite archiv.html mit Monatsauswahl, Tagesmeldungen und Monats-/Jahresberichten. Die Grenze von 60 Einträgen im News-Monitor entfällt.

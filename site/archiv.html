@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0F1218">
+<title>3Kings · Archiv</title>
+<style>
+:root{--ink:#0F1218;--line:#262B37;--text:#E9E4D8;--mute:#8A8F9C;--gld:#D9B34A;
+--serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--sans:system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{color-scheme:dark}
+body{margin:0;background:var(--ink);color:var(--text);font:15px/1.6 var(--sans);-webkit-font-smoothing:antialiased;
+padding:max(22px,env(safe-area-inset-top)) 18px max(40px,env(safe-area-inset-bottom))}
+main{max-width:720px;margin:0 auto}
+a{color:var(--gld)}
+.back{display:inline-block;margin-bottom:18px;font-size:14px;text-decoration:none}
+h1{font:600 36px/1.15 var(--serif);margin:0 0 6px}
+.lead{color:var(--mute);font-size:14px;margin:0 0 28px}
+h2{font:500 22px/1.25 var(--serif);margin:36px 0 8px;padding-top:18px;border-top:1px solid var(--line)}
+h3{font:600 16px/1.3 var(--sans);margin:22px 0 6px}
+p,li{color:#D6D1C5}ul{padding-left:20px}
+code{font-size:13px;background:#171B24;padding:1px 5px;border-radius:3px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.top .back{margin:0}.lang{display:flex;gap:2px;font-size:12px}.lang a{color:var(--mute);text-decoration:none;padding:4px 8px;border:1px solid var(--line);border-radius:4px}.lang a.on{color:var(--ink);background:var(--gld);border-color:var(--gld)}
+
+.months{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 22px}.months a{color:var(--mute);text-decoration:none;font-size:13px;padding:5px 10px;border:1px solid var(--line);border-radius:4px}.months a.on{color:var(--ink);background:var(--gld);border-color:var(--gld)}
+.item{margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}.meta{font-size:12px;color:var(--mute)}.hl{font:600 15px/1.35 var(--sans);margin:2px 0 6px}.hl.move{color:#E0A458}
+.item p{margin:0 0 4px;font-size:13.5px;line-height:1.5}.src{font-size:12px;color:var(--mute)}.src a{color:var(--mute)}.rep h3{margin-top:14px}.empty{color:var(--mute)}
+</style></head><body><main>
+<div class="top"><a class="back" id="back" href="./">← Zurück zur Übersicht</a><span class="lang"><a href="?lang=de" id="lde">DE</a><a href="?lang=en" id="len">EN</a></span></div>
+<h1 id="ttl">Archiv</h1>
+<p class="lead" id="lead">Alle Tagesmeldungen und Berichte, nach Monaten. Nichts wird gelöscht.</p>
+<nav class="months" id="months"></nav>
+<div id="doc"><p class="empty">…</p></div>
+</main>
+<script>
+const qs=new URLSearchParams(location.search);let LANG=qs.get("lang")||(()=>{try{return localStorage.getItem("lang")}catch(e){return null}})()||(navigator.language||"de").slice(0,2);if(LANG!=="en")LANG="de";try{localStorage.setItem("lang",LANG)}catch(e){}
+const EN=LANG==="en",T=(de,en)=>EN?en:de,LOC=EN?"en-US":"de-DE";document.documentElement.lang=LANG;
+document.getElementById(EN?"len":"lde").className="on";document.getElementById("back").href="./?lang="+LANG;
+const keep=k=>{const u=new URLSearchParams(location.search);u.set("lang",k);return "?"+u};document.getElementById("lde").href=keep("de");document.getElementById("len").href=keep("en");
+if(EN){document.title="3Kings · Archive";document.getElementById("back").textContent="← Back to overview";document.getElementById("ttl").textContent="Archive";document.getElementById("lead").textContent="All daily reports and monthly reports, by month. Nothing is deleted."}
+const e=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const fmtDay=s=>{const[a,b,c]=s.split("-");return EN?new Date(+a,+b-1,+c).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}):c+"."+b+"."+a};
+const mname=m=>{const[a,b]=m.split("-");return new Date(+a,+b-1,1).toLocaleDateString(LOC,{month:"long",year:"numeric"})};
+const get=u=>fetch(u,{cache:"no-store"}).then(r=>r.ok?r.json():null).catch(()=>null);
+Promise.all([get("archive/index.json"),get("news.json"),get("reports.json")]).then(async([ix,nw,rp])=>{
+ const months=(ix&&ix.months)||[];const doc=document.getElementById("doc");
+ if(!months.length){doc.innerHTML=`<p class="empty">${T("Noch keine Einträge.","No entries yet.")}</p>`;return}
+ const m=months.includes(qs.get("m"))?qs.get("m"):months[0];
+ document.getElementById("months").innerHTML=months.map(x=>`<a href="?lang=${LANG}&m=${x}"${x===m?' class="on"':""}>${mname(x)}</a>`).join("");
+ const ar=await get(`archive/news-${m}.json`);
+ const items=[...((nw&&nw.items)||[]).filter(x=>(x.date||"").startsWith(m)),...((ar&&ar.items)||[])];
+ const reps=((rp&&rp.items)||[]).filter(x=>x.type==="month"?x.period===m:(m.endsWith("-12")&&x.period===m.slice(0,4)));
+ const rep=x=>{const ln=EN&&x.lines_en?x.lines_en:(x.lines||[]);return `<div class="item rep"><div class="meta">${x.type==="year"?T("Jahresbericht","Annual report"):T("Monatsbericht","Monthly report")} ${e(EN&&x.title_en?x.title_en:x.title)}${x.published?" · "+T("veröffentlicht ","published ")+e(x.published):""}</div>${ln.map(l=>l.startsWith("# ")?`<h3>${e(l.slice(2))}</h3>`:`<p>${e(l)}</p>`).join("")}</div>`};
+ const one=x=>{const hl=EN&&x.headline_en?x.headline_en:x.headline,ln=EN&&x.lines_en?x.lines_en:(x.lines||[]),we=/^(Wochenende|Weekend)/.test(x.headline||"");
+  return `<div class="item"><div class="meta">${we?T("Bitcoin am Wochenende ","Bitcoin weekend ")+fmtDay(x.date):T("Börsentag ","Trading day ")+fmtDay(x.date)}${x.published?" · "+T("Bericht ","Report ")+e(EN&&x.published_en?x.published_en:x.published):""}</div><div class="hl${x.move?" move":""}">${e(hl)}</div>${ln.map(l=>`<p>${e(l)}</p>`).join("")}${(x.sources||[]).length?`<div class="src">${T("Quellen","Sources")}: ${x.sources.map(s=>`<a href="${e(s.url)}" rel="noopener" target="_blank">${e(s.title)}</a>`).join(" · ")}</div>`:""}</div>`};
+ doc.innerHTML=(reps.length?`<h2>${T("Berichte","Reports")}</h2>${reps.map(rep).join("")}`:"")+`<h2>${T("Tagesmeldungen","Daily reports")} ${mname(m)} <span style="font-size:14px;color:var(--mute)">(${items.length})</span></h2>`+(items.length?items.map(one).join(""):`<p class="empty">${T("Keine Meldungen in diesem Monat.","No reports this month.")}</p>`);
+});
+</script></body></html>
