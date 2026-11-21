@@ -96,7 +96,15 @@ for name, (bo, co) in VAR.items():
         for s in cur: units[s] = units.get(s, 0) + (100 / len(cur)) / E[s][d]
         su += 100 / spy[d]; flows.append((i, 100))
     val = sum(u * E[s][last] for s, u in units.items()); sv = su * spy[last]; n = len(months)
+    # Einmalanlage (Ergänzung 2026-11-21): Start = erste Prüfung mit Mitgliedern, gleich gewichtet, umgeschichtet nur bei Änderungen
+    segs = [h for i, h in enumerate(hist) if h[1] and (i == 0 or h[1] != hist[i - 1][1])]
+    lv = 1.0; t0 = segs[0][0]
+    for i, (d0, m0) in enumerate(segs):
+        d1 = segs[i + 1][0] if i + 1 < len(segs) else last
+        lv *= float(np.mean([E[x][d1] / E[x][d0] for x in m0]))
+    yrs = (np.datetime64(last) - np.datetime64(t0)).astype(int) / 365.25
+    lump = dict(start=t0, cagr=round(lv ** (1 / yrs) - 1, 4), spy_cagr=round((spy[last] / spy[t0]) ** (1 / yrs) - 1, 4), rebalances=len(segs) - 1)
     res[name] = dict(changes_py=round(changes / ((len(revs) - 2) / 4), 2), returns=returns, members_end=len(hist[-1][1]), avg_members=round(np.mean([len(h[1]) for h in hist[2:]]), 1),
-                     paid=100 * len(flows), value=round(val), irr=round(irr(flows, val, n), 4), spy_value=round(sv), spy_irr=round(irr(flows, sv, n), 4))
+                     paid=100 * len(flows), value=round(val), irr=round(irr(flows, val, n), 4), spy_value=round(sv), spy_irr=round(irr(flows, sv, n), 4), lump=lump)
     print(name, res[name])
 print(json.dumps(res))

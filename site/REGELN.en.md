@@ -232,3 +232,30 @@ New:
 3. Beta from weekly closing prices (5 years = 260 weeks) instead of daily prices: daily prices distort the beta of European stocks because of different trading hours (Deutsche Börse daily 0.05). Recalculated (prices Nov 20, 2026): Ferrari 0.84, Mastercard 0.81, Visa 0.75, Cintas 0.69, Microsoft 1.05, IDEXX 1.11.
 4. In: passed all four rules in two season reviews in a row, then a proposal via Telegram (private), admission after confirmation; a rejection holds until the next season review. Out: failed two season reviews in a row (automatic). On every change the shadow book is chained, all equally weighted (rebalancing only on changes, i.e. at most at season ends).
 5. Start: the existing six stocks. Further admissions at the earliest after the next season review (around late January 2027). The final verdict of the shadow book (November 2031) stays.
+
+## 2026-11-21: Crown Jewels: automatic admission, equal weight (explicit decision)
+Admission without confirmation: whoever passes all four rules in two season reviews in a row is admitted automatically at the season review (index logic, no individual decision). Telegram reports admissions, removals and warnings privately, for information only. Replaces point 4 ("proposal via Telegram, admission after confirmation") of the previous entry.
+Equal weighting stays: the ranking by 10-year return is the past and not a measure of quality; weighting by it would be a bet on continuation. Weighting by market value would be dominated by Microsoft, Visa and Mastercard. Equal weight is the neutral rule without estimation. The ranking is only displayed.
+
+## 2026-11-21: Test "Buffer for the Crown Jewels" (fixed before computing; buffertest.py)
+Question: which gap between the admission and removal limits prevents back and forth without costing return? Background: replicated privately as a savings-plan index that never sells (removed stocks get no new money but stay held).
+Data: the non-cyclical companies of the screening of Nov 21, 2026, daily prices (Yahoo, incl. dividends) from 2006, in euros. Review every quarter from 2016 (63 trading days). In: beta < 1.15 (weekly prices, 5 years) AND 10-year return >= 17 %, two reviews in a row.
+Variants (out after two reviews in a row outside): no buffer (beta > 1.15 or < 17 %), narrow (> 1.20 or < 15 %), medium (> 1.25 or < 14 %), wide (> 1.30 or < 12 %).
+Savings plan: €100 per month, equally split across current members, never sell. Comparison: the same savings plan on the S&P 500.
+Metrics: changes per year; "returners" (out and back in within 8 quarters); final value and return p.a. (internal rate of return).
+Criterion: the buffer with the fewest returners whose savings-plan return is at most 0.5 points p.a. below "no buffer"; plateau: at least one neighbour similar. Otherwise no buffer.
+Limits: margin and debt not available historically, only beta and return tested. Today's company list (bankruptcies missing, return too high); uncritical for comparing the variants with each other.
+
+### Result "Buffer for the Crown Jewels" (2026-11-21, buffertest.py)
+254 companies with data, 44 quarterly reviews 01/2016 to 10/2026, savings plan €100/month (€12,700 paid in), never sell. No buffer: 40 changes/yr, 55 returners, savings plan 11.3 % p.a. Narrow: 32, 25, 11.3 %. Medium: 28, 13, 11.3 %. Wide: 23, 1, 11.3 %. Return practically the same in all variants (11.25-11.30 %).
+Criterion met for "wide" (fewest returners, same return; neighbour "medium" also with few returners and the same return).
+Side finding (important): the same savings plan on the S&P 500 over the same period returned 13.9 % p.a. (€27,499 instead of €23,700). The rule with only beta and 10-year return was 2.6 points p.a. behind the index, despite today's company list (bankruptcies missing, result rather too good). Without margin and debt the index becomes very large (59 to 89 stocks on average). Whether the two additional filters change this cannot be tested historically; only the shadow book will show.
+
+## 2026-11-21: Crown Jewels as a savings-plan index with buffer (explicit decision)
+1. Buffer "wide": admission only when all strict rules are met (beta < 1.15; 10-year return >= 17 %; gross margin >= 49 %; net debt/EBITDA < 2), two reviews in a row. Removal only on a clear miss, two reviews in a row: beta > 1.30 or 10-year return < 12 %. Set analogously for margin and debt, NOT tested: margin < 45 % or net debt/EBITDA >= 2.5 (or EBITDA negative/missing).
+2. Savings-plan index, never sell: every month the same amount, equally split across current members. Removed stocks get no new money but stay held. Returners get money again. The shadow book calculates exactly this (€100 per month from Nov 17, 2026, against the same savings plan on the S&P 500; metric value per euro paid in). The lump-sum shadow book also continues (both side by side, explicit decision): equally weighted, rebalanced only on changes. Final verdict November 2031: proven if the savings-plan return (internal rate of return) is at least 2 points p.a. above the S&P 500 savings plan; failed if below.
+3. Telegram messages (private) on every change with concrete steps (start / stop savings plan, do not sell).
+4. Labelled on the site as an experiment with the result of the buffer test (rule 2.6 points p.a. behind the S&P 500 in hindsight). The core does not change: the S&P 500 remains the foundation.
+
+### Supplement to the buffer test: lump sum (fixed before computing)
+Same setup, additionally: lump sum from the first review with members, equally weighted, rebalanced (sold and redistributed equally) only when members change; against a lump sum in the S&P 500 from the same day. Metric return p.a. Question: is the shortfall due to the savings plan?
