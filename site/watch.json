@@ -353,8 +353,8 @@
    {
     "key": "EVO.ST",
     "name": "Evolution",
-    "branch": "",
-    "branch_en": "",
+    "branch": "Online-Casino-Technik",
+    "branch_en": "Online casino technology",
     "claim": null,
     "beta": 0.44,
     "cagr10": 0.329,
@@ -365,8 +365,8 @@
    {
     "key": "ASML.AS",
     "name": "ASML",
-    "branch": "",
-    "branch_en": "",
+    "branch": "Chipmaschinen",
+    "branch_en": "Chip-making equipment",
     "claim": null,
     "beta": 1.08,
     "cagr10": 0.293,
@@ -377,8 +377,8 @@
    {
     "key": "GRMN",
     "name": "Garmin",
-    "branch": "Consumer Electronics",
-    "branch_en": "Consumer Electronics",
+    "branch": "Navigation und Sportuhren",
+    "branch_en": "Navigation and sports watches",
     "claim": null,
     "beta": 0.86,
     "cagr10": 0.2081,
@@ -389,8 +389,8 @@
    {
     "key": "INVE-B.ST",
     "name": "Investor AB",
-    "branch": "",
-    "branch_en": "",
+    "branch": "Beteiligungsgesellschaft",
+    "branch_en": "Investment company",
     "claim": null,
     "beta": 0.64,
     "cagr10": 0.2073,
