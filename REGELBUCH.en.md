@@ -15,7 +15,7 @@
 
 ## Crown Jewels (own index)
 - **Universe:** current S&P 500 members and a fixed European list, renewed every season. (since Nov 21, 2026)
-- **Excluded beforehand, not cyclical:** energy, materials, real estate, banks and finance with cyclical risk, industrials and logistics, semiconductors, hardware, autos, construction, fashion and luxury (except ultra-luxury such as Ferrari and Hermès), advertising and further approved industries. The full list is in the log of Nov 21, 2026. Cyclical stocks are not calculated at all. (since Nov 21, 2026)
+- **Excluded beforehand:** only the energy, materials and real estate sectors. For everyone else, the beta decides whether a company swings too much with the economy, not the industry label. (since Nov 21, 2026; before, a list of sub-industries such as hardware, semiconductors, banks, industrials)
 - **Admission, all four rules:** beta below 1.15 (5 years, weekly prices, in euros against the S&P 500); at least 17 % return per year over ten years (home currency, with dividends); gross margin at least 49 % (around 50 %); net debt below twice operating profit (EBITDA). Passed two season reviews in a row = admitted automatically. (since Nov 21, 2026)
 - **Removal only on a clear miss (buffer):** beta above 1.30, return below 12 %, margin below 45 % or net debt from 2.5 times. Once = warning, two season reviews in a row = out. (since Nov 21, 2026)
 - **Execution:** admissions and removals take effect in the shadow books only from the close of the next trading day after the season review. (since Nov 21, 2026)

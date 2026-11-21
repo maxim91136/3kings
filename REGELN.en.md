@@ -326,3 +326,7 @@ Added after an external review: four hypotheses on the same data, one may fit by
 
 ## 2026-11-21: Crown Jewels size under observation
 No cap on the number of members, no rule change. The size of the index is being observed.
+
+## 2026-11-21: Crown Jewels, sub-industry exclusion removed (explicit decision)
+Reason: Apple was not computed at all as "Technology Hardware", although a large part of its business is services. Instead of an exception for Apple, a principle applies: only the energy, materials and real estate sectors stay excluded; for all others the beta decides about cyclical swings. All other rules stay; the margin stays at 49 % (origin: "above 50 %" from the Elite 9 list, 1 point tolerance since Nov 18, 2026). Applies from the next season review (around end of January 2027); admission as always only after two passed reviews in a row.
+Check beforehand (information only): 185 additional companies enter the evaluation. Today 4 would meet all rules: Evolution (beta 0.44, 10y 32.9 %), ASML (1.08; 29.3 %), Garmin (0.86; 20.8 %), Investor AB (0.64; 20.7 %). Apple: beta 1.14, 10y 29.6 %, margin 48.8 % (0.2 points short), debt 0.2: fails only on margin (annual margin 2025: 46.9 %, record since the 1990s).

@@ -15,7 +15,7 @@
 
 ## Kronjuwelen (eigener Index)
 - **Universum:** aktuelle Mitglieder des S&P 500 und eine feste Europa-Liste, jede Saison neu. (seit 21.11.2026)
-- **Ausschluss vorab, nicht zyklisch:** Energie, Rohstoffe, Immobilien, Banken und Finanzdienste mit Konjunkturrisiko, Industrie und Logistik, Halbleiter, Hardware, Autos, Bau, Mode und Luxus (außer Ultra-Luxus wie Ferrari und Hermès), Werbung und weitere freigegebene Branchen. Die vollständige Liste steht im Protokoll vom 21.11.2026. Zyklische Werte werden gar nicht gerechnet. (seit 21.11.2026)
+- **Ausschluss vorab:** nur die Sektoren Energie, Rohstoffe und Immobilien. Ob eine Firma zu stark mit der Konjunktur schwankt, entscheidet bei allen anderen das Beta, nicht das Branchenetikett. (seit 21.11.2026, vorher Liste von Unterbranchen wie Hardware, Halbleiter, Banken, Industrie)
 - **Aufnahme, alle vier Regeln:** Beta unter 1,15 (5 Jahre, Wochenkurse, in Euro gegen den S&P 500); mindestens 17 % Rendite pro Jahr über zehn Jahre (Heimatwährung, mit Dividenden); Bruttomarge mindestens 49 % (rund 50 %); Nettoverschuldung unter dem Zweifachen des operativen Gewinns (EBITDA). Zwei Saisonprüfungen in Folge bestanden = automatisch aufgenommen. (seit 21.11.2026)
 - **Ausscheiden nur bei klarer Verfehlung (Puffer):** Beta über 1,30, Rendite unter 12 %, Marge unter 45 % oder Nettoverschuldung ab dem 2,5-Fachen. Einmal = Verwarnung, zwei Saisonprüfungen in Folge = raus. (seit 21.11.2026)
 - **Umsetzung:** Aufnahmen und Ausscheiden gelten in den Schattenbüchern erst ab dem Schlusskurs des nächsten Handelstags nach der Saisonprüfung. (seit 21.11.2026)
