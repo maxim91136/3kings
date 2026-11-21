@@ -47,6 +47,6 @@ function md(t){let o="",list=false,para=[];
 fetch(EN?"REGELN.en.md":"REGELN.md",{cache:"no-store"}).then(r=>r.text()).then(t=>{
  const parts=t.split(/\n(?=## )/),head=parts.shift(),secs=parts.reverse();   // neueste Einträge zuerst
  const last=(secs[0]||"").match(/^## (\d{4}-\d{2}-\d{2})/);
- document.getElementById("doc").innerHTML=(last?`<p class="lead" style="margin:-14px 0 24px">${EN?"Newest entries first. Latest entry: ":"Neueste Einträge zuerst. Letzter Eintrag: "}${last[1].split("-").reverse().join(".")}</p>`:"")+md(secs.join("\n"))+`<h2>${EN?"Basics":"Grundsätze"}</h2>`+md(head)})
+ document.getElementById("doc").innerHTML=`<h2 style="border-top:0;padding-top:0;margin-top:0">${EN?"Principles":"Grundsätze"}</h2>`+md(head)+(last?`<h2>${EN?"Entries, newest first":"Einträge, neueste zuerst"}</h2><p class="lead" style="margin:0 0 8px">${EN?"Latest entry: ":"Letzter Eintrag: "}${last[1].split("-").reverse().join(".")}</p>`:"")+md(secs.join("\n"))})
  .catch(()=>{document.getElementById("doc").textContent=EN?"Rule book could not be loaded.":"Regelbuch konnte nicht geladen werden."});
 </script></body></html>
