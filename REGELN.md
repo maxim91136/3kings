@@ -191,3 +191,8 @@ Mittellinie (fairer Wert): 1,0117e-17 × Tage^5,82 (Tage seit 3.1.2009, in Dolla
 Prüfung: jeden abgeschlossenen Monat am Monatsschluss (letzter Tagesschluss, Dollar). Schluss unter der Untergrenze = "Untergrenze in diesem Monat gebrochen". Kurse innerhalb des Monats zählen nicht. Gezeigt werden Stand, Monate in Folge darunter und alle Monate darunter seit 2015.
 Folge: nur Information. Die Kaufregel (kaufen, sobald Geld da ist) bleibt unberührt; eine Anpassung des Modells nur per ausdrücklicher Entscheidung.
 Erste Auswertung (Daten ab 07/2015): Monatsschlüsse unter der Untergrenze bisher nur 06/2026 (58.524 $, 1,7 % darunter). Tiefste frühere Monatsschlüsse: 12/2022 und 09/2015 (je knapp über der Linie, 0,43 × Mittellinie). November 2026 liegt laufend bei etwa 0,36 × Mittellinie (Stand 20.11.).
+
+## 2026-11-21: Langzeit-Ergänzung "Welt gegen USA" (vorab festgelegt, vor dem Rechnen; worldlong.py)
+Anlass: Der FTSE-Test umfasst nur 13 Jahre (eine Phase mit US-Vorsprung). Der FTSE All-World selbst ist frei nicht lange verfügbar; Ersatz mit gleicher Idee aus einer Quelle (MSCI, Gesamtrendite brutto, Monatsende, Dollar): MSCI World (ab 1970) und MSCI ACWI (Welt inkl. Schwellenländer, ab 1988) gegen MSCI USA (entspricht praktisch dem S&P 500). Rechnung in Dollar; für einen Euro-Anleger ändert die Währung beide Seiten gleich, der Vergleich bleibt gleich.
+Kennzahlen: Rendite p. a., größter Rückgang, Jahrzehnte einzeln, Anteil rollierender 10- und 20-Jahres-Zeiträume mit Vorsprung der Welt.
+Kriterium wie beim FTSE-Test: Die Welt ersetzt den S&P 500 als Kern nur, wenn Rendite p. a. höher UND in BEIDEN Hälften höher UND größter Rückgang nicht größer. Sonst bleibt der S&P 500; das Ergebnis wird angezeigt.

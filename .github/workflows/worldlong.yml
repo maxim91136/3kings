@@ -1,0 +1,21 @@
+name: worldlong
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: worldlong
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: { python-version: "3.12" }
+      - run: python worldlong.py
+      - name: Ergebnis committen
+        run: |
+          git config user.name "3kings-heartbeat"
+          git config user.email "heartbeat@users.noreply.github.com"
+          git add site/worldlong.json
+          git diff --cached --quiet || git commit -m "Welt-gegen-USA-Test $(date -u +%F)"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push && break; sleep 5; done
