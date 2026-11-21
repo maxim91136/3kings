@@ -1,15 +1,25 @@
 {
+ "oil": {
+  "date": "2026-11-20",
+  "usd": 92.57,
+  "eur": 84.38,
+  "chg1m": -0.1288,
+  "chg1y": 0.5366
+ },
  "eurusd": {
   "date": "2026-11-20",
   "value": 1.097,
   "chg1m": -0.0236,
   "chg1y": -0.0495
  },
+ "cpi_ez": {
+  "month": "2025-12",
+  "value": 0.019,
+  "prev": 0.021
+ },
  "errors": {
-  "oil": "<urlopen error Tunnel connection failed: 403 Forbidden (agent proxy: no rule or network setting allows this host)>",
-  "us10y": "<urlopen error Tunnel connection failed: 403 Forbidden (agent proxy: no rule or network setting allows this host)>",
-  "ecb": "<urlopen error Tunnel connection failed: 403 Forbidden (agent proxy: no rule or network setting allows this host)>",
-  "cpi_us": "<urlopen error Tunnel connection failed: 403 Forbidden (agent proxy: no rule or network setting allows this host)>",
-  "cpi_ez": "<urlopen error Tunnel connection failed: 403 Forbidden (agent proxy: no rule or network setting allows this host)>"
+  "us10y": "The read operation timed out",
+  "ecb": "The read operation timed out",
+  "cpi_us": "The read operation timed out"
  }
 }
