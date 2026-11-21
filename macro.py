@@ -1,5 +1,5 @@
 """Makro-Umfeld (nur Information, keine Regel; seit 2026-11-21): Öl (Brent), US-Zins 10 Jahre, EZB-Einlagenzins, Euro/Dollar, Inflation USA und Eurozone.
-Quellen: Yahoo (BZ=F), FRED (DGS10, ECBDFR, CPIAUCSL), DBnomics/EZB (HICP Eurozone, Jahresrate), data/ind_EURUSD.csv. Schreibt site/macro.json."""
+Quellen: Yahoo (BZ=F, ^TNX), EZB-Datenportal (Einlagenzins, HICP), US-Statistikbehörde BLS (CPI-U), data/ind_EURUSD.csv. Schreibt site/macro.json."""
 import csv, json, os, signal, sys, time, urllib.request
 signal.signal(signal.SIGALRM, lambda *a: (_ for _ in ()).throw(TimeoutError("Quelle zu langsam")))
 from datetime import date
@@ -25,29 +25,30 @@ try:
     out["oil"] = dict(date=b[-1][0], usd=round(b[-1][1], 2), eur=round(be[-1][1], 2), chg1m=round(be[-1][1] / ago(be, 30) - 1, 4), chg1y=round(be[-1][1] / ago(be, 365) - 1, 4))
 except Exception as e: err["oil"] = str(e)
 signal.alarm(20)
-try:
-    s = fred("DGS10"); out["us10y"] = dict(date=s[-1][0], value=s[-1][1], chg1m=round(s[-1][1] - ago(s, 30), 2), chg1y=round(s[-1][1] - ago(s, 365), 2))
+try:   # US-Zins 10 Jahre: Yahoo ^TNX (in Prozent)
+    t = sorted(fp.yahoo("%5ETNX").items()); out["us10y"] = dict(date=t[-1][0], value=round(t[-1][1], 2), chg1m=round(t[-1][1] - ago(t, 30), 2), chg1y=round(t[-1][1] - ago(t, 365), 2))
 except Exception as e: err["us10y"] = str(e)
 signal.alarm(20)
-try:
-    s = fred("ECBDFR"); prev = next((v for d, v in reversed(s) if v != s[-1][1]), None)
-    since = next((d for d, v in reversed(s) if v != s[-1][1]), None)
-    out["ecb"] = dict(date=s[-1][0], value=s[-1][1], prev=prev, changed=next((s[i + 1][0] for i in range(len(s) - 2, -1, -1) if s[i][1] != s[-1][1]), None))
+def ecb(key, n):   # EZB-Datenportal, CSV
+    rows = list(csv.DictReader(get(f"https://data-api.ecb.europa.eu/service/data/{key}?lastNObservations={n}&format=csvdata", 15).splitlines()))
+    return [(r["TIME_PERIOD"], float(r["OBS_VALUE"])) for r in rows if r.get("OBS_VALUE")]
+try:   # EZB-Einlagenzins
+    s = ecb("FM/D.U2.EUR.4F.KR.DFR.LEV", 2000)
+    out["ecb"] = dict(date=s[-1][0], value=s[-1][1], changed=next((s[i + 1][0] for i in range(len(s) - 2, -1, -1) if s[i][1] != s[-1][1]), None))
 except Exception as e: err["ecb"] = str(e)
 signal.alarm(0)
 out["eurusd"] = dict(date=fx[-1][0], value=round(fx[-1][1], 4), chg1m=round(fx[-1][1] / ago(fx, 30) - 1, 4), chg1y=round(fx[-1][1] / ago(fx, 365) - 1, 4))
 signal.alarm(20)
-try:
-    s = fred("CPIAUCSL"); m = s[-1][0]; prev = next(v for d, v in s if d == f"{int(m[:4]) - 1}{m[4:]}")
-    p2 = s[-2]; pprev = next(v for d, v in s if d == f"{int(p2[0][:4]) - 1}{p2[0][4:]}")
-    out["cpi_us"] = dict(month=m[:7], value=round(s[-1][1] / prev - 1, 4), prev=round(p2[1] / pprev - 1, 4))
+try:   # Inflation USA: US-Statistikbehörde (CPI-U, Vorjahresrate selbst gerechnet)
+    j = json.loads(get("https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SA0", 15))
+    d = {f'{x["year"]}-{x["period"][1:]}': float(x["value"]) for x in j["Results"]["series"][0]["data"] if x["period"].startswith("M") and x["period"] != "M13"}
+    ks = sorted(d); m0, m1 = ks[-1], ks[-2]; yoy = lambda m: d[m] / d[f"{int(m[:4]) - 1}{m[4:]}"] - 1
+    out["cpi_us"] = dict(month=m0, value=round(yoy(m0), 4), prev=round(yoy(m1), 4))
 except Exception as e: err["cpi_us"] = str(e)
 signal.alarm(20)
-try:
-    j = json.loads(get("https://api.db.nomics.world/v22/series/ECB/ICP/M.U2.N.000000.4.ANR?observations=1&format=json", 30))
-    d = j["series"]["docs"][0]; per, val = d["period"], d["value"]
-    pts = [(p, v) for p, v in zip(per, val) if v not in (None, "NA")]
-    out["cpi_ez"] = dict(month=pts[-1][0], value=round(float(pts[-1][1]) / 100, 4), prev=round(float(pts[-2][1]) / 100, 4))
+try:   # Inflation Eurozone: EZB (HICP, Jahresrate)
+    s = ecb("ICP/M.U2.N.000000.4.ANR", 2)
+    out["cpi_ez"] = dict(month=s[-1][0], value=round(s[-1][1] / 100, 4), prev=round(s[-2][1] / 100, 4))
 except Exception as e: err["cpi_ez"] = str(e)
 signal.alarm(0)
 old = json.load(open("site/macro.json")) if os.path.exists("site/macro.json") else {}
