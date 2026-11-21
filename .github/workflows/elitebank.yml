@@ -1,11 +1,9 @@
 name: elitebank
 on:
-  schedule:
-    - cron: "23 */3 * * *"
   workflow_dispatch:
     inputs:
       mode:
-        description: "poll, propose, test SYMBOL oder screen (Screening erzwingen)"
+        description: "screen (Screening erzwingen), test SYMBOL, poll (Test-Antwort abholen)"
         default: poll
 permissions:
   contents: write

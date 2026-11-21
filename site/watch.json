@@ -141,66 +141,48 @@
    "bank": [],
    "rows": [
     {
-     "sym": "TKO",
-     "name": "TKO Group Holdings",
+     "sym": "LLY",
+     "name": "Lilly (Eli)",
      "beta": 0.65,
-     "cagr10": 0.272,
-     "margin": 0.603,
-     "nd": null,
+     "cagr10": 0.3524,
+     "margin": 0.836,
+     "nd": 0.96,
      "streak": 1
     },
     {
      "sym": "VEEV",
      "name": "Veeva Systems",
-     "beta": 0.88,
+     "beta": 0.99,
      "cagr10": 0.2036,
      "margin": 0.75,
-     "nd": null,
+     "nd": -6.59,
      "streak": 1
     },
     {
      "sym": "CBOE",
      "name": "Cboe Global Markets",
-     "beta": 0.23,
+     "beta": 0.15,
      "cagr10": 0.1948,
      "margin": 0.539,
-     "nd": null,
+     "nd": -0.53,
      "streak": 1
     },
     {
      "sym": "VRTX",
      "name": "Vertex Pharmaceuticals",
-     "beta": 0.57,
+     "beta": 0.54,
      "cagr10": 0.1919,
      "margin": 0.548,
-     "nd": null,
+     "nd": 0.03,
      "streak": 1
     },
     {
-     "sym": "NDAQ",
-     "name": "Nasdaq, Inc.",
-     "beta": 0.84,
-     "cagr10": 0.1855,
-     "margin": 1.0,
-     "nd": null,
-     "streak": 1
-    },
-    {
-     "sym": "DB1.DE",
-     "name": "Deutsche Börse",
-     "beta": 0.05,
-     "cagr10": 0.1838,
-     "margin": 0.8,
-     "nd": null,
-     "streak": 1
-    },
-    {
-     "sym": "NFLX",
-     "name": "Netflix",
-     "beta": 1.11,
-     "cagr10": 0.1701,
-     "margin": 0.507,
-     "nd": null,
+     "sym": "MCO",
+     "name": "Moody's Corporation",
+     "beta": 0.97,
+     "cagr10": 0.1761,
+     "margin": 0.746,
+     "nd": 1.48,
      "streak": 1
     }
    ]
@@ -292,6 +274,32 @@
     {
      "date": "2026-11-17",
      "elite": 1.0,
+     "spy": 1.0,
+     "paid": 100.0
+    },
+    {
+     "date": "2026-11-18",
+     "elite": 1.0067,
+     "spy": 0.9974,
+     "paid": 100.0
+    },
+    {
+     "date": "2026-11-19",
+     "elite": 0.9893,
+     "spy": 0.9797,
+     "paid": 100.0
+    },
+    {
+     "date": "2026-11-20",
+     "elite": 0.9767,
+     "spy": 0.9442,
+     "paid": 100.0
+    }
+   ],
+   "lump": [
+    {
+     "date": "2026-11-17",
+     "elite": 1.0,
      "spy": 1.0
     },
     {
@@ -301,12 +309,12 @@
     },
     {
      "date": "2026-11-19",
-     "elite": 0.989,
+     "elite": 0.9893,
      "spy": 0.9797
     },
     {
      "date": "2026-11-20",
-     "elite": 0.9764,
+     "elite": 0.9767,
      "spy": 0.9442
     }
    ]

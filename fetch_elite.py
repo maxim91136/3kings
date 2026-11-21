@@ -6,7 +6,9 @@ import fetch_prices as fp
 T = {"RACE": "RACE", "MA": "MA", "V": "V", "CTAS": "CTAS", "MSFT": "MSFT", "IDXX": "IDXX"}
 import json
 META = json.load(open("data/elite_meta.json")) if os.path.exists("data/elite_meta.json") else {}
-if os.path.exists("data/elite_members.json"): T = {k: k for k in json.load(open("data/elite_members.json"))}
+if os.path.exists("data/elite_members.json"):  # Mitglieder + Ausgeschiedene (bleiben im Sparplan-Bestand)
+    _h = json.load(open("data/elite_hist.json")) if os.path.exists("data/elite_hist.json") else []
+    T = {k: k for k in dict.fromkeys(json.load(open("data/elite_members.json")) + [x for e in _h for x in e["members"]])}
 CUR = {k: META.get(k, {}).get("cur", "USD") for k in T}
 data = {}; home = {}
 for k, sym in T.items():

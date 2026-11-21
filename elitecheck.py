@@ -34,9 +34,9 @@ for k in cols:
     s = load("data/elite.csv", k)
     hp = "data/elite_home.csv"; hs = load(hp, k) if os.path.exists(hp) and k in next(csv.reader(open(hp))) else s
     b, c = round(beta(eur(s)), 2), cagr10(hs)
-    ok = bool(c is not None and b < 1.15 and c >= 0.17)
+    ok = bool(c is not None and b <= 1.30 and c >= 0.12)   # Puffer-Grenzen für Mitglieder (REGELN 2026-11-21)
     rows.append({"key": k, "beta": b, "cagr10": None if c is None else round(float(c), 4), "pass": ok,
-                 "why": [] if ok else (["beta"] if b >= 1.15 else []) + (["cagr10"] if c is None or c < 0.17 else [])})
+                 "why": [] if ok else (["beta"] if b > 1.30 else []) + (["cagr10"] if c is None or c < 0.12 else [])})
 hb = json.load(open("site/heartbeat.json"))
 out = {"date": sorted(spy)[-1], "season": hb.get("season"), "rows": rows}
 json.dump(out, open("site/elite_check.json", "w"), separators=(",", ":"))

@@ -1,4 +1,4 @@
-"""Kronjuwelen: Aufnahme per Telegram-Bestätigung (REGELN.md 2026-11-21).
+"""Kronjuwelen: Telegram-Hilfen. Aufnahme läuft seit 2026-11-21 automatisch (elite_review.py nutzt admit); hier: notify (Meldungen senden), test/poll (Knopf-Test).
   python elite_bank.py propose   -> nächsten aufnahmereifen Kandidaten aus der Warteschlange privat vorschlagen (wenn keiner offen)
   python elite_bank.py poll      -> Antworten abholen (nur privater Chat), Aufnehmen/Ablehnen, Erinnerung nach 7 Tagen, dann nächster
   python elite_bank.py test SYM  -> Testvorschlag (Bestätigung ändert nichts)
@@ -40,25 +40,27 @@ def test(sym):
     q = load(PEND, {"queue": []}); c = row(sym) or dict(sym=sym, name=sym)
     mid = say(card(c, "Kronjuwelen: Aufnahme (TEST)") + "\n\nTest: Die Antwort ändert nichts.", btn(sym))
     q["current"] = dict(sym=sym, row=c, msg=mid, created=now(), reminded=False, test=True); save(PEND, q)
+def notify():
+    """Meldungen aus der Saisonprüfung privat senden (data/elite_notify.json)."""
+    m = load("data/elite_notify.json", [])
+    for t in m: say(t)
+    if m: save("data/elite_notify.json", [])
 def regeln(de, en):
     for f, t in (("REGELN.md", de), ("REGELN.en.md", en)):
         open(f, "a").write(t); open(f"site/{f}", "w").write(open(f).read())
-def admit(c):
-    sym = c["sym"]; d = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    mem = json.load(open("data/elite_members.json")); mem.append(sym); json.dump(mem, open("data/elite_members.json", "w"))
+def admit(c, how="per Telegram bestätigt", how_en="confirmed via Telegram", d=None):
+    """Aufnahme in den Sparplan-Index: ab jetzt neues Geld, nichts wird verkauft (Chronik data/elite_hist.json)."""
+    sym = c["sym"]; d = d or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    mem = json.load(open("data/elite_members.json"))
+    if sym not in mem: mem.append(sym)
+    json.dump(mem, open("data/elite_members.json", "w"))
     meta = load("data/elite_meta.json", {}); meta[sym] = dict(name=c["name"], branch=c.get("branch", ""), branch_en=c.get("branch_en", ""), cur=c.get("cur", "USD")); save("data/elite_meta.json", meta)
-    subprocess.run([sys.executable, "fetch_elite.py"], check=False)
-    fx = {r["date"]: float(r["value"]) for r in csv.DictReader(open("data/ind_EURUSD.csv"))}
-    px = list(csv.DictReader(open("data/elite.csv")))
-    last = next(r for r in reversed(px) if all(r.get(k) for k in mem)); f = fx.get(last["date"]) or fx[max(k for k in fx if k <= last["date"])]
-    st = json.load(open("data/elite_state.json")); base = st["rows"][-1]["elite"] if st["rows"] else 1.0
-    st["base"] = base; st["p0"] = {k: float(last[k]) / f for k in mem}
-    st.setdefault("changes", []).append(dict(date=last["date"], add=[sym], base=base)); save("data/elite_state.json", st)
+    hist = load("data/elite_hist.json", []); hist.append({"date": d, "members": list(mem)}); save("data/elite_hist.json", hist)
     fz = json.load(open("data/elite_frozen.json")); fz["rows"] = [r for r in fz["rows"] if r["key"] != sym] + [dict(key=sym, beta=c.get("beta"), cagr10=c.get("cagr10"))]; save("data/elite_frozen.json", fz)
     vals = f"10 J. {num(c.get('cagr10'), True)} % p. a., Beta {num(c.get('beta'))}, Bruttomarge {num(c.get('margin'), True)} %, Nettoverschuldung {num(c.get('nd_ebitda'))}× EBITDA"
-    regeln(f"\n## {d}: Kronjuwelen-Aufnahme (per Telegram bestätigt)\n{c['name']} ({sym}): {vals}, alle Regeln {c.get('streak')} Saisons in Folge bestanden. Schattenbuch verkettet ab {last['date']}, alle {len(mem)} gleich gewichtet.\n",
-           f"\n## {d}: Crown Jewels admission (confirmed via Telegram)\n{c['name']} ({sym}): 10 yrs {(c.get('cagr10') or 0)*100:.1f} % p.a., beta {c.get('beta')}, gross margin {(c.get('margin') or 0)*100:.1f} %, net debt {c.get('nd_ebitda')}x EBITDA, passed all rules {c.get('streak')} seasons in a row. Shadow book chained from {last['date']}, all {len(mem)} equally weighted.\n")
-    subprocess.run([sys.executable, "elitecheck.py"], check=False); subprocess.run([sys.executable, "watch.py"], check=False)
+    regeln(f"\n## {d}: Kronjuwelen-Aufnahme ({how})\n{c['name']} ({sym}): {vals}, alle Regeln {c.get('streak')} Saisons in Folge bestanden. Ab jetzt neues Geld gleich verteilt auf {len(mem)} Werte.\n",
+           f"\n## {d}: Crown Jewels admission ({how_en})\n{c['name']} ({sym}): 10 yrs {(c.get('cagr10') or 0)*100:.1f} % p.a., beta {c.get('beta')}, gross margin {(c.get('margin') or 0)*100:.1f} %, net debt {c.get('nd_ebitda')}x EBITDA, passed all rules {c.get('streak')} seasons in a row. From now on new money equally split across {len(mem)} stocks.\n")
+    subprocess.run([sys.executable, "fetch_elite.py"], check=False)
     return len(mem)
 def poll():
     q = load(PEND, {"queue": []}); off = load(OFF, {"offset": 0})
@@ -89,5 +91,6 @@ if __name__ == "__main__":
     if not TOKEN or not USER: raise SystemExit("Telegram-Secrets fehlen")
     a = sys.argv[1] if len(sys.argv) > 1 else "poll"
     if a == "propose": propose()
+    elif a == "notify": notify()
     elif a == "test": test(sys.argv[2])
     else: poll()

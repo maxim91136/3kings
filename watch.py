@@ -89,14 +89,36 @@ if el and spy:
         yrs = len(r) / 252
         back = dict(since=cut[0], until=cut[-1], elite=dict(cagr=round(idx[-1] ** (1 / yrs) - 1, 4), mdd=round(float((1 - idx / np.maximum.accumulate(idx)).max()), 3)),
                     spy=dict(cagr=round(sidx[-1] ** (1 / yrs) - 1, 4), mdd=round(float((1 - sidx / np.maximum.accumulate(sidx)).max()), 3)))
-    # Schattenbuch ab Start
-    sp_path = "data/elite_state.json"
-    last_d = min(max(ep[k]) for k in ks)
-    st = json.load(open(sp_path)) if os.path.exists(sp_path) else dict(start=last_d, p0={k: ep[k][last_d] for k in ks}, spy0=spy[last_d], rows=[])
-    if last_d >= st["start"] and (not st["rows"] or st["rows"][-1]["date"] != last_d) and last_d in spy:
-        e = st.get("base", 1.0) * float(np.mean([ep[k][last_d] / st["p0"][k] for k in ks if k in st["p0"]])); st["rows"].append(dict(date=last_d, elite=round(e, 4), spy=round(spy[last_d] / st["spy0"], 4)))
-        json.dump(st, open(sp_path, "w"), indent=1)
-    out["elite"] = dict(stand=fz["stand"] if fz else None, n=len(NAMES), check=json.load(open("site/elite_check.json")) if os.path.exists("site/elite_check.json") else None, reviews=json.load(open("data/elite_reviews.json"))["reviews"] if os.path.exists("data/elite_reviews.json") else [], strikes=json.load(open("data/elite_reviews.json")).get("strikes", {}) if os.path.exists("data/elite_reviews.json") else {}, screen=(lambda sc: dict(date=sc["date"], season=sc["season"], n_pool=sc["n_pool"], n_cyclic=sc["n_cyclic"], bank=sc["bank"], rows=[dict(sym=r["sym"], name=r["name"], beta=r["beta"], cagr10=r["cagr10"], margin=r["margin"], nd=r.get("nd_ebitda"), streak=r["streak"]) for r in sc["rows"] if r["passed"] and not r["member"]][:15]))(json.load(open("data/elite_screen.json"))) if os.path.exists("data/elite_screen.json") else None, pending=(lambda c: dict(sym=c["sym"], name=c["row"]["name"], created=c["created"]) if c and not c.get("test") else None)(json.load(open("data/elite_pending.json")).get("current")) if os.path.exists("data/elite_pending.json") else None, rows=rows, back=back, shadow=dict(start=st["start"], rows=st["rows"]))
+    # Schattenbuch als Sparplan-Index (REGELN 2026-11-21): monatlich gleicher Betrag, gleich verteilt auf die aktuellen Mitglieder, nie verkaufen
+    hist = json.load(open("data/elite_hist.json")) if os.path.exists("data/elite_hist.json") else [dict(date="2026-11-17", members=list(NAMES))]
+    held = list(dict.fromkeys(x for e in hist for x in e["members"]))
+    pe = {}
+    for k in held:
+        sk_ = col(el, k)
+        if sk_: pe[k] = eur(sk_, usd=True)
+    start = hist[0]["date"]; sdays = [d for d in sorted(spy) if d >= start]
+    units, su, paid, prow, lastp, month = {}, 0.0, 0.0, [], {}, None
+    for d in sdays:
+        for k in pe:
+            if d in pe[k]: lastp[k] = pe[k][d]
+        mem_d = [e for e in hist if e["date"] <= d][-1]["members"]; mem_d = [k for k in mem_d if k in lastp]
+        if d[:7] != month and mem_d:
+            month = d[:7]; paid += 100
+            for k in mem_d: units[k] = units.get(k, 0) + (100 / len(mem_d)) / lastp[k]
+            su += 100 / spy[d]
+        if paid: prow.append(dict(date=d, elite=round(sum(u * lastp[k] for k, u in units.items()) / paid, 4), spy=round(su * spy[d] / paid, 4), paid=paid))
+    # Einmal-Schattenbuch daneben: Start 1,00, gleich gewichtet, umgeschichtet nur an Änderungstagen der Chronik
+    lrows, lv, seg0, lp0 = [], 1.0, None, {}
+    for d in sdays:
+        mem_d = [k for k in [e for e in hist if e["date"] <= d][-1]["members"] if k in pe and d in pe[k]]
+        if not mem_d: continue
+        if seg0 is None or mem_d != seg0:
+            if seg0 is not None: lv *= float(np.mean([pe[k][d] / lp0[k] for k in seg0]))
+            seg0 = mem_d; lp0 = {k: pe[k][d] for k in mem_d}
+        v = lv * float(np.mean([pe[k][d] / lp0[k] for k in seg0]))
+        lrows.append(dict(date=d, elite=round(v, 4), spy=round(spy[d] / spy[sdays[0]], 4)))
+    st = dict(start=start, rows=prow, lump=lrows)
+    out["elite"] = dict(stand=fz["stand"] if fz else None, n=len(NAMES), check=json.load(open("site/elite_check.json")) if os.path.exists("site/elite_check.json") else None, reviews=json.load(open("data/elite_reviews.json"))["reviews"] if os.path.exists("data/elite_reviews.json") else [], strikes=json.load(open("data/elite_reviews.json")).get("strikes", {}) if os.path.exists("data/elite_reviews.json") else {}, screen=(lambda sc: dict(date=sc["date"], season=sc["season"], n_pool=sc["n_pool"], n_cyclic=sc["n_cyclic"], bank=sc["bank"], rows=[dict(sym=r["sym"], name=r["name"], beta=r["beta"], cagr10=r["cagr10"], margin=r["margin"], nd=r.get("nd_ebitda"), streak=r["streak"]) for r in sc["rows"] if r["passed"] and not r["member"]][:15]))(json.load(open("data/elite_screen.json"))) if os.path.exists("data/elite_screen.json") else None, pending=(lambda c: dict(sym=c["sym"], name=c["row"]["name"], created=c["created"]) if c and not c.get("test") else None)(json.load(open("data/elite_pending.json")).get("current")) if os.path.exists("data/elite_pending.json") else None, rows=rows, back=back, shadow=dict(start=st["start"], rows=st["rows"], lump=st["lump"]))
 json.dump(out, open("site/watch.json", "w"), ensure_ascii=False, indent=1)
 print("watch.json:", ", ".join(k for k in out if k != "generated"))
 if "factor" in out:

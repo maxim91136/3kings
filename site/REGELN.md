@@ -259,3 +259,4 @@ Nebenbefund (wichtig): Gleicher Sparplan auf den S&P 500 im selben Zeitraum 13,9
 
 ### Ergänzung Puffer-Test: Einmalanlage (vorab festgelegt, vor dem Rechnen)
 Gleicher Aufbau, zusätzlich: Einmalanlage ab der ersten Prüfung mit Mitgliedern, gleich gewichtet, umgeschichtet (verkauft und gleich verteilt) nur bei Änderungen der Mitglieder; gegen Einmalanlage im S&P 500 ab demselben Tag. Kennzahl Rendite p. a. Frage: Liegt der Rückstand am Sparplan?
+Ergebnis Einmalanlage (2026-11-21): Start 05.04.2016, S&P 500 14,3 % p. a. Ohne Puffer 12,7 %, schmal 13,1 %, mittel 13,6 %, breit 14,0 % (38 Umschichtungen). Mit Einmalanlage ist der Rückstand deutlich kleiner als im Sparplan (breit: 0,3 statt 2,6 Punkte p. a.); der Puffer hilft hier zusätzlich (weniger Verkäufe von Werten, die später zurückkommen). Geschlagen wird der S&P 500 aber in keiner Variante. Der Puffer "breit" bestätigt sich.

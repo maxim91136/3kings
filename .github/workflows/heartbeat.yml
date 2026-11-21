@@ -29,7 +29,7 @@ jobs:
       - run: python elitecheck.py || true
       - run: python elitescreen.py || true
       - run: python elite_review.py || true
-      - run: python elite_bank.py propose || true
+      - run: python elite_bank.py notify || true
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
