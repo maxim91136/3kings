@@ -232,3 +232,12 @@ Neu:
 3. Beta aus Wochenschlusskursen (5 Jahre = 260 Wochen) statt Tageskursen: Tageskurse verzerren das Beta europäischer Aktien wegen unterschiedlicher Handelszeiten (Deutsche Börse täglich 0,05). Neu berechnet (Kurse 20.11.2026): Ferrari 0,84, Mastercard 0,81, Visa 0,75, Cintas 0,69, Microsoft 1,05, IDEXX 1,11.
 4. Rein: alle vier Regeln zwei Saisonprüfungen in Folge bestanden, dann Vorschlag per Telegram (privat), Aufnahme nach Bestätigung; Ablehnung gilt bis zur nächsten Saisonprüfung. Raus: zwei Saisonprüfungen in Folge durchgefallen (automatisch). Bei jeder Änderung Schattenbuch verkettet, alle gleich gewichtet (Umschichtung nur bei Änderungen, also höchstens an Saisonenden).
 5. Start: die bisherigen sechs Werte. Weitere Aufnahmen frühestens nach der nächsten Saisonprüfung (ca. Ende Januar 2027). Die Endbewertung des Schattenbuchs (November 2031) bleibt.
+
+## 2026-11-21: Test "Puffer für die Kronjuwelen" (vorab festgelegt, vor dem Rechnen; buffertest.py)
+Frage: Welcher Abstand zwischen Aufnahme- und Ausscheidegrenze verhindert das Hin und Her, ohne Rendite zu kosten? Hintergrund: privat nachgebildet als Sparplan-Index, der nie verkauft (Ausgeschiedene bekommen kein neues Geld, bleiben aber liegen).
+Daten: die nicht-zyklischen Firmen des Screenings vom 21.11.2026, Tageskurse (Yahoo, inkl. Dividenden) ab 2006, in Euro. Prüfung jedes Quartal ab 2016 (63 Handelstage). Rein: Beta < 1,15 (Wochenkurse, 5 Jahre) UND 10-J.-Rendite >= 17 %, zwei Prüfungen in Folge. Start 2016 mit allen, die bei den ersten zwei Prüfungen bestehen.
+Varianten (Raus nach zwei Prüfungen in Folge außerhalb): ohne Puffer (Beta > 1,15 oder < 17 %), schmal (> 1,20 oder < 15 %), mittel (> 1,25 oder < 14 %), breit (> 1,30 oder < 12 %).
+Sparplan: 100 € je Monat, gleich verteilt auf die aktuellen Mitglieder, nie verkaufen. Vergleich: gleicher Sparplan auf den S&P 500.
+Kennzahlen: Änderungen pro Jahr; "Rückkehrer" (raus und innerhalb von 8 Quartalen wieder rein); Endwert und Rendite p. a. (interner Zinsfuß) des Sparplans.
+Kriterium: Gewählt wird der Puffer mit den wenigsten Rückkehrern, dessen Sparplan-Rendite höchstens 0,5 Punkte p. a. unter "ohne Puffer" liegt; Plateau: mindestens ein Nachbar (schmal/mittel/breit) liegt bei Rückkehrern und Rendite ähnlich. Sonst bleibt es ohne Puffer.
+Grenzen: Marge und Verschuldung historisch nicht verfügbar, nur Beta und Rendite getestet. Firmenliste von heute (Pleiten fehlen, Rendite zu hoch); für den Vergleich der Varianten untereinander unkritisch.
