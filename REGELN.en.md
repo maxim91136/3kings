@@ -336,3 +336,6 @@ Industries such as gambling or defence are not excluded on principle. Only the r
 
 ## 2026-11-21: Recalculation for newly computed companies (explicit decision)
 As at the start: for companies computed only since the sub-industry exclusion was removed, the previous season review (Oct 27, 2026) is recalculated. Whoever passes all rules then and on Nov 20, 2026 is admitted, effective from the next trading day. Reason: equal treatment with the existing members. Margin and debt: current values (as at the start).
+
+## 2026-11-21: 5-year return as information (explicit decision)
+No second team based on 5-year returns: the rolling window depends too much on the starting point (today the Nov 2021 high, in autumn 2027 the 2022 low), the list would change heavily every season. Instead the 5-year return is shown next to the 10-year return in the Crown Jewels list, information only, not a criterion.

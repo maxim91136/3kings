@@ -19,7 +19,7 @@
 - **Admission, all four rules:** beta below 1.15 (5 years, weekly prices, in euros against the S&P 500); at least 17 % return per year over ten years (home currency, with dividends); gross margin at least 49 % (around 50 %); net debt below twice operating profit (EBITDA). Passed two season reviews in a row = admitted automatically. (since Nov 21, 2026)
 - **Removal only on a clear miss (buffer):** beta above 1.30, return below 12 %, margin below 45 % or net debt from 2.5 times. Once = warning, two season reviews in a row = out. (since Nov 21, 2026)
 - **Execution:** admissions and removals take effect in the shadow books only from the close of the next trading day after the season review. (since Nov 21, 2026)
-- **Weighting:** equal. The ranking by 10-year return is only displayed. (since Nov 21, 2026)
+- **Weighting:** equal. The ranking by 10-year return is only displayed. (since Nov 21, 2026) The 5-year return is shown alongside, information only, not a criterion (too short, too dependent on the starting point). (since Nov 21, 2026)
 - **Replication as a savings plan:** new money split equally across current members; removed stocks are not sold but get no new money. (since Nov 21, 2026)
 - **Index size:** no cap; every stock that meets the rules is in. Under observation. (since Nov 21, 2026)
 - **Season review:** automatic at every season end (63 trading days, next around late January 2027). Result privately via Telegram with concrete savings-plan steps, in the monthly report and in the log. (since Nov 21, 2026)

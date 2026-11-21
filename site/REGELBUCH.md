@@ -19,7 +19,7 @@
 - **Aufnahme, alle vier Regeln:** Beta unter 1,15 (5 Jahre, Wochenkurse, in Euro gegen den S&P 500); mindestens 17 % Rendite pro Jahr über zehn Jahre (Heimatwährung, mit Dividenden); Bruttomarge mindestens 49 % (rund 50 %); Nettoverschuldung unter dem Zweifachen des operativen Gewinns (EBITDA). Zwei Saisonprüfungen in Folge bestanden = automatisch aufgenommen. (seit 21.11.2026)
 - **Ausscheiden nur bei klarer Verfehlung (Puffer):** Beta über 1,30, Rendite unter 12 %, Marge unter 45 % oder Nettoverschuldung ab dem 2,5-Fachen. Einmal = Verwarnung, zwei Saisonprüfungen in Folge = raus. (seit 21.11.2026)
 - **Umsetzung:** Aufnahmen und Ausscheiden gelten in den Schattenbüchern erst ab dem Schlusskurs des nächsten Handelstags nach der Saisonprüfung. (seit 21.11.2026)
-- **Gewichtung:** gleich. Die Rangfolge nach 10-Jahres-Rendite wird nur angezeigt. (seit 21.11.2026)
+- **Gewichtung:** gleich. Die Rangfolge nach 10-Jahres-Rendite wird nur angezeigt. (seit 21.11.2026) Daneben steht die 5-Jahres-Rendite, nur als Information, kein Kriterium (zu kurz, zu abhängig vom Startpunkt). (seit 21.11.2026)
 - **Nachbildung als Sparplan:** neues Geld gleich verteilt auf die aktuellen Mitglieder; Ausgeschiedene werden nicht verkauft, bekommen aber kein neues Geld. (seit 21.11.2026)
 - **Größe des Index:** keine Obergrenze, jeder, der die Regeln erfüllt, ist dabei. Steht unter Beobachtung. (seit 21.11.2026)
 - **Saisonprüfung:** automatisch an jedem Saisonende (63 Handelstage, nächste ca. Ende Januar 2027). Ergebnis privat per Telegram mit konkreten Sparplan-Schritten, im Monatsbericht und im Protokoll. (seit 21.11.2026)

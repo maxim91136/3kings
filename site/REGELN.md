@@ -336,3 +336,6 @@ Branchen wie Glücksspiel oder Rüstung werden nicht aus Überzeugung ausgeschlo
 
 ## 2026-11-21: Nachrechnung für die neu gerechneten Firmen (ausdrückliche Entscheidung)
 Wie beim Start: Für Firmen, die erst durch den Wegfall des Unterbranchen-Ausschlusses gerechnet werden, wird die vorige Saisonprüfung (27.10.2026) nachgerechnet. Wer dort und am 20.11.2026 alle Regeln besteht, wird aufgenommen, wirksam ab dem nächsten Handelstag. Grund: gleiche Behandlung wie die bisherigen Mitglieder. Marge und Verschuldung: aktuelle Werte (wie beim Start).
+
+## 2026-11-21: 5-Jahres-Rendite als Information (ausdrückliche Entscheidung)
+Kein zweites Team mit 5-Jahres-Rendite: Das rollende Fenster hängt zu stark vom Startpunkt ab (heute Hoch Nov. 2021, im Herbst 2027 Tief 2022), die Liste würde jede Saison stark wechseln. Stattdessen steht die 5-Jahres-Rendite in der Kronjuwelen-Liste neben der 10-Jahres-Rendite, nur als Information, kein Kriterium.

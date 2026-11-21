@@ -60,10 +60,10 @@ if el and spy:
         if len(s) > 500: local[k] = s; ep[k] = eur(s, usd=(k != "RMS"))
     spyusd = {r["date"]: float(r["SPY"]) for r in load("data/prices.csv") if r["SPY"]}
     last = max(spyusd)
-    def cagr10(s, d1):
-        ds = sorted(s); y, m, dd = d1.split("-"); target = f"{int(y)-10}-{m}-{dd}"
+    def cagr10(s, d1, n=10):
+        ds = sorted(s); y, m, dd = d1.split("-"); target = f"{int(y)-n}-{m}-{dd}"
         i0 = next((d for d in ds if d >= target), None)
-        if not i0 or i0 > f"{int(y)-10}-{m}-28" or d1 not in s: return None
+        if not i0 or i0 > f"{int(y)-n}-{m}-28" or d1 not in s: return None
         yrs = (np.datetime64(d1) - np.datetime64(i0)).astype(int) / 365.25
         return (s[d1] / s[i0]) ** (1 / yrs) - 1
     rows = []
@@ -71,8 +71,8 @@ if el and spy:
         if k not in local: rows.append(dict(key=k, name=nm, branch=br, branch_en=BR_EN.get(k, br), claim=claim, missing=True)); continue
         d1 = max(local[k]); ds = [d for d in sorted(local[k]) if d in spy and d in ep[k]][-1260:]
         b, _ = beta(ep[k], [d for d in ds if d in spy]) if len(ds) > 300 else (None, None)
-        c = cagr10(local[k], d1)
-        rows.append(dict(key=k, name=nm, branch=br, branch_en=BR_EN.get(k, br), claim=claim, beta=None if b is None else round(b, 2), cagr10=None if c is None else round(c, 4), until=d1, dd=round(1 - local[k][d1] / max(local[k].values()), 3)))
+        c = cagr10(local[k], d1); c5 = cagr10(local[k], d1, 5)
+        rows.append(dict(key=k, name=nm, branch=br, branch_en=BR_EN.get(k, br), claim=claim, beta=None if b is None else round(b, 2), cagr10=None if c is None else round(c, 4), cagr5=None if c5 is None else round(c5, 4), until=d1, dd=round(1 - local[k][d1] / max(local[k].values()), 3)))
     fz = json.load(open("data/elite_frozen.json")) if os.path.exists("data/elite_frozen.json") else None
     if fz:  # Aufnahmewerte vom Stichtag, eingefroren
         fm = {r["key"]: r for r in fz["rows"]}
