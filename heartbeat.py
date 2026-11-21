@@ -21,13 +21,16 @@ PLAYERS = ["BTC", "SPY", "GLD"]
 TILT = {"BTC": 2.0}   # Regel seit 2026-11-18: Bitcoin bekommt doppeltes Gewicht in der Kapitalverteilung (Spot, kein Hebel)
 FIXED = {"SPY": ["Trend SMA200 (Std.)"], "GLD": ["Trend SMA200 (Std.)"]}   # Gold seit 2026-11-18 (goldtest.py)   # Regel seit 2026-11-18 (Review): S&P spielt fest Trend SMA200, keine Champion-Wahl
 EXTRA = {"BTC": ["Trend SMA100 (Std.)"]}      # Regelaenderung 18.11.2026: schnelle Trend-Linie nur fuer Bitcoin (siehe REGELN.md)
+MIX = "Trend-Mix 50/100/200/300 (Std.)"; MIX_FROM_SEASON = 39   # Regel 21.11.2026: Mix-Kandidat fuer Bitcoin erst ab der naechsten Saison (Regeln aendern sich nur am Saisonende)
 LABEL = {"BTC": "Bitcoin", "SPY": "S&P 500", "GLD": "Gold"}
 BAND = 0.05                                   # vorab festgelegt, nicht optimiert
 DATA, SITE = "data", "site"
 
 
 def current_plan(P, names):
-    res = team.run_team(P, names, PLAYERS, strats={p: FIXED.get(p, team.STRATS + EXTRA.get(p, [])) for p in PLAYERS}, tilt=TILT)
+    extra = {k: list(v) for k, v in EXTRA.items()}
+    if len(range(lab.WARM, len(P) - 1, team.SEASON)) >= MIX_FROM_SEASON: extra["BTC"].append(MIX)
+    res = team.run_team(P, names, PLAYERS, strats={p: FIXED.get(p, team.STRATS + extra.get(p, [])) for p in PLAYERS}, tilt=TILT)
     T, ix = len(P), {n: i for i, n in enumerate(names)}
     t0 = res["bounds"][-1]
     alloc = res["alloc"][T - 1]
@@ -37,7 +40,7 @@ def current_plan(P, names):
         champ = res["history"][p][-1]
         w = float(lab.build_strategies(names, cost)[champ](P, ix[p])[T - 1])
         digits = "".join(ch for ch in champ.split(" (")[0] if ch.isdigit())
-        line_n = int(digits) if champ.startswith("Trend") and digits else 200
+        line_n = int(digits) if champ.startswith("Trend") and digits and "Mix" not in champ else 200
         sma = P[T - line_n:, ix[p]].mean()
         plan[p] = dict(champion=champ.split(" (")[0], strat_weight=round(w, 4), alloc=round(float(alloc[k]), 4),
                        target=round(float(alloc[k]) * w, 4), price=float(P[T - 1, ix[p]]),

@@ -1,0 +1,61 @@
+{
+ "start": "2026-11-20",
+ "date": "2026-11-20",
+ "rows": [
+  {
+   "name": "Halten",
+   "fwd": 0.0,
+   "w_now": 1.0,
+   "cagr": 0.423,
+   "mdd": 0.827,
+   "sharpe": 0.86,
+   "switches": 0.0
+  },
+  {
+   "name": "Linie 50",
+   "fwd": 0.0,
+   "w_now": 0.0,
+   "cagr": 0.512,
+   "mdd": 0.604,
+   "sharpe": 1.1,
+   "switches": 14.2
+  },
+  {
+   "name": "Linie 100",
+   "fwd": 0.0,
+   "w_now": 0.0,
+   "cagr": 0.513,
+   "mdd": 0.673,
+   "sharpe": 1.07,
+   "switches": 6.5
+  },
+  {
+   "name": "Linie 200",
+   "fwd": 0.0,
+   "w_now": 0.0,
+   "cagr": 0.375,
+   "mdd": 0.672,
+   "sharpe": 0.85,
+   "switches": 7.0
+  },
+  {
+   "name": "Linie 300",
+   "fwd": 0.0,
+   "w_now": 0.0,
+   "cagr": 0.349,
+   "mdd": 0.829,
+   "sharpe": 0.81,
+   "switches": 4.4
+  },
+  {
+   "name": "Mix",
+   "fwd": 0.0,
+   "w_now": 0.0,
+   "cagr": 0.462,
+   "mdd": 0.652,
+   "sharpe": 1.02,
+   "switches": 8.0
+  }
+ ],
+ "back_from": "2017-07-19"
+}

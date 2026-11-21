@@ -376,3 +376,8 @@ Die Aufnahmegrenze schließt den Wert 1,15 jetzt ein. Gilt ab sofort für Saison
 
 ## 2026-11-21: These F, 200-Tage-Linie als Frühwarnung (ausdrückliche Entscheidung)
 Frage: Lässt sich ein Abstieg vor dem Rauswurf erkennen? Monatlicher Schnappschuss, wer unter der 200-Tage-Linie liegt; Vergleich nach 12 Monaten (Kriterien im Regelbuch). Erster Schnappschuss 20.11.2026: unter der Linie nur Investor AB. Keine Regeländerung; die Zeit unter Wasser bleibt das Frühwarnsignal in den Regeln.
+
+## 2026-11-21: Bitcoin, Trend-Mix als Kandidat und Linien-Vergleich (ausdrückliche Entscheidung)
+Anlass: Untersuchung in einem anderen Chat (Bitcoin 2020–2026, Kosten 0,1 %): Trendlinien senken den größten Rückgang gegenüber Halten, der Vorteil stammt überwiegend aus 2022, ab 2024 nur gleichauf oder knapp besser; nur ein Zyklus, keine „beste“ Linie ableitbar. Kurzfrist-Handel (Funding, Open Interest, Mean-Reversion, Chart-Muster) brachte nach Gebühren keinen Vorteil und wird nicht verwendet.
+Eigener Rückblick 07/2017–11/2026 (Euro, 0,1 % je Seite): Halten 42 % p. a., Rückgang −83 %; Linie 50: 51 % / −60 %; Linie 100: 51 % / −67 %; Linie 200: 38 % / −67 %; Linie 300: 35 % / −83 %; Mix: 46 % / −65 %.
+Entscheidung: Der Mix (je ein Viertel 50/100/200/300) wird ab der nächsten Saison zusätzlicher Bitcoin-Kandidat im Taktikmodell (Regeln ändern sich nur am Saisonende). Alle Linien laufen ab 20.11.2026 sichtbar nebeneinander. Aktueller Bitcoin-Champion: Trend SMA100.

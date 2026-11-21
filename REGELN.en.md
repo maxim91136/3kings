@@ -376,3 +376,8 @@ The admission limit now includes the value 1.15. Applies immediately to season r
 
 ## 2026-11-21: Hypothesis F, 200-day line as early warning (explicit decision)
 Question: can a decline be spotted before removal? Monthly snapshot of who is below the 200-day line; comparison after 12 months (criteria in the rule book). First snapshot Nov 20, 2026: only Investor AB below the line. No rule change; time under water remains the early-warning signal in the rules.
+
+## 2026-11-21: Bitcoin, trend mix as candidate and line comparison (explicit decision)
+Reason: study in another chat (bitcoin 2020–2026, cost 0.1 %): trend lines reduce the largest drawdown versus holding, the advantage comes mostly from 2022, from 2024 only level or slightly better; one cycle only, no "best" line can be derived. Short-term trading (funding, open interest, mean reversion, chart patterns) showed no advantage after fees and is not used.
+Own backtest 07/2017–11/2026 (euros, 0.1 % per side): hold 42 % p.a., drawdown −83 %; line 50: 51 % / −60 %; line 100: 51 % / −67 %; line 200: 38 % / −67 %; line 300: 35 % / −83 %; mix: 46 % / −65 %.
+Decision: the mix (a quarter each of 50/100/200/300) becomes an additional bitcoin candidate in the tactical model from the next season (rules change only at season end). All lines are tracked side by side from Nov 20, 2026. Current bitcoin champion: Trend SMA100.

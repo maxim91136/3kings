@@ -249,7 +249,11 @@ def build_strategies(names, cost):
                 out[t] = float((W[act, t] * wt).sum() / wt.sum())
         return out
 
-    return {"Halten (Baseline)": hold, "Trend SMA200 (Std.)": trend(200), "Trend SMA100 (Std.)": trend(100), "Vol-Target 15% (Std.)": voltarget,
+    def trendmix(P, a):   # anteilig: Mittel aus 50/100/200/300-Tage-Linie (REGELN 2026-11-21)
+        return np.mean([trend(n)(P, a) for n in (50, 100, 200, 300)], axis=0)
+
+    return {"Halten (Baseline)": hold, "Trend SMA200 (Std.)": trend(200), "Trend SMA100 (Std.)": trend(100), "Trend 50 (Std.)": trend(50),
+            "Trend 300 (Std.)": trend(300), "Trend-Mix 50/100/200/300 (Std.)": trendmix, "Vol-Target 15% (Std.)": voltarget,
             "Momentum 12M (Std.)": momentum, "Dip-Aufbau (Std.)": dipbuild, "RAUPE (ruhiger Aufwaertstrend)": raupe,
             "STRESS-Thermometer (cross-asset)": stress, "EGE (evidenz-gesteuert)": ege}
 

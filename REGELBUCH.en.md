@@ -46,6 +46,8 @@
 - Three kings: S&P 500, bitcoin, gold, in euros. S&P 500 and gold play trend (200-day line) fixed; for bitcoin a strategy is chosen from the candidates at the start of each season (look-back 504 trading days). (since Nov 18, 2026)
 - Capital split by volatility (inverse volatility), bitcoin weight doubled, never more than 100 %, no leverage. Rebalanced only from a 5-point deviation. (since Nov 18, 2026)
 - Signal at the close; the shadow book rebalances only at the close of the next trading day (as is possible in practice). Each signal is shown until then and reported privately via Telegram. (since Nov 21, 2026)
+- Additional bitcoin candidate from the next season (season 39, around end of January 2027): trend mix of the 50-, 100-, 200- and 300-day lines, partly invested (a quarter per line). Selection as always by a 504-trading-day lookback. (since Nov 21, 2026)
+- Bitcoin lines compared (information only): hold, line 50, 100, 200, 300 and mix are tracked side by side, forward from Nov 20, 2026 and as a backtest, all results, not just the best. Cost 0.1 % per side. (since Nov 21, 2026)
 - A season lasts 63 trading days; rules change only at season end. (since Nov 18, 2026)
 - Verdict after four seasons (around November 2027): confirmed if the drawdown is smaller than holding and the return at most 2 points below. (since Nov 18, 2026)
 

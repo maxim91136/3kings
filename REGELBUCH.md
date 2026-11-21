@@ -46,6 +46,8 @@
 - Die drei Könige S&P 500, Bitcoin und Gold, in Euro. S&P 500 und Gold spielen fest Trend (200-Tage-Linie); für Bitcoin wird zum Saisonstart aus den Kandidaten gewählt (Rückblick 504 Handelstage). (seit 18.11.2026)
 - Kapitalverteilung nach Schwankung (inverse Volatilität), Bitcoin-Gewicht doppelt, nie mehr als 100 %, kein Hebel. Umgeschichtet wird erst ab 5 Punkten Abweichung. (seit 18.11.2026)
 - Signal zum Schlusskurs; umgeschichtet wird im Schattenbuch erst zum Schlusskurs des nächsten Handelstags (wie real möglich). Jedes Signal wird bis dahin angezeigt und privat per Telegram gemeldet. (seit 21.11.2026)
+- Bitcoin-Kandidaten ab der nächsten Saison (Saison 39, ca. Ende Januar 2027) zusätzlich: Trend-Mix aus 50-, 100-, 200- und 300-Tage-Linie, anteilig investiert (je Linie ein Viertel). Gewählt wird wie immer per Rückblick über 504 Handelstage. (seit 21.11.2026)
+- Bitcoin-Linien im Vergleich (nur Information): Halten, Linie 50, 100, 200, 300 und Mix werden nebeneinander geführt, vorwärts ab 20.11.2026 und als Rückblick, alle Ergebnisse, nicht nur das beste. Kosten 0,1 % je Seite. (seit 21.11.2026)
 - Eine Saison dauert 63 Handelstage; Regeln ändern sich nur am Saisonende. (seit 18.11.2026)
 - Bewertung nach vier Saisons (ca. November 2027): bestätigt, wenn der Rückgang kleiner ist als beim Halten und die Rendite höchstens 2 Punkte darunter liegt. (seit 18.11.2026)
 
