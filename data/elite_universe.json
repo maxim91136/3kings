@@ -236,14 +236,18 @@
   "in": {
    "beta_max": 1.15,
    "cagr10_min": 0.17,
-   "margin_min": 0.49,
-   "nd_ebitda_max": 2.0
+   "margin_min": 0.45,
+   "nd_ebitda_max": 2.0,
+   "uw_max": 0.2,
+   "vol_max": 0.3
   },
   "out": {
    "beta_max": 1.3,
    "cagr10_min": 0.12,
-   "margin_min": 0.45,
-   "nd_ebitda_max": 2.5
+   "margin_min": 0.4,
+   "nd_ebitda_max": 2.5,
+   "uw_max": 0.3,
+   "vol_max": 0.35
   },
   "streak_in": 2,
   "strikes_out": 2,

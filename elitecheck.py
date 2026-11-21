@@ -3,6 +3,8 @@ Beta < 1,15 (5 Jahre täglich, in Euro gegen S&P 500 in Euro), 10-Jahres-Rendite
 Gleiche Methode wie screen.py. Nur Vorschau; Entscheidung am Saisonende. Schreibt site/elite_check.json."""
 import csv, json, os
 import numpy as np
+from elite_steady import steady
+O = json.load(open("data/elite_universe.json"))["rules"]["out"]
 fx = {r["date"]: float(r["value"]) for r in csv.DictReader(open("data/ind_EURUSD.csv"))}
 def load(path, col):
     return {r["date"]: float(r[col]) for r in csv.DictReader(open(path)) if r.get(col)}
@@ -34,9 +36,12 @@ for k in cols:
     s = load("data/elite.csv", k)
     hp = "data/elite_home.csv"; hs = load(hp, k) if os.path.exists(hp) and k in next(csv.reader(open(hp))) else s
     b, c = round(beta(eur(s)), 2), cagr10(hs)
-    ok = bool(c is not None and b <= 1.30 and c >= 0.12)   # Puffer-Grenzen für Mitglieder (REGELN 2026-11-21)
-    rows.append({"key": k, "beta": b, "cagr10": None if c is None else round(float(c), 4), "pass": ok,
-                 "why": [] if ok else (["beta"] if b > 1.30 else []) + (["cagr10"] if c is None or c < 0.12 else [])})
+    uw, vol = steady(hs)
+    why = (["beta"] if b > O["beta_max"] else []) + (["cagr10"] if c is None or c < O["cagr10_min"] else []) \
+        + (["uw"] if uw is not None and uw > O["uw_max"] else []) + (["vol"] if vol is not None and vol > O["vol_max"] else [])
+    ok = not why   # Puffer-Grenzen für Mitglieder (REGELN 2026-11-21)
+    rows.append({"key": k, "beta": b, "cagr10": None if c is None else round(float(c), 4), "uw": None if uw is None else round(uw, 3),
+                 "vol": None if vol is None else round(vol, 3), "pass": ok, "why": why})
 hb = json.load(open("site/heartbeat.json"))
 out = {"date": sorted(spy)[-1], "season": hb.get("season"), "rows": rows}
 json.dump(out, open("site/elite_check.json", "w"), separators=(",", ":"))

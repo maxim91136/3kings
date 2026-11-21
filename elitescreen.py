@@ -7,6 +7,7 @@ import csv, json, os, sys, time
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fetch_prices as fp, universe, fundamentals
+from elite_steady import steady
 U = json.load(open("data/elite_universe.json")); R = U["rules"]
 hb = json.load(open("site/heartbeat.json")); n = hb["season"]["n_seasons"]
 prev = json.load(open("data/elite_screen.json")) if os.path.exists("data/elite_screen.json") else {"season": 0, "rows": []}
@@ -68,12 +69,14 @@ for sym, p in pool.items():
     e = eur(s, p["cur"]); b = None if not e else beta(e)
     if (b is None or b >= I["beta_max"]) and not m: continue
     f = fundamentals.fund(sym); time.sleep(0.7)
+    uw, vol = steady(s)
     def miss(L, strict):
         return [k for k, bad in (("beta", b is None or (b >= L["beta_max"] if strict else b > L["beta_max"])), ("cagr10", c is None or c < L["cagr10_min"]),
-                ("margin", f["margin"] is None or f["margin"] < L["margin_min"]), ("debt", f["nd_ebitda"] is None or f["nd_ebitda"] >= L["nd_ebitda_max"])) if bad]
+                ("margin", f["margin"] is None or f["margin"] < L["margin_min"]), ("debt", f["nd_ebitda"] is None or f["nd_ebitda"] >= L["nd_ebitda_max"]),
+                ("uw", uw is None or uw > L["uw_max"]), ("vol", vol is None or vol > L["vol_max"])) if bad]
     why = miss(I, True); ok = not why; out_why = miss(O, False)
     rows.append(dict(p, beta=None if b is None else round(b, 2), cagr10=None if c is None else round(c, 4), margin=None if f["margin"] is None else round(f["margin"], 3),
-                     nd_ebitda=None if f["nd_ebitda"] is None else round(f["nd_ebitda"], 2), passed=ok, why=why, fail_out=bool(out_why), out_why=out_why, streak=(pst.get(sym, 0) + 1) if ok else 0, member=m))
+                     nd_ebitda=None if f["nd_ebitda"] is None else round(f["nd_ebitda"], 2), uw=None if uw is None else round(uw, 3), vol=None if vol is None else round(vol, 3), passed=ok, why=why, fail_out=bool(out_why), out_why=out_why, streak=(pst.get(sym, 0) + 1) if ok else 0, member=m))
 for k in mem:  # Mitglied ohne Kurse: gilt als durchgefallen
     if not any(r["sym"] == k for r in rows): rows.append(dict(sym=k, name=k, cur="", branch="", branch_en="", beta=None, cagr10=None, margin=None, nd_ebitda=None, passed=False, why=["data"], fail_out=True, out_why=["data"], streak=0, member=True))
 rows.sort(key=lambda r: (-r["passed"], -(r["cagr10"] or -9)))

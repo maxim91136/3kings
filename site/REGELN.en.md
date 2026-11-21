@@ -354,3 +354,10 @@ Garmin (GRMN): 10 yrs 20.8 % p.a., beta 0.86, gross margin 60.4 %, net debt -0.8
 
 ## 2026-11-20: Crown Jewels admission (recalculation after removal of the sub-industry exclusion: season reviews Oct 27 and Nov 20, 2026 passed)
 Investor AB (INVE-B.ST): 10 yrs 20.7 % p.a., beta 0.64, gross margin 87.6 %, net debt 0.49x EBITDA, passed all rules 2 seasons in a row. From now on new money equally split across 15 stocks.
+
+## 2026-11-21: Steady-runner rules, margin 45 % (explicit decision)
+Reason: the 10-year return measures only start and end, not the path; stocks with one big run followed by years without progress got in (Evolution, Veeva, Idexx). Beta only measures co-movement with the market, not a stock's own volatility.
+Study beforehand (dauer.py, information only): calm stocks stayed calm (own volatility predicted the later drawdown in 2001–2011→2021 and 2006–2016→2026); returns could not be predicted from it. Survivorship bias, only two periods.
+New for admission: time under water (share of weeks more than 20 % below the previous high) at most 20 %, own volatility at most 30 % a year, each over 10 years of weekly prices. Margin from 45 % instead of 49 %. Removal buffer: under water above 30 %, volatility above 35 %, margin below 40 %.
+The strictest of the simulated variants was chosen on purpose (under water 20/25/30 %, volatility 30/35 %); margin 45 % and 48 % gave the same list. Note: the values of the members at the time were known before the limits were chosen.
+Effective immediately as at the start: the reviews of Oct 27 and Nov 20, 2026 are recalculated; whoever meets all rules on both dates is a member from the next trading day. Those who no longer qualify get no new money; nothing is sold.

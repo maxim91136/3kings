@@ -354,3 +354,10 @@ Garmin (GRMN): 10 J. 20,8 % p. a., Beta 0,86, Bruttomarge 60,4 %, Nettoverschuld
 
 ## 2026-11-20: Kronjuwelen-Aufnahme (Nachrechnung nach Wegfall des Unterbranchen-Ausschlusses: Saisonprüfungen 27.10. und 20.11.2026 bestanden)
 Investor AB (INVE-B.ST): 10 J. 20,7 % p. a., Beta 0,64, Bruttomarge 87,6 %, Nettoverschuldung 0,49× EBITDA, alle Regeln 2 Saisons in Folge bestanden. Ab jetzt neues Geld gleich verteilt auf 15 Werte.
+
+## 2026-11-21: Dauerläufer-Regeln, Marge 45 % (ausdrückliche Entscheidung)
+Anlass: Die 10-Jahres-Rendite misst nur Start und Ende, nicht den Weg; Aktien mit einem großen Lauf und danach Jahren ohne Fortschritt kamen durch (Evolution, Veeva, Idexx). Beta misst nur die Schwankung mit dem Markt, nicht die eigene.
+Untersuchung vorab (dauer.py, nur Information): Ruhige Aktien blieben ruhig (eigene Schwankung sagte in 2001–2011→2021 und 2006–2016→2026 den späteren Rückgang voraus), die Rendite war damit nicht vorherzusagen. Überlebensbias, nur zwei Zeiträume.
+Neu für die Aufnahme: Zeit unter Wasser (Anteil der Wochen mehr als 20 % unter dem bisherigen Hoch) höchstens 20 %, eigene Schwankung höchstens 30 % pro Jahr, je 10 Jahre Wochenkurse. Marge ab 45 % statt 49 %. Puffer für den Rauswurf: unter Wasser über 30 %, Schwankung über 35 %, Marge unter 40 %.
+Gewählt wurde bewusst die strengste der simulierten Varianten (unter Wasser 20/25/30 %, Schwankung 30/35 %); Marge 45 % und 48 % ergaben dieselbe Liste. Hinweis: Die Werte der damaligen Mitglieder waren vor der Wahl der Grenzen bekannt.
+Sofort wirksam wie beim Start: Prüfungen 27.10. und 20.11.2026 werden nachgerechnet; wer an beiden Tagen alle Regeln erfüllt, ist Mitglied ab dem nächsten Handelstag. Wer nicht mehr erfüllt, bekommt kein neues Geld, verkauft wird nichts.
