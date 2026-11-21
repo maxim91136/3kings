@@ -72,7 +72,7 @@ if el and spy:
         d1 = max(local[k]); ds = [d for d in sorted(local[k]) if d in spy and d in ep[k]][-1260:]
         b, _ = beta(ep[k], [d for d in ds if d in spy]) if len(ds) > 300 else (None, None)
         c = cagr10(local[k], d1); c5 = cagr10(local[k], d1, 5)
-        rows.append(dict(key=k, name=nm, branch=br, branch_en=BR_EN.get(k, br), claim=claim, beta=None if b is None else round(b, 2), cagr10=None if c is None else round(c, 4), cagr5=None if c5 is None else round(c5, 4), until=d1, dd=round(1 - local[k][d1] / max(local[k].values()), 3)))
+        rows.append(dict(key=k, name=nm, branch=br, branch_en=BR_EN.get(k, br), claim=claim, beta=None if b is None else round(b, 2), cagr10=None if c is None else round(c, 4), cagr5=None if c5 is None else round(c5, 4), until=d1, sma200=(lambda v: round(v[-1] / (sum(v[-200:]) / 200) - 1, 3) if len(v) >= 200 else None)([local[k][d] for d in sorted(local[k])]), dd=round(1 - local[k][d1] / max(local[k].values()), 3)))
     fz = json.load(open("data/elite_frozen.json")) if os.path.exists("data/elite_frozen.json") else None
     if fz:  # Aufnahmewerte vom Stichtag, eingefroren
         fm = {r["key"]: r for r in fz["rows"]}

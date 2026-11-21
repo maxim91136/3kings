@@ -373,3 +373,6 @@ Prüfungen 27.10. und 20.11.2026 nachgerechnet. Mitglieder (9): Eli Lilly, Apple
 
 ## 2026-11-21: Beta höchstens 1,15 statt unter 1,15 (ausdrückliche Entscheidung)
 Die Aufnahmegrenze schließt den Wert 1,15 jetzt ein. Gilt ab sofort für Saisonprüfung und Nachrechnung.
+
+## 2026-11-21: These F, 200-Tage-Linie als Frühwarnung (ausdrückliche Entscheidung)
+Frage: Lässt sich ein Abstieg vor dem Rauswurf erkennen? Monatlicher Schnappschuss, wer unter der 200-Tage-Linie liegt; Vergleich nach 12 Monaten (Kriterien im Regelbuch). Erster Schnappschuss 20.11.2026: unter der Linie nur Investor AB. Keine Regeländerung; die Zeit unter Wasser bleibt das Frühwarnsignal in den Regeln.

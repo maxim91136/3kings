@@ -1,0 +1,31 @@
+{
+ "snaps": [
+  {
+   "date": "2026-11-20",
+   "below": [
+    "INVE-B.ST"
+   ],
+   "above": [
+    "LLY",
+    "AAPL",
+    "MSFT",
+    "CTAS",
+    "RACE",
+    "MA",
+    "V",
+    "MCO"
+   ],
+   "gap": {
+    "LLY": 0.208,
+    "AAPL": 0.131,
+    "MSFT": 0.096,
+    "CTAS": 0.148,
+    "RACE": 0.05,
+    "INVE-B.ST": -0.019,
+    "MA": 0.152,
+    "V": 0.155,
+    "MCO": 0.006
+   }
+  }
+ ]
+}

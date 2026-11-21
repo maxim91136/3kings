@@ -34,6 +34,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
       - run: python watch.py || true
+      - run: python these_f.py || true
       - run: python fetch_spx.py || true
         timeout-minutes: 3
         continue-on-error: true

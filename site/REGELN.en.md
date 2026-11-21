@@ -373,3 +373,6 @@ Reviews Oct 27 and Nov 20, 2026 recalculated. Members (9): Eli Lilly, Apple Inc.
 
 ## 2026-11-21: Beta at most 1.15 instead of below 1.15 (explicit decision)
 The admission limit now includes the value 1.15. Applies immediately to season review and recalculation.
+
+## 2026-11-21: Hypothesis F, 200-day line as early warning (explicit decision)
+Question: can a decline be spotted before removal? Monthly snapshot of who is below the 200-day line; comparison after 12 months (criteria in the rule book). First snapshot Nov 20, 2026: only Investor AB below the line. No rule change; time under water remains the early-warning signal in the rules.
