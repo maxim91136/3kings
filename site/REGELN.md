@@ -316,3 +316,6 @@ Die alte Marktlage weiter unten und die Kacheln oben sind jetzt ein Block „Mar
 
 ## 2026-11-21: Rücktest der Barometer-Thesen (Kriterien vorab im Code festgelegt)
 thesen.py, nächtlich. A (VIX über 30 als Ersatz für Angst und Gier): S&P 500 12 Monate danach +22,3 % statt +10,2 %, 26 Phasen seit 1990: bestätigt. B (US-Inflation über 3,5 % und 10-J.-Zins über 4,75 %): +5,6 % statt +7,3 %, 14 Phasen seit 1900, Abstand unter 3 Punkten: nicht bestätigt. C (Zahl roter Kacheln sagt nichts): widerlegt, Korrelation −0,18; 0–1 rot ca. +11 %, 2 rot +5 %, 3 rot −4 % (aus VIX, KGV, Inflation, Zins). D (Krypto-Angst rot und Bitcoin unter Power-Law-Mitte): +193 % statt +78 %, 7 Phasen seit 2018: bestätigt, kurze Historie. Heute aktiv: A, B, D. Nur Einordnung, Kaufregel unberührt. Neue Kachel Bitcoin zur Power-Law-Mitte (16 Kacheln, Raster 4 × 4 bzw. 2 × 8).
+
+## 2026-11-21: Seite neu geordnet (ausdrückliche Entscheidung, keine Regeländerung)
+Power-Law-Check direkt unter der Marktlage. Kaufen und Rechner sind ein Block. Neu unter Experimente: „Schattenbücher im Überblick“ mit allen vier Büchern (Kronjuwelen Einmalanlage und Sparplan, Sparplan S&P 500, Taktikmodell) und dem Abstand zum jeweiligen Vergleich.

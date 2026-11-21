@@ -316,3 +316,6 @@ The old market conditions section further down and the tiles at the top are now 
 
 ## 2026-11-21: Backtest of the barometer hypotheses (criteria fixed in code beforehand)
 thesen.py, nightly. A (VIX above 30 as proxy for Fear & Greed): S&P 500 12 months later +22.3 % vs +10.2 %, 26 episodes since 1990: confirmed. B (US inflation above 3.5 % and 10-yr yield above 4.75 %): +5.6 % vs +7.3 %, 14 episodes since 1900, gap below 3 points: not confirmed. C (number of red tiles says nothing): refuted, correlation −0.18; 0–1 red about +11 %, 2 red +5 %, 3 red −4 % (from VIX, P/E, inflation, yield). D (crypto fear red and bitcoin below power-law midline): +193 % vs +78 %, 7 episodes since 2018: confirmed, short history. Active today: A, B, D. Context only, buy rule unaffected. New tile bitcoin vs power-law midline (16 tiles, grid 4 × 4 or 2 × 8).
+
+## 2026-11-21: Page reordered (explicit decision, no rule change)
+Power law check directly below market conditions. Buy and calculator are one block. New under experiments: "Shadow books overview" with all four books (Crown Jewels lump sum and savings plan, S&P 500 savings plan, tactical model) and the gap to each benchmark.
