@@ -339,3 +339,6 @@ Wie beim Start: Für Firmen, die erst durch den Wegfall des Unterbranchen-Aussch
 
 ## 2026-11-21: 5-Jahres-Rendite als Information (ausdrückliche Entscheidung)
 Kein zweites Team mit 5-Jahres-Rendite: Das rollende Fenster hängt zu stark vom Startpunkt ab (heute Hoch Nov. 2021, im Herbst 2027 Tief 2022), die Liste würde jede Saison stark wechseln. Stattdessen steht die 5-Jahres-Rendite in der Kronjuwelen-Liste neben der 10-Jahres-Rendite, nur als Information, kein Kriterium.
+
+## 2026-11-21: These E, schwache gegen starke Kronjuwelen (ausdrückliche Entscheidung)
+Beide Richtungen werden geprüft: Umkehr (Schwache holen auf) oder Momentum (Starke laufen weiter). Schwach am 20.11.2026: RACE, MSFT, IDXX, VEEV, MCO. Stark: MA, V, CTAS, LLY, CBOE, VRTX. Kriterien im Regelbuch, Bewertung 20.11.2027. Hintergrund: Forschung zeigt kurzfristig eher Momentum, über 3 bis 5 Jahre eher Umkehr; für Qualitätsaktien offen.

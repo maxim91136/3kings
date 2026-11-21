@@ -22,6 +22,7 @@
 - **Gewichtung:** gleich. Die Rangfolge nach 10-Jahres-Rendite wird nur angezeigt. (seit 21.11.2026) Daneben steht die 5-Jahres-Rendite, nur als Information, kein Kriterium (zu kurz, zu abhängig vom Startpunkt). (seit 21.11.2026)
 - **Nachbildung als Sparplan:** neues Geld gleich verteilt auf die aktuellen Mitglieder; Ausgeschiedene werden nicht verkauft, bekommen aber kein neues Geld. (seit 21.11.2026)
 - **Größe des Index:** keine Obergrenze, jeder, der die Regeln erfüllt, ist dabei. Steht unter Beobachtung. (seit 21.11.2026)
+- These E, vorab festgelegt (beide Richtungen): Kronjuwelen werden am 20.11.2026 in schwach (5-Jahres-Rendite unter der Hälfte der 10-Jahres-Rendite) und stark geteilt (Liste in data/these_e.json). Verglichen wird die Rendite beider Gruppen in den 12 Monaten danach, gleich gewichtet in Euro, jeweils auch gegen den S&P 500. Umkehr bestätigt, wenn Schwach mindestens 3 Punkte vor Stark liegt; Momentum bestätigt, wenn Stark mindestens 3 Punkte vor Schwach liegt; sonst kein Unterschied. Bewertung 20.11.2027. Nur 11 Aktien und ein Jahr: schwacher Beleg, Wiederholung jedes Jahr. (seit 21.11.2026)
 - **Saisonprüfung:** automatisch an jedem Saisonende (63 Handelstage, nächste ca. Ende Januar 2027). Ergebnis privat per Telegram mit konkreten Sparplan-Schritten, im Monatsbericht und im Protokoll. (seit 21.11.2026)
 - **Status:** Experiment. Im Regeltest 2016 bis 2026 (nur Kursregeln) lag die Auswahl hinter dem S&P 500 (Einmalanlage 14,0 % gegen 14,3 %, Sparplan 11,3 % gegen 13,9 % pro Jahr). (seit 21.11.2026)
 

@@ -339,3 +339,6 @@ As at the start: for companies computed only since the sub-industry exclusion wa
 
 ## 2026-11-21: 5-year return as information (explicit decision)
 No second team based on 5-year returns: the rolling window depends too much on the starting point (today the Nov 2021 high, in autumn 2027 the 2022 low), the list would change heavily every season. Instead the 5-year return is shown next to the 10-year return in the Crown Jewels list, information only, not a criterion.
+
+## 2026-11-21: Hypothesis E, weak versus strong Crown Jewels (explicit decision)
+Both directions are tested: reversal (weak catch up) or momentum (strong keep running). Weak on Nov 20, 2026: RACE, MSFT, IDXX, VEEV, MCO. Strong: MA, V, CTAS, LLY, CBOE, VRTX. Criteria in the rule book, verdict Nov 20, 2027. Background: research shows momentum in the short run and reversal over 3 to 5 years; open for quality stocks.
