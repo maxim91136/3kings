@@ -72,7 +72,8 @@ footer{margin-top:44px;color:var(--mute);font-size:12px}
 .menu:focus-visible,.nav a:focus-visible{outline:2px solid var(--gld);outline-offset:2px}
 .nav{position:absolute;top:calc(100% + 6px);left:0;z-index:40;width:min(290px,88vw);max-height:70vh;overflow-y:auto;background:#12161E;border:1px solid var(--line);border-radius:8px;padding:6px 0;box-shadow:0 12px 32px rgba(0,0,0,.45);text-align:left}
 .nav[hidden]{display:none}.lang .nav a{display:block;padding:8px 14px;color:var(--text);text-decoration:none;font-size:14px;border:0;border-radius:0}.lang .nav a:hover{background:#1A1F2A}.nav .grp{padding:10px 14px 2px;font-size:11.5px;color:var(--mute)}
-section,.kj{scroll-margin-top:16px}.grp-h{margin:72px 0 -18px;padding-top:22px;border-top:1px solid var(--line);font:500 13px/1 var(--sans);color:var(--gld);letter-spacing:.04em;text-align:center}details.more{margin-top:12px}details.more>summary{cursor:pointer;color:var(--gld);font-size:14px}</style></head><body>
+section,.kj{scroll-margin-top:16px}.grp-h{margin:72px 0 -18px;padding-top:22px;border-top:1px solid var(--line);font:500 13px/1 var(--sans);color:var(--gld);letter-spacing:.04em;text-align:center}details.more{margin-top:12px}details.more>summary{cursor:pointer;color:var(--gld);font-size:14px}.totop{position:fixed;right:14px;bottom:max(16px,env(safe-area-inset-bottom));z-index:30;height:36px;padding:0 12px;border-radius:6px;border:1px solid var(--line);background:rgba(15,18,24,.9);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:var(--gld);font-size:13px;display:flex;align-items:center;gap:6px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s}.totop.on{opacity:1;pointer-events:auto}.totop:focus-visible{outline:2px solid var(--gld);outline-offset:2px}@media(prefers-reduced-motion:reduce){.totop{transition:none}}</style></head><body>
+<button class="totop" id="totop" type="button"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="totopl">Nach oben</span></button>
 <main id="app"><svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg>
 <h1>3Kings</h1><div class="stamp">…</div></main>
 <script>
@@ -330,4 +331,8 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
    n.hidden=false;b.setAttribute("aria-expanded","true");return}
   if(ev.target.closest("#nav a")||!ev.target.closest("#nav"))close()});
  document.addEventListener("keydown",ev=>{if(ev.key==="Escape")close()})}
+
+{const b=document.getElementById("totop");document.getElementById("totopl").textContent=T("Nach oben","Top");b.setAttribute("aria-label",T("Nach oben","Back to top"));
+ const upd=()=>b.classList.toggle("on",scrollY>innerHeight*1.2);addEventListener("scroll",upd,{passive:true});upd();
+ b.onclick=()=>{scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});const m=document.getElementById("navbtn");if(m)m.focus({preventScroll:true})}}
 </script></body></html>
