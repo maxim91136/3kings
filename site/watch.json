@@ -77,8 +77,8 @@
   ]
  },
  "elite": {
-  "stand": "2026-11-18",
-  "n": 15,
+  "stand": "2026-11-20",
+  "n": 8,
   "check": {
    "date": "2026-11-20",
    "season": {
@@ -88,30 +88,11 @@
    },
    "rows": [
     {
-     "key": "RACE",
-     "beta": 0.84,
-     "cagr10": 0.2303,
-     "pass": true,
-     "why": []
-    },
-    {
-     "key": "MA",
-     "beta": 0.81,
-     "cagr10": 0.2014,
-     "pass": true,
-     "why": []
-    },
-    {
-     "key": "V",
-     "beta": 0.75,
-     "cagr10": 0.1811,
-     "pass": true,
-     "why": []
-    },
-    {
-     "key": "CTAS",
-     "beta": 0.69,
-     "cagr10": 0.2403,
+     "key": "LLY",
+     "beta": 0.65,
+     "cagr10": 0.3524,
+     "uw": 0.033,
+     "vol": 0.296,
      "pass": true,
      "why": []
     },
@@ -119,69 +100,26 @@
      "key": "MSFT",
      "beta": 1.05,
      "cagr10": 0.2448,
+     "uw": 0.128,
+     "vol": 0.239,
      "pass": true,
      "why": []
     },
     {
-     "key": "IDXX",
-     "beta": 1.11,
-     "cagr10": 0.1903,
+     "key": "CTAS",
+     "beta": 0.69,
+     "cagr10": 0.2403,
+     "uw": 0.063,
+     "vol": 0.273,
      "pass": true,
      "why": []
     },
     {
-     "key": "LLY",
-     "beta": 0.65,
-     "cagr10": 0.3524,
-     "pass": true,
-     "why": []
-    },
-    {
-     "key": "VEEV",
-     "beta": 0.99,
-     "cagr10": 0.2036,
-     "pass": true,
-     "why": []
-    },
-    {
-     "key": "CBOE",
-     "beta": 0.15,
-     "cagr10": 0.1948,
-     "pass": true,
-     "why": []
-    },
-    {
-     "key": "VRTX",
-     "beta": 0.54,
-     "cagr10": 0.1919,
-     "pass": true,
-     "why": []
-    },
-    {
-     "key": "MCO",
-     "beta": 0.97,
-     "cagr10": 0.1761,
-     "pass": true,
-     "why": []
-    },
-    {
-     "key": "EVO.ST",
-     "beta": 0.44,
-     "cagr10": 0.329,
-     "pass": true,
-     "why": []
-    },
-    {
-     "key": "ASML.AS",
-     "beta": 1.08,
-     "cagr10": 0.293,
-     "pass": true,
-     "why": []
-    },
-    {
-     "key": "GRMN",
-     "beta": 0.86,
-     "cagr10": 0.2081,
+     "key": "RACE",
+     "beta": 0.84,
+     "cagr10": 0.2303,
+     "uw": 0.185,
+     "vol": 0.281,
      "pass": true,
      "why": []
     },
@@ -189,107 +127,62 @@
      "key": "INVE-B.ST",
      "beta": 0.64,
      "cagr10": 0.2073,
+     "uw": 0.044,
+     "vol": 0.19,
+     "pass": true,
+     "why": []
+    },
+    {
+     "key": "MA",
+     "beta": 0.81,
+     "cagr10": 0.2014,
+     "uw": 0.034,
+     "vol": 0.26,
+     "pass": true,
+     "why": []
+    },
+    {
+     "key": "V",
+     "beta": 0.75,
+     "cagr10": 0.1811,
+     "uw": 0.027,
+     "vol": 0.228,
+     "pass": true,
+     "why": []
+    },
+    {
+     "key": "MCO",
+     "beta": 0.97,
+     "cagr10": 0.1761,
+     "uw": 0.126,
+     "vol": 0.263,
      "pass": true,
      "why": []
     }
    ]
   },
   "reviews": [],
-  "strikes": {
-   "MSFT": 0,
-   "CTAS": 0,
-   "RACE": 0,
-   "MA": 0,
-   "IDXX": 0,
-   "V": 0,
-   "LLY": 0,
-   "VEEV": 0,
-   "CBOE": 0,
-   "VRTX": 0,
-   "MCO": 0
-  },
+  "strikes": {},
   "screen": {
    "date": "2026-11-20",
    "season": 38,
    "n_pool": 454,
    "n_cyclic": 77,
    "bank": [],
-   "rows": []
+   "rows": [
+    {
+     "sym": "AAPL",
+     "name": "Apple Inc.",
+     "beta": 1.14,
+     "cagr10": 0.296,
+     "margin": 0.488,
+     "nd": 0.22,
+     "streak": 1
+    }
+   ]
   },
   "pending": null,
   "rows": [
-   {
-    "key": "RACE",
-    "name": "Ferrari",
-    "branch": "Luxus-Autos",
-    "branch_en": "Luxury cars",
-    "claim": 23.7,
-    "beta": 0.9,
-    "cagr10": 0.2326,
-    "cagr5": 0.0822,
-    "until": "2026-11-20",
-    "dd": 0.233
-   },
-   {
-    "key": "MA",
-    "name": "Mastercard",
-    "branch": "Zahlungs-Duopol",
-    "branch_en": "Payments duopoly",
-    "claim": 20.9,
-    "beta": 0.89,
-    "cagr10": 0.2069,
-    "cagr5": 0.1496,
-    "until": "2026-11-20",
-    "dd": 0.07
-   },
-   {
-    "key": "V",
-    "name": "Visa",
-    "branch": "Zahlungs-Duopol",
-    "branch_en": "Payments duopoly",
-    "claim": 16.9,
-    "beta": 0.82,
-    "cagr10": 0.1862,
-    "cagr5": 0.1639,
-    "until": "2026-11-20",
-    "dd": 0.078
-   },
-   {
-    "key": "CTAS",
-    "name": "Cintas",
-    "branch": "Wiederkehrende Dienste",
-    "branch_en": "Recurring services",
-    "claim": 25.6,
-    "beta": 0.77,
-    "cagr10": 0.2441,
-    "cagr5": 0.1578,
-    "until": "2026-11-20",
-    "dd": 0.037
-   },
-   {
-    "key": "MSFT",
-    "name": "Microsoft",
-    "branch": "Cloud und KI",
-    "branch_en": "Cloud and AI",
-    "claim": 25.9,
-    "beta": 1.09,
-    "cagr10": 0.2504,
-    "cagr5": 0.0825,
-    "until": "2026-11-20",
-    "dd": 0.127
-   },
-   {
-    "key": "IDXX",
-    "name": "IDEXX",
-    "branch": "Tierarzt-Diagnostik",
-    "branch_en": "Veterinary diagnostics",
-    "claim": null,
-    "beta": 1.09,
-    "cagr10": 0.1961,
-    "cagr5": 0.0128,
-    "until": "2026-11-20",
-    "dd": 0.118
-   },
    {
     "key": "LLY",
     "name": "Eli Lilly",
@@ -303,38 +196,74 @@
     "dd": 0.067
    },
    {
-    "key": "VEEV",
-    "name": "Veeva Systems",
-    "branch": "Branchensoftware Pharma",
-    "branch_en": "Life-sciences software",
-    "claim": null,
-    "beta": 0.99,
-    "cagr10": 0.2036,
-    "cagr5": -0.0184,
+    "key": "MSFT",
+    "name": "Microsoft",
+    "branch": "Cloud und KI",
+    "branch_en": "Cloud and AI",
+    "claim": 25.9,
+    "beta": 1.05,
+    "cagr10": 0.2448,
+    "cagr5": 0.0825,
     "until": "2026-11-20",
-    "dd": 0.219
+    "dd": 0.127
    },
    {
-    "key": "CBOE",
-    "name": "Cboe Global Markets",
-    "branch": "Börse und Optionen",
-    "branch_en": "Exchange and options",
-    "claim": null,
-    "beta": 0.15,
-    "cagr10": 0.1948,
-    "cagr5": 0.2455,
+    "key": "CTAS",
+    "name": "Cintas",
+    "branch": "Wiederkehrende Dienste",
+    "branch_en": "Recurring services",
+    "claim": 25.6,
+    "beta": 0.69,
+    "cagr10": 0.2403,
+    "cagr5": 0.1578,
     "until": "2026-11-20",
-    "dd": 0.052
+    "dd": 0.037
    },
    {
-    "key": "VRTX",
-    "name": "Vertex Pharmaceuticals",
-    "branch": "Biotech (Mukoviszidose)",
-    "branch_en": "Biotech (cystic fibrosis)",
+    "key": "RACE",
+    "name": "Ferrari",
+    "branch": "Luxus-Autos",
+    "branch_en": "Luxury cars",
+    "claim": 23.7,
+    "beta": 0.84,
+    "cagr10": 0.2303,
+    "cagr5": 0.0822,
+    "until": "2026-11-20",
+    "dd": 0.233
+   },
+   {
+    "key": "INVE-B.ST",
+    "name": "Investor AB",
+    "branch": "Beteiligungsgesellschaft",
+    "branch_en": "Investment company",
     "claim": null,
-    "beta": 0.54,
-    "cagr10": 0.1919,
-    "cagr5": 0.2323,
+    "beta": 0.64,
+    "cagr10": 0.2073,
+    "cagr5": 0.1284,
+    "until": "2026-11-20",
+    "dd": 0.101
+   },
+   {
+    "key": "MA",
+    "name": "Mastercard",
+    "branch": "Zahlungs-Duopol",
+    "branch_en": "Payments duopoly",
+    "claim": 20.9,
+    "beta": 0.81,
+    "cagr10": 0.2014,
+    "cagr5": 0.1496,
+    "until": "2026-11-20",
+    "dd": 0.07
+   },
+   {
+    "key": "V",
+    "name": "Visa",
+    "branch": "Zahlungs-Duopol",
+    "branch_en": "Payments duopoly",
+    "claim": 16.9,
+    "beta": 0.75,
+    "cagr10": 0.1811,
+    "cagr5": 0.1639,
     "until": "2026-11-20",
     "dd": 0.078
    },
@@ -349,62 +278,14 @@
     "cagr5": 0.0486,
     "until": "2026-11-20",
     "dd": 0.127
-   },
-   {
-    "key": "EVO.ST",
-    "name": "Evolution",
-    "branch": "Online-Casino-Technik",
-    "branch_en": "Online casino technology",
-    "claim": null,
-    "beta": 0.44,
-    "cagr10": 0.329,
-    "cagr5": -0.1094,
-    "until": "2026-11-20",
-    "dd": 0.577
-   },
-   {
-    "key": "ASML.AS",
-    "name": "ASML",
-    "branch": "Chipmaschinen",
-    "branch_en": "Chip-making equipment",
-    "claim": null,
-    "beta": 1.08,
-    "cagr10": 0.293,
-    "cagr5": 0.0976,
-    "until": "2026-11-20",
-    "dd": 0.346
-   },
-   {
-    "key": "GRMN",
-    "name": "Garmin",
-    "branch": "Navigation und Sportuhren",
-    "branch_en": "Navigation and sports watches",
-    "claim": null,
-    "beta": 0.86,
-    "cagr10": 0.2081,
-    "cagr5": 0.1595,
-    "until": "2026-11-20",
-    "dd": 0.141
-   },
-   {
-    "key": "INVE-B.ST",
-    "name": "Investor AB",
-    "branch": "Beteiligungsgesellschaft",
-    "branch_en": "Investment company",
-    "claim": null,
-    "beta": 0.64,
-    "cagr10": 0.2073,
-    "cagr5": 0.1284,
-    "until": "2026-11-20",
-    "dd": 0.101
    }
   ],
   "back": {
    "since": "2016-11-21",
    "until": "2026-11-20",
    "elite": {
-    "cagr": 0.2698,
-    "mdd": 0.312
+    "cagr": 0.2529,
+    "mdd": 0.339
    },
    "spy": {
     "cagr": 0.1391,

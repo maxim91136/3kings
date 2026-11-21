@@ -1,0 +1,595 @@
+{
+ "D": "2026-10-27",
+ "rows": [
+  {
+   "sym": "LLY",
+   "name": "Lilly (Eli)",
+   "was": true,
+   "pass_D": true,
+   "pass_now": true,
+   "beta_D": 0.67,
+   "uw_D": 0.033,
+   "vol_D": 0.299
+  },
+  {
+   "sym": "AAPL",
+   "name": "Apple Inc.",
+   "was": false,
+   "pass_D": false,
+   "pass_now": true,
+   "beta_D": 1.15,
+   "uw_D": 0.092,
+   "vol_D": 0.265
+  },
+  {
+   "sym": "MSFT",
+   "name": "Microsoft",
+   "was": true,
+   "pass_D": true,
+   "pass_now": true,
+   "beta_D": 1.06,
+   "uw_D": 0.128,
+   "vol_D": 0.237
+  },
+  {
+   "sym": "CTAS",
+   "name": "Cintas",
+   "was": true,
+   "pass_D": true,
+   "pass_now": true,
+   "beta_D": 0.74,
+   "uw_D": 0.063,
+   "vol_D": 0.273
+  },
+  {
+   "sym": "RACE",
+   "name": "Ferrari",
+   "was": true,
+   "pass_D": true,
+   "pass_now": true,
+   "beta_D": 0.87,
+   "uw_D": 0.184,
+   "vol_D": 0.28
+  },
+  {
+   "sym": "INVE-B.ST",
+   "name": "Investor AB",
+   "was": true,
+   "pass_D": true,
+   "pass_now": true,
+   "beta_D": 0.62,
+   "uw_D": 0.044,
+   "vol_D": 0.189
+  },
+  {
+   "sym": "MA",
+   "name": "Mastercard",
+   "was": true,
+   "pass_D": true,
+   "pass_now": true,
+   "beta_D": 0.86,
+   "uw_D": 0.034,
+   "vol_D": 0.258
+  },
+  {
+   "sym": "V",
+   "name": "Visa Inc.",
+   "was": true,
+   "pass_D": true,
+   "pass_now": true,
+   "beta_D": 0.76,
+   "uw_D": 0.027,
+   "vol_D": 0.226
+  },
+  {
+   "sym": "MCO",
+   "name": "Moody's Corporation",
+   "was": true,
+   "pass_D": true,
+   "pass_now": true,
+   "beta_D": 0.99,
+   "uw_D": 0.126,
+   "vol_D": 0.26
+  },
+  {
+   "sym": "EVO.ST",
+   "name": "Evolution",
+   "was": true,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.51,
+   "uw_D": 0.489,
+   "vol_D": 0.392
+  },
+  {
+   "sym": "HWM",
+   "name": "Howmet Aerospace",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 1.19,
+   "uw_D": null,
+   "vol_D": null
+  },
+  {
+   "sym": "ASML.AS",
+   "name": "ASML",
+   "was": true,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 1.02,
+   "uw_D": 0.259,
+   "vol_D": 0.344
+  },
+  {
+   "sym": "TKO",
+   "name": "TKO Group Holdings",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.55,
+   "uw_D": 0.423,
+   "vol_D": 0.372
+  },
+  {
+   "sym": "PGR",
+   "name": "Progressive Corporation",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.33,
+   "uw_D": 0.084,
+   "vol_D": 0.222
+  },
+  {
+   "sym": "EME",
+   "name": "Emcor",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 1.09,
+   "uw_D": 0.14,
+   "vol_D": 0.34
+  },
+  {
+   "sym": "COST",
+   "name": "Costco",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.78,
+   "uw_D": 0.029,
+   "vol_D": 0.214
+  },
+  {
+   "sym": "MSCI",
+   "name": "MSCI",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 1.05,
+   "uw_D": 0.178,
+   "vol_D": 0.286
+  },
+  {
+   "sym": "MCK",
+   "name": "McKesson",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.17,
+   "uw_D": 0.142,
+   "vol_D": 0.27
+  },
+  {
+   "sym": "TT",
+   "name": "Trane Technologies",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 1.07,
+   "uw_D": 0.096,
+   "vol_D": 0.264
+  },
+  {
+   "sym": "DE",
+   "name": "Deere & Company",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.79,
+   "uw_D": 0.036,
+   "vol_D": 0.295
+  },
+  {
+   "sym": "MSI",
+   "name": "Motorola Solutions",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.77,
+   "uw_D": 0.077,
+   "vol_D": 0.228
+  },
+  {
+   "sym": "PHM",
+   "name": "PulteGroup",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.98,
+   "uw_D": 0.255,
+   "vol_D": 0.389
+  },
+  {
+   "sym": "HLT",
+   "name": "Hilton Worldwide",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 1.04,
+   "uw_D": 0.102,
+   "vol_D": 0.317
+  },
+  {
+   "sym": "ABBV",
+   "name": "AbbVie",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.22,
+   "uw_D": 0.149,
+   "vol_D": 0.267
+  },
+  {
+   "sym": "GWW",
+   "name": "W. W. Grainger",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.81,
+   "uw_D": 0.148,
+   "vol_D": 0.267
+  },
+  {
+   "sym": "HCA",
+   "name": "HCA Healthcare",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.75,
+   "uw_D": 0.169,
+   "vol_D": 0.364
+  },
+  {
+   "sym": "CAT",
+   "name": "Caterpillar Inc.",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 1.08,
+   "uw_D": 0.148,
+   "vol_D": 0.325
+  },
+  {
+   "sym": "GRMN",
+   "name": "Garmin",
+   "was": true,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.89,
+   "uw_D": 0.27,
+   "vol_D": 0.279
+  },
+  {
+   "sym": "WMT",
+   "name": "Walmart",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.49,
+   "uw_D": 0.033,
+   "vol_D": 0.214
+  },
+  {
+   "sym": "TDG",
+   "name": "TransDigm Group",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.98,
+   "uw_D": 0.121,
+   "vol_D": 0.391
+  },
+  {
+   "sym": "VEEV",
+   "name": "Veeva Systems",
+   "was": true,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.98,
+   "uw_D": 0.439,
+   "vol_D": 0.37
+  },
+  {
+   "sym": "AJG",
+   "name": "Arthur J. Gallagher & Co.",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.48,
+   "uw_D": 0.119,
+   "vol_D": 0.232
+  },
+  {
+   "sym": "LYV",
+   "name": "Live Nation Entertainment",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 1.07,
+   "uw_D": 0.293,
+   "vol_D": 0.402
+  },
+  {
+   "sym": "CASY",
+   "name": "Casey's",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.39,
+   "uw_D": 0.029,
+   "vol_D": 0.261
+  },
+  {
+   "sym": "ODFL",
+   "name": "Old Dominion",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 1.14,
+   "uw_D": 0.207,
+   "vol_D": 0.338
+  },
+  {
+   "sym": "FICO",
+   "name": "Fair Isaac",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.9,
+   "uw_D": 0.261,
+   "vol_D": 0.413
+  },
+  {
+   "sym": "CBOE",
+   "name": "Cboe Global Markets",
+   "was": true,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.18,
+   "uw_D": 0.243,
+   "vol_D": 0.267
+  },
+  {
+   "sym": "FAST",
+   "name": "Fastenal",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.81,
+   "uw_D": 0.057,
+   "vol_D": 0.252
+  },
+  {
+   "sym": "VRTX",
+   "name": "Vertex Pharmaceuticals",
+   "was": true,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.5,
+   "uw_D": 0.157,
+   "vol_D": 0.311
+  },
+  {
+   "sym": "COR",
+   "name": "Cencora",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.18,
+   "uw_D": 0.063,
+   "vol_D": 0.252
+  },
+  {
+   "sym": "MAR",
+   "name": "Marriott International",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 1.04,
+   "uw_D": 0.13,
+   "vol_D": 0.363
+  },
+  {
+   "sym": "IDXX",
+   "name": "Idexx Laboratories",
+   "was": true,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 1.16,
+   "uw_D": 0.441,
+   "vol_D": 0.306
+  },
+  {
+   "sym": "DHI",
+   "name": "D. R. Horton",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.87,
+   "uw_D": 0.305,
+   "vol_D": 0.374
+  },
+  {
+   "sym": "NDAQ",
+   "name": "Nasdaq, Inc.",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.87,
+   "uw_D": 0.092,
+   "vol_D": 0.23
+  },
+  {
+   "sym": "WRB",
+   "name": "W. R. Berkley Corporation",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.39,
+   "uw_D": 0.082,
+   "vol_D": 0.222
+  },
+  {
+   "sym": "DB1.DE",
+   "name": "Deutsche Börse",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.05,
+   "uw_D": 0.067,
+   "vol_D": 0.218
+  },
+  {
+   "sym": "CSU.TO",
+   "name": "Constellation Software",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.61,
+   "uw_D": 0.128,
+   "vol_D": 0.251
+  },
+  {
+   "sym": "RSG",
+   "name": "Republic Services",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.36,
+   "uw_D": 0.019,
+   "vol_D": 0.178
+  },
+  {
+   "sym": "JPM",
+   "name": "JPMorgan Chase",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.89,
+   "uw_D": 0.146,
+   "vol_D": 0.256
+  },
+  {
+   "sym": "ORLY",
+   "name": "O'Reilly Automotive",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.5,
+   "uw_D": 0.061,
+   "vol_D": 0.245
+  },
+  {
+   "sym": "CAH",
+   "name": "Cardinal Health",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.4,
+   "uw_D": 0.421,
+   "vol_D": 0.283
+  },
+  {
+   "sym": "AMP",
+   "name": "Ameriprise Financial",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 1.05,
+   "uw_D": 0.146,
+   "vol_D": 0.3
+  },
+  {
+   "sym": "MUV2.DE",
+   "name": "Munich Re",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.08,
+   "uw_D": 0.031,
+   "vol_D": 0.252
+  },
+  {
+   "sym": "WST",
+   "name": "West Pharmaceutical Services",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.84,
+   "uw_D": 0.406,
+   "vol_D": 0.318
+  },
+  {
+   "sym": "AME",
+   "name": "Ametek",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.93,
+   "uw_D": 0.033,
+   "vol_D": 0.23
+  },
+  {
+   "sym": "FERG",
+   "name": "Ferguson Enterprises",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.93,
+   "uw_D": 0.172,
+   "vol_D": 0.316
+  },
+  {
+   "sym": "TDY",
+   "name": "Teledyne Technologies",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.91,
+   "uw_D": 0.092,
+   "vol_D": 0.305
+  },
+  {
+   "sym": "CSX",
+   "name": "CSX Corporation",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 0.85,
+   "uw_D": 0.071,
+   "vol_D": 0.268
+  },
+  {
+   "sym": "AXP",
+   "name": "American Express",
+   "was": false,
+   "pass_D": false,
+   "pass_now": false,
+   "beta_D": 1.11,
+   "uw_D": 0.157,
+   "vol_D": 0.302
+  }
+ ]
+}

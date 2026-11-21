@@ -1,80 +1,45 @@
 {
- "stand": "2026-11-18",
+ "stand": "2026-11-20",
  "rows": [
-  {
-   "key": "RACE",
-   "beta": 0.9,
-   "cagr10": 0.2326
-  },
-  {
-   "key": "MA",
-   "beta": 0.89,
-   "cagr10": 0.2069
-  },
-  {
-   "key": "V",
-   "beta": 0.82,
-   "cagr10": 0.1862
-  },
-  {
-   "key": "CTAS",
-   "beta": 0.77,
-   "cagr10": 0.2441
-  },
-  {
-   "key": "MSFT",
-   "beta": 1.09,
-   "cagr10": 0.2504
-  },
-  {
-   "key": "IDXX",
-   "beta": 1.09,
-   "cagr10": 0.1961
-  },
   {
    "key": "LLY",
    "beta": 0.65,
    "cagr10": 0.3524
   },
   {
-   "key": "VEEV",
-   "beta": 0.99,
-   "cagr10": 0.2036
+   "key": "MSFT",
+   "beta": 1.05,
+   "cagr10": 0.2448
   },
   {
-   "key": "CBOE",
-   "beta": 0.15,
-   "cagr10": 0.1948
+   "key": "CTAS",
+   "beta": 0.69,
+   "cagr10": 0.2403
   },
   {
-   "key": "VRTX",
-   "beta": 0.54,
-   "cagr10": 0.1919
-  },
-  {
-   "key": "MCO",
-   "beta": 0.97,
-   "cagr10": 0.1761
-  },
-  {
-   "key": "EVO.ST",
-   "beta": 0.44,
-   "cagr10": 0.329
-  },
-  {
-   "key": "ASML.AS",
-   "beta": 1.08,
-   "cagr10": 0.293
-  },
-  {
-   "key": "GRMN",
-   "beta": 0.86,
-   "cagr10": 0.2081
+   "key": "RACE",
+   "beta": 0.84,
+   "cagr10": 0.2303
   },
   {
    "key": "INVE-B.ST",
    "beta": 0.64,
    "cagr10": 0.2073
+  },
+  {
+   "key": "MA",
+   "beta": 0.81,
+   "cagr10": 0.2014
+  },
+  {
+   "key": "V",
+   "beta": 0.75,
+   "cagr10": 0.1811
+  },
+  {
+   "key": "MCO",
+   "beta": 0.97,
+   "cagr10": 0.1761
   }
  ]
 }

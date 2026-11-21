@@ -361,3 +361,6 @@ Study beforehand (dauer.py, information only): calm stocks stayed calm (own vola
 New for admission: time under water (share of weeks more than 20 % below the previous high) at most 20 %, own volatility at most 30 % a year, each over 10 years of weekly prices. Margin from 45 % instead of 49 %. Removal buffer: under water above 30 %, volatility above 35 %, margin below 40 %.
 The strictest of the simulated variants was chosen on purpose (under water 20/25/30 %, volatility 30/35 %); margin 45 % and 48 % gave the same list. Note: the values of the members at the time were known before the limits were chosen.
 Effective immediately as at the start: the reviews of Oct 27 and Nov 20, 2026 are recalculated; whoever meets all rules on both dates is a member from the next trading day. Those who no longer qualify get no new money; nothing is sold.
+
+## 2026-11-20: Crown Jewels restart with steady-runner rules (automatic per rule)
+Reviews Oct 27 and Nov 20, 2026 recalculated. Members (8): Eli Lilly, Microsoft, Cintas, Ferrari, Investor AB, Mastercard, Visa Inc., Moody's. New: none. No new money (no sale): IDXX, Veeva Systems, Cboe Global Markets, Vertex Pharmaceuticals, Evolution, ASML, Garmin. Effective from the next trading day.

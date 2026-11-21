@@ -361,3 +361,6 @@ Untersuchung vorab (dauer.py, nur Information): Ruhige Aktien blieben ruhig (eig
 Neu für die Aufnahme: Zeit unter Wasser (Anteil der Wochen mehr als 20 % unter dem bisherigen Hoch) höchstens 20 %, eigene Schwankung höchstens 30 % pro Jahr, je 10 Jahre Wochenkurse. Marge ab 45 % statt 49 %. Puffer für den Rauswurf: unter Wasser über 30 %, Schwankung über 35 %, Marge unter 40 %.
 Gewählt wurde bewusst die strengste der simulierten Varianten (unter Wasser 20/25/30 %, Schwankung 30/35 %); Marge 45 % und 48 % ergaben dieselbe Liste. Hinweis: Die Werte der damaligen Mitglieder waren vor der Wahl der Grenzen bekannt.
 Sofort wirksam wie beim Start: Prüfungen 27.10. und 20.11.2026 werden nachgerechnet; wer an beiden Tagen alle Regeln erfüllt, ist Mitglied ab dem nächsten Handelstag. Wer nicht mehr erfüllt, bekommt kein neues Geld, verkauft wird nichts.
+
+## 2026-11-20: Kronjuwelen-Neustart mit Dauerläufer-Regeln (automatisch nach Regel)
+Prüfungen 27.10. und 20.11.2026 nachgerechnet. Mitglieder (8): Eli Lilly, Microsoft, Cintas, Ferrari, Investor AB, Mastercard, Visa Inc., Moody's. Neu: keine. Ohne neues Geld (kein Verkauf): IDXX, Veeva Systems, Cboe Global Markets, Vertex Pharmaceuticals, Evolution, ASML, Garmin. Wirksam ab dem nächsten Handelstag.

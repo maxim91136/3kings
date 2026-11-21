@@ -1,17 +1,5 @@
 {
  "last_season": 38,
  "reviews": [],
- "strikes": {
-  "MSFT": 0,
-  "CTAS": 0,
-  "RACE": 0,
-  "MA": 0,
-  "IDXX": 0,
-  "V": 0,
-  "LLY": 0,
-  "VEEV": 0,
-  "CBOE": 0,
-  "VRTX": 0,
-  "MCO": 0
- }
+ "strikes": {}
 }

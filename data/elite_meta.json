@@ -52,5 +52,35 @@
   "branch": "Beteiligungsgesellschaft",
   "branch_en": "Investment company",
   "cur": "SEK"
+ },
+ "MSFT": {
+  "name": "Microsoft",
+  "branch": "Systems Software",
+  "branch_en": "Systems Software",
+  "cur": "USD"
+ },
+ "CTAS": {
+  "name": "Cintas",
+  "branch": "Diversified Support Services",
+  "branch_en": "Diversified Support Services",
+  "cur": "USD"
+ },
+ "RACE": {
+  "name": "Ferrari",
+  "branch": "Luxus-Autos",
+  "branch_en": "Luxury cars",
+  "cur": "USD"
+ },
+ "MA": {
+  "name": "Mastercard",
+  "branch": "Transaction & Payment Processing Services",
+  "branch_en": "Transaction & Payment Processing Services",
+  "cur": "USD"
+ },
+ "V": {
+  "name": "Visa Inc.",
+  "branch": "Transaction & Payment Processing Services",
+  "branch_en": "Transaction & Payment Processing Services",
+  "cur": "USD"
  }
 }
