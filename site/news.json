@@ -5,18 +5,20 @@
    "published": "21.11., 07:46 Uhr",
    "published_en": "Nov 21, 7:46 AM CET",
    "move": true,
-   "headline": "S&P 500 −3,6 % und Gold −3,7 %: Ausverkauf bei KI-Aktien, Sorge vor US-Zinserhöhungen",
-   "headline_en": "S&P 500 −3.6 % and gold −3.7 %: AI stock sell-off, fears of US rate hikes",
+   "headline": "S&P 500 −3,6 %, Gold −3,7 %, Bitcoin −5,0 %: Ausverkauf bei KI-Aktien greift auf alle drei über",
+   "headline_en": "S&P 500 −3.6 %, gold −3.7 %, bitcoin −5.0 %: AI stock sell-off spreads to all three",
    "lines": [
     "S&P 500 6.910 Pkt. (−3,6 % in €) · Bitcoin 53.614 € (−5,0 %) · Gold 3.205 € je Unze (−3,7 %)",
     "Schattenbuch: Elite 6 0,976 · S&P 500 0,944 (in €, seit 17.11.2026)",
     "S&P 500: Der Index fiel auf 6.910 Punkte (−3,6 % in Euro), den tiefsten Stand seit sieben Monaten. Auslöser war ein sich verschärfender Ausverkauf bei Technologie- und KI-Aktien; der technologielastige Nasdaq verlor rund 5 %. In Dollar gerechnet liegt der S&P 500 nun mehr als 10 % unter seinem Rekordhoch, in Euro knapp 10 %.",
+    "Bitcoin: Der Kurs fiel auf 53.614 € (−5,0 %) und rutschte zeitweise unter 60.000 Dollar, den tiefsten Stand seit über zwei Jahren. Der Ausverkauf an den Aktienmärkten griff auf Kryptowährungen über; dazu kamen anhaltende Abflüsse aus Bitcoin-ETFs und die Auflösung von Kreditwetten in Milliardenhöhe. Seit Monatsbeginn liegt Bitcoin rund 20 % im Minus.",
     "Gold: Der Goldpreis fiel auf 3.205 € je Unze (−3,7 %) und damit auf ein Zwölfmonatstief. Belastet haben die wachsenden Erwartungen an weitere Zinserhöhungen der US-Notenbank sowie der breite Ausverkauf an den Aktienmärkten. Seit dem Rekordhoch hat Gold in Euro rund 29 % verloren."
    ],
    "lines_en": [
     "S&P 500 6,910 pts (−3.6 % in €) · Bitcoin €53,614 (−5.0 %) · Gold €3,205 per ounce (−3.7 %)",
     "Shadow book: Elite 6 0.976 · S&P 500 0.944 (in €, since Nov 17, 2026)",
     "S&P 500: The index fell to 6,910 points (−3.6 % in euros), its lowest level in seven months. The trigger was a deepening sell-off in technology and AI stocks; the tech-heavy Nasdaq lost about 5 %. In dollar terms the S&P 500 is now more than 10 % below its record high, in euros just under 10 %.",
+    "Bitcoin: The price fell to €53,614 (−5.0 %) and briefly slipped below $60,000, its lowest level in more than two years. The stock market sell-off spread to cryptocurrencies, compounded by continued outflows from bitcoin ETFs and the unwinding of leveraged bets worth billions. Bitcoin is down about 20 % since the start of the month.",
     "Gold: The gold price fell to €3,205 per ounce (−3.7 %), a twelve-month low. It was weighed down by growing expectations of further US Federal Reserve rate hikes and the broad stock market sell-off. Since its record high, gold has lost about 29 % in euros."
    ],
    "sources": [
@@ -35,6 +37,14 @@
     {
      "title": "Rio Times: Gold Falls About 4% to a 12-Month Low",
      "url": "https://www.riotimesonline.com/gold-silver-precious-metals-friday-november-20-2026/"
+    },
+    {
+     "title": "Bloomberg: Bitcoin Falls to More than Two-Year Low as Global Markets Sink",
+     "url": "https://www.bloomberg.com/news/articles/2026-11-20/bitcoin-falls-to-more-than-two-year-low-as-global-markets-sink"
+    },
+    {
+     "title": "CoinDesk: Bitcoin plunges below $59,000 as rush to cash puts new bear market lows back in play",
+     "url": "https://www.coindesk.com/markets/2026/11/20/bitcoin-plunges-below-usd59-000-as-rush-to-cash-puts-new-bear-market-lows-back-in-play"
     }
    ]
   },
