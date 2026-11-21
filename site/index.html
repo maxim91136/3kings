@@ -80,7 +80,7 @@ section,.kj{scroll-margin-top:16px}.grp-h{margin:72px 0 -18px;padding-top:22px;b
 .kjb{grid-column:2/4;height:3px;background:#1E2330;border-radius:2px;overflow:hidden}.kjb i{display:block;height:100%;background:linear-gradient(90deg,#8C7330,var(--gld))}
 .kjx{grid-column:2/4;display:flex;justify-content:space-between;font-size:12px;color:var(--mute)}.disc{color:var(--mute);font-size:12px;margin:0 0 6px}
 .glance{margin-top:20px}.glance .gg{display:grid;grid-template-columns:1fr 1fr;gap:8px}@media(min-width:700px){.glance .gg{grid-template-columns:repeat(5,1fr)}}
-.gt{border:1px solid var(--line);border-radius:8px;padding:9px 10px;text-align:left;background:#12161E}.gt span{display:block;font-size:11.5px;color:var(--mute)}.gt b{display:block;font:500 18px/1.2 var(--serif);margin-top:2px}.gt i{font-style:normal;font-size:12px}.gt i.up{color:var(--ok)}.gt i.dn{color:var(--bad)}.gt i.n{color:var(--mute)}
+.gt{border:1px solid var(--line);border-radius:8px;padding:9px 10px;text-align:left;background:#12161E}.gt span{display:block;font-size:11.5px;color:var(--mute)}.gt b{display:block;font:500 18px/1.2 var(--serif);margin-top:2px}.gt i{font-style:normal;font-size:12px}.gt i.up{color:var(--ok)}.gt i.dn{color:var(--bad)}.gt i.n{color:var(--mute)}.gt.g{border-color:#3F7356;background:#12201A}.gt.g b{color:var(--ok)}.gt.y{border-color:#7A5A22;background:#211B10}.gt.y b{color:var(--warn)}.gt.r{border-color:#80403A;background:#251412}.gt.r b{color:var(--bad)}
 .glance .gn{font-size:11.5px;color:var(--mute);margin-top:6px;text-align:left}</style></head><body>
 <button class="totop" id="totop" type="button"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="totopl">Nach oben</span></button>
 <meta name="build" content="2026-11-21T11:05:00Z">
@@ -199,22 +199,23 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
   const A={};((a&&a.assets)||[]).forEach(x=>A[x.key]=x);const I={};((ind&&ind.indicators)||[]).forEach(x=>I[x.key]=x);m=m||{};
   const ch=(x,lbl)=>x==null?"":`<i class="${x>0?"up":x<0?"dn":"n"}">${sgn(x)}${lbl?" "+lbl:""}</i>`;
   const pp=(x,d=1)=>x==null?"–":fx(x*100,d)+" %",num=(x,d=0)=>x==null?"–":(+x).toLocaleString(LOC,{minimumFractionDigits:d,maximumFractionDigits:d});
-  const tile=(l,v,c)=>`<div class="gt"><span>${l}</span><b>${v}</b>${c||""}</div>`;
+  const tile=(l,v,c,k)=>`<div class="gt${k?" "+k:""}"><span>${l}</span><b>${v}</b>${c||""}</div>`;
+  const lv=(x,a,b,inv)=>x==null||isNaN(x)?"":inv?(x<=a?"g":x<=b?"y":"r"):(x>=a?"g":x>=b?"y":"r"),fg=o=>parseFloat(String(o.value));
   const t=[];
-  if(A.SPY)t.push(tile("S&amp;P 500",num(A.SPY.price),ch(A.SPY.chg1d,T("Tag","day"))));
-  if(A.BTC)t.push(tile("Bitcoin",eur0(A.BTC.price),ch(A.BTC.chg1d,T("Tag","day"))));
-  if(A.GLD)t.push(tile(T("Gold je Unze","Gold per ounce"),eur0(A.GLD.price),ch(A.GLD.chg1d,T("Tag","day"))));
-  t.push(tile(T("Öl (Brent)","Oil (Brent)"),m.oil?eur0(m.oil.eur)+(EN?"":""):"–",m.oil?ch(m.oil.chg1m,T("Monat","month")):""));
-  t.push(tile(T("US-Zins 10 J.","US 10-yr yield"),m.us10y?fx(m.us10y.value,2)+" %":"–",m.us10y?`<i class="n">${m.us10y.chg1m>0?"+":m.us10y.chg1m<0?"−":"±"}${fx(Math.abs(m.us10y.chg1m),2)} ${T("Pkt. Monat","pts month")}</i>`:""));
-  t.push(tile(T("EZB-Einlagenzins","ECB deposit rate"),m.ecb?fx(m.ecb.value,2)+" %":"–",m.ecb&&m.ecb.changed?`<i class="n">${T("seit","since")} ${fmtDay(m.ecb.changed)}</i>`:""));
+  if(A.SPY)t.push(tile("S&amp;P 500",num(A.SPY.price),ch(A.SPY.chg1d,T("Tag","day")),lv(A.SPY.chg1d,0,-.02)));
+  if(A.BTC)t.push(tile("Bitcoin",eur0(A.BTC.price),ch(A.BTC.chg1d,T("Tag","day")),lv(A.BTC.chg1d,0,-.05)));
+  if(A.GLD)t.push(tile(T("Gold je Unze","Gold per ounce"),eur0(A.GLD.price),ch(A.GLD.chg1d,T("Tag","day")),lv(A.GLD.chg1d,0,-.02)));
+  t.push(tile(T("Öl (Brent)","Oil (Brent)"),m.oil?eur0(m.oil.eur)+(EN?"":""):"–",m.oil?ch(m.oil.chg1m,T("Monat","month")):"",m.oil&&lv(m.oil.chg1m,.05,.15,1)));
+  t.push(tile(T("US-Zins 10 J.","US 10-yr yield"),m.us10y?fx(m.us10y.value,2)+" %":"–",m.us10y?`<i class="n">${m.us10y.chg1m>0?"+":m.us10y.chg1m<0?"−":"±"}${fx(Math.abs(m.us10y.chg1m),2)} ${T("Pkt. Monat","pts month")}</i>`:"",m.us10y&&lv(m.us10y.value,4,4.75,1)));
+  t.push(tile(T("EZB-Einlagenzins","ECB deposit rate"),m.ecb?fx(m.ecb.value,2)+" %":"–",m.ecb&&m.ecb.changed?`<i class="n">${T("seit","since")} ${fmtDay(m.ecb.changed)}</i>`:"",m.ecb&&lv(m.ecb.value,2.25,3,1)));
   t.push(tile(T("Euro in Dollar","Euro in dollars"),m.eurusd?fx(m.eurusd.value,4):"–",m.eurusd?ch(m.eurusd.chg1m,T("Monat","month")):""));
-  t.push(tile(T("Inflation USA","Inflation US"),m.cpi_us?pp(m.cpi_us.value):"–",m.cpi_us?`<i class="n">${m.cpi_us.month.slice(5,7)}/${m.cpi_us.month.slice(0,4)}</i>`:""));
-  t.push(tile(T("Inflation Eurozone","Inflation euro area"),m.cpi_ez?pp(m.cpi_ez.value):"–",m.cpi_ez?`<i class="n">${m.cpi_ez.month.slice(5,7)}/${m.cpi_ez.month.slice(0,4)}</i>`:""));
-  if(I.fng)t.push(tile(T("Angst und Gier (Aktien)","Fear &amp; Greed (stocks)"),String(EN&&I.fng.value_en?I.fng.value_en:I.fng.value).split(" · ")[0],`<i class="n">${(String(EN&&I.fng.value_en?I.fng.value_en:I.fng.value).split(" · ")[1]||"")}</i>`));
-  if(I.cfng)t.push(tile(T("Angst und Gier (Krypto)","Fear &amp; Greed (crypto)"),String(EN&&I.cfng.value_en?I.cfng.value_en:I.cfng.value).split(" · ")[0],`<i class="n">${(String(EN&&I.cfng.value_en?I.cfng.value_en:I.cfng.value).split(" · ")[1]||"")}</i>`));
-  if(I.vix)t.push(tile(T("VIX (Schwankung)","VIX (volatility)"),EN&&I.vix.value_en?I.vix.value_en:I.vix.value,""));
+  t.push(tile(T("Inflation USA","Inflation US"),m.cpi_us?pp(m.cpi_us.value):"–",m.cpi_us?`<i class="n">${m.cpi_us.month.slice(5,7)}/${m.cpi_us.month.slice(0,4)}</i>`:"",m.cpi_us&&lv(m.cpi_us.value,.025,.035,1)));
+  t.push(tile(T("Inflation Eurozone","Inflation euro area"),m.cpi_ez?pp(m.cpi_ez.value):"–",m.cpi_ez?`<i class="n">${m.cpi_ez.month.slice(5,7)}/${m.cpi_ez.month.slice(0,4)}</i>`:"",m.cpi_ez&&lv(m.cpi_ez.value,.025,.035,1)));
+  if(I.fng)t.push(tile(T("Angst und Gier (Aktien)","Fear &amp; Greed (stocks)"),String(EN&&I.fng.value_en?I.fng.value_en:I.fng.value).split(" · ")[0],`<i class="n">${(String(EN&&I.fng.value_en?I.fng.value_en:I.fng.value).split(" · ")[1]||"")}</i>`,lv(fg(I.fng),50,25)));
+  if(I.cfng)t.push(tile(T("Angst und Gier (Krypto)","Fear &amp; Greed (crypto)"),String(EN&&I.cfng.value_en?I.cfng.value_en:I.cfng.value).split(" · ")[0],`<i class="n">${(String(EN&&I.cfng.value_en?I.cfng.value_en:I.cfng.value).split(" · ")[1]||"")}</i>`,lv(fg(I.cfng),50,25)));
+  if(I.vix)t.push(tile(T("VIX (Schwankung)","VIX (volatility)"),EN&&I.vix.value_en?I.vix.value_en:I.vix.value,"",lv(parseFloat(String(I.vix.value).replace(",",".")),20,30,1)));
   const g=document.getElementById("glance");if(!g)return;
-  g.innerHTML=`<div class="gg">${t.join("")}</div><div class="gn">${T("Kurse in Euro, S&amp;P 500 in Punkten. Stand der Kurse: ","Prices in euros, S&amp;P 500 in points. Prices as of: ")}${A.SPY?fmtDay(A.SPY.date):"–"}. ${T("Makrodaten mit eigenem Stand, nur Information.","Macro data with their own dates, information only.")}</div>`;g.hidden=false});
+  g.innerHTML=`<div class="gg">${t.join("")}</div><div class="gn">${T("Kurse in Euro, S&amp;P 500 in Punkten. Stand der Kurse: ","Prices in euros, S&amp;P 500 in points. Prices as of: ")}${A.SPY?fmtDay(A.SPY.date):"–"}. ${T("Makrodaten mit eigenem Stand. Farben: grün ruhig, gelb mittel, rot angespannt. Nur Information, kein Kauf- oder Verkaufssignal.","Macro data with their own dates. Colours: green calm, yellow moderate, red stressed. Information only, not a buy or sell signal.")}</div>`;g.hidden=false});
  fetch("news.json",{cache:"no-store"}).then(r=>r.json()).then(n=>{
   const it=(n.items||[]);if(!it.length)return;
   const e=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
