@@ -45,7 +45,7 @@ for r in sc["rows"]:
     h = at(s, D); e = at(eur(s, r["cur"] or "USD"), D)
     braw = beta(e); b, c = round(braw, 2), cagr10(h)
     m, nd = r["margin"], r["nd_ebitda"]
-    pin = braw < I["beta_max"] and c is not None and c >= I["cagr10_min"] and m is not None and m >= I["margin_min"] and nd is not None and nd < I["nd_ebitda_max"]
+    pin = braw <= I["beta_max"] and c is not None and c >= I["cagr10_min"] and m is not None and m >= I["margin_min"] and nd is not None and nd < I["nd_ebitda_max"]
     fout = braw > O["beta_max"] or c is None or c < O["cagr10_min"] or m is None or m < O["margin_min"] or nd is None or nd >= O["nd_ebitda_max"]
     res.append(dict(sym=r["sym"], name=r["name"], member=r["member"], beta_D=b, cagr10_D=None if c is None else round(c, 4), pass_D=bool(pin), fail_out_D=bool(fout), pass_now=r["passed"], fail_out_now=r.get("fail_out", not r["passed"])))
 print("Stichtag letzte Saisonprüfung:", D, "| heute:", sc["date"])

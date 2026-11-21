@@ -370,3 +370,6 @@ When recalculating Oct 27, the beta was rounded to two decimals before the compa
 
 ## 2026-11-20: Crown Jewels restart with steady-runner rules (automatic per rule)
 Reviews Oct 27 and Nov 20, 2026 recalculated. Members (9): Eli Lilly, Apple Inc., Microsoft, Cintas, Ferrari, Investor AB, Mastercard, Visa Inc., Moody's. New: Apple Inc.. No new money (no sale): none. Effective from the next trading day.
+
+## 2026-11-21: Beta at most 1.15 instead of below 1.15 (explicit decision)
+The admission limit now includes the value 1.15. Applies immediately to season review and recalculation.

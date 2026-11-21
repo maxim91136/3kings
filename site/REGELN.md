@@ -370,3 +370,6 @@ Beim Nachrechnen des 27.10. wurde das Beta vor dem Vergleich auf zwei Stellen ge
 
 ## 2026-11-20: Kronjuwelen-Neustart mit Dauerläufer-Regeln (automatisch nach Regel)
 Prüfungen 27.10. und 20.11.2026 nachgerechnet. Mitglieder (9): Eli Lilly, Apple Inc., Microsoft, Cintas, Ferrari, Investor AB, Mastercard, Visa Inc., Moody's. Neu: Apple Inc.. Ohne neues Geld (kein Verkauf): keine. Wirksam ab dem nächsten Handelstag.
+
+## 2026-11-21: Beta höchstens 1,15 statt unter 1,15 (ausdrückliche Entscheidung)
+Die Aufnahmegrenze schließt den Wert 1,15 jetzt ein. Gilt ab sofort für Saisonprüfung und Nachrechnung.

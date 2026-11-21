@@ -67,11 +67,11 @@ for sym, p in pool.items():
     I, O = R["in"], R["out"]
     if (c is None or c < I["cagr10_min"]) and not m: continue          # zu jung oder zu schwach: keine weiteren Abrufe
     e = eur(s, p["cur"]); b = None if not e else beta(e)
-    if (b is None or b >= I["beta_max"]) and not m: continue
+    if (b is None or b > I["beta_max"]) and not m: continue
     f = fundamentals.fund(sym); time.sleep(0.7)
     uw, vol = steady(s)
     def miss(L, strict):
-        return [k for k, bad in (("beta", b is None or (b >= L["beta_max"] if strict else b > L["beta_max"])), ("cagr10", c is None or c < L["cagr10_min"]),
+        return [k for k, bad in (("beta", b is None or b > L["beta_max"]), ("cagr10", c is None or c < L["cagr10_min"]),
                 ("margin", f["margin"] is None or f["margin"] < L["margin_min"]), ("debt", f["nd_ebitda"] is None or f["nd_ebitda"] >= L["nd_ebitda_max"]),
                 ("uw", uw is None or uw > L["uw_max"]), ("vol", vol is None or vol > L["vol_max"])) if bad]
     why = miss(I, True); ok = not why; out_why = miss(O, False)
