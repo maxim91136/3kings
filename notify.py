@@ -11,12 +11,12 @@ ind = {i["key"]: i for i in json.load(open("site/indicators.json")).get("indicat
 msgs = []
 import sys
 TEST = "--test" in sys.argv
-if TEST: msgs.append("🧪 TEST Sparplan S&P 500: So sieht eine Signalmeldung aus, z. B. „Neues Geld jetzt SAMMELN“ oder die seltene Lage „günstig plus extreme Angst“. Nur ein Test.")
+if TEST: msgs.append("🧪 <b>TEST Sparplan S&P 500</b>\nSo sieht eine Signalmeldung aus, z. B. „Neues Geld jetzt SAMMELN“ oder die seltene Lage „günstig plus extreme Angst“. Nur ein Test.")
 if st.get("signal") and st["signal"] != s["signal"]:
-    msgs.append(f"3Kings: Neues Geld jetzt {s['signal'].upper()}. S&P 500 {abs(s['dd_ath'])*100:.1f} % unter dem Allzeithoch ({s['currency']}).")
+    msgs.append(f"📈 <b>Sparplan S&P 500</b>\nNeues Geld jetzt {s['signal'].upper()}. S&P 500 {abs(s['dd_ath'])*100:.1f} % unter dem Allzeithoch ({s['currency']}).")
 cheap_fear = ind.get("cape", {}).get("light") not in (None, "rot") and ind.get("fng", {}).get("light") == "gruen"
 if cheap_fear and not st.get("cheap_fear"):
-    msgs.append("3Kings: Seltene Lage - Bewertung nicht mehr teuer und extreme Angst im Markt.")
+    msgs.append("📈 <b>Sparplan S&P 500</b>\nSeltene Lage: Bewertung nicht mehr teuer und extreme Angst im Markt.")
 if not TEST:
     st.update(signal=s["signal"], cheap_fear=cheap_fear)
     json.dump(st, open(st_path, "w"))
@@ -27,5 +27,5 @@ if not (tok and chat):
     raise SystemExit("Telegram nicht eingerichtet - waere gemeldet worden: " + " | ".join(msgs))
 user = next((c.strip() for c in chat.split(",") if c.strip() and not c.strip().startswith("-")), None)  # nur privat
 for m in msgs:
-    urllib.request.urlopen(f"https://api.telegram.org/bot{tok}/sendMessage", urllib.parse.urlencode(dict(chat_id=user, text=m)).encode(), timeout=20)
+    urllib.request.urlopen(f"https://api.telegram.org/bot{tok}/sendMessage", urllib.parse.urlencode(dict(chat_id=user, text=m, parse_mode="HTML")).encode(), timeout=20)
 print("gesendet:", msgs)
