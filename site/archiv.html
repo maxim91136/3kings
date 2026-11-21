@@ -35,7 +35,7 @@ code{font-size:13px;background:#171B24;padding:1px 5px;border-radius:3px}
 const qs=new URLSearchParams(location.search);let LANG=qs.get("lang")||(()=>{try{return localStorage.getItem("lang")}catch(e){return null}})()||(navigator.language||"de").slice(0,2);if(LANG!=="en")LANG="de";try{localStorage.setItem("lang",LANG)}catch(e){}
 const EN=LANG==="en",T=(de,en)=>EN?en:de,LOC=EN?"en-US":"de-DE";document.documentElement.lang=LANG;
 document.getElementById(EN?"len":"lde").className="on";document.getElementById("back").href="./?lang="+LANG;
-const keep=k=>{const u=new URLSearchParams(location.search);u.set("lang",k);return "?"+u};document.getElementById("lde").href=keep("de");document.getElementById("len").href=keep("en");
+const keep=k=>{const u=new URLSearchParams(location.search);u.set("lang",k);u.set("v",Date.now());return "?"+u};document.getElementById("lde").href=keep("de");document.getElementById("len").href=keep("en");
 if(EN){document.title="3Kings · Archive";document.getElementById("back").textContent="← Back to overview";document.getElementById("ttl").textContent="Archive";document.getElementById("lead").textContent="All daily reports, monthly reports and shadow-book histories, by month. Nothing is deleted."}
 const e=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 const fmtDay=s=>{const[a,b,c]=s.split("-");return EN?new Date(+a,+b-1,+c).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}):c+"."+b+"."+a};

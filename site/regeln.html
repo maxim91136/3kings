@@ -28,7 +28,7 @@ code{font-size:13px;background:#171B24;padding:1px 5px;border-radius:3px}
 </main>
 <script>
 const qs=new URLSearchParams(location.search);let LANG=qs.get("lang")||(()=>{try{return localStorage.getItem("lang")}catch(e){return null}})()||(navigator.language||"de").slice(0,2);if(LANG!=="en")LANG="de";try{localStorage.setItem("lang",LANG)}catch(e){}
-const EN=LANG==="en";setTimeout(()=>{const a=document.getElementById("pk");if(a)a.href="protokoll.html?lang="+LANG},0);document.documentElement.lang=LANG;document.getElementById(EN?"len":"lde").className="on";document.getElementById("back").href="./?lang="+LANG;
+const EN=LANG==="en";setTimeout(()=>{const a=document.getElementById("pk");if(a)a.href="protokoll.html?lang="+LANG},0);document.documentElement.lang=LANG;document.getElementById(EN?"len":"lde").className="on";document.getElementById("lde").href="?lang=de&v="+Date.now();document.getElementById("len").href="?lang=en&v="+Date.now();document.getElementById("back").href="./?lang="+LANG;
 if(EN){document.title="3Kings · Rule book";document.getElementById("back").textContent="← Back to overview";document.getElementById("ttl").textContent="Rule book";document.getElementById("lead").innerHTML='What applies today, by topic. Derivation and earlier versions in the <a href="protokoll.html?lang=en">log</a>.'}
 const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 const inl=s=>esc(s).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/`(.+?)`/g,"<code>$1</code>")
