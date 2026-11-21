@@ -33,6 +33,10 @@
 - Fear & Greed: green from 50, yellow 25–49, red below 25. VIX: green below 20, yellow 20–30, red above 30. (since Nov 21, 2026)
 - Daily change S&P 500 and gold: green when up, yellow down to −2 %, red below; bitcoin: yellow down to −5 %. Oil (month): green up to +5 %, yellow up to +15 %, red above. (since Nov 21, 2026)
 - US 10-yr yield: green below 4 %, yellow up to 4.75 %, red above. ECB deposit rate: green up to 2.25 %, yellow up to 3 %, red above. Inflation US and euro area: green up to 2.5 %, yellow up to 3.5 %, red above. Euro in dollars: no colour. (since Nov 21, 2026)
+- Also Shiller P/E: green below 20, yellow up to 30, red above. Buffett indicator: green below 100 %, yellow up to 150 %, red above. Yield curve 10y − 2y: green from +0.5 percentage points, yellow 0 to 0.5, red negative. (since Nov 21, 2026)
+- One "Market conditions" block at the top of the page: tiles, below them details on all indicators as text without own colours. Indicators change the buy rule only if they pass a test against "buy immediately"; none has so far. (since Nov 21, 2026)
+- Colours and values are recorded daily in data/barometer.csv (forward test of the hypotheses). (since Nov 21, 2026)
+- Hypotheses, fixed in advance (return 12 months after the day, compared with the average of all days): A) Fear & Greed stocks red and VIX red: S&P 500 better than average afterwards. B) US inflation red and US yield red: S&P 500 weaker afterwards. C) The number of red tiles says nothing about the S&P 500 afterwards. D) Fear & Greed crypto red and bitcoin below the power-law midline: bitcoin better than average afterwards. Tested backwards as far as data allow and forwards from Nov 21, 2026, first verdict November 2027. Confirmed hypotheses are only shown as context; the buy rule stays. (since Nov 21, 2026)
 
 ## Tactical model 3 Kings (test bench, no trading relevance)
 - Three kings: S&P 500, bitcoin, gold, in euros. S&P 500 and gold play trend (200-day line) fixed; for bitcoin a strategy is chosen from the candidates at the start of each season (look-back 504 trading days). (since Nov 18, 2026)

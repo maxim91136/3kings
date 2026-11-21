@@ -44,6 +44,7 @@ jobs:
       - run: timeout 120 python macro.py || true
       - run: python powerlaw.py || true
       - run: python assets.py || true
+      - run: python barometer.py || true
       - run: python archive_news.py || true
       - run: python notify.py
         continue-on-error: true

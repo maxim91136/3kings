@@ -33,6 +33,10 @@
 - Angst und Gier: grün ab 50, gelb 25–49, rot unter 25. VIX: grün unter 20, gelb 20–30, rot über 30. (seit 21.11.2026)
 - Tagesänderung S&P 500 und Gold: grün im Plus, gelb bis −2 %, rot darunter; Bitcoin: gelb bis −5 %. Öl (Monat): grün bis +5 %, gelb bis +15 %, rot darüber. (seit 21.11.2026)
 - US-Zins 10 Jahre: grün unter 4 %, gelb bis 4,75 %, rot darüber. EZB-Einlagenzins: grün bis 2,25 %, gelb bis 3 %, rot darüber. Inflation USA und Eurozone: grün bis 2,5 %, gelb bis 3,5 %, rot darüber. Euro in Dollar: ohne Farbe. (seit 21.11.2026)
+- Zusätzlich Shiller-KGV: grün unter 20, gelb bis 30, rot darüber. Buffett-Indikator: grün unter 100 %, gelb bis 150 %, rot darüber. Zinskurve 10 J − 2 J: grün ab +0,5 Prozentpunkten, gelb 0 bis 0,5, rot negativ. (seit 21.11.2026)
+- Ein Block „Marktlage“ oben auf der Seite: Kacheln, darunter Details zu allen Indikatoren als Text ohne eigene Farbe. Indikatoren ändern die Kaufregel nur, wenn sie einen Test gegen „sofort kaufen“ bestehen; bisher hat das keiner. (seit 21.11.2026)
+- Farben und Werte werden täglich in data/barometer.csv festgehalten (Vorwärtstest der Thesen). (seit 21.11.2026)
+- Thesen, vorab festgelegt (Rendite jeweils 12 Monate nach dem Tag, verglichen mit dem Durchschnitt aller Tage): A) Angst und Gier Aktien rot und VIX rot: S&P 500 danach besser als im Schnitt. B) US-Inflation rot und US-Zins rot: S&P 500 danach schwächer. C) Die Zahl roter Kacheln sagt nichts über den S&P 500 danach. D) Angst und Gier Krypto rot und Bitcoin unter der Power-Law-Mitte: Bitcoin danach besser als im Schnitt. Prüfung rückwirkend, soweit Daten reichen, und vorwärts ab 21.11.2026, erste Bewertung November 2027. Bestätigte Thesen werden nur als Einordnung gezeigt, die Kaufregel bleibt. (seit 21.11.2026)
 
 ## Taktikmodell 3 Könige (Prüfstand, ohne Handelsrelevanz)
 - Die drei Könige S&P 500, Bitcoin und Gold, in Euro. S&P 500 und Gold spielen fest Trend (200-Tage-Linie); für Bitcoin wird zum Saisonstart aus den Kandidaten gewählt (Rückblick 504 Handelstage). (seit 18.11.2026)

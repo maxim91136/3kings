@@ -310,3 +310,6 @@ watchdog.py, daily 8:04 UTC (9:04 CET): reports privately via Telegram if the ni
 
 ## 2026-11-21: Market barometer with traffic lights (explicit decision)
 New "At a glance" strip at the top of the page with S&P 500, bitcoin, gold, oil, US yield, ECB rate, euro in dollars, inflation US and euro area, Fear & Greed, VIX. Tiles green, yellow or red by the limits in the rule book (section market barometer). Information only, no signal. Sources: Yahoo, ECB data portal, US Bureau of Labor Statistics, Eurostat (new HICP series from 2026).
+
+## 2026-11-21: Market conditions merged, hypotheses on the barometer (explicit decision)
+The old market conditions section further down and the tiles at the top are now one "Market conditions" block at the top. New tiles: Shiller P/E, Buffett indicator, yield curve (limits in the rule book). The old opportunity colour (extreme fear = green) is dropped so there is only one colour logic; the note "was often a buying opportunity" remains as text in the details. Four hypotheses A to D fixed in advance (see rule book); values and colours are recorded daily from today. Start: 10 of 14 tiles red, 1 green.

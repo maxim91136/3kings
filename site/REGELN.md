@@ -310,3 +310,6 @@ watchdog.py, täglich 8:04 UTC (9:04 Uhr Winterzeit): meldet privat per Telegram
 
 ## 2026-11-21: Marktbarometer mit Ampelfarben (ausdrückliche Entscheidung)
 Neue Leiste „Lage auf einen Blick“ oben auf der Seite mit S&P 500, Bitcoin, Gold, Öl, US-Zins, EZB-Zins, Euro in Dollar, Inflation USA und Eurozone, Angst und Gier, VIX. Kacheln grün, gelb oder rot nach den Grenzen im Regelbuch (Abschnitt Marktbarometer). Nur Information, kein Signal. Quellen: Yahoo, EZB-Datenportal, US-Arbeitsstatistik (BLS), Eurostat (neue HICP-Reihe ab 2026).
+
+## 2026-11-21: Marktlage zusammengeführt, Thesen zum Barometer (ausdrückliche Entscheidung)
+Die alte Marktlage weiter unten und die Kacheln oben sind jetzt ein Block „Marktlage“ oben. Neu als Kacheln: Shiller-KGV, Buffett-Indikator, Zinskurve (Grenzen im Regelbuch). Die alte Chancen-Farbe (extreme Angst = grün) entfällt, damit es nur eine Farblogik gibt; die Einordnung „war oft eine Kaufgelegenheit“ steht weiter als Text in den Details. Vier Thesen A bis D vorab festgelegt (siehe Regelbuch), Werte und Farben werden ab heute täglich festgehalten. Start: 10 von 14 Kacheln rot, 1 grün.
