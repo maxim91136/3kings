@@ -4,6 +4,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fetch_prices as fp
 
 T = {"RACE": "RACE", "MA": "MA", "V": "V", "CTAS": "CTAS", "MSFT": "MSFT", "IDXX": "IDXX"}
+import json
+if os.path.exists("data/elite_members.json"): T = {k: v for k, v in T.items() if k in json.load(open("data/elite_members.json"))}
 data = {}
 for k, sym in T.items():
     for i in range(3):

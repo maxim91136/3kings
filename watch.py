@@ -48,6 +48,8 @@ BR_EN = {"RACE": "Luxury cars", "MA": "Payments duopoly", "V": "Payments duopoly
 NAMES = {"RACE": ("Ferrari", "Luxus-Autos", 23.7), "MA": ("Mastercard", "Zahlungs-Duopol", 20.9), "V": ("Visa", "Zahlungs-Duopol", 16.9),
          "CTAS": ("Cintas", "Wiederkehrende Dienste", 25.6), "MSFT": ("Microsoft", "Cloud und KI", 25.9),
          "IDXX": ("IDEXX", "Tierarzt-Diagnostik", None)}
+if os.path.exists("data/elite_members.json"):  # Saisonprüfung (REGELN 2026-11-21): nur aktuelle Mitglieder
+    _m = json.load(open("data/elite_members.json")); NAMES = {k: v for k, v in NAMES.items() if k in _m}
 if el and spy:
     local, ep = {}, {}
     for k in NAMES:
@@ -89,9 +91,9 @@ if el and spy:
     last_d = min(max(ep[k]) for k in ks)
     st = json.load(open(sp_path)) if os.path.exists(sp_path) else dict(start=last_d, p0={k: ep[k][last_d] for k in ks}, spy0=spy[last_d], rows=[])
     if last_d >= st["start"] and (not st["rows"] or st["rows"][-1]["date"] != last_d) and last_d in spy:
-        e = float(np.mean([ep[k][last_d] / st["p0"][k] for k in ks if k in st["p0"]])); st["rows"].append(dict(date=last_d, elite=round(e, 4), spy=round(spy[last_d] / st["spy0"], 4)))
+        e = st.get("base", 1.0) * float(np.mean([ep[k][last_d] / st["p0"][k] for k in ks if k in st["p0"]])); st["rows"].append(dict(date=last_d, elite=round(e, 4), spy=round(spy[last_d] / st["spy0"], 4)))
         json.dump(st, open(sp_path, "w"), indent=1)
-    out["elite"] = dict(stand=fz["stand"] if fz else None, rows=rows, back=back, shadow=dict(start=st["start"], rows=st["rows"]))
+    out["elite"] = dict(stand=fz["stand"] if fz else None, n=len(NAMES), check=json.load(open("site/elite_check.json")) if os.path.exists("site/elite_check.json") else None, reviews=json.load(open("data/elite_reviews.json"))["reviews"] if os.path.exists("data/elite_reviews.json") else [], rows=rows, back=back, shadow=dict(start=st["start"], rows=st["rows"]))
 json.dump(out, open("site/watch.json", "w"), ensure_ascii=False, indent=1)
 print("watch.json:", ", ".join(k for k in out if k != "generated"))
 if "factor" in out:
