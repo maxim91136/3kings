@@ -289,3 +289,6 @@ Order by priority: Current (news compact with collapsible details, reports, buy,
 
 ## 2026-11-21: Rule book and log separated (explicit decision)
 The rule book (REGELBUCH.en.md, page regeln.html) shows only what applies today, by topic, with a "since" date per rule. This file is now the log (page protokoll.html, newest entries first). Every rule change: update the rule book AND add an entry here. Automatic season reviews write only to the log.
+
+## 2026-11-21: Telegram filter corrected (review)
+The Crown Jewels section of the monthly report was accidentally filtered out in Telegram (filter dated from the internal Elite 6). Now: Crown Jewels lines go neutrally to the channel; shadow-book lines stay internal; savings-plan steps privately only.

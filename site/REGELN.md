@@ -289,3 +289,6 @@ Reihenfolge nach Priorität: Aktuell (News kompakt mit aufklappbaren Details, Be
 
 ## 2026-11-21: Regelbuch und Protokoll getrennt (ausdrückliche Entscheidung)
 Das Regelbuch (REGELBUCH.md, Seite regeln.html) zeigt nur, was heute gilt, nach Themen, mit "seit"-Datum je Regel. Diese Datei ist ab jetzt das Protokoll (Seite protokoll.html, neueste Einträge zuerst). Jede Regeländerung: Regelbuch anpassen UND Eintrag hier. Automatische Saisonprüfungen schreiben nur ins Protokoll.
+
+## 2026-11-21: Telegram-Filter korrigiert (Durchsicht)
+Der Kronjuwelen-Abschnitt des Monatsberichts wurde in Telegram versehentlich herausgefiltert (Filter stammte aus der Zeit der internen Elite 6). Jetzt: Kronjuwelen-Zeilen gehen neutral in den Kanal; Schattenbuch-Zeilen bleiben intern; Sparplan-Schritte nur privat.
