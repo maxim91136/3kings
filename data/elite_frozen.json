@@ -55,6 +55,26 @@
    "key": "MCO",
    "beta": 0.97,
    "cagr10": 0.1761
+  },
+  {
+   "key": "EVO.ST",
+   "beta": 0.44,
+   "cagr10": 0.329
+  },
+  {
+   "key": "ASML.AS",
+   "beta": 1.08,
+   "cagr10": 0.293
+  },
+  {
+   "key": "GRMN",
+   "beta": 0.86,
+   "cagr10": 0.2081
+  },
+  {
+   "key": "INVE-B.ST",
+   "beta": 0.64,
+   "cagr10": 0.2073
   }
  ]
 }

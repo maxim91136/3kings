@@ -4,9 +4,31 @@
   {
    "sym": "LLY",
    "name": "Lilly (Eli)",
-   "member": false,
+   "member": true,
    "beta_D": 0.67,
    "cagr10_D": 0.3472,
+   "pass_D": true,
+   "fail_out_D": false,
+   "pass_now": true,
+   "fail_out_now": false
+  },
+  {
+   "sym": "EVO.ST",
+   "name": "Evolution",
+   "member": false,
+   "beta_D": 0.51,
+   "cagr10_D": 0.322,
+   "pass_D": true,
+   "fail_out_D": false,
+   "pass_now": true,
+   "fail_out_now": false
+  },
+  {
+   "sym": "ASML.AS",
+   "name": "ASML",
+   "member": false,
+   "beta_D": 1.02,
+   "cagr10_D": 0.3264,
    "pass_D": true,
    "fail_out_D": false,
    "pass_now": true,
@@ -46,9 +68,31 @@
    "fail_out_now": false
   },
   {
+   "sym": "GRMN",
+   "name": "Garmin",
+   "member": false,
+   "beta_D": 0.89,
+   "cagr10_D": 0.2279,
+   "pass_D": true,
+   "fail_out_D": false,
+   "pass_now": true,
+   "fail_out_now": false
+  },
+  {
+   "sym": "INVE-B.ST",
+   "name": "Investor AB",
+   "member": false,
+   "beta_D": 0.62,
+   "cagr10_D": 0.206,
+   "pass_D": true,
+   "fail_out_D": false,
+   "pass_now": true,
+   "fail_out_now": false
+  },
+  {
    "sym": "VEEV",
    "name": "Veeva Systems",
-   "member": false,
+   "member": true,
    "beta_D": 0.98,
    "cagr10_D": 0.2358,
    "pass_D": true,
@@ -70,7 +114,7 @@
   {
    "sym": "CBOE",
    "name": "Cboe Global Markets",
-   "member": false,
+   "member": true,
    "beta_D": 0.18,
    "cagr10_D": 0.1947,
    "pass_D": true,
@@ -81,7 +125,7 @@
   {
    "sym": "VRTX",
    "name": "Vertex Pharmaceuticals",
-   "member": false,
+   "member": true,
    "beta_D": 0.5,
    "cagr10_D": 0.2126,
    "pass_D": true,
@@ -114,7 +158,7 @@
   {
    "sym": "MCO",
    "name": "Moody's Corporation",
-   "member": false,
+   "member": true,
    "beta_D": 0.99,
    "cagr10_D": 0.1769,
    "pass_D": true,

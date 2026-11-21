@@ -35,8 +35,8 @@
    "why": [],
    "fail_out": false,
    "out_why": [],
-   "streak": 1,
-   "member": false
+   "streak": 2,
+   "member": true
   },
   {
    "sym": "ASML.AS",
@@ -52,8 +52,8 @@
    "why": [],
    "fail_out": false,
    "out_why": [],
-   "streak": 1,
-   "member": false
+   "streak": 2,
+   "member": true
   },
   {
    "sym": "MSFT",
@@ -120,8 +120,8 @@
    "why": [],
    "fail_out": false,
    "out_why": [],
-   "streak": 1,
-   "member": false
+   "streak": 2,
+   "member": true
   },
   {
    "sym": "INVE-B.ST",
@@ -137,8 +137,8 @@
    "why": [],
    "fail_out": false,
    "out_why": [],
-   "streak": 1,
-   "member": false
+   "streak": 2,
+   "member": true
   },
   {
    "sym": "VEEV",

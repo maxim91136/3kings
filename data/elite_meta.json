@@ -28,5 +28,29 @@
   "branch": "Ratings und Daten",
   "branch_en": "Ratings and data",
   "cur": "USD"
+ },
+ "EVO.ST": {
+  "name": "Evolution",
+  "branch": "",
+  "branch_en": "",
+  "cur": "SEK"
+ },
+ "ASML.AS": {
+  "name": "ASML",
+  "branch": "",
+  "branch_en": "",
+  "cur": "EUR"
+ },
+ "GRMN": {
+  "name": "Garmin",
+  "branch": "Consumer Electronics",
+  "branch_en": "Consumer Electronics",
+  "cur": "USD"
+ },
+ "INVE-B.ST": {
+  "name": "Investor AB",
+  "branch": "",
+  "branch_en": "",
+  "cur": "SEK"
  }
 }

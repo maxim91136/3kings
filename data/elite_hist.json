@@ -84,5 +84,83 @@
    "MCO"
   ],
   "next": true
+ },
+ {
+  "date": "2026-11-20",
+  "members": [
+   "RACE",
+   "MA",
+   "V",
+   "CTAS",
+   "MSFT",
+   "IDXX",
+   "LLY",
+   "VEEV",
+   "CBOE",
+   "VRTX",
+   "MCO",
+   "EVO.ST"
+  ],
+  "next": true
+ },
+ {
+  "date": "2026-11-20",
+  "members": [
+   "RACE",
+   "MA",
+   "V",
+   "CTAS",
+   "MSFT",
+   "IDXX",
+   "LLY",
+   "VEEV",
+   "CBOE",
+   "VRTX",
+   "MCO",
+   "EVO.ST",
+   "ASML.AS"
+  ],
+  "next": true
+ },
+ {
+  "date": "2026-11-20",
+  "members": [
+   "RACE",
+   "MA",
+   "V",
+   "CTAS",
+   "MSFT",
+   "IDXX",
+   "LLY",
+   "VEEV",
+   "CBOE",
+   "VRTX",
+   "MCO",
+   "EVO.ST",
+   "ASML.AS",
+   "GRMN"
+  ],
+  "next": true
+ },
+ {
+  "date": "2026-11-20",
+  "members": [
+   "RACE",
+   "MA",
+   "V",
+   "CTAS",
+   "MSFT",
+   "IDXX",
+   "LLY",
+   "VEEV",
+   "CBOE",
+   "VRTX",
+   "MCO",
+   "EVO.ST",
+   "ASML.AS",
+   "GRMN",
+   "INVE-B.ST"
+  ],
+  "next": true
  }
 ]

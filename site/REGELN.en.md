@@ -342,3 +342,15 @@ No second team based on 5-year returns: the rolling window depends too much on t
 
 ## 2026-11-21: Hypothesis E, weak versus strong Crown Jewels (explicit decision)
 Both directions are tested: reversal (weak catch up) or momentum (strong keep running). Weak on Nov 20, 2026: RACE, MSFT, IDXX, VEEV, MCO. Strong: MA, V, CTAS, LLY, CBOE, VRTX. Criteria in the rule book, verdict Nov 20, 2027. Background: research shows momentum in the short run and reversal over 3 to 5 years; open for quality stocks.
+
+## 2026-11-20: Crown Jewels admission (recalculation after removal of the sub-industry exclusion: season reviews Oct 27 and Nov 20, 2026 passed)
+Evolution (EVO.ST): 10 yrs 32.9 % p.a., beta 0.44, gross margin 100.0 %, net debt -0.44x EBITDA, passed all rules 2 seasons in a row. From now on new money equally split across 12 stocks.
+
+## 2026-11-20: Crown Jewels admission (recalculation after removal of the sub-industry exclusion: season reviews Oct 27 and Nov 20, 2026 passed)
+ASML (ASML.AS): 10 yrs 29.3 % p.a., beta 1.08, gross margin 54.3 %, net debt -0.67x EBITDA, passed all rules 2 seasons in a row. From now on new money equally split across 13 stocks.
+
+## 2026-11-20: Crown Jewels admission (recalculation after removal of the sub-industry exclusion: season reviews Oct 27 and Nov 20, 2026 passed)
+Garmin (GRMN): 10 yrs 20.8 % p.a., beta 0.86, gross margin 60.4 %, net debt -0.88x EBITDA, passed all rules 2 seasons in a row. From now on new money equally split across 14 stocks.
+
+## 2026-11-20: Crown Jewels admission (recalculation after removal of the sub-industry exclusion: season reviews Oct 27 and Nov 20, 2026 passed)
+Investor AB (INVE-B.ST): 10 yrs 20.7 % p.a., beta 0.64, gross margin 87.6 %, net debt 0.49x EBITDA, passed all rules 2 seasons in a row. From now on new money equally split across 15 stocks.

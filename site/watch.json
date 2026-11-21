@@ -78,7 +78,7 @@
  },
  "elite": {
   "stand": "2026-11-18",
-  "n": 11,
+  "n": 15,
   "check": {
    "date": "2026-11-20",
    "season": {
@@ -163,6 +163,34 @@
      "cagr10": 0.1761,
      "pass": true,
      "why": []
+    },
+    {
+     "key": "EVO.ST",
+     "beta": 0.44,
+     "cagr10": 0.329,
+     "pass": true,
+     "why": []
+    },
+    {
+     "key": "ASML.AS",
+     "beta": 1.08,
+     "cagr10": 0.293,
+     "pass": true,
+     "why": []
+    },
+    {
+     "key": "GRMN",
+     "beta": 0.86,
+     "cagr10": 0.2081,
+     "pass": true,
+     "why": []
+    },
+    {
+     "key": "INVE-B.ST",
+     "beta": 0.64,
+     "cagr10": 0.2073,
+     "pass": true,
+     "why": []
     }
    ]
   },
@@ -173,13 +201,18 @@
    "RACE": 0,
    "MA": 0,
    "IDXX": 0,
-   "V": 0
+   "V": 0,
+   "LLY": 0,
+   "VEEV": 0,
+   "CBOE": 0,
+   "VRTX": 0,
+   "MCO": 0
   },
   "screen": {
    "date": "2026-11-20",
    "season": 38,
-   "n_pool": 269,
-   "n_cyclic": 262,
+   "n_pool": 454,
+   "n_cyclic": 77,
    "bank": [],
    "rows": []
   },
@@ -316,17 +349,65 @@
     "cagr5": 0.0486,
     "until": "2026-11-20",
     "dd": 0.127
+   },
+   {
+    "key": "EVO.ST",
+    "name": "Evolution",
+    "branch": "",
+    "branch_en": "",
+    "claim": null,
+    "beta": 0.44,
+    "cagr10": 0.329,
+    "cagr5": -0.1094,
+    "until": "2026-11-20",
+    "dd": 0.577
+   },
+   {
+    "key": "ASML.AS",
+    "name": "ASML",
+    "branch": "",
+    "branch_en": "",
+    "claim": null,
+    "beta": 1.08,
+    "cagr10": 0.293,
+    "cagr5": 0.0976,
+    "until": "2026-11-20",
+    "dd": 0.346
+   },
+   {
+    "key": "GRMN",
+    "name": "Garmin",
+    "branch": "Consumer Electronics",
+    "branch_en": "Consumer Electronics",
+    "claim": null,
+    "beta": 0.86,
+    "cagr10": 0.2081,
+    "cagr5": 0.1595,
+    "until": "2026-11-20",
+    "dd": 0.141
+   },
+   {
+    "key": "INVE-B.ST",
+    "name": "Investor AB",
+    "branch": "",
+    "branch_en": "",
+    "claim": null,
+    "beta": 0.64,
+    "cagr10": 0.2073,
+    "cagr5": 0.1284,
+    "until": "2026-11-20",
+    "dd": 0.101
    }
   ],
   "back": {
    "since": "2016-11-21",
    "until": "2026-11-20",
    "elite": {
-    "cagr": 0.2453,
-    "mdd": 0.313
+    "cagr": 0.2698,
+    "mdd": 0.312
    },
    "spy": {
-    "cagr": 0.1351,
+    "cagr": 0.1391,
     "mdd": 0.331
    }
   },

@@ -342,3 +342,15 @@ Kein zweites Team mit 5-Jahres-Rendite: Das rollende Fenster hängt zu stark vom
 
 ## 2026-11-21: These E, schwache gegen starke Kronjuwelen (ausdrückliche Entscheidung)
 Beide Richtungen werden geprüft: Umkehr (Schwache holen auf) oder Momentum (Starke laufen weiter). Schwach am 20.11.2026: RACE, MSFT, IDXX, VEEV, MCO. Stark: MA, V, CTAS, LLY, CBOE, VRTX. Kriterien im Regelbuch, Bewertung 20.11.2027. Hintergrund: Forschung zeigt kurzfristig eher Momentum, über 3 bis 5 Jahre eher Umkehr; für Qualitätsaktien offen.
+
+## 2026-11-20: Kronjuwelen-Aufnahme (Nachrechnung nach Wegfall des Unterbranchen-Ausschlusses: Saisonprüfungen 27.10. und 20.11.2026 bestanden)
+Evolution (EVO.ST): 10 J. 32,9 % p. a., Beta 0,44, Bruttomarge 100,0 %, Nettoverschuldung -0,44× EBITDA, alle Regeln 2 Saisons in Folge bestanden. Ab jetzt neues Geld gleich verteilt auf 12 Werte.
+
+## 2026-11-20: Kronjuwelen-Aufnahme (Nachrechnung nach Wegfall des Unterbranchen-Ausschlusses: Saisonprüfungen 27.10. und 20.11.2026 bestanden)
+ASML (ASML.AS): 10 J. 29,3 % p. a., Beta 1,08, Bruttomarge 54,3 %, Nettoverschuldung -0,67× EBITDA, alle Regeln 2 Saisons in Folge bestanden. Ab jetzt neues Geld gleich verteilt auf 13 Werte.
+
+## 2026-11-20: Kronjuwelen-Aufnahme (Nachrechnung nach Wegfall des Unterbranchen-Ausschlusses: Saisonprüfungen 27.10. und 20.11.2026 bestanden)
+Garmin (GRMN): 10 J. 20,8 % p. a., Beta 0,86, Bruttomarge 60,4 %, Nettoverschuldung -0,88× EBITDA, alle Regeln 2 Saisons in Folge bestanden. Ab jetzt neues Geld gleich verteilt auf 14 Werte.
+
+## 2026-11-20: Kronjuwelen-Aufnahme (Nachrechnung nach Wegfall des Unterbranchen-Ausschlusses: Saisonprüfungen 27.10. und 20.11.2026 bestanden)
+Investor AB (INVE-B.ST): 10 J. 20,7 % p. a., Beta 0,64, Bruttomarge 87,6 %, Nettoverschuldung 0,49× EBITDA, alle Regeln 2 Saisons in Folge bestanden. Ab jetzt neues Geld gleich verteilt auf 15 Werte.
