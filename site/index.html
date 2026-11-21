@@ -132,6 +132,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <section id="pl" hidden></section>
  <section id="long" hidden></section>
  <section id="ftse" hidden></section>
+ <section id="wl" hidden></section>
  <section id="ind" hidden></section>
  <section id="spar" hidden></section>
  <section id="watch" hidden></section>
@@ -238,6 +239,24 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
    ${tr(T(`Sparplan 100 €/Monat (${eur0(j.plan.paid)} eingezahlt)`,`Savings plan €100/month (${eur0(j.plan.paid)} paid in)`),eur0(j.plan.spy),eur0(j.plan.ftse))}
    </tbody></table>
    <div class="mute">${T(`Echter FTSE All-World über den Vanguard-ETF (VWRL) gegen SPY, beide mit Ausschüttungen, in Euro, ETF-Kosten enthalten. ${fmtDay(j.from)} bis ${fmtDay(j.until)}. In ${j.roll5.ftse_better} von ${j.roll5.n} rollierenden 5-Jahres-Zeiträumen lag der FTSE vorn. Kriterium vorab festgelegt: höhere Rendite insgesamt und in beiden Hälften, Rückgang nicht größer. Einschränkung: nur eine Phase mit starkem US-Vorsprung; 2000 bis 2009 lag die Welt vor den USA.`,`The actual FTSE All-World via the Vanguard ETF (VWRL) vs SPY, both with distributions, in euros, ETF costs included. ${fmtDay(j.from)} to ${fmtDay(j.until)}. The FTSE was ahead in ${j.roll5.ftse_better} of ${j.roll5.n} rolling 5-year periods. Criterion fixed beforehand: higher return overall and in both halves, drawdown not larger. Caveat: only one period with strong US outperformance; from 2000 to 2009 the world was ahead of the US.`)}</div>`;
+  s.hidden=false}).catch(()=>{});
+ fetch("worldlong.json",{cache:"no-store"}).then(r=>r.json()).then(o=>{const j=o.acwi,w=o.world;if(!(j&&j.rows&&j.rows.length))return;
+  const rows=j.rows.map(r=>({date:r[0]+"-01",shadow:r[1],hold:r[2]}));
+  const P=x=>fx(x*100,1)+" %",tr=(l,a,b,c)=>`<tr><td>${l}</td><td>${a}</td><td>${b}</td><td>${c}</td></tr>`,mo=m=>{const[a,b]=m.split("-");return new Date(+a,+b-1,1).toLocaleDateString(LOC,{month:"short",year:"numeric"})};
+  const dec=j.decades.map((d,i)=>tr(EN?d[0].replace("er","s"):d[0],P(d[1]),P(w.decades[i][2]),P(d[2]))).join("");
+  const s=document.getElementById("wl");
+  s.innerHTML=`<h4>${T("Länger: Welt gegen USA seit 2000","Longer: world vs USA since 2000")}</h4>
+   <div class="verdict small"><h2>${j.pass||w.pass?T("Bestanden","Passed"):T("Nicht bestanden, S&amp;P 500 bleibt Kern","Not passed, the S&amp;P 500 stays the core")}</h2></div>
+   ${chart(rows,"USA","ACWI")}
+   <table class="pf" style="white-space:nowrap"><tr><th></th><th>USA</th><th>World</th><th>ACWI</th></tr>
+   ${tr(T("Rendite pro Jahr","Return per year"),P(j.usa.cagr),P(w.world.cagr),P(j.world.cagr))}
+   ${tr(T("bis "+j.mid.slice(0,4),"until "+j.mid.slice(0,4)),P(j.usa.h1),P(w.world.h1),P(j.world.h1))}
+   ${tr(T("ab "+j.mid.slice(0,4),"from "+j.mid.slice(0,4)),P(j.usa.h2),P(w.world.h2),P(j.world.h2))}
+   ${tr(T("Größter Rückgang","Largest drawdown"),"−"+P(-j.usa.mdd),"−"+P(-w.world.mdd),"−"+P(-j.world.mdd))}
+   ${dec}
+   ${tr(T("10 Jahre: Welt vorn","10 years: world ahead"),"",`${w.roll["10"].world_better}/${w.roll["10"].n}`,`${j.roll["10"].world_better}/${j.roll["10"].n}`)}
+   ${tr(T("20 Jahre: Welt vorn","20 years: world ahead"),"",`${w.roll["20"].world_better}/${w.roll["20"].n}`,`${j.roll["20"].world_better}/${j.roll["20"].n}`)}</table>
+   <div class="mute">${T(`MSCI-Indizes mit Dividenden (brutto), Monatsende, in Dollar, ${mo(j.from)} bis ${mo(j.until)}. USA = MSCI USA (praktisch der S&amp;P 500), World = Industrieländer, ACWI = Industrie- und Schwellenländer (wie der FTSE All-World). Die Währung ändert beide Seiten gleich. Enthalten ist das verlorene US-Jahrzehnt: In den 2000ern lag die Welt vorn, aber nur mit 2 bis 3 Prozentpunkten pro Jahr und mit tieferem Absturz. Frühere Jahrzehnte gibt die freie MSCI-Schnittstelle nicht her.`,`MSCI indices with dividends (gross), month-end, in dollars, ${mo(j.from)} to ${mo(j.until)}. USA = MSCI USA (practically the S&amp;P 500), World = developed markets, ACWI = developed and emerging markets (like the FTSE All-World). The currency changes both sides equally. The lost US decade is included: in the 2000s the world was ahead, but only by 2 to 3 percentage points per year and with a deeper crash. The free MSCI interface does not provide earlier decades.`)}</div>`;
   s.hidden=false}).catch(()=>{});
  fetch("watch.json",{cache:"no-store"}).then(r=>r.json()).then(w=>{
   const n1=x=>fx(x*100,1),n0=x=>Math.round(x*100),b2=x=>fx(x,2),b3=x=>fx(x,3);
