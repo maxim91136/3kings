@@ -21,6 +21,7 @@ if not msgs:
     raise SystemExit("keine Meldung noetig")
 if not (tok and chat):
     raise SystemExit("Telegram nicht eingerichtet - waere gemeldet worden: " + " | ".join(msgs))
+user = next((c.strip() for c in chat.split(",") if c.strip() and not c.strip().startswith("-")), None)  # nur privat
 for m in msgs:
-    urllib.request.urlopen(f"https://api.telegram.org/bot{tok}/sendMessage", urllib.parse.urlencode(dict(chat_id=chat, text=m)).encode(), timeout=20)
+    urllib.request.urlopen(f"https://api.telegram.org/bot{tok}/sendMessage", urllib.parse.urlencode(dict(chat_id=user, text=m)).encode(), timeout=20)
 print("gesendet:", msgs)
