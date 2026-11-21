@@ -1,5 +1,5 @@
 """Makro-Umfeld (nur Information, keine Regel; seit 2026-11-21): Öl (Brent), US-Zins 10 Jahre, EZB-Einlagenzins, Euro/Dollar, Inflation USA und Eurozone.
-Quellen: Yahoo (BZ=F, ^TNX), EZB-Datenportal (Einlagenzins, HICP), US-Statistikbehörde BLS (CPI-U), data/ind_EURUSD.csv. Schreibt site/macro.json."""
+Quellen: Yahoo (BZ=F, ^TNX), EZB-Datenportal (Einlagenzins), Eurostat (HICP), US-Statistikbehörde BLS (CPI-U), data/ind_EURUSD.csv. Schreibt site/macro.json."""
 import csv, json, os, signal, sys, time, urllib.request
 signal.signal(signal.SIGALRM, lambda *a: (_ for _ in ()).throw(TimeoutError("Quelle zu langsam")))
 from datetime import date
@@ -41,14 +41,17 @@ out["eurusd"] = dict(date=fx[-1][0], value=round(fx[-1][1], 4), chg1m=round(fx[-
 signal.alarm(20)
 try:   # Inflation USA: US-Statistikbehörde (CPI-U, Vorjahresrate selbst gerechnet)
     j = json.loads(get("https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SA0", 15))
-    d = {f'{x["year"]}-{x["period"][1:]}': float(x["value"]) for x in j["Results"]["series"][0]["data"] if x["period"].startswith("M") and x["period"] != "M13"}
-    ks = sorted(d); m0, m1 = ks[-1], ks[-2]; yoy = lambda m: d[m] / d[f"{int(m[:4]) - 1}{m[4:]}"] - 1
+    d = {f'{x["year"]}-{x["period"][1:]}': float(x["value"]) for x in j["Results"]["series"][0]["data"] if x["period"].startswith("M") and x["period"] != "M13" and x["value"].replace(".", "", 1).isdigit()}
+    yoy = lambda m: d[m] / d[f"{int(m[:4]) - 1}{m[4:]}"] - 1
+    ks = [k for k in sorted(d) if f"{int(k[:4]) - 1}{k[4:]}" in d]; m0, m1 = ks[-1], ks[-2]
     out["cpi_us"] = dict(month=m0, value=round(yoy(m0), 4), prev=round(yoy(m1), 4))
 except Exception as e: err["cpi_us"] = str(e)
 signal.alarm(20)
-try:   # Inflation Eurozone: EZB (HICP, Jahresrate)
-    s = ecb("ICP/M.U2.N.000000.4.ANR", 2)
-    out["cpi_ez"] = dict(month=s[-1][0], value=round(s[-1][1] / 100, 4), prev=round(s[-2][1] / 100, 4))
+try:   # Inflation Eurozone: Eurostat (HICP, Jahresrate, Euroraum in jeweiliger Zusammensetzung)
+    j = json.loads(get("https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_manr?geo=EA&coicop=CP00&unit=RCH_A&lastTimePeriod=2", 15))
+    tix = j["dimension"]["time"]["category"]["index"]; per = sorted(tix, key=tix.get); val = j["value"]
+    v = [float(val[str(tix[p])]) for p in per if str(tix[p]) in val]
+    out["cpi_ez"] = dict(month=per[-1], value=round(v[-1] / 100, 4), prev=round(v[-2] / 100, 4) if len(v) > 1 else None)
 except Exception as e: err["cpi_ez"] = str(e)
 signal.alarm(0)
 old = json.load(open("site/macro.json")) if os.path.exists("site/macro.json") else {}
