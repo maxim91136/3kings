@@ -1,6 +1,44 @@
 {
  "items": [
   {
+   "date": "2026-11-20",
+   "published": "21.11., 07:46 Uhr",
+   "published_en": "Nov 21, 7:46 AM CET",
+   "move": true,
+   "headline": "S&P 500 −3,6 % und Gold −3,7 %: Ausverkauf bei KI-Aktien, Sorge vor US-Zinserhöhungen",
+   "headline_en": "S&P 500 −3.6 % and gold −3.7 %: AI stock sell-off, fears of US rate hikes",
+   "lines": [
+    "S&P 500 6.910 Pkt. (−3,6 % in €) · Bitcoin 53.614 € (−5,0 %) · Gold 3.205 € je Unze (−3,7 %)",
+    "Schattenbuch: Elite 6 0,976 · S&P 500 0,944 (in €, seit 17.11.2026)",
+    "S&P 500: Der Index fiel auf 6.910 Punkte (−3,6 % in Euro), den tiefsten Stand seit sieben Monaten. Auslöser war ein sich verschärfender Ausverkauf bei Technologie- und KI-Aktien; der technologielastige Nasdaq verlor rund 5 %. In Dollar gerechnet liegt der S&P 500 nun mehr als 10 % unter seinem Rekordhoch, in Euro knapp 10 %.",
+    "Gold: Der Goldpreis fiel auf 3.205 € je Unze (−3,7 %) und damit auf ein Zwölfmonatstief. Belastet haben die wachsenden Erwartungen an weitere Zinserhöhungen der US-Notenbank sowie der breite Ausverkauf an den Aktienmärkten. Seit dem Rekordhoch hat Gold in Euro rund 29 % verloren."
+   ],
+   "lines_en": [
+    "S&P 500 6,910 pts (−3.6 % in €) · Bitcoin €53,614 (−5.0 %) · Gold €3,205 per ounce (−3.7 %)",
+    "Shadow book: Elite 6 0.976 · S&P 500 0.944 (in €, since Nov 17, 2026)",
+    "S&P 500: The index fell to 6,910 points (−3.6 % in euros), its lowest level in seven months. The trigger was a deepening sell-off in technology and AI stocks; the tech-heavy Nasdaq lost about 5 %. In dollar terms the S&P 500 is now more than 10 % below its record high, in euros just under 10 %.",
+    "Gold: The gold price fell to €3,205 per ounce (−3.7 %), a twelve-month low. It was weighed down by growing expectations of further US Federal Reserve rate hikes and the broad stock market sell-off. Since its record high, gold has lost about 29 % in euros."
+   ],
+   "sources": [
+    {
+     "title": "Forbes: S&P 500 Falls To 7-Month Low As Tech And AI Concerns Fuel Sell-Off",
+     "url": "https://www.forbes.com/sites/antoniopequenoiv/2026/11/20/sp-500-falls-to-7-month-low-as-tech-and-ai-concerns-fuel-sell-off/"
+    },
+    {
+     "title": "Washington Times: U.S. stocks tumble as the sell-off for AI stocks accelerates",
+     "url": "https://www.washingtontimes.com/news/2026/nov/20/us-stocks-tumble-sp-500-falls-sell-ai-stocks-accelerates/"
+    },
+    {
+     "title": "CNBC: Gold's slide deepens as AI rout, rate hike bets hurt bullion",
+     "url": "https://www.cnbc.com/2026/11/20/gold-federal-reserve-price-dollar-metals.html"
+    },
+    {
+     "title": "Rio Times: Gold Falls About 4% to a 12-Month Low",
+     "url": "https://www.riotimesonline.com/gold-silver-precious-metals-friday-november-20-2026/"
+    }
+   ]
+  },
+  {
    "date": "2026-11-19",
    "published": "20.11., 07:49 Uhr",
    "published_en": "Nov 20, 7:49 AM CET",
