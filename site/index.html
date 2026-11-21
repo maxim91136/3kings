@@ -83,7 +83,7 @@ section,.kj{scroll-margin-top:16px}.grp-h{margin:72px 0 -18px;padding-top:22px;b
 .gt{border:1px solid var(--line);border-radius:8px;padding:9px 10px;text-align:left;background:#12161E}.gt span{display:block;font-size:11.5px;color:var(--mute)}.gt b{display:block;font:500 18px/1.2 var(--serif);margin-top:2px}.gt i{font-style:normal;font-size:12px}.gt i.up{color:var(--ok)}.gt i.dn{color:var(--bad)}.gt i.n{color:var(--mute)}.gt.g{border-color:#3F7356;background:#12201A}.gt.g b{color:var(--ok)}.gt.y{border-color:#7A5A22;background:#211B10}.gt.y b{color:var(--warn)}.gt.r{border-color:#80403A;background:#251412}.gt.r b{color:var(--bad)}
 .glance .gn{font-size:11.5px;color:var(--mute);margin-top:6px;text-align:left}</style></head><body>
 <button class="totop" id="totop" type="button"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="totopl">Nach oben</span></button>
-<meta name="build" content="2026-11-21T16:45:00Z">
+<meta name="build" content="2026-11-21T17:00:00Z">
 <main id="app"><svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg>
 <h1>3Kings</h1><div class="sub">Marktmonitor</div><div class="stamp">…</div></main>
 <script>
@@ -134,9 +134,9 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg><h1>3Kings</h1><div class="sub">${T("Marktmonitor","Market monitor")}</div><div class="disc">${T("Eigene Modelle und Tests. Keine Anlageberatung.","Own models and tests. Not investment advice.")}</div>
  <div class="stamp">${T(`Kurse vom ${fmtDay(h.data_date)}, berechnet am ${run} Uhr`,`Prices as of ${fmtDay(h.data_date)}, calculated ${run}`)}</div>`;
  if(age>3||dage>5) o+=`<div class="alert"><b>${T("Puls ausgefallen.","Data feed down.")}</b> ${T(`Letzter Lauf vor ${fx(age,1)} Tagen, letzter Kurstag ${fmtDay(h.data_date)}. Bitte den GitHub-Lauf prüfen.`,`Last run ${fx(age,1)} days ago, last price date ${fmtDay(h.data_date)}. Check the GitHub run.`)}</div>`;
- o+=`<section id="glance" class="glance" hidden></section>
+ o+=`<section id="news" hidden style="margin-top:22px"></section>
+ <section id="glance" class="glance" hidden></section>
  <section id="pl" hidden></section>
- <section id="news" hidden style="margin-top:22px"></section>
  <section id="reports" hidden style="margin-top:18px"></section>
  <div class="verdict hero" id="hero"><h2 class="buy">${T("Kaufen","Buy")}</h2><p>${T("Sobald Geld da ist. Getestet für S&amp;P 500, Bitcoin und Gold: Warten auf Rücksetzer, günstigere Bewertung oder Angst brachte in keinem Test mehr.","As soon as there is money. Tested for the S&amp;P 500, bitcoin and gold: waiting for dips, cheaper valuations or fear never did better.")}</p></div>
  <div class="cards" id="cards"></div><div class="mute" id="cardnote" style="font-size:12px;margin-top:8px"></div>
@@ -372,7 +372,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  requestAnimationFrame(()=>requestAnimationFrame(()=>{document.querySelectorAll(".fill").forEach(e=>e.style.height=e.dataset.h+"%");document.querySelectorAll(".season i").forEach(e=>e.style.width=e.dataset.w+"%")}));
 }).catch(()=>{document.querySelector(".stamp").textContent=T("Noch keine Daten. Der erste Lauf fehlt oder heartbeat.json ist nicht erreichbar.","No data yet. The first run is missing or heartbeat.json is unreachable.")});
 
-{const G=[[T("Aktuell","Current"),[["glance",T("Marktlage","Market conditions")],["pl",T("Bitcoin: Power Law","Bitcoin: power law")],["news","News"],["reports",T("Berichte","Reports")],["hero",T("Kaufen und Rechner","Buy and calculator")]]],
+{const G=[[T("Aktuell","Current"),[["news","News"],["glance",T("Marktlage","Market conditions")],["pl",T("Bitcoin: Power Law","Bitcoin: power law")],["reports",T("Berichte","Reports")],["hero",T("Kaufen und Rechner","Buy and calculator")]]],
   [T("Belege","Evidence"),[["beleg",T("Der Beleg","The evidence")],["king",T("König der Könige","King of Kings")],["long",T("S&amp;P 500 seit 1928","S&amp;P 500 since 1928")]]],
   [T("Experimente","Experiments"),[["books",T("Schattenbücher im Überblick","Shadow books overview")],["jewels",T("Kronjuwelen","Crown Jewels")],["spar",T("Schattenbuch Sparplan S&amp;P 500","Shadow book: S&amp;P 500 savings plan")],["pruef",T("Taktikmodell 3 Könige","Tactical model 3 Kings")]]]];
  const el=id=>document.getElementById(id),close=()=>{const n=el("nav"),b=el("navbtn");if(n){n.hidden=true;b.setAttribute("aria-expanded","false")}};
