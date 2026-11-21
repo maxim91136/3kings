@@ -304,3 +304,6 @@ Previously the shadow book applied a rebalancing at the close of the same day th
 
 ## 2026-11-21: Crown Jewels: execution on the next trading day (explicit decision)
 As with the tactical model: changes from the season review (admission, removal) take effect in both shadow books only from the close of the next trading day, not at the close of the review day. Applied retroactively to the five admissions of Nov 20, 2026 (Eli Lilly, Veeva, Vertex, Cboe, Moody's): effective from the next trading day; values up to Nov 20 are unchanged.
+
+## 2026-11-21: Watchdog for the watchdog (explicit decision)
+watchdog.py, daily 8:04 UTC (9:04 CET): reports privately via Telegram if the nightly data run or the news monitor has written nothing for more than 26 hours, prices are older than 4 days, or the monthly report is missing at the start of the month. On Sundays a short "all running" message.

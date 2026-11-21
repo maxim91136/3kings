@@ -44,4 +44,5 @@
 - **News monitor** daily around 7:45 CET, Sundays and Mondays bitcoin only. Reasons are researched from: S&P 500 ±2 %, gold ±2.5 %, bitcoin ±5 %, each Crown Jewels stock ±4 % (rounded value, daily change in euros); then all three main assets get a line. (since Nov 21, 2026)
 - **Monthly report** on the 1st of each month, **annual report** on January 1, each with the power law check and Crown Jewels changes. (since Nov 21, 2026)
 - **Telegram:** daily reports and reports to the channel (Crown Jewels changes there neutrally in the monthly report); savings-plan steps for Crown Jewels changes privately only. (since Nov 21, 2026)
+- **Watchdog:** every morning around 9 CET a check of the data run, prices, news and (start of month) the monthly report; on failure a private Telegram message, on Sundays a short sign of life. (since Nov 21, 2026)
 - **Archive:** the homepage shows the last 7 days (news and histories); everything older is in the archive by month. Nothing is deleted. (since Nov 21, 2026)

@@ -1,0 +1,20 @@
+name: watchdog
+on:
+  schedule:
+    - cron: "4 8 * * *"
+  workflow_dispatch:
+    inputs:
+      test:
+        description: "1 = Meldung immer senden"
+        default: "0"
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - run: python watchdog.py ${{ github.event.inputs.test == '1' && '--test' || '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

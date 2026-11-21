@@ -304,3 +304,6 @@ Bisher buchte das Schattenbuch eine Umschichtung zum Schlusskurs desselben Tages
 
 ## 2026-11-21: Kronjuwelen: Umsetzung am nächsten Handelstag (ausdrückliche Entscheidung)
 Wie beim Taktikmodell: Änderungen aus der Saisonprüfung (Aufnahme, Ausscheiden) gelten in beiden Schattenbüchern erst ab dem Schlusskurs des nächsten Handelstags, nicht schon zum Schlusskurs des Prüftags. Rückwirkend für die fünf Aufnahmen vom 20.11.2026 (Eli Lilly, Veeva, Vertex, Cboe, Moody's): wirksam ab dem nächsten Handelstag; die Werte bis zum 20.11. ändern sich dadurch nicht.
+
+## 2026-11-21: Wächter für den Wächter (ausdrückliche Entscheidung)
+watchdog.py, täglich 8:04 UTC (9:04 Uhr Winterzeit): meldet privat per Telegram, wenn der nächtliche Datenlauf oder der News-Monitor länger als 26 Stunden nichts geschrieben hat, die Kurse älter als 4 Tage sind oder am Monatsanfang der Monatsbericht fehlt. Sonntags kurze Meldung "Alles läuft".
