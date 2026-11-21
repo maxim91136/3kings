@@ -283,3 +283,6 @@ Moody's Corporation (MCO): 10 J. 17,6 % p. a., Beta 0,97, Bruttomarge 74,6 %, Ne
 
 ## 2026-11-21: News-Archiv (ausdrückliche Entscheidung)
 Startseite: neueste Meldung, darunter aufklappbar nur die letzten 7 Tage. Meldungen älter als 30 Tage verschiebt der nächtliche Lauf in Monatsdateien (site/archive/news-JJJJ-MM.json, archive_news.py); nichts wird gelöscht. Archivseite archiv.html mit Monatsauswahl, Tagesmeldungen und Monats-/Jahresberichten. Die Grenze von 60 Einträgen im News-Monitor entfällt.
+
+## 2026-11-21: Seite neu gegliedert (ausdrückliche Entscheidung)
+Reihenfolge nach Priorität: Aktuell (News kompakt mit aufklappbaren Details, Berichte, Kaufen, drei Karten, Rechner, Marktlage, Bitcoin Power Law), Belege (Der Beleg, König der Könige mit FTSE-Test, Welt gegen USA und Faktor-ETFs als aufklappbare Details, S&P 500 seit 1928), Experimente (Kronjuwelen, Schattenbuch Sparplan, Prüfstand Mannschaft). Verlaufstabellen auf der Startseite: letzte 30 Tage; alle Tageswerte der Schattenbücher im Archiv je Monat. Menü oben links mit denselben Gruppen. Inhalte und Zahlen unverändert.

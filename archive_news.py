@@ -14,7 +14,19 @@ for m, xs in move.items():
     json.dump({"month": m, "items": allx}, open(p, "w"), ensure_ascii=False, indent=1)
 if move:
     n["items"] = keep; json.dump(n, open("site/news.json", "w"), ensure_ascii=False, indent=1)
-months = {f[5:12] for f in os.listdir("site/archive") if f.startswith("news-")}
+# Schattenbücher je Monat (vollständige Tageswerte; Startseite zeigt nur 30 Tage)
+import csv
+sh = {}
+if os.path.exists("data/ledger.csv"):
+    for r in csv.DictReader(open("data/ledger.csv")):
+        sh.setdefault(r["date"][:7], {}).setdefault(r["date"], {}).update(team=float(r["shadow"]), team_hold=float(r["hold"]))
+if os.path.exists("site/watch.json"):
+    el = json.load(open("site/watch.json")).get("elite", {}).get("shadow", {})
+    for r in el.get("lump", []): sh.setdefault(r["date"][:7], {}).setdefault(r["date"], {}).update(kj=r["elite"], kj_spy=r["spy"])
+    for r in el.get("rows", []): sh.setdefault(r["date"][:7], {}).setdefault(r["date"], {}).update(kjp=r["elite"], kjp_spy=r["spy"])
+for m, days in sh.items():
+    json.dump({"month": m, "rows": [dict(date=d, **v) for d, v in sorted(days.items(), reverse=True)]}, open(f"site/archive/shadow-{m}.json", "w"))
+months = {f[5:12] for f in os.listdir("site/archive") if f.startswith("news-")} | set(sh)
 months |= {x["date"][:7] for x in keep if x.get("date")}
 r = json.load(open("site/reports.json")) if os.path.exists("site/reports.json") else {"items": []}
 months |= {x["period"][:7] for x in r.get("items", []) if x.get("type") == "month"}

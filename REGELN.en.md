@@ -283,3 +283,6 @@ Moody's Corporation (MCO): 10 yrs 17.6 % p.a., beta 0.97, gross margin 74.6 %, n
 
 ## 2026-11-21: News archive (explicit decision)
 Homepage: latest report, below it collapsible only the last 7 days. Reports older than 30 days are moved by the nightly run into monthly files (site/archive/news-YYYY-MM.json, archive_news.py); nothing is deleted. Archive page archiv.html with month selection, daily reports and monthly/annual reports. The 60-entry limit in the news monitor is dropped.
+
+## 2026-11-21: Site restructured (explicit decision)
+Order by priority: Current (news compact with collapsible details, reports, buy, three cards, calculator, market conditions, bitcoin power law), Evidence (the evidence, King of Kings with FTSE test, world vs USA and factor ETFs as collapsible details, S&P 500 since 1928), Experiments (Crown Jewels, savings-plan shadow book, team test bench). History tables on the homepage: last 30 days; all daily shadow-book values in the archive by month. Menu top left with the same groups. Content and figures unchanged.
