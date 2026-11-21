@@ -301,3 +301,6 @@ Fehler: Die Nacht läuft mehrmals. Der erste Lauf führte das Signal im Schatten
 
 ## 2026-11-21: Taktikmodell: Umsetzung am nächsten Handelstag (ausdrückliche Entscheidung)
 Bisher buchte das Schattenbuch eine Umschichtung zum Schlusskurs desselben Tages, an dem das Signal entstand (einen Tag zu optimistisch: real sieht man das Signal erst am Morgen danach). Neu: Signal zum Schlusskurs von Tag D, Ausführung im Schattenbuch zum Schlusskurs des nächsten Handelstags; bis dahin gilt der alte Bestand. Rückwirkend angewendet auf das Signal vom 20.11.2026 (S&P 500 49 % → 0 %): Ausführung erst am nächsten Handelstag; Schattenbuch 0,9674 → 0,9676 (Handelskosten zurückgebucht). Seite zeigt offenes Signal und danach "Umgesetzt zum Schlusskurs vom … (Signal vom …)".
+
+## 2026-11-21: Kronjuwelen: Umsetzung am nächsten Handelstag (ausdrückliche Entscheidung)
+Wie beim Taktikmodell: Änderungen aus der Saisonprüfung (Aufnahme, Ausscheiden) gelten in beiden Schattenbüchern erst ab dem Schlusskurs des nächsten Handelstags, nicht schon zum Schlusskurs des Prüftags. Rückwirkend für die fünf Aufnahmen vom 20.11.2026 (Eli Lilly, Veeva, Vertex, Cboe, Moody's): wirksam ab dem nächsten Handelstag; die Werte bis zum 20.11. ändern sich dadurch nicht.

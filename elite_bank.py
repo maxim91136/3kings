@@ -60,7 +60,7 @@ def admit(c, how="per Telegram bestätigt", how_en="confirmed via Telegram", d=N
     if sym not in mem: mem.append(sym)
     json.dump(mem, open("data/elite_members.json", "w"))
     meta = load("data/elite_meta.json", {}); meta[sym] = dict(name=c["name"], branch=c.get("branch", ""), branch_en=c.get("branch_en", ""), cur=c.get("cur", "USD")); save("data/elite_meta.json", meta)
-    hist = load("data/elite_hist.json", []); hist.append({"date": d, "members": list(mem)}); save("data/elite_hist.json", hist)
+    hist = load("data/elite_hist.json", []); hist.append({"date": d, "members": list(mem), "next": True}); save("data/elite_hist.json", hist)
     fz = json.load(open("data/elite_frozen.json")); fz["rows"] = [r for r in fz["rows"] if r["key"] != sym] + [dict(key=sym, beta=c.get("beta"), cagr10=c.get("cagr10"))]; save("data/elite_frozen.json", fz)
     vals = f"10 J. {num(c.get('cagr10'), True)} % p. a., Beta {num(c.get('beta'))}, Bruttomarge {num(c.get('margin'), True)} %, Nettoverschuldung {num(c.get('nd_ebitda'))}× EBITDA"
     regeln(f"\n## {d}: Kronjuwelen-Aufnahme ({how})\n{c['name']} ({sym}): {vals}, alle Regeln {c.get('streak')} Saisons in Folge bestanden. Ab jetzt neues Geld gleich verteilt auf {len(mem)} Werte.\n",

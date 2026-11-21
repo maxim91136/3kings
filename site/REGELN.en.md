@@ -301,3 +301,6 @@ Bug: the night run executes several times. The first run applied the signal in t
 
 ## 2026-11-21: Tactical model: execution on the next trading day (explicit decision)
 Previously the shadow book applied a rebalancing at the close of the same day the signal arose (one day too optimistic: in practice the signal is only seen the next morning). New: signal at the close of day D, execution in the shadow book at the close of the next trading day; the old holdings apply until then. Applied retroactively to the signal of Nov 20, 2026 (S&P 500 49 % → 0 %): executed only on the next trading day; shadow book 0.9674 → 0.9676 (trading costs reversed). The site shows the open signal and afterwards "Carried out at the close of … (signal of …)".
+
+## 2026-11-21: Crown Jewels: execution on the next trading day (explicit decision)
+As with the tactical model: changes from the season review (admission, removal) take effect in both shadow books only from the close of the next trading day, not at the close of the review day. Applied retroactively to the five admissions of Nov 20, 2026 (Eli Lilly, Veeva, Vertex, Cboe, Moody's): effective from the next trading day; values up to Nov 20 are unchanged.

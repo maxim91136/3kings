@@ -21,7 +21,7 @@ for k in mem:   # Puffer: nur klare Verfehlung zählt (fail_out)
 stay = [k for k in mem if k not in out]
 d = sc["date"]
 if out:   # Sparplan-Index: Ausgeschiedene bekommen kein neues Geld mehr, werden aber nicht verkauft
-    hist = json.load(open("data/elite_hist.json")); hist.append({"date": d, "members": stay})
+    hist = json.load(open("data/elite_hist.json")); hist.append({"date": d, "members": stay, "next": True})
     json.dump(hist, open("data/elite_hist.json", "w"), indent=1); json.dump(stay, open("data/elite_members.json", "w"))
 for k in out: sk.pop(k, None)
 cand = [s for s in sc["bank"] if s not in stay]

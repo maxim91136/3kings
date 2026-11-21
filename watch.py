@@ -89,6 +89,7 @@ if el and spy:
         yrs = len(r) / 252
         back = dict(since=cut[0], until=cut[-1], elite=dict(cagr=round(idx[-1] ** (1 / yrs) - 1, 4), mdd=round(float((1 - idx / np.maximum.accumulate(idx)).max()), 3)),
                     spy=dict(cagr=round(sidx[-1] ** (1 / yrs) - 1, 4), mdd=round(float((1 - sidx / np.maximum.accumulate(sidx)).max()), 3)))
+    # Änderungen mit "next": gelten erst ab dem nächsten Handelstag (Umsetzung zum Schlusskurs des Folgetags, REGELN 2026-11-21)
     # Schattenbuch als Sparplan-Index (REGELN 2026-11-21): monatlich gleicher Betrag, gleich verteilt auf die aktuellen Mitglieder, nie verkaufen
     hist = json.load(open("data/elite_hist.json")) if os.path.exists("data/elite_hist.json") else [dict(date="2026-11-17", members=list(NAMES))]
     held = list(dict.fromkeys(x for e in hist for x in e["members"]))
@@ -101,7 +102,7 @@ if el and spy:
     for d in sdays:
         for k in pe:
             if d in pe[k]: lastp[k] = pe[k][d]
-        mem_d = [e for e in hist if e["date"] <= d][-1]["members"]; mem_d = [k for k in mem_d if k in lastp]
+        mem_d = [e for e in hist if (e["date"] < d if e.get("next") else e["date"] <= d)][-1]["members"]; mem_d = [k for k in mem_d if k in lastp]
         if d[:7] != month and mem_d:
             month = d[:7]; paid += 100
             for k in mem_d: units[k] = units.get(k, 0) + (100 / len(mem_d)) / lastp[k]
@@ -110,7 +111,7 @@ if el and spy:
     # Einmal-Schattenbuch daneben: Start 1,00, gleich gewichtet, umgeschichtet nur an Änderungstagen der Chronik
     lrows, lv, seg0, lp0 = [], 1.0, None, {}
     for d in sdays:
-        mem_d = [k for k in [e for e in hist if e["date"] <= d][-1]["members"] if k in pe and d in pe[k]]
+        mem_d = [k for k in [e for e in hist if (e["date"] < d if e.get("next") else e["date"] <= d)][-1]["members"] if k in pe and d in pe[k]]
         if not mem_d: continue
         if seg0 is None or mem_d != seg0:
             if seg0 is not None: lv *= float(np.mean([pe[k][d] / lp0[k] for k in seg0]))
