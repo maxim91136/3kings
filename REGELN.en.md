@@ -2,10 +2,11 @@
 
 Rules change only at the end of a season or by explicit decision. Every change is recorded here. The German version is the original; this is a translation.
 
-- 2026-11-18: Bitcoin gets the additional candidate **Trend SMA100** (fast trend line, 100 days).
-  Reason: test on real prices, team Sharpe 1.25 instead of 1.12, same drawdown (15 %).
-  Caveat: the line was chosen after seeing the results (data snooping), so the p-value is optimistic.
-  Effect today: none, the bitcoin champion remains Trend SMA200. Watch live in the shadow book.
+## 2026-11-18: Bitcoin gets the additional candidate Trend SMA100
+Fast trend line, 100 days.
+Reason: test on real prices, team Sharpe 1.25 instead of 1.12, same drawdown (15 %).
+Caveat: the line was chosen after seeing the results (data snooping), so the p-value is optimistic.
+Effect today: none, the bitcoin champion remains Trend SMA200. Watch live in the shadow book.
 
 ## 2026-11-18: Admission test for equity ETFs and Power Law (real data)
 - Candidates tested: URTH, VT, QUAL, MTUM, USMV, XLK, TLT, IEF, EFA, EEM, ETH. None passed the rules (team Sharpe 1.25 without, 1.00 to 1.24 with the candidate). No change, nothing added to the bench.
