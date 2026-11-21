@@ -364,3 +364,6 @@ Sofort wirksam wie beim Start: Prüfungen 27.10. und 20.11.2026 werden nachgerec
 
 ## 2026-11-20: Kronjuwelen-Neustart mit Dauerläufer-Regeln (automatisch nach Regel)
 Prüfungen 27.10. und 20.11.2026 nachgerechnet. Mitglieder (8): Eli Lilly, Microsoft, Cintas, Ferrari, Investor AB, Mastercard, Visa Inc., Moody's. Neu: keine. Ohne neues Geld (kein Verkauf): IDXX, Veeva Systems, Cboe Global Markets, Vertex Pharmaceuticals, Evolution, ASML, Garmin. Wirksam ab dem nächsten Handelstag.
+
+## 2026-11-21: Fehler behoben, Beta-Vergleich ungerundet
+Beim Nachrechnen des 27.10. wurde das Beta vor dem Vergleich auf zwei Stellen gerundet. Apple hatte 1,1486 (unter 1,15, bestanden), gerundet 1,15 (fälschlich durchgefallen). Ab jetzt wird ungerundet verglichen, wie in der Saisonprüfung. Die Nachrechnung wird wiederholt.

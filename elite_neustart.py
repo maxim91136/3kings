@@ -47,9 +47,9 @@ for sym, r in rows.items():
     s = get(sym); time.sleep(0.5)
     if not s: continue
     h = at(s, D); e = at(eur(s, r["cur"] or "USD"), D)
-    b, c = round(beta(e), 2), cagr10(h); uw, vol = steady(s, D)
+    braw = beta(e); b, c = round(braw, 2), cagr10(h); uw, vol = steady(s, D)
     m, nd = r["margin"], r["nd_ebitda"]
-    pd = (b < I["beta_max"] and c is not None and c >= I["cagr10_min"] and m is not None and m >= I["margin_min"] and nd is not None
+    pd = (braw < I["beta_max"] and c is not None and c >= I["cagr10_min"] and m is not None and m >= I["margin_min"] and nd is not None
           and nd < I["nd_ebitda_max"] and uw is not None and uw <= I["uw_max"] and vol is not None and vol <= I["vol_max"])
     res.append(dict(sym=sym, name=r["name"], was=r["member"], pass_D=bool(pd), pass_now=r["passed"], beta_D=b, uw_D=uw and round(uw, 3), vol_D=vol and round(vol, 3)))
 new = [x["sym"] for x in res if x["pass_D"] and x["pass_now"]]

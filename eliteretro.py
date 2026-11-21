@@ -43,10 +43,10 @@ for r in sc["rows"]:
     s = get(r["sym"]); time.sleep(0.5)
     if not s: continue
     h = at(s, D); e = at(eur(s, r["cur"] or "USD"), D)
-    b, c = round(beta(e), 2), cagr10(h)
+    braw = beta(e); b, c = round(braw, 2), cagr10(h)
     m, nd = r["margin"], r["nd_ebitda"]
-    pin = b < I["beta_max"] and c is not None and c >= I["cagr10_min"] and m is not None and m >= I["margin_min"] and nd is not None and nd < I["nd_ebitda_max"]
-    fout = b > O["beta_max"] or c is None or c < O["cagr10_min"] or m is None or m < O["margin_min"] or nd is None or nd >= O["nd_ebitda_max"]
+    pin = braw < I["beta_max"] and c is not None and c >= I["cagr10_min"] and m is not None and m >= I["margin_min"] and nd is not None and nd < I["nd_ebitda_max"]
+    fout = braw > O["beta_max"] or c is None or c < O["cagr10_min"] or m is None or m < O["margin_min"] or nd is None or nd >= O["nd_ebitda_max"]
     res.append(dict(sym=r["sym"], name=r["name"], member=r["member"], beta_D=b, cagr10_D=None if c is None else round(c, 4), pass_D=bool(pin), fail_out_D=bool(fout), pass_now=r["passed"], fail_out_now=r.get("fail_out", not r["passed"])))
 print("Stichtag letzte Saisonprüfung:", D, "| heute:", sc["date"])
 for x in res: print(f"  {x['sym']:8s} {x['name'][:24]:24s} {'MITGLIED' if x['member'] else 'Anwärter'}  Stichtag: Beta {x['beta_D']} 10J {x['cagr10_D']} -> {'besteht' if x['pass_D'] else ('klar verfehlt' if x['fail_out_D'] else 'knapp nicht')} | heute {'besteht' if x['pass_now'] else '-'}")
