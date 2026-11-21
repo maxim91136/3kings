@@ -333,3 +333,6 @@ Prüfung vorab (nur Information): 185 Firmen kommen zusätzlich in die Wertung. 
 
 ## 2026-11-21: Keine Ausschlüsse aus moralischen Gründen (ausdrückliche Entscheidung)
 Branchen wie Glücksspiel oder Rüstung werden nicht aus Überzeugung ausgeschlossen. Es zählen nur die Regeln. Keine Regeländerung.
+
+## 2026-11-21: Nachrechnung für die neu gerechneten Firmen (ausdrückliche Entscheidung)
+Wie beim Start: Für Firmen, die erst durch den Wegfall des Unterbranchen-Ausschlusses gerechnet werden, wird die vorige Saisonprüfung (27.10.2026) nachgerechnet. Wer dort und am 20.11.2026 alle Regeln besteht, wird aufgenommen, wirksam ab dem nächsten Handelstag. Grund: gleiche Behandlung wie die bisherigen Mitglieder. Marge und Verschuldung: aktuelle Werte (wie beim Start).

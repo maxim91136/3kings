@@ -333,3 +333,6 @@ Check beforehand (information only): 185 additional companies enter the evaluati
 
 ## 2026-11-21: No exclusions on moral grounds (explicit decision)
 Industries such as gambling or defence are not excluded on principle. Only the rules count. No rule change.
+
+## 2026-11-21: Recalculation for newly computed companies (explicit decision)
+As at the start: for companies computed only since the sub-industry exclusion was removed, the previous season review (Oct 27, 2026) is recalculated. Whoever passes all rules then and on Nov 20, 2026 is admitted, effective from the next trading day. Reason: equal treatment with the existing members. Margin and debt: current values (as at the start).

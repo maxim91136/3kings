@@ -61,6 +61,6 @@ if "--apply" in sys.argv:
     for x in res:
         if not x["member"] and x["pass_D"] and x["pass_now"]:
             rows[x["sym"]]["streak"] = 2; rows[x["sym"]]["member"] = True
-            elite_bank.admit(rows[x["sym"]], how=f"Start: Saisonprüfungen {D} und {sc['date']} bestanden", how_en=f"start: season reviews {D} and {sc['date']} passed", d=sc["date"])
+            elite_bank.admit(rows[x["sym"]], how=os.environ.get("RETRO_HOW", f"Start: Saisonprüfungen {D} und {sc['date']} bestanden"), how_en=os.environ.get("RETRO_HOW_EN", f"start: season reviews {D} and {sc['date']} passed"), d=sc["date"])
     sc["rows"] = list(rows.values()); sc["bank"] = []
     json.dump(sc, open("data/elite_screen.json", "w"), ensure_ascii=False, indent=1)
