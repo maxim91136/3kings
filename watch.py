@@ -48,8 +48,11 @@ BR_EN = {"RACE": "Luxury cars", "MA": "Payments duopoly", "V": "Payments duopoly
 NAMES = {"RACE": ("Ferrari", "Luxus-Autos", 23.7), "MA": ("Mastercard", "Zahlungs-Duopol", 20.9), "V": ("Visa", "Zahlungs-Duopol", 16.9),
          "CTAS": ("Cintas", "Wiederkehrende Dienste", 25.6), "MSFT": ("Microsoft", "Cloud und KI", 25.9),
          "IDXX": ("IDEXX", "Tierarzt-Diagnostik", None)}
-if os.path.exists("data/elite_members.json"):  # Saisonprüfung (REGELN 2026-11-21): nur aktuelle Mitglieder
-    _m = json.load(open("data/elite_members.json")); NAMES = {k: v for k, v in NAMES.items() if k in _m}
+if os.path.exists("data/elite_members.json"):  # Saisonprüfung/Bank (REGELN 2026-11-21): nur aktuelle Mitglieder, Nachrücker aus elite_meta.json
+    _m = json.load(open("data/elite_members.json")); _meta = json.load(open("data/elite_meta.json")) if os.path.exists("data/elite_meta.json") else {}
+    NAMES = {k: NAMES.get(k) or (_meta.get(k, {}).get("name", k), _meta.get(k, {}).get("branch", ""), None) for k in _m}
+    for k in _m:
+        if k not in BR_EN: BR_EN[k] = _meta.get(k, {}).get("branch_en", "")
 if el and spy:
     local, ep = {}, {}
     for k in NAMES:
@@ -93,7 +96,7 @@ if el and spy:
     if last_d >= st["start"] and (not st["rows"] or st["rows"][-1]["date"] != last_d) and last_d in spy:
         e = st.get("base", 1.0) * float(np.mean([ep[k][last_d] / st["p0"][k] for k in ks if k in st["p0"]])); st["rows"].append(dict(date=last_d, elite=round(e, 4), spy=round(spy[last_d] / st["spy0"], 4)))
         json.dump(st, open(sp_path, "w"), indent=1)
-    out["elite"] = dict(stand=fz["stand"] if fz else None, n=len(NAMES), check=json.load(open("site/elite_check.json")) if os.path.exists("site/elite_check.json") else None, reviews=json.load(open("data/elite_reviews.json"))["reviews"] if os.path.exists("data/elite_reviews.json") else [], strikes=json.load(open("data/elite_reviews.json")).get("strikes", {}) if os.path.exists("data/elite_reviews.json") else {}, rows=rows, back=back, shadow=dict(start=st["start"], rows=st["rows"]))
+    out["elite"] = dict(stand=fz["stand"] if fz else None, n=len(NAMES), check=json.load(open("site/elite_check.json")) if os.path.exists("site/elite_check.json") else None, reviews=json.load(open("data/elite_reviews.json"))["reviews"] if os.path.exists("data/elite_reviews.json") else [], strikes=json.load(open("data/elite_reviews.json")).get("strikes", {}) if os.path.exists("data/elite_reviews.json") else {}, screen=(lambda sc: dict(date=sc["date"], season=sc["season"], n_pool=sc["n_pool"], n_cyclic=sc["n_cyclic"], bank=sc["bank"], rows=[dict(sym=r["sym"], name=r["name"], beta=r["beta"], cagr10=r["cagr10"], margin=r["margin"], de=r["de"], streak=r["streak"]) for r in sc["rows"] if r["passed"] and not r["member"]][:12]))(json.load(open("data/elite_screen.json"))) if os.path.exists("data/elite_screen.json") else None, pending=(lambda p: dict(sym=p.get("sym"), name=p.get("name"), created=p.get("created")) if p.get("sym") and not p.get("test") else None)(json.load(open("data/elite_pending.json"))) if os.path.exists("data/elite_pending.json") else None, rows=rows, back=back, shadow=dict(start=st["start"], rows=st["rows"]))
 json.dump(out, open("site/watch.json", "w"), ensure_ascii=False, indent=1)
 print("watch.json:", ", ".join(k for k in out if k != "generated"))
 if "factor" in out:

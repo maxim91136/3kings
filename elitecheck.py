@@ -1,7 +1,7 @@
 """Elite-Saisonprüfung (Regel: REGELN.md 2026-11-21): harte Regeln mit aktuellen Kursen neu rechnen.
 Beta < 1,15 (5 Jahre täglich, in Euro gegen S&P 500 in Euro), 10-Jahres-Rendite >= 17 % p. a. (Heimatwährung, inkl. Dividenden).
 Gleiche Methode wie screen.py. Nur Vorschau; Entscheidung am Saisonende. Schreibt site/elite_check.json."""
-import csv, json
+import csv, json, os
 import numpy as np
 fx = {r["date"]: float(r["value"]) for r in csv.DictReader(open("data/ind_EURUSD.csv"))}
 def load(path, col):
@@ -27,7 +27,8 @@ cols = [c for c in next(csv.reader(open("data/elite.csv")))[1:] if c in mem]
 rows = []
 for k in cols:
     s = load("data/elite.csv", k)
-    b, c = round(beta(eur(s)), 2), cagr10(s)
+    hp = "data/elite_home.csv"; hs = load(hp, k) if os.path.exists(hp) and k in next(csv.reader(open(hp))) else s
+    b, c = round(beta(eur(s)), 2), cagr10(hs)
     ok = bool(c is not None and b < 1.15 and c >= 0.17)
     rows.append({"key": k, "beta": b, "cagr10": None if c is None else round(float(c), 4), "pass": ok,
                  "why": [] if ok else (["beta"] if b >= 1.15 else []) + (["cagr10"] if c is None or c < 0.17 else [])})

@@ -1,0 +1,35 @@
+name: elitebank
+on:
+  schedule:
+    - cron: "23 */3 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "poll, propose, test SYMBOL oder screen (Screening erzwingen)"
+        default: poll
+permissions:
+  contents: write
+concurrency: elitebank
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: { python-version: "3.12" }
+      - run: pip install -q numpy
+      - name: Bank
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          MODE: ${{ github.event.inputs.mode || 'poll' }}
+        run: |
+          if [ "$MODE" = "screen" ]; then python elitescreen.py --force; else python elite_bank.py $MODE; fi
+      - name: Änderungen committen
+        run: |
+          git config user.name "3kings-elitebank"
+          git config user.email "elitebank@users.noreply.github.com"
+          git add -A data site REGELN.md REGELN.en.md
+          git diff --cached --quiet || git commit -m "Elite-Bank $(date -u +%F)"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push && break; sleep 5; done
