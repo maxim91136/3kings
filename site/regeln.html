@@ -19,7 +19,8 @@ h3{font:600 16px/1.3 var(--sans);margin:22px 0 6px}
 p,li{color:#D6D1C5}ul{padding-left:20px}
 code{font-size:13px;background:#171B24;padding:1px 5px;border-radius:3px}
 .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.top .back{margin:0}.lang{display:flex;gap:2px;font-size:12px}.lang a{color:var(--mute);text-decoration:none;padding:4px 8px;border:1px solid var(--line);border-radius:4px}.lang a.on{color:var(--ink);background:var(--gld);border-color:var(--gld)}
-</style></head><body><main>
+.totop{position:fixed;right:14px;bottom:max(16px,env(safe-area-inset-bottom));z-index:30;height:36px;padding:0 12px;border-radius:6px;border:1px solid var(--line);background:rgba(15,18,24,.9);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:var(--gld);font-size:13px;display:flex;align-items:center;gap:6px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s}.totop.on{opacity:1;pointer-events:auto}.totop:focus-visible{outline:2px solid var(--gld);outline-offset:2px}@media(prefers-reduced-motion:reduce){.totop{transition:none}}</style></head><body><button class="totop" id="totop" type="button"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="totopl">Nach oben</span></button>
+<main>
 <div class="top"><a class="back" id="back" href="./">← Zurück zur Übersicht</a><span class="lang"><a href="?lang=de" id="lde">DE</a><a href="?lang=en" id="len">EN</a></span></div>
 <h1 id="ttl">Regelbuch</h1>
 <p class="lead" id="lead">Was heute gilt, nach Themen. Herleitung und frühere Fassungen im <a href="protokoll.html" id="pk">Protokoll</a>.</p>
@@ -45,4 +46,6 @@ function md(t){let o="",list=false,para=[];
   fl();para.push(l.trim())}
  fp();fl();return o}
 fetch(EN?"REGELBUCH.en.md":"REGELBUCH.md",{cache:"no-store"}).then(r=>r.text()).then(t=>{document.getElementById("doc").innerHTML=md(t)+`<h2>${EN?"Log":"Protokoll"}</h2><p><a href="protokoll.html?lang=${LANG}">${EN?"All decisions, tests and earlier versions with dates":"Alle Entscheidungen, Tests und früheren Fassungen mit Datum"} →</a></p>`}).catch(()=>{document.getElementById("doc").textContent=EN?"Rule book could not be loaded.":"Regelbuch konnte nicht geladen werden."});
-</script></body></html>
+</script><script>{const EN2=document.documentElement.lang==="en",b=document.getElementById("totop");document.getElementById("totopl").textContent=EN2?"Back to top":"Nach oben";b.setAttribute("aria-label",EN2?"Back to top":"Nach oben");
+const upd=()=>b.classList.toggle("on",scrollY>innerHeight*1.2);addEventListener("scroll",upd,{passive:true});upd();
+b.onclick=()=>scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}</script></body></html>
