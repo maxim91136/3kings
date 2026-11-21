@@ -10,7 +10,8 @@ def last_commit(path):
 def hours(t): return None if t is None else (now - t).total_seconds() / 3600
 problems = []
 hb = last_commit("site/heartbeat.json"); h = hours(hb)
-if h is None or h > 26: problems.append(f"Nächtlicher Datenlauf: letzte Aktualisierung vor {'?' if h is None else round(h)} Stunden.")
+lim = 60 if now.weekday() in (6, 0) else 26   # Datenlauf nur Di-Sa (nach US-Handelstagen): So/Mo längere Pause normal
+if h is None or h > lim: problems.append(f"Nächtlicher Datenlauf: letzte Aktualisierung vor {'?' if h is None else round(h)} Stunden.")
 try:
     dd = json.load(open("site/heartbeat.json"))["data_date"]
     age = (now.date() - date.fromisoformat(dd)).days
