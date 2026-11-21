@@ -28,6 +28,12 @@
 - Mittellinie: 1,0117e-17 × Tage seit 3.1.2009 hoch 5,82 (Dollar). Untergrenze: 0,42 × Mittellinie (entspricht der roten Linie bei bitbo). (seit 21.11.2026)
 - Geprüft wird nur der Monatsschluss. Schluss unter der Untergrenze = Untergrenze in diesem Monat gebrochen. Nur Information, die Kaufregel bleibt unberührt. (seit 21.11.2026)
 
+## Marktbarometer (Ampel in „Lage auf einen Blick“)
+- Grün ruhig, gelb mittel, rot angespannt. Nur Information, kein Kauf- oder Verkaufssignal, die Kaufregel bleibt unberührt. (seit 21.11.2026)
+- Angst und Gier: grün ab 50, gelb 25–49, rot unter 25. VIX: grün unter 20, gelb 20–30, rot über 30. (seit 21.11.2026)
+- Tagesänderung S&P 500 und Gold: grün im Plus, gelb bis −2 %, rot darunter; Bitcoin: gelb bis −5 %. Öl (Monat): grün bis +5 %, gelb bis +15 %, rot darüber. (seit 21.11.2026)
+- US-Zins 10 Jahre: grün unter 4 %, gelb bis 4,75 %, rot darüber. EZB-Einlagenzins: grün bis 2,25 %, gelb bis 3 %, rot darüber. Inflation USA und Eurozone: grün bis 2,5 %, gelb bis 3,5 %, rot darüber. Euro in Dollar: ohne Farbe. (seit 21.11.2026)
+
 ## Taktikmodell 3 Könige (Prüfstand, ohne Handelsrelevanz)
 - Die drei Könige S&P 500, Bitcoin und Gold, in Euro. S&P 500 und Gold spielen fest Trend (200-Tage-Linie); für Bitcoin wird zum Saisonstart aus den Kandidaten gewählt (Rückblick 504 Handelstage). (seit 18.11.2026)
 - Kapitalverteilung nach Schwankung (inverse Volatilität), Bitcoin-Gewicht doppelt, nie mehr als 100 %, kein Hebel. Umgeschichtet wird erst ab 5 Punkten Abweichung. (seit 18.11.2026)

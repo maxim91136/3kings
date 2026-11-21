@@ -307,3 +307,6 @@ Wie beim Taktikmodell: Änderungen aus der Saisonprüfung (Aufnahme, Ausscheiden
 
 ## 2026-11-21: Wächter für den Wächter (ausdrückliche Entscheidung)
 watchdog.py, täglich 8:04 UTC (9:04 Uhr Winterzeit): meldet privat per Telegram, wenn der nächtliche Datenlauf oder der News-Monitor länger als 26 Stunden nichts geschrieben hat, die Kurse älter als 4 Tage sind oder am Monatsanfang der Monatsbericht fehlt. Sonntags kurze Meldung "Alles läuft".
+
+## 2026-11-21: Marktbarometer mit Ampelfarben (ausdrückliche Entscheidung)
+Neue Leiste „Lage auf einen Blick“ oben auf der Seite mit S&P 500, Bitcoin, Gold, Öl, US-Zins, EZB-Zins, Euro in Dollar, Inflation USA und Eurozone, Angst und Gier, VIX. Kacheln grün, gelb oder rot nach den Grenzen im Regelbuch (Abschnitt Marktbarometer). Nur Information, kein Signal. Quellen: Yahoo, EZB-Datenportal, US-Arbeitsstatistik (BLS), Eurostat (neue HICP-Reihe ab 2026).

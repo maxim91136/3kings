@@ -307,3 +307,6 @@ As with the tactical model: changes from the season review (admission, removal) 
 
 ## 2026-11-21: Watchdog for the watchdog (explicit decision)
 watchdog.py, daily 8:04 UTC (9:04 CET): reports privately via Telegram if the nightly data run or the news monitor has written nothing for more than 26 hours, prices are older than 4 days, or the monthly report is missing at the start of the month. On Sundays a short "all running" message.
+
+## 2026-11-21: Market barometer with traffic lights (explicit decision)
+New "At a glance" strip at the top of the page with S&P 500, bitcoin, gold, oil, US yield, ECB rate, euro in dollars, inflation US and euro area, Fear & Greed, VIX. Tiles green, yellow or red by the limits in the rule book (section market barometer). Information only, no signal. Sources: Yahoo, ECB data portal, US Bureau of Labor Statistics, Eurostat (new HICP series from 2026).
