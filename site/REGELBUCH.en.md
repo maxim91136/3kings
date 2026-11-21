@@ -28,6 +28,12 @@
 - Midline: 1.0117e-17 × days since Jan 3, 2009 to the power of 5.82 (dollars). Floor: 0.42 × midline (matches the red line on bitbo). (since Nov 21, 2026)
 - Only the monthly close is checked. A close below the floor = floor broken this month. Information only, the buy rule is unaffected. (since Nov 21, 2026)
 
+## Market barometer (traffic lights in "At a glance")
+- Green calm, yellow moderate, red stressed. Information only, not a buy or sell signal; the buy rule is unaffected. (since Nov 21, 2026)
+- Fear & Greed: green from 50, yellow 25–49, red below 25. VIX: green below 20, yellow 20–30, red above 30. (since Nov 21, 2026)
+- Daily change S&P 500 and gold: green when up, yellow down to −2 %, red below; bitcoin: yellow down to −5 %. Oil (month): green up to +5 %, yellow up to +15 %, red above. (since Nov 21, 2026)
+- US 10-yr yield: green below 4 %, yellow up to 4.75 %, red above. ECB deposit rate: green up to 2.25 %, yellow up to 3 %, red above. Inflation US and euro area: green up to 2.5 %, yellow up to 3.5 %, red above. Euro in dollars: no colour. (since Nov 21, 2026)
+
 ## Tactical model 3 Kings (test bench, no trading relevance)
 - Three kings: S&P 500, bitcoin, gold, in euros. S&P 500 and gold play trend (200-day line) fixed; for bitcoin a strategy is chosen from the candidates at the start of each season (look-back 504 trading days). (since Nov 18, 2026)
 - Capital split by volatility (inverse volatility), bitcoin weight doubled, never more than 100 %, no leverage. Rebalanced only from a 5-point deviation. (since Nov 18, 2026)
