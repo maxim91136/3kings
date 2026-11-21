@@ -78,7 +78,7 @@
  },
  "elite": {
   "stand": "2026-11-20",
-  "n": 8,
+  "n": 9,
   "check": {
    "date": "2026-11-20",
    "season": {
@@ -93,6 +93,15 @@
      "cagr10": 0.3524,
      "uw": 0.033,
      "vol": 0.296,
+     "pass": true,
+     "why": []
+    },
+    {
+     "key": "AAPL",
+     "beta": 1.14,
+     "cagr10": 0.296,
+     "uw": 0.092,
+     "vol": 0.265,
      "pass": true,
      "why": []
     },
@@ -169,17 +178,7 @@
    "n_pool": 454,
    "n_cyclic": 77,
    "bank": [],
-   "rows": [
-    {
-     "sym": "AAPL",
-     "name": "Apple Inc.",
-     "beta": 1.14,
-     "cagr10": 0.296,
-     "margin": 0.488,
-     "nd": 0.22,
-     "streak": 1
-    }
-   ]
+   "rows": []
   },
   "pending": null,
   "rows": [
@@ -194,6 +193,18 @@
     "cagr5": 0.4018,
     "until": "2026-11-20",
     "dd": 0.067
+   },
+   {
+    "key": "AAPL",
+    "name": "Apple Inc.",
+    "branch": "Technology Hardware, Storage & Peripherals",
+    "branch_en": "Technology Hardware, Storage & Peripherals",
+    "claim": null,
+    "beta": 1.14,
+    "cagr10": 0.296,
+    "cagr5": 0.1689,
+    "until": "2026-11-20",
+    "dd": 0.038
    },
    {
     "key": "MSFT",
@@ -284,8 +295,8 @@
    "since": "2016-11-21",
    "until": "2026-11-20",
    "elite": {
-    "cagr": 0.2529,
-    "mdd": 0.339
+    "cagr": 0.2612,
+    "mdd": 0.335
    },
    "spy": {
     "cagr": 0.1391,

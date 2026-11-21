@@ -82,5 +82,11 @@
   "branch": "Transaction & Payment Processing Services",
   "branch_en": "Transaction & Payment Processing Services",
   "cur": "USD"
+ },
+ "AAPL": {
+  "name": "Apple Inc.",
+  "branch": "Technology Hardware, Storage & Peripherals",
+  "branch_en": "Technology Hardware, Storage & Peripherals",
+  "cur": "USD"
  }
 }

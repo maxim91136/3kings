@@ -367,3 +367,6 @@ Prüfungen 27.10. und 20.11.2026 nachgerechnet. Mitglieder (8): Eli Lilly, Micro
 
 ## 2026-11-21: Fehler behoben, Beta-Vergleich ungerundet
 Beim Nachrechnen des 27.10. wurde das Beta vor dem Vergleich auf zwei Stellen gerundet. Apple hatte 1,1486 (unter 1,15, bestanden), gerundet 1,15 (fälschlich durchgefallen). Ab jetzt wird ungerundet verglichen, wie in der Saisonprüfung. Die Nachrechnung wird wiederholt.
+
+## 2026-11-20: Kronjuwelen-Neustart mit Dauerläufer-Regeln (automatisch nach Regel)
+Prüfungen 27.10. und 20.11.2026 nachgerechnet. Mitglieder (9): Eli Lilly, Apple Inc., Microsoft, Cintas, Ferrari, Investor AB, Mastercard, Visa Inc., Moody's. Neu: Apple Inc.. Ohne neues Geld (kein Verkauf): keine. Wirksam ab dem nächsten Handelstag.

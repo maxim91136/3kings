@@ -15,7 +15,7 @@
    "sym": "AAPL",
    "name": "Apple Inc.",
    "was": false,
-   "pass_D": false,
+   "pass_D": true,
    "pass_now": true,
    "beta_D": 1.15,
    "uw_D": 0.092,
@@ -94,7 +94,7 @@
   {
    "sym": "EVO.ST",
    "name": "Evolution",
-   "was": true,
+   "was": false,
    "pass_D": false,
    "pass_now": false,
    "beta_D": 0.51,
@@ -114,7 +114,7 @@
   {
    "sym": "ASML.AS",
    "name": "ASML",
-   "was": true,
+   "was": false,
    "pass_D": false,
    "pass_now": false,
    "beta_D": 1.02,
@@ -274,7 +274,7 @@
   {
    "sym": "GRMN",
    "name": "Garmin",
-   "was": true,
+   "was": false,
    "pass_D": false,
    "pass_now": false,
    "beta_D": 0.89,
@@ -304,7 +304,7 @@
   {
    "sym": "VEEV",
    "name": "Veeva Systems",
-   "was": true,
+   "was": false,
    "pass_D": false,
    "pass_now": false,
    "beta_D": 0.98,
@@ -364,7 +364,7 @@
   {
    "sym": "CBOE",
    "name": "Cboe Global Markets",
-   "was": true,
+   "was": false,
    "pass_D": false,
    "pass_now": false,
    "beta_D": 0.18,
@@ -384,7 +384,7 @@
   {
    "sym": "VRTX",
    "name": "Vertex Pharmaceuticals",
-   "was": true,
+   "was": false,
    "pass_D": false,
    "pass_now": false,
    "beta_D": 0.5,
@@ -414,7 +414,7 @@
   {
    "sym": "IDXX",
    "name": "Idexx Laboratories",
-   "was": true,
+   "was": false,
    "pass_D": false,
    "pass_now": false,
    "beta_D": 1.16,

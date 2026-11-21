@@ -367,3 +367,6 @@ Reviews Oct 27 and Nov 20, 2026 recalculated. Members (8): Eli Lilly, Microsoft,
 
 ## 2026-11-21: Bug fixed, beta compared unrounded
 When recalculating Oct 27, the beta was rounded to two decimals before the comparison. Apple had 1.1486 (below 1.15, passed), rounded 1.15 (wrongly failed). From now on the comparison is unrounded, as in the season review. The recalculation is repeated.
+
+## 2026-11-20: Crown Jewels restart with steady-runner rules (automatic per rule)
+Reviews Oct 27 and Nov 20, 2026 recalculated. Members (9): Eli Lilly, Apple Inc., Microsoft, Cintas, Ferrari, Investor AB, Mastercard, Visa Inc., Moody's. New: Apple Inc.. No new money (no sale): none. Effective from the next trading day.
