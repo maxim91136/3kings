@@ -260,3 +260,8 @@ Side finding (important): the same savings plan on the S&P 500 over the same per
 ### Supplement to the buffer test: lump sum (fixed before computing)
 Same setup, additionally: lump sum from the first review with members, equally weighted, rebalanced (sold and redistributed equally) only when members change; against a lump sum in the S&P 500 from the same day. Metric return p.a. Question: is the shortfall due to the savings plan?
 Result lump sum (2026-11-21): start Apr 5, 2016, S&P 500 14.3 % p.a. No buffer 12.7 %, narrow 13.1 %, medium 13.6 %, wide 14.0 % (38 rebalances). With a lump sum the shortfall is much smaller than in the savings plan (wide: 0.3 instead of 2.6 points p.a.); the buffer also helps here (fewer sales of stocks that later return). The S&P 500 is not beaten in any variant. The "wide" buffer is confirmed.
+
+## 2026-11-21: Crown Jewels start: previous season review recalculated (fixed before computing; eliteretro.py)
+Reason: the candidates only had streak 1 because the calculation was first made on Nov 21, not because they had failed before.
+Rule: the previous season review (start of the current season) is recalculated. Beta (weekly prices, 5 yrs, euros) and 10-year return from prices up to the reference date; margin and net debt/EBITDA with today's values (assumption: practically unchanged within three months; not freely available historically). The screening of Nov 21 counts as the review of the current season.
+Consequence: whoever meets all rules on the reference date AND on Nov 21 is admitted now (change in both shadow books from Nov 20, the last price day). Members that would have clearly missed on the reference date (buffer limits) get a warning; with a clear miss on both dates they are dropped. One-off at the start.
