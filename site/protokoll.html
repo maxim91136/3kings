@@ -50,6 +50,6 @@ fetch(EN?"REGELN.en.md":"REGELN.md",{cache:"no-store"}).then(r=>r.text()).then(t
  const last=(secs[0]||"").match(/^## (\d{4}-\d{2}-\d{2})/);
  document.getElementById("doc").innerHTML=`<h2 style="border-top:0;padding-top:0;margin-top:0">${EN?"Preface":"Vorbemerkung"}</h2>`+md(head)+(last?`<h2>${EN?"Entries, newest first":"Einträge, neueste zuerst"}</h2><p class="lead" style="margin:0 0 8px">${EN?"Latest entry: ":"Letzter Eintrag: "}${last[1].split("-").reverse().join(".")}</p>`:"")+md(secs.join("\n"))})
  .catch(()=>{document.getElementById("doc").textContent=EN?"Rule book could not be loaded.":"Regelbuch konnte nicht geladen werden."});
-</script><script>{const EN2=document.documentElement.lang==="en",b=document.getElementById("totop");document.getElementById("totopl").textContent=EN2?"Back to top":"Nach oben";b.setAttribute("aria-label",EN2?"Back to top":"Nach oben");
+</script><script>{const EN2=document.documentElement.lang==="en",b=document.getElementById("totop");document.getElementById("totopl").textContent=EN2?"Up":"Nach oben";b.setAttribute("aria-label",EN2?"Go up":"Nach oben");
 const upd=()=>b.classList.toggle("on",scrollY>innerHeight*1.2);addEventListener("scroll",upd,{passive:true});upd();
 b.onclick=()=>scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}</script></body></html>

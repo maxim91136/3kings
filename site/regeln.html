@@ -46,6 +46,6 @@ function md(t){let o="",list=false,para=[];
   fl();para.push(l.trim())}
  fp();fl();return o}
 fetch(EN?"REGELBUCH.en.md":"REGELBUCH.md",{cache:"no-store"}).then(r=>r.text()).then(t=>{document.getElementById("doc").innerHTML=md(t)+`<h2>${EN?"Log":"Protokoll"}</h2><p><a href="protokoll.html?lang=${LANG}">${EN?"All decisions, tests and earlier versions with dates":"Alle Entscheidungen, Tests und früheren Fassungen mit Datum"} →</a></p>`}).catch(()=>{document.getElementById("doc").textContent=EN?"Rule book could not be loaded.":"Regelbuch konnte nicht geladen werden."});
-</script><script>{const EN2=document.documentElement.lang==="en",b=document.getElementById("totop");document.getElementById("totopl").textContent=EN2?"Back to top":"Nach oben";b.setAttribute("aria-label",EN2?"Back to top":"Nach oben");
+</script><script>{const EN2=document.documentElement.lang==="en",b=document.getElementById("totop");document.getElementById("totopl").textContent=EN2?"Up":"Nach oben";b.setAttribute("aria-label",EN2?"Go up":"Nach oben");
 const upd=()=>b.classList.toggle("on",scrollY>innerHeight*1.2);addEventListener("scroll",upd,{passive:true});upd();
 b.onclick=()=>scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}</script></body></html>
