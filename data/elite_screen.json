@@ -5,16 +5,17 @@
  "n_cyclic": 262,
  "rows": [
   {
-   "sym": "TKO",
-   "name": "TKO Group Holdings",
+   "sym": "LLY",
+   "name": "Lilly (Eli)",
    "cur": "USD",
-   "branch": "Movies & Entertainment",
-   "branch_en": "Movies & Entertainment",
+   "branch": "Pharmaceuticals",
+   "branch_en": "Pharmaceuticals",
    "beta": 0.65,
-   "cagr10": 0.272,
-   "margin": 0.603,
-   "de": 0.6,
+   "cagr10": 0.3524,
+   "margin": 0.836,
+   "nd_ebitda": 0.96,
    "passed": true,
+   "why": [],
    "streak": 1,
    "member": false
   },
@@ -24,11 +25,12 @@
    "cur": "USD",
    "branch": "Systems Software",
    "branch_en": "Systems Software",
-   "beta": 1.09,
+   "beta": 1.05,
    "cagr10": 0.2448,
    "margin": 0.677,
-   "de": 0.28,
+   "nd_ebitda": 0.34,
    "passed": true,
+   "why": [],
    "streak": 1,
    "member": true
   },
@@ -38,11 +40,12 @@
    "cur": "USD",
    "branch": "Diversified Support Services",
    "branch_en": "Diversified Support Services",
-   "beta": 0.76,
+   "beta": 0.69,
    "cagr10": 0.2403,
    "margin": 0.51,
-   "de": 0.52,
+   "nd_ebitda": 0.76,
    "passed": true,
+   "why": [],
    "streak": 1,
    "member": true
   },
@@ -52,11 +55,12 @@
    "cur": "USD",
    "branch": "Luxus-Autos",
    "branch_en": "Luxury cars",
-   "beta": 0.9,
+   "beta": 0.84,
    "cagr10": 0.2303,
    "margin": 0.522,
-   "de": 0.8,
+   "nd_ebitda": 0.56,
    "passed": true,
+   "why": [],
    "streak": 1,
    "member": true
   },
@@ -66,13 +70,29 @@
    "cur": "USD",
    "branch": "Health Care Technology",
    "branch_en": "Health Care Technology",
-   "beta": 0.88,
+   "beta": 0.99,
    "cagr10": 0.2036,
    "margin": 0.75,
-   "de": 0.02,
+   "nd_ebitda": -6.59,
    "passed": true,
+   "why": [],
    "streak": 1,
    "member": false
+  },
+  {
+   "sym": "MA",
+   "name": "Mastercard",
+   "cur": "USD",
+   "branch": "Transaction & Payment Processing Services",
+   "branch_en": "Transaction & Payment Processing Services",
+   "beta": 0.81,
+   "cagr10": 0.2014,
+   "margin": 1.0,
+   "nd_ebitda": 0.59,
+   "passed": true,
+   "why": [],
+   "streak": 1,
+   "member": true
   },
   {
    "sym": "CBOE",
@@ -80,11 +100,12 @@
    "cur": "USD",
    "branch": "Financial Exchanges & Data",
    "branch_en": "Financial Exchanges & Data",
-   "beta": 0.23,
+   "beta": 0.15,
    "cagr10": 0.1948,
    "margin": 0.539,
-   "de": 0.27,
+   "nd_ebitda": -0.53,
    "passed": true,
+   "why": [],
    "streak": 1,
    "member": false
   },
@@ -94,11 +115,12 @@
    "cur": "USD",
    "branch": "Biotechnology",
    "branch_en": "Biotechnology",
-   "beta": 0.57,
+   "beta": 0.54,
    "cagr10": 0.1919,
    "margin": 0.548,
-   "de": 0.31,
+   "nd_ebitda": 0.03,
    "passed": true,
+   "why": [],
    "streak": 1,
    "member": false
   },
@@ -108,41 +130,14 @@
    "cur": "USD",
    "branch": "Health Care Equipment",
    "branch_en": "Health Care Equipment",
-   "beta": 1.09,
+   "beta": 1.11,
    "cagr10": 0.1903,
    "margin": 0.627,
-   "de": 0.52,
+   "nd_ebitda": 0.46,
    "passed": true,
+   "why": [],
    "streak": 1,
    "member": true
-  },
-  {
-   "sym": "NDAQ",
-   "name": "Nasdaq, Inc.",
-   "cur": "USD",
-   "branch": "Financial Exchanges & Data",
-   "branch_en": "Financial Exchanges & Data",
-   "beta": 0.84,
-   "cagr10": 0.1855,
-   "margin": 1.0,
-   "de": 0.77,
-   "passed": true,
-   "streak": 1,
-   "member": false
-  },
-  {
-   "sym": "DB1.DE",
-   "name": "Deutsche Börse",
-   "cur": "EUR",
-   "branch": "Börse",
-   "branch_en": "Exchange",
-   "beta": 0.05,
-   "cagr10": 0.1838,
-   "margin": 0.8,
-   "de": 0.72,
-   "passed": true,
-   "streak": 1,
-   "member": false
   },
   {
    "sym": "V",
@@ -150,40 +145,28 @@
    "cur": "USD",
    "branch": "Transaction & Payment Processing Services",
    "branch_en": "Transaction & Payment Processing Services",
-   "beta": 0.81,
+   "beta": 0.75,
    "cagr10": 0.1811,
    "margin": 0.977,
-   "de": 0.64,
+   "nd_ebitda": 0.28,
    "passed": true,
+   "why": [],
    "streak": 1,
    "member": true
   },
   {
-   "sym": "NFLX",
-   "name": "Netflix",
+   "sym": "MCO",
+   "name": "Moody's Corporation",
    "cur": "USD",
-   "branch": "Movies & Entertainment",
-   "branch_en": "Movies & Entertainment",
-   "beta": 1.11,
-   "cagr10": 0.1701,
-   "margin": 0.507,
-   "de": 0.6,
+   "branch": "Financial Exchanges & Data",
+   "branch_en": "Financial Exchanges & Data",
+   "beta": 0.97,
+   "cagr10": 0.1761,
+   "margin": 0.746,
+   "nd_ebitda": 1.48,
    "passed": true,
+   "why": [],
    "streak": 1,
-   "member": false
-  },
-  {
-   "sym": "LLY",
-   "name": "Lilly (Eli)",
-   "cur": "USD",
-   "branch": "Pharmaceuticals",
-   "branch_en": "Pharmaceuticals",
-   "beta": 0.65,
-   "cagr10": 0.3524,
-   "margin": 0.836,
-   "de": 1.23,
-   "passed": false,
-   "streak": 0,
    "member": false
   },
   {
@@ -192,11 +175,31 @@
    "cur": "USD",
    "branch": "Aerospace & Defense",
    "branch_en": "Aerospace & Defense",
-   "beta": 1.1,
+   "beta": 1.15,
    "cagr10": 0.3032,
    "margin": 0.366,
-   "de": 0.8,
+   "nd_ebitda": 1.35,
    "passed": false,
+   "why": [
+    "margin"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "TKO",
+   "name": "TKO Group Holdings",
+   "cur": "USD",
+   "branch": "Movies & Entertainment",
+   "branch_en": "Movies & Entertainment",
+   "beta": 0.52,
+   "cagr10": 0.272,
+   "margin": 0.603,
+   "nd_ebitda": 2.39,
+   "passed": false,
+   "why": [
+    "debt"
+   ],
    "streak": 0,
    "member": false
   },
@@ -206,11 +209,14 @@
    "cur": "USD",
    "branch": "Property & Casualty Insurance",
    "branch_en": "Property & Casualty Insurance",
-   "beta": 0.41,
+   "beta": 0.31,
    "cagr10": 0.2496,
    "margin": 0.173,
-   "de": 0.24,
+   "nd_ebitda": 0.4,
    "passed": false,
+   "why": [
+    "margin"
+   ],
    "streak": 0,
    "member": false
   },
@@ -223,8 +229,11 @@
    "beta": 0.72,
    "cagr10": 0.2404,
    "margin": 0.128,
-   "de": 0.28,
+   "nd_ebitda": -0.78,
    "passed": false,
+   "why": [
+    "margin"
+   ],
    "streak": 0,
    "member": false
   },
@@ -237,8 +246,11 @@
    "beta": 1.02,
    "cagr10": 0.2384,
    "margin": 0.829,
-   "de": null,
+   "nd_ebitda": 3.29,
    "passed": false,
+   "why": [
+    "debt"
+   ],
    "streak": 0,
    "member": false
   },
@@ -248,11 +260,14 @@
    "cur": "USD",
    "branch": "Health Care Distributors",
    "branch_en": "Health Care Distributors",
-   "beta": 0.33,
+   "beta": 0.12,
    "cagr10": 0.2337,
    "margin": 0.037,
-   "de": null,
+   "nd_ebitda": 0.64,
    "passed": false,
+   "why": [
+    "margin"
+   ],
    "streak": 0,
    "member": false
   },
@@ -262,11 +277,14 @@
    "cur": "USD",
    "branch": "Biotechnology",
    "branch_en": "Biotechnology",
-   "beta": 0.41,
+   "beta": 0.21,
    "cagr10": 0.217,
    "margin": 0.737,
-   "de": null,
+   "nd_ebitda": 2.21,
    "passed": false,
+   "why": [
+    "debt"
+   ],
    "streak": 0,
    "member": false
   },
@@ -276,11 +294,15 @@
    "cur": "USD",
    "branch": "Health Care Facilities",
    "branch_en": "Health Care Facilities",
-   "beta": 0.65,
+   "beta": 0.71,
    "cagr10": 0.2158,
    "margin": 0.428,
-   "de": null,
+   "nd_ebitda": 3.26,
    "passed": false,
+   "why": [
+    "margin",
+    "debt"
+   ],
    "streak": 0,
    "member": false
   },
@@ -290,11 +312,14 @@
    "cur": "USD",
    "branch": "Consumer Staples Merchandise Retail",
    "branch_en": "Consumer Staples Merchandise Retail",
-   "beta": 0.49,
+   "beta": 0.45,
    "cagr10": 0.2067,
    "margin": 0.248,
-   "de": 0.72,
+   "nd_ebitda": 1.44,
    "passed": false,
+   "why": [
+    "margin"
+   ],
    "streak": 0,
    "member": false
   },
@@ -304,11 +329,14 @@
    "cur": "USD",
    "branch": "Aerospace & Defense",
    "branch_en": "Aerospace & Defense",
-   "beta": 0.94,
+   "beta": 0.96,
    "cagr10": 0.2065,
    "margin": 0.597,
-   "de": null,
+   "nd_ebitda": 6.08,
    "passed": false,
+   "why": [
+    "debt"
+   ],
    "streak": 0,
    "member": false
   },
@@ -318,27 +346,17 @@
    "cur": "USD",
    "branch": "Insurance Brokers",
    "branch_en": "Insurance Brokers",
-   "beta": 0.56,
+   "beta": 0.45,
    "cagr10": 0.2031,
    "margin": 0.44,
-   "de": 0.56,
+   "nd_ebitda": 2.67,
    "passed": false,
+   "why": [
+    "margin",
+    "debt"
+   ],
    "streak": 0,
    "member": false
-  },
-  {
-   "sym": "MA",
-   "name": "Mastercard",
-   "cur": "USD",
-   "branch": "Transaction & Payment Processing Services",
-   "branch_en": "Transaction & Payment Processing Services",
-   "beta": 0.88,
-   "cagr10": 0.2014,
-   "margin": 1.0,
-   "de": 3.55,
-   "passed": false,
-   "streak": 0,
-   "member": true
   },
   {
    "sym": "LYV",
@@ -346,11 +364,14 @@
    "cur": "USD",
    "branch": "Movies & Entertainment",
    "branch_en": "Movies & Entertainment",
-   "beta": 1.02,
+   "beta": 1.03,
    "cagr10": 0.2006,
    "margin": 0.254,
-   "de": 5.1,
+   "nd_ebitda": 1.7,
    "passed": false,
+   "why": [
+    "margin"
+   ],
    "streak": 0,
    "member": false
   },
@@ -360,11 +381,14 @@
    "cur": "USD",
    "branch": "Food Retail",
    "branch_en": "Food Retail",
-   "beta": 0.55,
+   "beta": 0.37,
    "cagr10": 0.1983,
    "margin": 0.238,
-   "de": 0.71,
+   "nd_ebitda": 1.51,
    "passed": false,
+   "why": [
+    "margin"
+   ],
    "streak": 0,
    "member": false
   },
@@ -374,11 +398,14 @@
    "cur": "USD",
    "branch": "Application Software",
    "branch_en": "Application Software",
-   "beta": 1.01,
+   "beta": 0.92,
    "cagr10": 0.1975,
    "margin": 0.861,
-   "de": null,
+   "nd_ebitda": 3.87,
    "passed": false,
+   "why": [
+    "debt"
+   ],
    "streak": 0,
    "member": false
   },
@@ -388,11 +415,31 @@
    "cur": "USD",
    "branch": "Health Care Distributors",
    "branch_en": "Health Care Distributors",
-   "beta": 0.33,
+   "beta": 0.14,
    "cagr10": 0.1917,
    "margin": 0.041,
-   "de": 3.06,
+   "nd_ebitda": 1.12,
    "passed": false,
+   "why": [
+    "margin"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "NDAQ",
+   "name": "Nasdaq, Inc.",
+   "cur": "USD",
+   "branch": "Financial Exchanges & Data",
+   "branch_en": "Financial Exchanges & Data",
+   "beta": 0.85,
+   "cagr10": 0.1855,
+   "margin": 1.0,
+   "nd_ebitda": 2.56,
+   "passed": false,
+   "why": [
+    "debt"
+   ],
    "streak": 0,
    "member": false
   },
@@ -402,11 +449,31 @@
    "cur": "USD",
    "branch": "Property & Casualty Insurance",
    "branch_en": "Property & Casualty Insurance",
-   "beta": 0.42,
+   "beta": 0.32,
    "cagr10": 0.1837,
    "margin": 0.436,
-   "de": 0.32,
+   "nd_ebitda": -0.17,
    "passed": false,
+   "why": [
+    "margin"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "DB1.DE",
+   "name": "Deutsche Börse",
+   "cur": "EUR",
+   "branch": "Börse",
+   "branch_en": "Exchange",
+   "beta": 0.06,
+   "cagr10": 0.1816,
+   "margin": 0.8,
+   "nd_ebitda": 2.37,
+   "passed": false,
+   "why": [
+    "debt"
+   ],
    "streak": 0,
    "member": false
   },
@@ -416,11 +483,14 @@
    "cur": "CAD",
    "branch": "Software",
    "branch_en": "Software",
-   "beta": 0.69,
+   "beta": 0.62,
    "cagr10": 0.1814,
    "margin": 0.373,
-   "de": 1.13,
+   "nd_ebitda": 1.35,
    "passed": false,
+   "why": [
+    "margin"
+   ],
    "streak": 0,
    "member": false
   },
@@ -430,11 +500,15 @@
    "cur": "USD",
    "branch": "Environmental & Facilities Services",
    "branch_en": "Environmental & Facilities Services",
-   "beta": 0.43,
+   "beta": 0.32,
    "cagr10": 0.1798,
    "margin": 0.43,
-   "de": 1.17,
+   "nd_ebitda": 2.64,
    "passed": false,
+   "why": [
+    "margin",
+    "debt"
+   ],
    "streak": 0,
    "member": false
   },
@@ -444,11 +518,14 @@
    "cur": "USD",
    "branch": "Automotive Retail",
    "branch_en": "Automotive Retail",
-   "beta": 0.46,
+   "beta": 0.48,
    "cagr10": 0.1781,
    "margin": 0.516,
-   "de": null,
+   "nd_ebitda": 2.37,
    "passed": false,
+   "why": [
+    "debt"
+   ],
    "streak": 0,
    "member": false
   },
@@ -458,39 +535,14 @@
    "cur": "USD",
    "branch": "Health Care Distributors",
    "branch_en": "Health Care Distributors",
-   "beta": 0.46,
+   "beta": 0.36,
    "cagr10": 0.1773,
    "margin": 0.039,
-   "de": null,
+   "nd_ebitda": 0.81,
    "passed": false,
-   "streak": 0,
-   "member": false
-  },
-  {
-   "sym": "MCO",
-   "name": "Moody's Corporation",
-   "cur": "USD",
-   "branch": "Financial Exchanges & Data",
-   "branch_en": "Financial Exchanges & Data",
-   "beta": 1.0,
-   "cagr10": 0.1761,
-   "margin": 0.746,
-   "de": 2.23,
-   "passed": false,
-   "streak": 0,
-   "member": false
-  },
-  {
-   "sym": "WST",
-   "name": "West Pharmaceutical Services",
-   "cur": "USD",
-   "branch": "Health Care Supplies",
-   "branch_en": "Health Care Supplies",
-   "beta": 0.83,
-   "cagr10": 0.1755,
-   "margin": 0.376,
-   "de": 0.11,
-   "passed": false,
+   "why": [
+    "margin"
+   ],
    "streak": 0,
    "member": false
   },
@@ -500,14 +552,36 @@
    "cur": "EUR",
    "branch": "Rückversicherung",
    "branch_en": "Reinsurance",
-   "beta": 0.13,
-   "cagr10": 0.1755,
+   "beta": 0.06,
+   "cagr10": 0.1765,
    "margin": 0.34,
-   "de": 0.22,
+   "nd_ebitda": null,
    "passed": false,
+   "why": [
+    "margin",
+    "debt"
+   ],
+   "streak": 0,
+   "member": false
+  },
+  {
+   "sym": "WST",
+   "name": "West Pharmaceutical Services",
+   "cur": "USD",
+   "branch": "Health Care Supplies",
+   "branch_en": "Health Care Supplies",
+   "beta": 0.82,
+   "cagr10": 0.1755,
+   "margin": 0.376,
+   "nd_ebitda": -0.16,
+   "passed": false,
+   "why": [
+    "margin"
+   ],
    "streak": 0,
    "member": false
   }
  ],
+ "base_streaks": {},
  "bank": []
 }
