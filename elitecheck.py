@@ -14,7 +14,12 @@ def eur(s):
     return out
 spy = eur(load("data/prices.csv", "SPY"))
 def beta(p):
-    ds = [d for d in sorted(p) if d in spy][-1260:]
+    """Beta aus Wochenschlusskursen (letzter Handelstag je Kalenderwoche), 5 Jahre = 260 Wochen, beides in Euro (REGELN 2026-11-21)."""
+    wk = {}
+    for d in sorted(p):
+        if d in spy: wk[np.datetime64(d, "W")] = d
+    ds = list(wk.values())[-261:]
+    if len(ds) < 120: return None
     a = np.array([p[d] for d in ds]); b = np.array([spy[d] for d in ds]); ra, rb = a[1:] / a[:-1] - 1, b[1:] / b[:-1] - 1
     return float(np.cov(ra, rb)[0, 1] / rb.var(ddof=1))
 def cagr10(s):

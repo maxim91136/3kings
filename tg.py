@@ -20,7 +20,7 @@ def esc(s):
     s = s.replace("  ", " ").replace("€ € ", "€ ")
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 def public(l):  # interne Begriffe (Schattenbuch, Elite 6) nicht in Telegram
-    return not any(w in l for w in ("Schattenbuch", "shadow book", "Elite 6"))
+    return not any(w in l for w in ("Schattenbuch", "shadow book", "Elite 6", "Kronjuwelen", "Crown Jewels"))
 st_path = "data/tg_sent.json"
 TEST = len(sys.argv) > 1 and sys.argv[1] == "test"
 st = {} if TEST else (json.load(open(st_path)) if os.path.exists(st_path) else {})

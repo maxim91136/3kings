@@ -223,3 +223,12 @@ Bank: wer alle Aufnahmekriterien zwei Saisonprüfungen in Folge besteht. Größe
 Verbleib: unverändert nach den beiden harten Regeln (Beta, 10-J.-Rendite), zwei Saisonprüfungen in Folge durchgefallen = raus. Marge und Verschuldung gelten nur für die Aufnahme.
 Erstes Screening: 21.11.2026 (zählt als Saison 38). Bank frühestens nach der nächsten Saisonprüfung (ca. Ende Januar 2027).
 Einschränkung: Das Universum besteht aus heutigen Großunternehmen; Auswahl nach vergangener Rendite.
+
+## 2026-11-21: Aus Elite 6 werden die "Kronjuwelen" (ausdrückliche Entscheidung)
+Grund: Im ersten Screening erfüllten 12 Unternehmen alle Aufnahmeregeln; eine feste Grenze bei 6 wäre willkürlich (Platz 6 und 7 unterscheiden sich nur in vergangener Rendite) und lädt zum Hin und Her ein.
+Neu:
+1. Dynamischer Index: Wer alle Regeln erfüllt, ist drin, gleich gewichtet. Keine feste Größe. Ersetzt "6 Plätze" und "Bank" aus dem Eintrag zuvor.
+2. Regeln für Aufnahme UND Verbleib gleich (vier Regeln): Beta < 1,15; 10-J.-Rendite >= 17 % p. a.; Bruttomarge >= 49 %; Nettoverschuldung/EBITDA < 2 (Schulden minus Bargeld geteilt durch operativen Gewinn). Ersetzt Fremdkapital/Eigenkapital < 1: diese Kennzahl wird durch Aktienrückkäufe verzerrt (Mastercard 3,5, MSCI/AbbVie/HCA negatives Eigenkapital), obwohl die Firmen solide finanziert sind. Negatives oder fehlendes EBITDA = nicht bestanden.
+3. Beta aus Wochenschlusskursen (5 Jahre = 260 Wochen) statt Tageskursen: Tageskurse verzerren das Beta europäischer Aktien wegen unterschiedlicher Handelszeiten (Deutsche Börse täglich 0,05). Neu berechnet (Kurse 20.11.2026): Ferrari 0,84, Mastercard 0,81, Visa 0,75, Cintas 0,69, Microsoft 1,05, IDEXX 1,11.
+4. Rein: alle vier Regeln zwei Saisonprüfungen in Folge bestanden, dann Vorschlag per Telegram (privat), Aufnahme nach Bestätigung; Ablehnung gilt bis zur nächsten Saisonprüfung. Raus: zwei Saisonprüfungen in Folge durchgefallen (automatisch). Bei jeder Änderung Schattenbuch verkettet, alle gleich gewichtet (Umschichtung nur bei Änderungen, also höchstens an Saisonenden).
+5. Start: die bisherigen sechs Werte. Weitere Aufnahmen frühestens nach der nächsten Saisonprüfung (ca. Ende Januar 2027). Die Endbewertung des Schattenbuchs (November 2031) bleibt.

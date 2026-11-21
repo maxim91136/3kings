@@ -18,10 +18,12 @@ def fund(sym):
             j = json.loads(_get(f"https://query2.finance.yahoo.com/v10/finance/quoteSummary/{sym}?modules=financialData&crumb={crumb()}"))
             f = j["quoteSummary"]["result"][0]["financialData"]
             g = f.get("grossMargins", {}).get("raw"); d = f.get("debtToEquity", {}).get("raw")
-            return dict(margin=g, de=None if d is None else d / 100)
+            debt = f.get("totalDebt", {}).get("raw") or 0; cash = f.get("totalCash", {}).get("raw") or 0; eb = f.get("ebitda", {}).get("raw")
+            nd = None if not eb or eb <= 0 else (debt - cash) / eb   # Nettoverschuldung / EBITDA (Jahre bis schuldenfrei)
+            return dict(margin=g, de=None if d is None else d / 100, nd_ebitda=nd)
         except Exception as e:
             err = e; time.sleep(3 * (i + 1))
-    print(sym, "Fundamentaldaten fehlen:", err); return dict(margin=None, de=None)
+    print(sym, "Fundamentaldaten fehlen:", err); return dict(margin=None, de=None, nd_ebitda=None)
 if __name__ == "__main__":
     for s in sys.argv[1:] or ["MSFT", "CTAS", "RACE", "IDXX", "COST", "ASML.AS", "RMS.PA"]:
         print(s, fund(s)); time.sleep(1)

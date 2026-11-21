@@ -223,3 +223,12 @@ Bench: whoever passes all admission criteria in two season reviews in a row. Siz
 Staying: unchanged under the two hard rules (beta, 10-year return), failed two season reviews in a row = out. Margin and debt apply only to admission.
 First screening: Nov 21, 2026 (counts as season 38). Bench at the earliest after the next season review (around late January 2027).
 Limitation: the universe consists of today's large companies; selection by past returns.
+
+## 2026-11-21: Elite 6 becomes the "Crown Jewels" (explicit decision)
+Reason: in the first screening 12 companies met all admission rules; a fixed limit of 6 would be arbitrary (places 6 and 7 differ only in past return) and invites back and forth.
+New:
+1. Dynamic index: whoever meets all rules is in, equally weighted. No fixed size. Replaces "6 places" and "bench" from the previous entry.
+2. Same rules for admission AND staying (four rules): beta < 1.15; 10-year return >= 17 % p.a.; gross margin >= 49 %; net debt/EBITDA < 2 (debt minus cash divided by operating profit). Replaces debt/equity < 1: that ratio is distorted by share buybacks (Mastercard 3.5, MSCI/AbbVie/HCA negative equity) although the companies are soundly financed. Negative or missing EBITDA = not passed.
+3. Beta from weekly closing prices (5 years = 260 weeks) instead of daily prices: daily prices distort the beta of European stocks because of different trading hours (Deutsche Börse daily 0.05). Recalculated (prices Nov 20, 2026): Ferrari 0.84, Mastercard 0.81, Visa 0.75, Cintas 0.69, Microsoft 1.05, IDEXX 1.11.
+4. In: passed all four rules in two season reviews in a row, then a proposal via Telegram (private), admission after confirmation; a rejection holds until the next season review. Out: failed two season reviews in a row (automatic). On every change the shadow book is chained, all equally weighted (rebalancing only on changes, i.e. at most at season ends).
+5. Start: the existing six stocks. Further admissions at the earliest after the next season review (around late January 2027). The final verdict of the shadow book (November 2031) stays.

@@ -89,42 +89,42 @@
    "rows": [
     {
      "key": "RACE",
-     "beta": 0.9,
+     "beta": 0.84,
      "cagr10": 0.2303,
      "pass": true,
      "why": []
     },
     {
      "key": "MA",
-     "beta": 0.88,
+     "beta": 0.81,
      "cagr10": 0.2014,
      "pass": true,
      "why": []
     },
     {
      "key": "V",
-     "beta": 0.81,
+     "beta": 0.75,
      "cagr10": 0.1811,
      "pass": true,
      "why": []
     },
     {
      "key": "CTAS",
-     "beta": 0.76,
+     "beta": 0.69,
      "cagr10": 0.2403,
      "pass": true,
      "why": []
     },
     {
      "key": "MSFT",
-     "beta": 1.09,
+     "beta": 1.05,
      "cagr10": 0.2448,
      "pass": true,
      "why": []
     },
     {
      "key": "IDXX",
-     "beta": 1.09,
+     "beta": 1.11,
      "cagr10": 0.1903,
      "pass": true,
      "why": []
@@ -133,6 +133,79 @@
   },
   "reviews": [],
   "strikes": {},
+  "screen": {
+   "date": "2026-11-20",
+   "season": 38,
+   "n_pool": 269,
+   "n_cyclic": 262,
+   "bank": [],
+   "rows": [
+    {
+     "sym": "TKO",
+     "name": "TKO Group Holdings",
+     "beta": 0.65,
+     "cagr10": 0.272,
+     "margin": 0.603,
+     "nd": null,
+     "streak": 1
+    },
+    {
+     "sym": "VEEV",
+     "name": "Veeva Systems",
+     "beta": 0.88,
+     "cagr10": 0.2036,
+     "margin": 0.75,
+     "nd": null,
+     "streak": 1
+    },
+    {
+     "sym": "CBOE",
+     "name": "Cboe Global Markets",
+     "beta": 0.23,
+     "cagr10": 0.1948,
+     "margin": 0.539,
+     "nd": null,
+     "streak": 1
+    },
+    {
+     "sym": "VRTX",
+     "name": "Vertex Pharmaceuticals",
+     "beta": 0.57,
+     "cagr10": 0.1919,
+     "margin": 0.548,
+     "nd": null,
+     "streak": 1
+    },
+    {
+     "sym": "NDAQ",
+     "name": "Nasdaq, Inc.",
+     "beta": 0.84,
+     "cagr10": 0.1855,
+     "margin": 1.0,
+     "nd": null,
+     "streak": 1
+    },
+    {
+     "sym": "DB1.DE",
+     "name": "Deutsche Börse",
+     "beta": 0.05,
+     "cagr10": 0.1838,
+     "margin": 0.8,
+     "nd": null,
+     "streak": 1
+    },
+    {
+     "sym": "NFLX",
+     "name": "Netflix",
+     "beta": 1.11,
+     "cagr10": 0.1701,
+     "margin": 0.507,
+     "nd": null,
+     "streak": 1
+    }
+   ]
+  },
+  "pending": null,
   "rows": [
    {
     "key": "RACE",

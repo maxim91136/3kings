@@ -1,7 +1,7 @@
 """Elite-Screening je Saison (REGELN.md 2026-11-21 "Elite als eigener Index").
 Universum: S&P 500 (aktuell, Wikipedia) + Europa-Liste, ohne zyklische Branchen (data/elite_universe.json) -> gar nicht erst gerechnet.
 Aufnahme-Kriterien (alle): Beta < 1,15 (5 J. täglich, Euro gegen S&P 500 in Euro), 10-J.-Rendite >= 17 % p. a. (Heimatwährung, inkl. Dividenden),
-Bruttomarge >= 49 % (rund 50 %, 1 Punkt Toleranz), Fremdkapital/Eigenkapital < 1. Serie = Saisons in Folge bestanden. Bank = Serie >= 2.
+Bruttomarge >= 49 % (rund 50 %, 1 Punkt Toleranz), Nettoverschuldung/EBITDA < 2, Beta aus Wochenschlusskursen. Serie = Saisons in Folge bestanden. Aufnahme ab Serie 2 (nach Bestätigung). Mitglieder werden immer vollständig gerechnet.
 Läuft nur, wenn eine neue Saison begonnen hat (oder mit --force). Schreibt data/elite_screen.json."""
 import csv, json, os, sys, time
 import numpy as np
@@ -43,8 +43,12 @@ def eur(s, c):
     return out
 spy = eur(get("SPY"), "USD")
 def beta(p):
-    ds = [d for d in sorted(p) if d in spy][-1260:]
-    if len(ds) < 600: return None
+    """Beta aus Wochenschlusskursen (letzter Handelstag je Kalenderwoche), 5 Jahre = 260 Wochen, beides in Euro (REGELN 2026-11-21)."""
+    wk = {}
+    for d in sorted(p):
+        if d in spy: wk[np.datetime64(d, "W")] = d
+    ds = list(wk.values())[-261:]
+    if len(ds) < 120: return None
     a = np.array([p[d] for d in ds]); b = np.array([spy[d] for d in ds]); ra, rb = a[1:] / a[:-1] - 1, b[1:] / b[:-1] - 1
     return float(np.cov(ra, rb)[0, 1] / rb.var(ddof=1))
 def cagr10(s):
@@ -52,24 +56,28 @@ def cagr10(s):
     i0 = next((d for d in ds if d >= t), None)
     if not i0 or ds[0] > t: return None
     return float((s[d1] / s[i0]) ** (365.25 / (np.datetime64(d1) - np.datetime64(i0)).astype(int)) - 1)
-pst = {r["sym"]: r.get("streak", 0) for r in prev["rows"]}
+pst = prev.get("base_streaks", {}) if prev["season"] == n else {r["sym"]: r.get("streak", 0) for r in prev["rows"]}
 rows = []
 for sym, p in pool.items():
     s = get(sym); time.sleep(0.7)
     if not s: continue
     c = cagr10(s)
-    if c is None or c < R["cagr10_min"]: continue          # zu jung oder zu schwach: keine weiteren Abrufe
+    m = sym in mem
+    if (c is None or c < R["cagr10_min"]) and not m: continue          # zu jung oder zu schwach: keine weiteren Abrufe
     e = eur(s, p["cur"]); b = None if not e else beta(e)
-    if b is None or b >= R["beta_max"]: continue
+    if (b is None or b >= R["beta_max"]) and not m: continue
     f = fundamentals.fund(sym); time.sleep(0.7)
-    ok = f["margin"] is not None and f["de"] is not None and f["margin"] >= R["margin_min"] and f["de"] < R["de_max"]
-    rows.append(dict(p, beta=round(b, 2), cagr10=round(c, 4), margin=None if f["margin"] is None else round(f["margin"], 3),
-                     de=None if f["de"] is None else round(f["de"], 2), passed=ok, streak=(pst.get(sym, 0) + 1) if ok else 0,
-                     member=(sym in mem)))
-rows.sort(key=lambda r: (-r["passed"], -r["cagr10"]))
+    why = [k for k, bad in (("beta", b is None or b >= R["beta_max"]), ("cagr10", c is None or c < R["cagr10_min"]),
+           ("margin", f["margin"] is None or f["margin"] < R["margin_min"]), ("debt", f["nd_ebitda"] is None or f["nd_ebitda"] >= R["nd_ebitda_max"])) if bad]
+    ok = not why
+    rows.append(dict(p, beta=None if b is None else round(b, 2), cagr10=None if c is None else round(c, 4), margin=None if f["margin"] is None else round(f["margin"], 3),
+                     nd_ebitda=None if f["nd_ebitda"] is None else round(f["nd_ebitda"], 2), passed=ok, why=why, streak=(pst.get(sym, 0) + 1) if ok else 0, member=m))
+for k in mem:  # Mitglied ohne Kurse: gilt als durchgefallen
+    if not any(r["sym"] == k for r in rows): rows.append(dict(sym=k, name=k, cur="", branch="", branch_en="", beta=None, cagr10=None, margin=None, nd_ebitda=None, passed=False, why=["data"], streak=0, member=True))
+rows.sort(key=lambda r: (-r["passed"], -(r["cagr10"] or -9)))
 last = sorted(spy)[-1]
-out = dict(season=n, date=last, n_pool=len(pool), n_cyclic=skipped, rows=rows,
-           bank=[r["sym"] for r in rows if r["passed"] and r["streak"] >= R["streak_bank"] and not r["member"]])
+out = dict(season=n, date=last, n_pool=len(pool), n_cyclic=skipped, rows=rows, base_streaks=pst,
+           bank=[r["sym"] for r in rows if r["passed"] and r["streak"] >= R["streak_in"] and not r["member"]])
 json.dump(out, open("data/elite_screen.json", "w"), ensure_ascii=False, indent=1)
 print(f"Saison {n}, Stand {last}: {sum(r['passed'] for r in rows)} bestehen alles, Bank: {out['bank']}")
-for r in rows[:40]: print(f"  {r['sym']:10s} {r['name'][:26]:26s} Beta {r['beta']:.2f} 10J {r['cagr10']*100:5.1f} % Marge {r['margin']} FK/EK {r['de']} {'OK' if r['passed'] else '-'} Serie {r['streak']}{' (Elite)' if r['member'] else ''}")
+for r in rows[:40]: print(f"  {r['sym']:10s} {r['name'][:26]:26s} Beta {r['beta']} 10J {r['cagr10']} Marge {r['margin']} ND/EBITDA {r['nd_ebitda']} {'OK' if r['passed'] else '-'} Serie {r['streak']}{' (Elite)' if r['member'] else ''}")
