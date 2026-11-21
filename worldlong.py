@@ -6,7 +6,8 @@ CODES = {"usa": 984000, "world": 990100, "acwi": 892400}
 def msci(code):
     u = ("https://app2.msci.com/products/service/index/indexmaster/getLevelDataForGraph?currency_symbol=USD&index_variant=GRTR"
          f"&start_date=19691231&end_date=20991231&data_frequency=END_OF_MONTH&index_codes={code}")
-    j = json.loads(fp.get(u))
+    t = fp.get(u); j = json.loads(t)
+    if "indexes" not in j: print("MSCI-Antwort:", t[:600]); raise SystemExit(1)
     L = j["indexes"]["INDEX_LEVELS"]
     return {str(x["calc_date"])[:4] + "-" + str(x["calc_date"])[4:6]: float(x["level_eod"]) for x in L}
 D = {k: msci(c) for k, c in CODES.items()}
