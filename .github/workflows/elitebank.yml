@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "screen (Screening erzwingen), test SYMBOL, poll (Test-Antwort abholen)"
+        description: "screen (Screening erzwingen), retro (Start-Nachberechnung übernehmen), test SYMBOL, poll (Test-Antwort abholen)"
         default: poll
 permissions:
   contents: write
@@ -23,7 +23,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           MODE: ${{ github.event.inputs.mode || 'poll' }}
         run: |
-          if [ "$MODE" = "screen" ]; then python elitescreen.py --force; else python elite_bank.py $MODE; fi
+          if [ "$MODE" = "screen" ]; then python elitescreen.py --force; elif [ "$MODE" = "retro" ]; then python eliteretro.py --apply && python elitecheck.py && python watch.py; else python elite_bank.py $MODE; fi
       - name: Änderungen committen
         run: |
           git config user.name "3kings-elitebank"
