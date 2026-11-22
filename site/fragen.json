@@ -3464,5 +3464,984 @@
     "rank_h2": 9
    }
   ]
+ },
+ "robust": {
+  "r1": [
+   {
+    "gold": 5,
+    "share": 0.821
+   },
+   {
+    "gold": 10,
+    "share": 0.821
+   },
+   {
+    "gold": 15,
+    "share": 0.823
+   },
+   {
+    "gold": 20,
+    "share": 0.819
+   },
+   {
+    "gold": 25,
+    "share": 0.797
+   },
+   {
+    "gold": 30,
+    "share": 0.766
+   },
+   {
+    "gold": 35,
+    "share": 0.716
+   },
+   {
+    "gold": 40,
+    "share": 0.677
+   },
+   {
+    "gold": 45,
+    "share": 0.657
+   },
+   {
+    "gold": 50,
+    "share": 0.624
+   },
+   {
+    "gold": 55,
+    "share": 0.572
+   },
+   {
+    "gold": 60,
+    "share": 0.513
+   },
+   {
+    "gold": 65,
+    "share": 0.459
+   },
+   {
+    "gold": 70,
+    "share": 0.43
+   },
+   {
+    "gold": 75,
+    "share": 0.399
+   },
+   {
+    "gold": 80,
+    "share": 0.336
+   },
+   {
+    "gold": 85,
+    "share": 0.31
+   },
+   {
+    "gold": 90,
+    "share": 0.303
+   },
+   {
+    "gold": 95,
+    "share": 0.284
+   },
+   {
+    "gold": 100,
+    "share": 0.277
+   }
+  ],
+  "n1": 542,
+  "euro": [
+   {
+    "gold": 0,
+    "cagr": 0.1133,
+    "mdd": 0.469,
+    "ratio": 0.242,
+    "ok": false
+   },
+   {
+    "gold": 5,
+    "cagr": 0.1145,
+    "mdd": 0.437,
+    "ratio": 0.262,
+    "ok": true
+   },
+   {
+    "gold": 10,
+    "cagr": 0.1156,
+    "mdd": 0.404,
+    "ratio": 0.286,
+    "ok": true
+   },
+   {
+    "gold": 15,
+    "cagr": 0.1166,
+    "mdd": 0.369,
+    "ratio": 0.316,
+    "ok": true
+   },
+   {
+    "gold": 20,
+    "cagr": 0.1175,
+    "mdd": 0.334,
+    "ratio": 0.352,
+    "ok": true
+   },
+   {
+    "gold": 25,
+    "cagr": 0.1182,
+    "mdd": 0.297,
+    "ratio": 0.398,
+    "ok": true
+   },
+   {
+    "gold": 30,
+    "cagr": 0.1188,
+    "mdd": 0.261,
+    "ratio": 0.456,
+    "ok": true
+   },
+   {
+    "gold": 35,
+    "cagr": 0.1193,
+    "mdd": 0.232,
+    "ratio": 0.514,
+    "ok": true
+   },
+   {
+    "gold": 40,
+    "cagr": 0.1197,
+    "mdd": 0.203,
+    "ratio": 0.588,
+    "ok": true
+   },
+   {
+    "gold": 45,
+    "cagr": 0.1199,
+    "mdd": 0.174,
+    "ratio": 0.688,
+    "ok": true
+   },
+   {
+    "gold": 50,
+    "cagr": 0.1201,
+    "mdd": 0.154,
+    "ratio": 0.778,
+    "ok": true
+   },
+   {
+    "gold": 55,
+    "cagr": 0.1201,
+    "mdd": 0.141,
+    "ratio": 0.855,
+    "ok": true
+   },
+   {
+    "gold": 60,
+    "cagr": 0.12,
+    "mdd": 0.136,
+    "ratio": 0.881,
+    "ok": true
+   },
+   {
+    "gold": 65,
+    "cagr": 0.1198,
+    "mdd": 0.163,
+    "ratio": 0.734,
+    "ok": true
+   },
+   {
+    "gold": 70,
+    "cagr": 0.1194,
+    "mdd": 0.19,
+    "ratio": 0.628,
+    "ok": true
+   },
+   {
+    "gold": 75,
+    "cagr": 0.1189,
+    "mdd": 0.217,
+    "ratio": 0.548,
+    "ok": true
+   },
+   {
+    "gold": 80,
+    "cagr": 0.1183,
+    "mdd": 0.244,
+    "ratio": 0.485,
+    "ok": true
+   },
+   {
+    "gold": 85,
+    "cagr": 0.1176,
+    "mdd": 0.271,
+    "ratio": 0.435,
+    "ok": true
+   },
+   {
+    "gold": 90,
+    "cagr": 0.1167,
+    "mdd": 0.297,
+    "ratio": 0.393,
+    "ok": true
+   },
+   {
+    "gold": 95,
+    "cagr": 0.1157,
+    "mdd": 0.324,
+    "ratio": 0.357,
+    "ok": true
+   },
+   {
+    "gold": 100,
+    "cagr": 0.1146,
+    "mdd": 0.35,
+    "ratio": 0.327,
+    "ok": true
+   }
+  ],
+  "n3": 85,
+  "cand": [
+   {
+    "sp": 50,
+    "gold": 35,
+    "btc": 15,
+    "cagr": 0.2424,
+    "mdd": 0.239,
+    "ratio": 1.013,
+    "r3": 0.6,
+    "r1": 0.716,
+    "c": false,
+    "d": true,
+    "b": true,
+    "reb": null,
+    "e": false,
+    "alle": false
+   },
+   {
+    "sp": 50,
+    "gold": 40,
+    "btc": 10,
+    "cagr": 0.2078,
+    "mdd": 0.207,
+    "ratio": 1.003,
+    "r3": 0.929,
+    "r1": 0.677,
+    "c": false,
+    "d": true,
+    "b": true,
+    "reb": null,
+    "e": false,
+    "alle": false
+   },
+   {
+    "sp": 55,
+    "gold": 35,
+    "btc": 10,
+    "cagr": 0.2083,
+    "mdd": 0.212,
+    "ratio": 0.983,
+    "r3": 0.929,
+    "r1": 0.716,
+    "c": false,
+    "d": true,
+    "b": true,
+    "reb": null,
+    "e": false,
+    "alle": false
+   },
+   {
+    "sp": 50,
+    "gold": 45,
+    "btc": 5,
+    "cagr": 0.1693,
+    "mdd": 0.174,
+    "ratio": 0.974,
+    "r3": 1.0,
+    "r1": 0.657,
+    "c": false,
+    "d": true,
+    "b": true,
+    "reb": null,
+    "e": false,
+    "alle": false
+   },
+   {
+    "sp": 60,
+    "gold": 30,
+    "btc": 10,
+    "cagr": 0.2088,
+    "mdd": 0.217,
+    "ratio": 0.963,
+    "r3": 0.929,
+    "r1": 0.766,
+    "c": true,
+    "d": true,
+    "b": true,
+    "reb": {
+     "nie": {
+      "cagr": 0.3125,
+      "mdd": 0.665,
+      "vs_jaehrlich": "schlechter"
+     },
+     "jährlich": {
+      "cagr": 0.2088,
+      "mdd": 0.217,
+      "vs_jaehrlich": "–"
+     },
+     "halbjährlich": {
+      "cagr": 0.2136,
+      "mdd": 0.212,
+      "vs_jaehrlich": "besser"
+     },
+     "vierteljährlich": {
+      "cagr": 0.2103,
+      "mdd": 0.21,
+      "vs_jaehrlich": "gleich"
+     },
+     "monatlich": {
+      "cagr": 0.1916,
+      "mdd": 0.21,
+      "vs_jaehrlich": "schlechter"
+     }
+    },
+    "e": false,
+    "alle": false
+   },
+   {
+    "sp": 55,
+    "gold": 40,
+    "btc": 5,
+    "cagr": 0.1701,
+    "mdd": 0.179,
+    "ratio": 0.951,
+    "r3": 1.0,
+    "r1": 0.677,
+    "c": false,
+    "d": true,
+    "b": true,
+    "reb": null,
+    "e": false,
+    "alle": false
+   },
+   {
+    "sp": 65,
+    "gold": 25,
+    "btc": 10,
+    "cagr": 0.2092,
+    "mdd": 0.222,
+    "ratio": 0.943,
+    "r3": 0.929,
+    "r1": 0.797,
+    "c": true,
+    "d": true,
+    "b": true,
+    "reb": {
+     "nie": {
+      "cagr": 0.3127,
+      "mdd": 0.664,
+      "vs_jaehrlich": "schlechter"
+     },
+     "jährlich": {
+      "cagr": 0.2092,
+      "mdd": 0.222,
+      "vs_jaehrlich": "–"
+     },
+     "halbjährlich": {
+      "cagr": 0.214,
+      "mdd": 0.217,
+      "vs_jaehrlich": "besser"
+     },
+     "vierteljährlich": {
+      "cagr": 0.2108,
+      "mdd": 0.215,
+      "vs_jaehrlich": "gleich"
+     },
+     "monatlich": {
+      "cagr": 0.1924,
+      "mdd": 0.215,
+      "vs_jaehrlich": "schlechter"
+     }
+    },
+    "e": false,
+    "alle": false
+   },
+   {
+    "sp": 60,
+    "gold": 35,
+    "btc": 5,
+    "cagr": 0.1709,
+    "mdd": 0.184,
+    "ratio": 0.929,
+    "r3": 1.0,
+    "r1": 0.716,
+    "c": false,
+    "d": true,
+    "b": true,
+    "reb": null,
+    "e": false,
+    "alle": false
+   },
+   {
+    "sp": 70,
+    "gold": 20,
+    "btc": 10,
+    "cagr": 0.2095,
+    "mdd": 0.227,
+    "ratio": 0.925,
+    "r3": 0.894,
+    "r1": 0.819,
+    "c": true,
+    "d": true,
+    "b": true,
+    "reb": {
+     "nie": {
+      "cagr": 0.3129,
+      "mdd": 0.663,
+      "vs_jaehrlich": "schlechter"
+     },
+     "jährlich": {
+      "cagr": 0.2095,
+      "mdd": 0.227,
+      "vs_jaehrlich": "–"
+     },
+     "halbjährlich": {
+      "cagr": 0.2143,
+      "mdd": 0.222,
+      "vs_jaehrlich": "besser"
+     },
+     "vierteljährlich": {
+      "cagr": 0.2111,
+      "mdd": 0.221,
+      "vs_jaehrlich": "gleich"
+     },
+     "monatlich": {
+      "cagr": 0.1932,
+      "mdd": 0.22,
+      "vs_jaehrlich": "schlechter"
+     }
+    },
+    "e": false,
+    "alle": false
+   },
+   {
+    "sp": 65,
+    "gold": 30,
+    "btc": 5,
+    "cagr": 0.1715,
+    "mdd": 0.189,
+    "ratio": 0.908,
+    "r3": 1.0,
+    "r1": 0.766,
+    "c": true,
+    "d": true,
+    "b": true,
+    "reb": {
+     "nie": {
+      "cagr": 0.2543,
+      "mdd": 0.604,
+      "vs_jaehrlich": "schlechter"
+     },
+     "jährlich": {
+      "cagr": 0.1715,
+      "mdd": 0.189,
+      "vs_jaehrlich": "–"
+     },
+     "halbjährlich": {
+      "cagr": 0.174,
+      "mdd": 0.186,
+      "vs_jaehrlich": "besser"
+     },
+     "vierteljährlich": {
+      "cagr": 0.1717,
+      "mdd": 0.184,
+      "vs_jaehrlich": "gleich"
+     },
+     "monatlich": {
+      "cagr": 0.161,
+      "mdd": 0.185,
+      "vs_jaehrlich": "schlechter"
+     }
+    },
+    "e": false,
+    "alle": false
+   },
+   {
+    "sp": 75,
+    "gold": 15,
+    "btc": 10,
+    "cagr": 0.2098,
+    "mdd": 0.231,
+    "ratio": 0.907,
+    "r3": 0.812,
+    "r1": 0.823,
+    "c": true,
+    "d": true,
+    "b": true,
+    "reb": {
+     "nie": {
+      "cagr": 0.3131,
+      "mdd": 0.661,
+      "vs_jaehrlich": "schlechter"
+     },
+     "jährlich": {
+      "cagr": 0.2098,
+      "mdd": 0.231,
+      "vs_jaehrlich": "–"
+     },
+     "halbjährlich": {
+      "cagr": 0.2146,
+      "mdd": 0.227,
+      "vs_jaehrlich": "besser"
+     },
+     "vierteljährlich": {
+      "cagr": 0.2113,
+      "mdd": 0.226,
+      "vs_jaehrlich": "gleich"
+     },
+     "monatlich": {
+      "cagr": 0.1939,
+      "mdd": 0.225,
+      "vs_jaehrlich": "schlechter"
+     }
+    },
+    "e": false,
+    "alle": false
+   },
+   {
+    "sp": 80,
+    "gold": 10,
+    "btc": 10,
+    "cagr": 0.21,
+    "mdd": 0.236,
+    "ratio": 0.889,
+    "r3": 0.729,
+    "r1": 0.821,
+    "c": false,
+    "d": true,
+    "b": true,
+    "reb": null,
+    "e": false,
+    "alle": false
+   }
+  ],
+  "n_cand": 29,
+  "n_alle": 7,
+  "best": [
+   {
+    "sp": 70,
+    "gold": 30,
+    "btc": 0,
+    "cagr": 0.1299,
+    "mdd": 0.16,
+    "ratio": 0.811,
+    "r3": 1.0,
+    "r1": 0.766,
+    "c": true,
+    "d": true,
+    "b": true,
+    "reb": {
+     "nie": {
+      "cagr": 0.1272,
+      "mdd": 0.171,
+      "vs_jaehrlich": "schlechter"
+     },
+     "jährlich": {
+      "cagr": 0.1299,
+      "mdd": 0.16,
+      "vs_jaehrlich": "–"
+     },
+     "halbjährlich": {
+      "cagr": 0.1307,
+      "mdd": 0.16,
+      "vs_jaehrlich": "gleich"
+     },
+     "vierteljährlich": {
+      "cagr": 0.131,
+      "mdd": 0.158,
+      "vs_jaehrlich": "gleich"
+     },
+     "monatlich": {
+      "cagr": 0.1298,
+      "mdd": 0.159,
+      "vs_jaehrlich": "gleich"
+     }
+    },
+    "e": true,
+    "alle": true
+   },
+   {
+    "sp": 95,
+    "gold": 0,
+    "btc": 5,
+    "cagr": 0.1741,
+    "mdd": 0.218,
+    "ratio": 0.797,
+    "r3": 0.859,
+    "r1": null,
+    "c": true,
+    "d": true,
+    "b": true,
+    "reb": {
+     "nie": {
+      "cagr": 0.2564,
+      "mdd": 0.591,
+      "vs_jaehrlich": "schlechter"
+     },
+     "jährlich": {
+      "cagr": 0.1741,
+      "mdd": 0.218,
+      "vs_jaehrlich": "–"
+     },
+     "halbjährlich": {
+      "cagr": 0.176,
+      "mdd": 0.216,
+      "vs_jaehrlich": "gleich"
+     },
+     "vierteljährlich": {
+      "cagr": 0.1736,
+      "mdd": 0.216,
+      "vs_jaehrlich": "gleich"
+     },
+     "monatlich": {
+      "cagr": 0.165,
+      "mdd": 0.215,
+      "vs_jaehrlich": "schlechter"
+     }
+    },
+    "e": true,
+    "alle": true
+   },
+   {
+    "sp": 75,
+    "gold": 25,
+    "btc": 0,
+    "cagr": 0.1308,
+    "mdd": 0.165,
+    "ratio": 0.791,
+    "r3": 1.0,
+    "r1": 0.797,
+    "c": true,
+    "d": true,
+    "b": true,
+    "reb": {
+     "nie": {
+      "cagr": 0.1284,
+      "mdd": 0.174,
+      "vs_jaehrlich": "schlechter"
+     },
+     "jährlich": {
+      "cagr": 0.1308,
+      "mdd": 0.165,
+      "vs_jaehrlich": "–"
+     },
+     "halbjährlich": {
+      "cagr": 0.1315,
+      "mdd": 0.165,
+      "vs_jaehrlich": "gleich"
+     },
+     "vierteljährlich": {
+      "cagr": 0.1318,
+      "mdd": 0.163,
+      "vs_jaehrlich": "gleich"
+     },
+     "monatlich": {
+      "cagr": 0.1307,
+      "mdd": 0.164,
+      "vs_jaehrlich": "gleich"
+     }
+    },
+    "e": true,
+    "alle": true
+   },
+   {
+    "sp": 80,
+    "gold": 20,
+    "btc": 0,
+    "cagr": 0.1315,
+    "mdd": 0.17,
+    "ratio": 0.772,
+    "r3": 1.0,
+    "r1": 0.819,
+    "c": true,
+    "d": true,
+    "b": true,
+    "reb": {
+     "nie": {
+      "cagr": 0.1295,
+      "mdd": 0.178,
+      "vs_jaehrlich": "schlechter"
+     },
+     "jährlich": {
+      "cagr": 0.1315,
+      "mdd": 0.17,
+      "vs_jaehrlich": "–"
+     },
+     "halbjährlich": {
+      "cagr": 0.1322,
+      "mdd": 0.17,
+      "vs_jaehrlich": "gleich"
+     },
+     "vierteljährlich": {
+      "cagr": 0.1324,
+      "mdd": 0.169,
+      "vs_jaehrlich": "gleich"
+     },
+     "monatlich": {
+      "cagr": 0.1315,
+      "mdd": 0.17,
+      "vs_jaehrlich": "gleich"
+     }
+    },
+    "e": true,
+    "alle": true
+   },
+   {
+    "sp": 85,
+    "gold": 15,
+    "btc": 0,
+    "cagr": 0.1322,
+    "mdd": 0.175,
+    "ratio": 0.754,
+    "r3": 1.0,
+    "r1": 0.823,
+    "c": true,
+    "d": true,
+    "b": true,
+    "reb": {
+     "nie": {
+      "cagr": 0.1306,
+      "mdd": 0.182,
+      "vs_jaehrlich": "gleich"
+     },
+     "jährlich": {
+      "cagr": 0.1322,
+      "mdd": 0.175,
+      "vs_jaehrlich": "–"
+     },
+     "halbjährlich": {
+      "cagr": 0.1327,
+      "mdd": 0.175,
+      "vs_jaehrlich": "gleich"
+     },
+     "vierteljährlich": {
+      "cagr": 0.1329,
+      "mdd": 0.174,
+      "vs_jaehrlich": "gleich"
+     },
+     "monatlich": {
+      "cagr": 0.1322,
+      "mdd": 0.175,
+      "vs_jaehrlich": "gleich"
+     }
+    },
+    "e": true,
+    "alle": true
+   },
+   {
+    "sp": 90,
+    "gold": 10,
+    "btc": 0,
+    "cagr": 0.1328,
+    "mdd": 0.181,
+    "ratio": 0.734,
+    "r3": 1.0,
+    "r1": 0.821,
+    "c": true,
+    "d": true,
+    "b": true,
+    "reb": {
+     "nie": {
+      "cagr": 0.1317,
+      "mdd": 0.186,
+      "vs_jaehrlich": "gleich"
+     },
+     "jährlich": {
+      "cagr": 0.1328,
+      "mdd": 0.181,
+      "vs_jaehrlich": "–"
+     },
+     "halbjährlich": {
+      "cagr": 0.1332,
+      "mdd": 0.181,
+      "vs_jaehrlich": "gleich"
+     },
+     "vierteljährlich": {
+      "cagr": 0.1333,
+      "mdd": 0.18,
+      "vs_jaehrlich": "gleich"
+     },
+     "monatlich": {
+      "cagr": 0.1328,
+      "mdd": 0.181,
+      "vs_jaehrlich": "gleich"
+     }
+    },
+    "e": true,
+    "alle": true
+   },
+   {
+    "sp": 95,
+    "gold": 5,
+    "btc": 0,
+    "cagr": 0.1334,
+    "mdd": 0.187,
+    "ratio": 0.714,
+    "r3": 1.0,
+    "r1": 0.821,
+    "c": true,
+    "d": true,
+    "b": true,
+    "reb": {
+     "nie": {
+      "cagr": 0.1328,
+      "mdd": 0.189,
+      "vs_jaehrlich": "gleich"
+     },
+     "jährlich": {
+      "cagr": 0.1334,
+      "mdd": 0.187,
+      "vs_jaehrlich": "–"
+     },
+     "halbjährlich": {
+      "cagr": 0.1336,
+      "mdd": 0.187,
+      "vs_jaehrlich": "gleich"
+     },
+     "vierteljährlich": {
+      "cagr": 0.1337,
+      "mdd": 0.186,
+      "vs_jaehrlich": "gleich"
+     },
+     "monatlich": {
+      "cagr": 0.1334,
+      "mdd": 0.187,
+      "vs_jaehrlich": "gleich"
+     }
+    },
+    "e": true,
+    "alle": true
+   }
+  ],
+  "reb": [
+   {
+    "label": "50/40/10",
+    "r": {
+     "nie": {
+      "cagr": 0.312,
+      "mdd": 0.668,
+      "vs_jaehrlich": "schlechter"
+     },
+     "jährlich": {
+      "cagr": 0.2078,
+      "mdd": 0.207,
+      "vs_jaehrlich": "–"
+     },
+     "halbjährlich": {
+      "cagr": 0.2124,
+      "mdd": 0.203,
+      "vs_jaehrlich": "besser"
+     },
+     "vierteljährlich": {
+      "cagr": 0.2091,
+      "mdd": 0.2,
+      "vs_jaehrlich": "gleich"
+     },
+     "monatlich": {
+      "cagr": 0.1896,
+      "mdd": 0.2,
+      "vs_jaehrlich": "schlechter"
+     }
+    }
+   },
+   {
+    "label": "50/35/15",
+    "r": {
+     "nie": {
+      "cagr": 0.3512,
+      "mdd": 0.69,
+      "vs_jaehrlich": "schlechter"
+     },
+     "jährlich": {
+      "cagr": 0.2424,
+      "mdd": 0.239,
+      "vs_jaehrlich": "–"
+     },
+     "halbjährlich": {
+      "cagr": 0.2496,
+      "mdd": 0.234,
+      "vs_jaehrlich": "besser"
+     },
+     "vierteljährlich": {
+      "cagr": 0.2466,
+      "mdd": 0.231,
+      "vs_jaehrlich": "besser"
+     },
+     "monatlich": {
+      "cagr": 0.2205,
+      "mdd": 0.231,
+      "vs_jaehrlich": "schlechter"
+     }
+    }
+   },
+   {
+    "label": "60/40/0",
+    "r": {
+     "nie": {
+      "cagr": 0.1249,
+      "mdd": 0.163,
+      "vs_jaehrlich": "schlechter"
+     },
+     "jährlich": {
+      "cagr": 0.128,
+      "mdd": 0.15,
+      "vs_jaehrlich": "–"
+     },
+     "halbjährlich": {
+      "cagr": 0.1289,
+      "mdd": 0.149,
+      "vs_jaehrlich": "gleich"
+     },
+     "vierteljährlich": {
+      "cagr": 0.1292,
+      "mdd": 0.147,
+      "vs_jaehrlich": "gleich"
+     },
+     "monatlich": {
+      "cagr": 0.1278,
+      "mdd": 0.149,
+      "vs_jaehrlich": "gleich"
+     }
+    }
+   },
+   {
+    "label": "80/10/10",
+    "r": {
+     "nie": {
+      "cagr": 0.3133,
+      "mdd": 0.66,
+      "vs_jaehrlich": "schlechter"
+     },
+     "jährlich": {
+      "cagr": 0.21,
+      "mdd": 0.236,
+      "vs_jaehrlich": "–"
+     },
+     "halbjährlich": {
+      "cagr": 0.2147,
+      "mdd": 0.231,
+      "vs_jaehrlich": "besser"
+     },
+     "vierteljährlich": {
+      "cagr": 0.2114,
+      "mdd": 0.231,
+      "vs_jaehrlich": "gleich"
+     },
+     "monatlich": {
+      "cagr": 0.1945,
+      "mdd": 0.23,
+      "vs_jaehrlich": "schlechter"
+     }
+    }
+   }
+  ]
  }
 }
