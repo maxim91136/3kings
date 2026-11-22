@@ -534,3 +534,6 @@ Regeln, ergänzt den Eintrag zu den Kronjuwelen-Berichten. Für alle Akten mit T
 
 ## 2026-11-22: Empfänger der Kronakten-Berichte (ausdrückliche Entscheidung)
 Regeln. Die Berichte nach 3, 5 und 10 Jahren erscheinen wie der Jahresbericht auf der Seite (öffentlich als Archiv). In den Telegram-Kanal geht höchstens eine neutrale Marktinformation, nie Auswertungen eigener Tests, Chroniken oder Signale. Privat an den Betreiber gehen weiter die Sparplan-Schritte, Saisonprüfung und automatische Auswertungen. Die Erstellung der Berichte ist noch nicht gebaut; die Termine stehen im Prüfkalender. Keine Empfehlung.
+
+## 2026-11-22: Zeichen „Verwarnung“ in der Kronjuwelen-Liste (ausdrückliche Entscheidung)
+Anzeige, keine Änderung der Regeln. Wer nach der letzten Saisonprüfung eine Rauswurf-Grenze gerissen hat (Verwarnung nach den bestehenden Regeln), trägt in der Kronjuwelen-Liste neben dem Namen ein kleines gelbes Zeichen „Verwarnung“ mit der Erklärung: eine weitere verfehlte Saisonprüfung in Folge bedeutet das Ausscheiden. Die Daten kommen aus dem bestehenden Zähler (strikes); es gibt keine neue Regel und keine Empfehlung. Aktuell trägt niemand das Zeichen, die erste Saisonprüfung ist Ende Januar 2027.

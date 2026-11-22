@@ -534,3 +534,6 @@ Rules, supplements the entry on the Crown Jewels reports. For all files with a t
 
 ## 2026-11-22: Recipients of the case file reports (explicit decision)
 Rules. The reports after 3, 5 and 10 years appear on the page like the annual report (public, as an archive). At most a neutral market note goes to the Telegram channel, never evaluations of own tests, chronicles or signals. The savings plan steps, season review and automatic evaluations still go privately to the operator. Producing the reports is not built yet; the dates are in the review calendar. No recommendation.
+
+## 2026-11-22: "Warning" mark in the Crown Jewels list (explicit decision)
+Display, no change to the rules. Whoever has crossed an exit limit at the last season review (a warning under the existing rules) carries a small yellow "Warning" mark next to the name in the Crown Jewels list, with the explanation: one more missed season review in a row means dropping out. The data comes from the existing counter (strikes); no new rule and no recommendation. Right now nobody carries the mark; the first season review is at the end of January 2027.
