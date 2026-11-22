@@ -191,7 +191,7 @@ details.more.big[open]>summary{margin-bottom:6px}
 @media(prefers-reduced-motion:reduce){.narr{filter:none}}
 </style></head><body>
 <button class="totop" id="totop" type="button"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="totopl">Nach oben</span></button>
-<meta name="build" content="2026-11-22T22:00:00Z">
+<meta name="build" content="2026-11-22T22:20:00Z">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="smear" x="-10%" y="-40%" width="120%" height="180%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="d"/><feTurbulence type="fractalNoise" baseFrequency="0.025 0.8" numOctaves="2" seed="3" result="s"/><feColorMatrix in="s" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.6 0 0 0 0.25" result="m"/><feComposite in="d" in2="m" operator="in"/></filter></svg><main id="app"><svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg>
 <h1>3Kings</h1><div class="sub">Marktmonitor</div><div class="stamp">…</div></main>
 <script>
@@ -208,7 +208,7 @@ const sgn=(x,d=1)=>(x>0?"+":x<0?"−":"±")+fx(Math.abs(x*100),d)+" %";
 const KINGS={SPY:{name:"S&P 500",c:"var(--spy)"},BTC:{name:"Bitcoin",c:"var(--btc)"},GLD:{name:T("Gold","Gold"),c:"var(--gld)"}};
 const why=v=>v.champion.startsWith("Trend")?(x=>T(`Kurs ${Math.abs(x)<0.01?fx(Math.abs(x)*100,1):Math.abs(Math.round(x*100))} % ${x<0?"unter":"über"} dem ${v.line_n||200}-Tage-Schnitt`,`Price ${Math.abs(x)<0.01?fx(Math.abs(x)*100,1):Math.abs(Math.round(x*100))} % ${x<0?"below":"above"} the ${v.line_n||200}-day average`))(v.vs_line??v.vs_sma200):
  v.champion.startsWith("Vol")?T("Anteil nach Schwankung","Weight by volatility"):T("voll dabei","fully in");
-function chart(rows,la=T("Empfehlungen","Signals"),lb=T("Halten","Hold")){
+function chart(rows,la=T("Modell-Signale","Signals"),lb=T("Halten","Hold")){
  if(rows.length<2) return `<div class="empty">${T("Die Kurve füllt sich mit jedem Lauf.","The curve fills in with every run.")}</div>`;
  const W=640,H=220,L=44,R=150,Tp=14,B=26,xs=rows.map((_,i)=>L+(W-L-R)*i/(rows.length-1));
  const all=rows.flatMap(r=>[+r.shadow,+r.hold]);let lo=Math.min(...all),hi=Math.max(...all);const pad=(hi-lo)*.15||.01;lo-=pad;hi+=pad;
@@ -295,8 +295,8 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <div class="legend">${["BTC","SPY","GLD"].map(k=>`<span><span class="dot" style="background:${KINGS[k].c}"></span>${KINGS[k].name} <b>${pct(h.held[k])} %</b></span>`).join("")}<span><span class="dot" style="background:#262B37;border:1px solid #8A8F9C"></span>Cash <b>${pct(h.cash)} %</b></span></div></section>`;
  o+=`</section>`;
  o+=`
- <section><h4>${T("Schattenbuch Taktikmodell 3 Könige","Shadow book: tactical model 3 Kings")}</h4><div class="pair"><div><b style="color:var(--gld)">${fx(h.shadow,3)}</b><span>${T("Empfehlungen befolgt","Following the signals")}</span></div><div><b>${fx(h.hold,3)}</b><span>${T("alle drei gleich halten","Holding all three equally")}</span></div></div>
- ${chart(h.ledger_tail)}<div class="mute">${T(`Seit ${fmtDay(h.since)}, ${h.n_actions} ${h.n_actions===1?"Empfehlung":"Empfehlungen"}. Papierrechnung, nur Handelskosten sind eingerechnet.`,`Since ${fmtDay(h.since)}, ${h.n_actions} ${h.n_actions===1?"signal":"signals"}. Paper calculation; only trading costs included.`)}</div></section>
+ <section><h4>${T("Schattenbuch Taktikmodell 3 Könige","Shadow book: tactical model 3 Kings")}</h4><div class="pair"><div><b style="color:var(--gld)">${fx(h.shadow,3)}</b><span>${T("Signalen gefolgt","Following the signals")}</span></div><div><b>${fx(h.hold,3)}</b><span>${T("alle drei gleich halten","Holding all three equally")}</span></div></div>
+ ${chart(h.ledger_tail)}<div class="mute">${T(`Seit ${fmtDay(h.since)}, ${h.n_actions} ${h.n_actions===1?"Signal":"Signale"}. Papierrechnung, nur Handelskosten sind eingerechnet.`,`Since ${fmtDay(h.since)}, ${h.n_actions} ${h.n_actions===1?"signal":"signals"}. Paper calculation; only trading costs included.`)}</div></section>
  <details class="more"><summary>${T("Verlauf","History")}</summary><table><tr><th>${T("Tag","Day")}</th><th>BTC</th><th>S&amp;P</th><th>Gold</th><th>Cash</th><th>${T("Schatten","Shadow")}</th></tr>${h.ledger_tail.slice().reverse().slice(0,7).map(r=>`<tr><td>${fmtDay(r.date)}</td><td>${pct(+r.BTC)} %</td><td>${pct(+r.SPY)} %</td><td>${pct(+r.GLD)} %</td><td>${pct(+r.cash)} %</td><td>${fx(r.shadow,3)}</td></tr>`).join("")}</table><div class="mute" style="font-size:12px;margin-top:6px"><a href="archiv.html?lang=${LANG}" style="color:var(--mute)">${T("Ältere Tage im Archiv","Older days in the archive")}</a></div></details>
  </details>
 <footer><span class="narr v5" aria-hidden="true">Hahahahaha!</span><div style="font-size:11px;color:var(--mute);margin-bottom:6px">${(()=>{const b=(document.querySelector('meta[name=build]')||{}).content;if(!b)return"";const d=new Date(b);return T("Seitenstand ","Page version ")+d.toLocaleString(LOC,{timeZone:"Europe/Berlin",day:"2-digit",month:EN?"short":"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"})+(EN?" CET":" Uhr")})()}</div><a href="regeln.html?lang=${LANG}" style="color:var(--gld)">${T("Regelbuch","Rule book")}</a> · <a href="archiv.html?lang=${LANG}" style="color:var(--gld)">${T("Archiv","Archive")}</a> · <a href="protokoll.html?lang=${LANG}" style="color:var(--gld)">${T("Protokoll","Log")}</a><br>${T("Nur zur Information. Es werden keine Aufträge ausgelöst. Keine Anlageberatung.","For information only. No orders are placed. Not investment advice.")}</footer>`;
@@ -326,7 +326,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
   const A={};((a&&a.assets)||[]).forEach(x=>A[x.key]=x);const I={};((ind&&ind.indicators)||[]).forEach(x=>I[x.key]=x);m=m||{};
   const ch=(x,lbl)=>x==null?"":`<i class="${x>0?"up":x<0?"dn":"n"}">${sgn(x)}${lbl?" "+lbl:""}</i>`;
   const pp=(x,d=1)=>x==null?"–":fx(x*100,d)+" %",num=(x,d=0)=>x==null?"–":(+x).toLocaleString(LOC,{minimumFractionDigits:d,maximumFractionDigits:d});
-  const INFO=[[/^S&(amp;)?P/,"Die 500 größten US-Firmen. Fundament: kaufen, sobald Geld da ist.","The 500 largest US companies. Foundation: buy whenever there is money."],
+  const INFO=[[/^S&(amp;)?P/,"Die 500 größten US-Firmen. Fundament. Testergebnis: sofort investieren, sobald Geld da ist.","The 500 largest US companies. Foundation. Test result: invest as soon as there is money."],
 [/^Bitcoin zur/,"Kurs geteilt durch die Power-Law-Mittellinie. Unter 42 % liegt er unter der Untergrenze des Modells.","Price divided by the power-law midline. Below 42 % it is under the model’s floor."],
 [/^Bitcoin/,"Handelt rund um die Uhr, auch am Wochenende. Tagesschluss um 1 Uhr deutscher Zeit.","Trades around the clock, weekends too. Daily close at midnight UTC."],
 [/^Gold/,"Preis je Feinunze in Euro. Hat in langen Aktienkrisen oft geholfen.","Price per troy ounce in euros. Often helped in long stock crises."],
