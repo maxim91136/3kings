@@ -224,10 +224,10 @@ body.nacht .schloss path[fill="#F6E3A8"]{filter:drop-shadow(0 0 2px #FFD25A)}bod
 body:has(#nav:not([hidden])) .lamp{z-index:0;pointer-events:none}
 .lamp svg{transform-origin:6px 8px}
 .lamp .ey{transform-box:fill-box;transform-origin:center}
-.lamp.flynn svg{animation:fsway 2.2s ease-in-out 1}
-.lamp.flynn .ey{animation:fglow 2.2s ease-in-out 1}
-@keyframes fsway{0%,100%{transform:rotate(0)}20%{transform:rotate(3.5deg)}45%{transform:rotate(-2.8deg)}70%{transform:rotate(1.6deg)}}
-@keyframes fglow{0%,100%{fill:#D9A63B;transform:scale(1);filter:none}30%,70%{fill:#FFE08A;transform:scale(2);filter:drop-shadow(0 0 3px #FFD25A)}}
+.lamp.flynn svg{animation:fsway 2.8s ease-in-out 1}
+.lamp.flynn .ey{animation:fglow 1.1s ease-in-out 2}
+@keyframes fsway{0%,100%{transform:rotate(0)}15%{transform:rotate(7deg)}40%{transform:rotate(-6deg)}65%{transform:rotate(4deg)}85%{transform:rotate(-2deg)}}
+@keyframes fglow{0%,100%{fill:#D9A63B;transform:scale(1);filter:none}35%,65%{fill:#FFF0B0;transform:scale(2.8);filter:drop-shadow(0 0 5px #FFD25A) drop-shadow(0 0 9px #FFC73A)}}
 @media(prefers-reduced-motion:reduce){.lamp.flynn svg,.lamp.flynn .ey{animation:none}}
 .lamp:focus-visible{outline:2px solid var(--gld);outline-offset:4px;border-radius:10px}
 .lamp svg{width:100%;height:100%;display:block;overflow:visible}
@@ -852,7 +852,7 @@ var SVG='<svg viewBox="0 0 58 116" aria-hidden="true"><defs><radialGradient id="
 var b=document.createElement("button");b.className="lamp";b.type="button";b.setAttribute("aria-label",T("Hofdetektiv Flynn: Kronakte des Tages öffnen","Court Detective Flynn: open the case file of the day"));b.innerHTML=SVG;document.body.appendChild(b);
 fetch("heartbeat.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null}).then(function(h){if(h&&h.generated_at&&(Date.now()-new Date(h.generated_at).getTime())<30*3600*1000)setTimeout(function(){b.classList.add("lit")},900)}).catch(function(){});
 function flynn(){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;var r=b.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;b.classList.remove("flynn");void b.offsetWidth;b.classList.add("flynn")}
-setTimeout(flynn,35000);setTimeout(flynn,95000);setInterval(flynn,360000);
+setTimeout(flynn,20000);setTimeout(flynn,50000);setInterval(flynn,180000);
 var LINES=[["Spur gefunden. Beweis fehlt.","Trail found. Proof missing."],["Fall offen. Ich bleibe dran.","Case open. I am staying on it."],["Zufall oder Täter? Die Daten entscheiden.","Chance or culprit? The data decides."],["Nachts sieht man mehr. Besonders Muster.","You see more at night. Especially patterns."],["Ich behaupte nichts. Ich sammle.","I claim nothing. I collect."],["Auch ein eingestellter Fall ist ein Ergebnis.","A closed case is a result too."]];
 var ov=document.createElement("div");ov.id="kakte";ov.setAttribute("role","dialog");ov.setAttribute("aria-modal","true");ov.setAttribute("aria-label",T("Kronakte des Tages","Case file of the day"));document.body.appendChild(ov);
 function close(){ov.classList.remove("on");b.focus()}
@@ -875,7 +875,7 @@ L.push(night?["Flynn hat Dienst. Sina schläft.","Flynn is on duty. Sina sleeps.
 var base=!night;function eyes(o){sh.style.display=o?"none":"";op.style.display=o?"":"none"}eyes(base);
 b.addEventListener("click",function(){n++;var t;if(n===7){t=T("Sina schläft etwa 16 Stunden am Tag. Das Schloss steht trotzdem.","Sina sleeps about 16 hours a day. The castle still stands.");hold=true;eyes(true);setTimeout(function(){hold=false;eyes(base)},3500)}else t=L[(n-1)%L.length][EN?1:0];say.textContent=t});
 if(!matchMedia("(prefers-reduced-motion:reduce)").matches){(function twi(){setTimeout(function(){var r=b.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){var k=Math.random()<.5?"tw-tail":"tw-ear";b.classList.remove("tw-tail","tw-ear");void b.offsetWidth;b.classList.add(k)}twi()},40000+Math.random()*30000)})()}
-if(!matchMedia("(prefers-reduced-motion:reduce)").matches)setInterval(function(){if(hold)return;eyes(!base);setTimeout(function(){if(!hold)eyes(base)},450)},27000)})()</script><script>(function(){var h=document.createElement("div");h.id="himmel";h.setAttribute("aria-hidden","true");var st='<div class="st">',x=7;function r(){x=(x*9301+49297)%233280;return x/233280}
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches)(function bl(){setTimeout(function(){var r=b.getBoundingClientRect();if(!hold&&r.bottom>0&&r.top<innerHeight){eyes(!base);setTimeout(function(){if(!hold)eyes(base)},650)}bl()},8000+Math.random()*6000)})()})()</script><script>(function(){var h=document.createElement("div");h.id="himmel";h.setAttribute("aria-hidden","true");var st='<div class="st">',x=7;function r(){x=(x*9301+49297)%233280;return x/233280}
 for(var i=0;i<70;i++){var z=r()<.18?2:1.2;st+='<i style="left:'+(r()*100).toFixed(1)+'%;top:'+(r()*100).toFixed(1)+'%;width:'+z+'px;height:'+z+'px;opacity:'+(.35+r()*.55).toFixed(2)+';animation-delay:-'+(r()*7).toFixed(1)+'s"></i>'}
 h.innerHTML=st+'</div><div class="sun"></div>';document.body.insertBefore(h,document.body.firstChild);
 function up(){var d=new Date(),t=d.getHours()+d.getMinutes()/60,n=t>=22||t<5?1:t>=20?(t-20)/2:t<7?(7-t)/2:0;document.documentElement.style.setProperty("--nacht",n.toFixed(2));document.documentElement.style.setProperty("--tag",(1-n).toFixed(2))}

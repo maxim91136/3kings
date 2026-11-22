@@ -567,3 +567,6 @@ Design and story, no change to the rules, no statement about markets. By the vis
 
 ## 2026-11-22: Starry sky and daylight by the visitor's time (explicit decision)
 Design, supplements the entry on day and night shift. By the visitor's local time (not a fixed time zone): at night a fine starry sky lies over the whole page background, the stars twinkle quietly. By day the stars disappear and a soft, warm glow lies at the top. In between (about 5 to 7 am and 8 to 10 pm) it fades softly. The page stays dark and easy to read; only the mood changes. No twinkling with reduced motion. No statement about markets.
+
+## 2026-11-22: Flynn and Sina a little more noticeable (explicit decision)
+Design, supplements the entries on Flynn and Sina. Flynn sways more and his eyes glow brighter and twice; rhythm: first time after about 20 seconds, second after about 50 seconds, then every three minutes. Sina blinks more often and more visibly (at random every 8 to 14 seconds, a little longer). Still only in view, off with reduced motion, no sound.

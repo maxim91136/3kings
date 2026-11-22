@@ -567,3 +567,6 @@ Gestaltung und Erzählung, keine Änderung der Regeln, keine Aussage über Märk
 
 ## 2026-11-22: Sternenhimmel und Tageslicht nach der Uhrzeit des Besuchers (ausdrückliche Entscheidung)
 Gestaltung, ergänzt den Eintrag zu Tag- und Nachtschicht. Nach der Ortszeit des Besuchers (nicht nach einer festen Zeitzone): Nachts liegt ein feiner Sternenhimmel über dem ganzen Seitenhintergrund, die Sterne funkeln leise. Tagsüber verschwinden die Sterne, und oben liegt ein weicher, warmer Lichtschein. Dazwischen (etwa 5 bis 7 und 20 bis 22 Uhr) blendet es weich über. Die Seite bleibt dunkel und gut lesbar; es ändert sich nur die Stimmung. Bei reduzierter Bewegung kein Funkeln. Keine Aussage über Märkte.
+
+## 2026-11-22: Flynn und Sina etwas deutlicher (ausdrückliche Entscheidung)
+Gestaltung, ergänzt die Einträge zu Flynn und Sina. Flynn pendelt stärker und seine Augen leuchten kräftiger und zweimal auf; Rhythmus: erstes Mal nach etwa 20 Sekunden, zweites nach etwa 50 Sekunden, danach alle drei Minuten. Sina blinzelt häufiger und sichtbarer (zufällig alle 8 bis 14 Sekunden, etwas länger). Weiter nur im Bild, bei reduzierter Bewegung aus, ohne Ton.
