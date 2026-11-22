@@ -19,11 +19,16 @@ def get(s):
         try: return fp.yahoo(s)
         except Exception: time.sleep(3)
 spx = get("SPY")
+_SK = {}
 def weekly(s, a, b):
-    wk = {}
-    for d in sorted(s):
-        if a <= d <= b: wk[str(np.datetime64(d, "W"))] = (d, s[d])
-    return [v for k, v in sorted(wk.items())]
+    k = id(s)
+    if k not in _SK:
+        ds = sorted(s); wk = [str(np.datetime64(d, "W")) for d in ds]; _SK[k] = (ds, wk)
+    ds, wk = _SK[k]
+    i, j = bisect.bisect_left(ds, a), bisect.bisect_right(ds, b)
+    out = {}
+    for d, w in zip(ds[i:j], wk[i:j]): out[w] = (d, s[d])
+    return [out[w] for w in sorted(out)]
 def yrs_back(d, n): return f"{int(d[:4]) - n}{d[4:]}"
 def prof(s, cur, d, n):
     w = weekly(s, yrs_back(d, n), d)
@@ -52,7 +57,7 @@ for sym, p in pool.items():
         pt = prof(s, p["cur"], t0, 5)
         if not pt: continue
         if KRO(prof(s, p["cur"], t0, 10)): continue          # war damals schon Kronjuwel: kein Talent mehr
-        later = [d for d in days if t0 < d <= yrs_back(t0, -5)][::21]
+        later = [d for d in days if t0 < d <= yrs_back(t0, -5)][::63]
         hit = any(KRO(prof(s, p["cur"], d, 10)) for d in later)
         r = res[t0]; r["n"] += 1; r["base_hit"] += hit
         if TAL(pt): r["tal"] += 1; r["tal_hit"] += hit; r["names"].append((sym, bool(hit)))
