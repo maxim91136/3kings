@@ -516,3 +516,6 @@ Gestaltung und Erzählung, keine Änderung der Regeln. Die Fledermaus an der Lat
 
 ## 2026-11-22: Siegel der Kronakten: Wachssiegel mit Stempel quer darüber (ausdrückliche Entscheidung)
 Gestaltung, keine Änderung der Regeln. Jede Akte mit laufendem Vorwärtstest trägt ein Wachssiegel mit schrägem Stempel („FALL OFFEN“ violett mit Fragezeichen, „AUFGEKLÄRT“ gold mit Krone, „EINGESTELLT“ grau mit Kreuz). Derzeit tragen alle sechs Akten (Kronjuwelen, Sparplan, Einmalanlage, Taktikmodell, Bitcoin-Linien, Trendportfolio) „FALL OFFEN“. Ein Siegel wechselt nur nach den vorab festgelegten Bewertungsregeln und Terminen, nie nach Gefühl. Keine Empfehlung.
+
+## 2026-11-22: Siegel wechseln nur per Eintrag (ausdrückliche Entscheidung)
+Technik, keine Änderung der Regeln. Der Zustand der Siegel steht in site/siegel.json (offen, aufgeklaert, eingestellt; heute alle sechs „offen“). Die Seite liest die Datei und zeigt das passende Siegel. Geändert wird die Datei nur mit dem Hilfsskript siegel.py, das dabei zwingend einen Protokolleintrag mit Datum und Begründung schreibt. Ein Wechsel ohne Eintrag ist nicht möglich. Maßstab für den Wechsel sind allein die vorab festgelegten Bewertungsregeln und Termine der jeweiligen Akte. Keine Empfehlung.

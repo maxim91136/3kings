@@ -516,3 +516,6 @@ Design and story, no change to the rules. The bat on the lantern is called "Cour
 
 ## 2026-11-22: Seals of the case files: wax seal with a stamp across it (explicit decision)
 Design, no change to the rules. Every file with a running forward test carries a wax seal with a slanted stamp ("CASE OPEN" violet with question mark, "SOLVED" gold with crown, "CLOSED" grey with cross). Right now all six files (Crown Jewels, savings plan, lump sum, tactical model, Bitcoin lines, trend portfolio) carry "CASE OPEN". A seal changes only by the evaluation rules and dates set in advance, never by feeling. No recommendation.
+
+## 2026-11-22: Seals change only by log entry (explicit decision)
+Technical, no change to the rules. The state of the seals is kept in site/siegel.json (offen, aufgeklaert, eingestellt; today all six are "offen", i.e. open). The page reads the file and shows the matching seal. The file is changed only with the helper script siegel.py, which always writes a log entry with date and reason. A change without an entry is not possible. The only measure for a change is the evaluation rules and dates set in advance for that file. No recommendation.
