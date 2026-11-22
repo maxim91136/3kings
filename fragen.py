@@ -71,7 +71,7 @@ mt = [dict(bucket=k, mean=round(st.mean(v), 4), median=round(st.median(v), 4), b
 sp = max(x["mean"] for x in mt) - min(x["mean"] for x in mt)
 R["monatstag"] = dict(rows=mt, n=n, since=min(by), spread=round(sp, 4), relevant=sp >= .005)
 # F6 Entnahme
-ms = sorted(m for m in tr if m in cpi); real = [tr[m] / cpi[m] for m in ms]; H = 360; ent = []
+ms = sorted(m for m in tr if cpi.get(m, 0) > 0); real = [tr[m] / cpi[m] for m in ms]; H = 360; ent = []
 for w in (.03, .035, .04, .05, .06):
     fin = []
     for s in range(0, len(ms) - H):
