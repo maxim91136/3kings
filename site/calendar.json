@@ -52,23 +52,8 @@
   },
   {
    "date": "2029-11-17",
-   "de": "Dreijahresbericht Kronakten: Kronjuwelen, Sparplan",
-   "en": "Three-year report case files: Crown Jewels, savings plan"
-  },
-  {
-   "date": "2029-11-18",
-   "de": "Dreijahresbericht Kronakten: Taktikmodell",
-   "en": "Three-year report case files: Tactical model"
-  },
-  {
-   "date": "2029-11-20",
-   "de": "Dreijahresbericht Kronakten: Einmalanlage, Bitcoin-Linien, Trendportfolio",
-   "en": "Three-year report case files: Lump sum, Bitcoin lines, trend portfolio"
-  },
-  {
-   "date": "2029-11-22",
-   "de": "Dreijahresbericht Kronakten: Talent Scouting",
-   "en": "Three-year report case files: Talent scouting"
+   "de": "Dreijahresbericht aller Kronakten (17. bis 22.11.2029)",
+   "en": "Three-year report of all case files (Nov 17 to 22, 2029)"
   },
   {
    "date": "2031-11-17",
@@ -77,18 +62,8 @@
   },
   {
    "date": "2031-11-18",
-   "de": "Fünfjahresbericht Kronakten: Taktikmodell",
-   "en": "Five-year report case files: Tactical model"
-  },
-  {
-   "date": "2031-11-20",
-   "de": "Fünfjahresbericht Kronakten: Einmalanlage, Bitcoin-Linien, Trendportfolio",
-   "en": "Five-year report case files: Lump sum, Bitcoin lines, trend portfolio"
-  },
-  {
-   "date": "2031-11-22",
-   "de": "Fünfjahresbericht Kronakten: Talent Scouting",
-   "en": "Five-year report case files: Talent scouting"
+   "de": "Fünfjahresbericht der Kronakten ohne Kronjuwelen (18. bis 22.11.2031)",
+   "en": "Five-year report of the case files without the Crown Jewels (Nov 18 to 22, 2031)"
   },
   {
    "date": "2036-11-17",
@@ -97,18 +72,8 @@
   },
   {
    "date": "2036-11-18",
-   "de": "Zehnjahresbericht Kronakten: Taktikmodell",
-   "en": "Ten-year report case files: Tactical model"
-  },
-  {
-   "date": "2036-11-20",
-   "de": "Zehnjahresbericht Kronakten: Einmalanlage, Bitcoin-Linien, Trendportfolio",
-   "en": "Ten-year report case files: Lump sum, Bitcoin lines, trend portfolio"
-  },
-  {
-   "date": "2036-11-22",
-   "de": "Zehnjahresbericht Kronakten: Talent Scouting",
-   "en": "Ten-year report case files: Talent scouting"
+   "de": "Zehnjahresbericht der Kronakten ohne Kronjuwelen (18. bis 22.11.2036)",
+   "en": "Ten-year report of the case files without the Crown Jewels (Nov 18 to 22, 2036)"
   }
  ]
 }

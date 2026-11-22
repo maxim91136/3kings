@@ -570,3 +570,6 @@ Design, supplements the entry on day and night shift. By the visitor's local tim
 
 ## 2026-11-22: Flynn and Sina a little more noticeable (explicit decision)
 Design, supplements the entries on Flynn and Sina. Flynn sways more and his eyes glow brighter and twice; rhythm: first time after about 20 seconds, second after about 50 seconds, then every three minutes. Sina blinks more often and more visibly (at random every 8 to 14 seconds, a little longer). Still only in view, off with reduced motion, no sound.
+
+## 2026-11-22: Review calendar more compact: bundled, only the next five, rest by years (explicit decision)
+Design, no change to the dates in substance. (1) The report dates of the case files are bundled into one entry per year (2029: three-year report of all files, Nov 17 to 22; 2031 and 2036: five- and ten-year report of the files without the Crown Jewels, Nov 18 to 22). The final verdict of the Crown Jewels (Nov 17, 2031) and their ten-year report (Nov 17, 2036) stay separate entries. The exact start days of the files are in the log (entry on the reports for all case files). (2) The page shows the next five dates; all others sit behind "All dates". (3) There they are grouped by period (2026/2027, 2028/2029, then per year). Nothing is deleted.

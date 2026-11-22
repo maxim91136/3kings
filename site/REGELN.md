@@ -570,3 +570,6 @@ Gestaltung, ergänzt den Eintrag zu Tag- und Nachtschicht. Nach der Ortszeit des
 
 ## 2026-11-22: Flynn und Sina etwas deutlicher (ausdrückliche Entscheidung)
 Gestaltung, ergänzt die Einträge zu Flynn und Sina. Flynn pendelt stärker und seine Augen leuchten kräftiger und zweimal auf; Rhythmus: erstes Mal nach etwa 20 Sekunden, zweites nach etwa 50 Sekunden, danach alle drei Minuten. Sina blinzelt häufiger und sichtbarer (zufällig alle 8 bis 14 Sekunden, etwas länger). Weiter nur im Bild, bei reduzierter Bewegung aus, ohne Ton.
+
+## 2026-11-22: Prüfkalender kompakter: gebündelt, nur die nächsten fünf, Rest nach Jahren (ausdrückliche Entscheidung)
+Gestaltung, keine Änderung der Termine in der Sache. (1) Die Berichtstermine der Kronakten werden je Jahr zu einem Eintrag gebündelt (2029: Dreijahresbericht aller Akten, 17. bis 22.11.; 2031 und 2036: Fünf- und Zehnjahresbericht der Akten ohne Kronjuwelen, 18. bis 22.11.). Die Endbewertung der Kronjuwelen (17.11.2031) und ihr Zehnjahresbericht (17.11.2036) bleiben eigene Einträge. Die genauen Starttage der Akten stehen im Protokoll (Eintrag zu den Berichten aller Kronakten). (2) Auf der Seite stehen die nächsten fünf Termine; alle übrigen hinter „Alle Termine“. (3) Dort sind sie nach Zeiträumen gruppiert (2026/2027, 2028/2029, dann je Jahr). Nichts wird gelöscht.
