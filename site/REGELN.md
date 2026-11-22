@@ -396,3 +396,6 @@ Tagesbericht und Telegram-Post jetzt gegen 7 Uhr (Start 6:43 Uhr) statt 7:45 Uhr
 
 ## 2026-11-22: Bitcoin auch am Wochenende aktuell (ausdrückliche Entscheidung)
 Neuer Lauf jeden Morgen gegen 5:17 Uhr (Winterzeit): aktualisiert nur die Bitcoin-Anzeige (Kurs, Tag, 1 Jahr, Abstand zum Hoch) mit dem letzten abgeschlossenen Tag, auch samstags und sonntags. Modelle, Schattenbücher und Kursdatei bleiben beim Börsenkalender, damit Rückblicke und Signale unverändert rechnen.
+
+## 2026-11-22: Talent Scouting mit Wachstumsfilter (ausdrückliche Entscheidung)
+Anlass: Ohne Wachstumsfilter kamen alte Riesen mit ruhigen, guten Börsenjahren durch (Coca-Cola, Altria, Aflac, Gilead). Test vorab festgelegt: Umsatz mindestens +10 % pro Jahr über 3 Jahre, nur aus zum Stichtag veröffentlichten SEC-Jahresberichten (US-Firmen). Ergebnis (wurde innerhalb von 5 Jahren Kronjuwel): 11/2013 Talente 28 %, mit Wachstumsfilter 43 % (10 von 23), alle 14 %; 11/2016 77 % gegen 78 % (14 von 18), alle 44 %; 2011 nicht auswertbar (zu wenige SEC-Daten). Filter aufgenommen; Europa-Firmen über Yahoo-Jahresabschlüsse. Heute bleibt damit nur Vertex.

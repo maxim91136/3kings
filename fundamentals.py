@@ -24,6 +24,18 @@ def fund(sym):
         except Exception as e:
             err = e; time.sleep(3 * (i + 1))
     print(sym, "Fundamentaldaten fehlen:", err); return dict(margin=None, de=None, nd_ebitda=None)
+def growth3(sym):
+    """Umsatzwachstum p. a. über 3 Jahre aus den letzten 4 Jahresabschlüssen (Yahoo incomeStatementHistory), sonst None."""
+    for i in range(3):
+        try:
+            j = json.loads(_get(f"https://query2.finance.yahoo.com/v10/finance/quoteSummary/{sym}?modules=incomeStatementHistory&crumb={crumb()}"))
+            h = j["quoteSummary"]["result"][0]["incomeStatementHistory"]["incomeStatementHistory"]
+            v = sorted(((x["endDate"]["raw"], x.get("totalRevenue", {}).get("raw")) for x in h if x.get("totalRevenue", {}).get("raw")), reverse=True)
+            if len(v) < 4 or v[3][1] <= 0: return None
+            return (v[0][1] / v[3][1]) ** (1 / 3) - 1
+        except Exception as e:
+            time.sleep(3 * (i + 1))
+    return None
 if __name__ == "__main__":
     for s in sys.argv[1:] or ["MSFT", "CTAS", "RACE", "IDXX", "COST", "ASML.AS", "RMS.PA"]:
         print(s, fund(s)); time.sleep(1)

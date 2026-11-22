@@ -396,3 +396,6 @@ Daily report and Telegram post now around 7 AM (start 6:43) instead of 7:45; mon
 
 ## 2026-11-22: Bitcoin current on weekends too (explicit decision)
 New run every morning around 5:17 AM (winter time): updates only the bitcoin display (price, day, 1 year, distance to the high) with the last completed day, Saturdays and Sundays included. Models, shadow books and the price file stay on the trading calendar so that backtests and signals compute unchanged.
+
+## 2026-11-22: Talent Scouting with growth filter (explicit decision)
+Reason: without a growth filter, old giants with calm, good market years got through (Coca-Cola, Altria, Aflac, Gilead). Test fixed in advance: revenue at least +10 % a year over 3 years, only from SEC annual reports already published at the cut-off date (US companies). Result (became a Crown Jewel within 5 years): 11/2013 talents 28 %, with growth filter 43 % (10 of 23), all 14 %; 11/2016 77 % versus 78 % (14 of 18), all 44 %; 2011 not evaluable (too little SEC data). Filter adopted; European companies via Yahoo annual statements. Today only Vertex remains.

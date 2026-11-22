@@ -1,4 +1,4 @@
-"""Talent Scouting (REGELN 2026-11-22, nur Information): Wer könnte ein künftiges Kronjuwel sein?\nTalent = kein Mitglied; 5 J. Wochenkurse: Rendite >= 15 % p. a., höchstens 15 % der Zeit mehr als 20 % unter dem Hoch, Schwankung <= 30 %, Beta <= 1,15 (Euro gegen S&P 500); Bruttomarge >= 45 %; Nettoverschuldung < 2x EBITDA.\nLäuft zu jeder Saisonprüfung (oder --force). Schreibt site/talents.json und data/talents_hist.json (Vorwärtstest: wer wird später Kronjuwel?)."""
+"""Talent Scouting (REGELN 2026-11-22, nur Information): Wer könnte ein künftiges Kronjuwel sein?\nTalent = kein Mitglied; 5 J. Wochenkurse: Rendite >= 15 % p. a., höchstens 15 % der Zeit mehr als 20 % unter dem Hoch, Schwankung <= 30 %, Beta <= 1,15 (Euro gegen S&P 500); Bruttomarge >= 45 %; Nettoverschuldung < 2x EBITDA; Umsatzwachstum >= 10 % p. a. über 3 Jahre (SEC, sonst Yahoo).\nLäuft zu jeder Saisonprüfung (oder --force). Schreibt site/talents.json und data/talents_hist.json (Vorwärtstest: wer wird später Kronjuwel?)."""
 import csv, json, os, sys, time
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -44,7 +44,38 @@ def prof(s, cur, d, n):
     return dict(cagr=float((p[-1] / p[0]) ** (1 / yr) - 1), uw=float((dd > .2).mean()), vol=float(r.std(ddof=1) * np.sqrt(52)), mdd=float(dd.max()), beta=beta)
 
 
-I = dict(cagr=.15, uw=.15, vol=.30, beta=1.15, margin=.45, nd=2.0)   # Talent-Regeln (REGELN 2026-11-22)
+import urllib.request
+SECH = {"User-Agent": "3kings research contact@3kings.dev"}
+def secget(u):
+    for k in range(3):
+        try: return json.loads(urllib.request.urlopen(urllib.request.Request(u, headers=SECH), timeout=30).read())
+        except Exception: time.sleep(2)
+CIK = {v["ticker"].replace(".", "-"): str(v["cik_str"]).zfill(10) for v in (secget("https://www.sec.gov/files/company_tickers.json") or {}).values()}
+TAGS = ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "SalesRevenueNet", "RevenueFromContractWithCustomerIncludingAssessedTax", "SalesRevenueGoodsNet"]
+def revenues(sym):
+    c = CIK.get(sym)
+    if not c: return None
+    j = secget(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{c}.json"); time.sleep(0.15)
+    if not j: return None
+    g = j.get("facts", {}).get("us-gaap", {}); out = {}
+    for t in TAGS:
+        for x in g.get(t, {}).get("units", {}).get("USD", []):
+            if x.get("form") == "10-K" and x.get("fp") == "FY" and x.get("start") and x.get("end"):
+                days = (np.datetime64(x["end"]) - np.datetime64(x["start"])).astype(int)
+                if 350 <= days <= 380:
+                    k = x["end"]
+                    if k not in out or x["filed"] < out[k][1]: out[k] = (x["val"], x["filed"])
+    return out or None
+def growth(rv, t0, yrs=3):
+    if not rv: return None
+    known = sorted((e, v) for e, (v, f) in rv.items() if f <= t0)
+    if not known: return None
+    e1, v1 = known[-1]; tgt = np.datetime64(e1) - np.timedelta64(int(365.25 * yrs), "D")
+    old = [(e, v) for e, v in known if abs((np.datetime64(e) - tgt).astype(int)) <= 60]
+    if not old or old[-1][1] <= 0: return None
+    return float((v1 / old[-1][1]) ** (1 / yrs) - 1)
+
+I = dict(cagr=.15, uw=.15, vol=.30, beta=1.15, margin=.45, nd=2.0, growth=.10)   # Talent-Regeln (REGELN 2026-11-22)
 TAL = lambda p: p and p["cagr"] >= I["cagr"] and p["uw"] <= I["uw"] and p["vol"] <= I["vol"] and p["beta"] is not None and p["beta"] <= I["beta"]
 sc = json.load(open("data/elite_screen.json")); season = sc.get("season")
 old = json.load(open("site/talents.json")) if os.path.exists("site/talents.json") else {}
@@ -60,14 +91,16 @@ for sym, p in pool.items():
     if not TAL(pn): continue
     f = fundamentals.fund(sym); time.sleep(0.4)
     m, nd = f["margin"], f["nd_ebitda"]
-    ok = m is not None and m >= I["margin"] and nd is not None and nd < I["nd"]
-    why = [] if ok else (["marge"] if m is None or m < I["margin"] else []) + (["schulden"] if nd is None or nd >= I["nd"] else [])
+    g = growth(revenues(sym), "2099") if p["cur"] == "USD" else None
+    if g is None: g = fundamentals.growth3(sym); time.sleep(0.4)
+    why = (["marge"] if m is None or m < I["margin"] else []) + (["schulden"] if nd is None or nd >= I["nd"] else []) + (["wachstum"] if g is None or g < I["growth"] else [])
+    ok = not why
     rows.append(dict(sym=sym, name=p["name"], cagr5=round(pn["cagr"], 3), uw=round(pn["uw"], 3), vol=round(pn["vol"], 3), beta=round(pn["beta"], 2),
-                     margin=None if m is None else round(m, 3), nd=None if nd is None else round(nd, 2), ok=ok, why=why))
+                     margin=None if m is None else round(m, 3), nd=None if nd is None else round(nd, 2), growth=None if g is None else round(g, 3), ok=ok, why=why))
 rows.sort(key=lambda r: (-r["ok"], -r["cagr5"]))
 d = sc.get("date") or sorted(spx)[-1]
-out = dict(date=d, season=season, rules=I, talents=[r for r in rows if r["ok"]], near=[r for r in rows if not r["ok"]][:12],
-           test=dict(t2011=[7, 6, 38, 346], t2013=[122, 38, 56, 355], t2016=[143, 110, 169, 375]))
+out = dict(date=d, season=season, rules=I, talents=[r for r in rows if r["ok"]], near=[r for r in rows if not r["ok"] and len(r["why"]) == 1][:14],
+           test=dict(t2011=[7, 6, 38, 346], t2013=[122, 38, 56, 355], t2016=[143, 110, 169, 375]), gtest=dict(t2013=[23, 10, 46, 332], t2016=[18, 14, 156, 353]))
 json.dump(out, open("site/talents.json", "w"), ensure_ascii=False, indent=1)
 h = json.load(open("data/talents_hist.json")) if os.path.exists("data/talents_hist.json") else []
 h = [x for x in h if x["season"] != season] + [dict(date=d, season=season, talents=[r["sym"] for r in out["talents"]])]
