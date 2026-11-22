@@ -549,3 +549,6 @@ Design, no change to the rules. The title "3Kings" stands without a subline. The
 
 ## 2026-11-22: Page slimmed down: duplicates merged, extras removed (explicit decision)
 Design, no change to the rules or results; nothing is hidden, all figures and tests stay readable. (1) The four blend sections (how much gold or bitcoin, 65 of 231, how much gold, safety test) become one section "How much gold and bitcoin?". (2) Silver versus gold becomes part of the gold section. (3) Bitcoin versus S&P 500 and gold and diversification become one section. (4) "King of Kings", "Equal weight vs cap weight" and the overview "What held up best so far" become one section. (5) "Not investment advice" appears only in the red box at the top. (6) "Read up: rule book · log" appears only at the bottom. (7) The backtest of the barometer hypotheses moves into "Details on all indicators". (9) "Earlier reports (7 days)" is removed, the archive stays. (11) The "Hahahahaha!" in the page footer is removed, the sticker "Rules first, then calculate" stays.
+
+## 2026-11-22: "Hahahahaha!" in the page footer stays (explicit decision)
+Design. The removal in the entry on slimming down (item 11) is reversed: the little joker with his "Hahahahaha!" in the page footer stays on the page.

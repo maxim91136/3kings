@@ -549,3 +549,6 @@ Gestaltung, keine Änderung der Regeln. Der Titel „3Kings“ steht ohne Unterz
 
 ## 2026-11-22: Seite entschlackt: Doppeltes zusammengelegt, Beiwerk gestrichen (ausdrückliche Entscheidung)
 Gestaltung, keine Änderung der Regeln oder Ergebnisse; nichts wird versteckt, alle Zahlen und Tests bleiben lesbar. (1) Die vier Mischungs-Abschnitte (Wie viel Gold oder Bitcoin, 65 von 231, Wie viel Gold, Sicherheitstest) werden ein Abschnitt „Wie viel Gold und Bitcoin?“. (2) Silber gegen Gold wird Teil des Abschnitts zu Gold. (3) Bitcoin gegen S&P 500 und Gold sowie Diversifikation werden ein Abschnitt. (4) „König der Könige“, „Gleich gewichtet gegen nach Größe“ und der Überblick „Was bisher am stabilsten hielt“ werden ein Abschnitt. (5) „Keine Anlageberatung“ steht nur noch im roten Kasten oben. (6) „Nachlesen: Regelbuch · Protokoll“ steht nur noch unten. (7) Der Rücktest der Barometer-Thesen wandert in „Details zu allen Indikatoren“. (9) „Frühere Meldungen (7 Tage)“ entfällt, das Archiv bleibt. (11) Das „Hahahahaha!“ im Seitenfuß entfällt, der Aufkleber „Regeln zuerst, dann rechnen“ bleibt.
+
+## 2026-11-22: „Hahahahaha!“ im Seitenfuß bleibt (ausdrückliche Entscheidung)
+Gestaltung. Das Streichen aus dem Eintrag zur Entschlackung (Punkt 11) wird zurückgenommen: Der kleine Joker mit seinem „Hahahahaha!“ im Seitenfuß bleibt auf der Seite.
