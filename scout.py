@@ -9,6 +9,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fetch_prices as fp
 mem = json.load(open("data/elite_members.json")); meta = json.load(open("data/elite_meta.json"))
 fx = {r["date"]: float(r["value"]) for r in csv.DictReader(open("data/ind_EURUSD.csv"))}
+import bisect; FXD = sorted(fx); FXV = [fx[x] for x in FXD]
+def fxl(d):
+    i = bisect.bisect_right(FXD, d) - 1; return FXV[i] if i >= 0 else None
 def get(s):
     for k in range(3):
         try: return fp.yahoo(s)
@@ -28,7 +31,6 @@ def prof(s, cur, d, n):
     yr = (np.datetime64(w[-1][0]) - np.datetime64(w[0][0])).astype(int) / 365.25
     # Beta 5 J. in Euro gegen S&P 500 in Euro
     wb = weekly(s, yrs_back(d, 5), d); ws = dict(weekly(spx, yrs_back(d, 5), d))
-    fxl = lambda dd_: next((fx[x] for x in sorted(fx, reverse=True) if x <= dd_), None)
     pairs = [(v / (fxl(dt) if cur == "USD" else 1), ws[dt] / fxl(dt)) for dt, v in wb if dt in ws]
     beta = None
     if len(pairs) > 200:
@@ -40,7 +42,7 @@ for k in mem:
     if not s: continue
     cur = meta.get(k, {}).get("cur", "USD")
     first = None; d = "2010-01-01"; days = sorted(s)
-    for d in [x for x in days if x >= "2010-01-01"][::5]:
+    for d in [x for x in days if x >= "2010-01-01"][::21]:
         p10 = prof(s, cur, d, 10)
         if p10 and p10["cagr"] >= .17 and p10["uw"] <= .20 and p10["vol"] <= .30 and p10["beta"] is not None and p10["beta"] <= 1.15:
             first = d; break
