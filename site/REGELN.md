@@ -390,3 +390,6 @@ Es läuft als eigenes Schattenbuch ohne Hebel in Euro mit, Regeln unverändert a
 
 ## 2026-11-22: Talent Scouting (ausdrückliche Entscheidung)
 Schritt 1: Die neun Kronjuwelen sahen etwa 3 Jahre vor ihrer ersten Qualifikation auf 5-Jahres-Basis schon wie kleine Kronjuwelen aus (5 J. mindestens 15 % p. a., selten unter Wasser, ruhig). Daraus vorab das Talent-Profil festgelegt. Schritt 2, Gegenprobe (nur Kursregeln, heutiges Universum, Überlebensbias): Talente wurden innerhalb von 5 Jahren Kronjuwelen: 11/2011 6 von 7 (86 %) gegen 11 % bei allen anderen; 11/2013 31 % gegen 16 %; 11/2016 77 % gegen 45 %. Etwa doppelte Chance, kein Garant. Neue Rubrik „Talent Scouting“ mit Bilanzregeln wie bei den Kronjuwelen (Marge ab 45 %, Schulden unter 2x). Nur Information, keine Aufnahme in den Index.
+
+## 2026-11-22: Berichte früher, Wochenend-Bericht eindeutig beschriftet (ausdrückliche Entscheidung)
+Tagesbericht und Telegram-Post jetzt gegen 7 Uhr (Start 6:43 Uhr) statt 7:45 Uhr; Monatsbericht am 1. gegen 7 Uhr (Start 6:47 Uhr) statt 9:17 Uhr. Der Wochenend-Bericht heißt auf der Seite jetzt „Wochenende Sa. 21.11. bis So. 22.11., nur Bitcoin“ statt nur nach dem Erscheinungstag; Werktags-Berichte bleiben nach dem Börsentag datiert.

@@ -59,7 +59,7 @@
 - **Taktikmodell 3 Könige** gegen alle drei gehalten. (seit 18.11.2026)
 
 ## Automatik und Seite
-- **News-Monitor** täglich gegen 7:45 Uhr, sonntags und montags nur Bitcoin. Gründe werden gesucht ab: S&P 500 ±2 %, Gold ±2,5 %, Bitcoin ±5 %, jede Kronjuwelen-Aktie ±4 % (gerundeter Wert, Tagesveränderung in Euro); dann bekommen alle drei Hauptwerte eine Zeile. (seit 21.11.2026)
+- **News-Monitor** täglich gegen 7 Uhr, sonntags und montags nur Bitcoin. Gründe werden gesucht ab: S&P 500 ±2 %, Gold ±2,5 %, Bitcoin ±5 %, jede Kronjuwelen-Aktie ±4 % (gerundeter Wert, Tagesveränderung in Euro); dann bekommen alle drei Hauptwerte eine Zeile. (seit 21.11.2026)
 - **Monatsbericht** am 1. jedes Monats, **Jahresbericht** am 1. Januar, jeweils mit Power-Law-Check und Kronjuwelen-Änderungen. (seit 21.11.2026)
 - **Telegram:** Tagesmeldungen und Berichte an den Kanal (Kronjuwelen-Änderungen dort neutral im Monatsbericht); die Sparplan-Schritte zu Kronjuwelen-Änderungen nur privat. (seit 21.11.2026)
 - **Wächter:** jeden Morgen gegen 9 Uhr Prüfung von Datenlauf, Kursen, News und (Monatsanfang) Monatsbericht; bei Ausfall private Telegram-Meldung, sonntags kurze Lebensmeldung. (seit 21.11.2026)

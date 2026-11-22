@@ -115,7 +115,7 @@ h4::after,.kj h3::after,.grp-h+section h4::after{content:"";display:block;width:
 .crown{filter:drop-shadow(0 6px 18px rgba(123,75,184,.45))}
 </style></head><body>
 <button class="totop" id="totop" type="button"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="totopl">Nach oben</span></button>
-<meta name="build" content="2026-11-22T13:30:00Z">
+<meta name="build" content="2026-11-22T07:00:00Z">
 <main id="app"><svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg>
 <h1>3Kings</h1><div class="sub">Marktmonitor</div><div class="stamp">…</div></main>
 <script>
@@ -265,7 +265,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
   const it=(n.items||[]);if(!it.length)return;
   const e=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
   const one=(x,big)=>{const hl=EN&&x.headline_en?x.headline_en:x.headline,ln=EN&&x.lines_en?x.lines_en:(x.lines||[]),we=/^(Wochenende|Weekend)/.test(x.headline);
-   return `<div style="text-align:left;margin:${big?"14px 0 0":"18px 0 0"}"><div style="font-size:12px;color:var(--mute)">${we?T("Bitcoin am Wochenende","Bitcoin weekend"):T("Börsentag ","Trading day ")+fmtDay(x.date)}${x.published?" · "+T("Bericht ","Report ")+e(EN&&x.published_en?x.published_en:x.published):""}</div>
+   return `<div style="text-align:left;margin:${big?"14px 0 0":"18px 0 0"}"><div style="font-size:12px;color:var(--mute)">${we?(()=>{const d=new Date(x.date+"T12:00:00"),p=new Date(d-864e5),wd=EN?["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]:["So.","Mo.","Di.","Mi.","Do.","Fr.","Sa."],dm=z=>EN?z.toLocaleDateString("en-GB",{day:"numeric",month:"short"}):z.getDate()+"."+(z.getMonth()+1)+".";return T("Wochenende ","Weekend ")+wd[p.getDay()]+" "+dm(p)+T(" bis "," to ")+wd[d.getDay()]+" "+dm(d)+T(", nur Bitcoin",", bitcoin only")})():T("Börsentag ","Trading day ")+fmtDay(x.date)}${x.published?" · "+T("Bericht ","Report ")+e(EN&&x.published_en?x.published_en:x.published):""}</div>
    <div style="font:600 ${big?"15px":"14px"}/1.35 var(--sans);margin:2px 0 4px;color:${x.move?"var(--warn)":"var(--text)"}">${e(hl)}</div>
    ${ln.slice(0,1).map(l=>`<p style="margin:0 0 4px;font-size:13px;line-height:1.45;color:#C9C4B8">${e(l)}</p>`).join("")}
    ${ln.length>1||(x.sources||[]).length?`<details class="more" style="margin-top:4px"><summary style="font-size:13px">${T("Details","Details")}</summary>${ln.slice(1).map(l=>`<p style="margin:6px 0 4px;font-size:13px;line-height:1.45;color:#C9C4B8">${e(l)}</p>`).join("")}
@@ -273,7 +273,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
   const s=document.getElementById("news");
   s.innerHTML=`<h4>News</h4>${one(it[0],true)}${(()=>{const lim=new Date(Date.now()-7*864e5).toISOString().slice(0,10),ol=it.slice(1).filter(x=>(x.date||"")>=lim);return ol.length?`<details><summary>${T("Frühere Meldungen (7 Tage)","Earlier reports (7 days)")}</summary>${ol.map(x=>one(x,false)).join("")}</details>`:""})()}
    <div style="margin-top:10px;font-size:13px"><a href="archiv.html?lang=${LANG}" style="color:var(--gld)">${T("Archiv: alle Meldungen und Berichte nach Monaten","Archive: all reports by month")}</a></div>
-   <div class="mute" style="margin-top:10px;font-size:12px">${T("Täglicher automatischer Bericht gegen 7:45 Uhr, sonntags und montags nur Bitcoin. Gründe aus Nachrichtenquellen, keine Handlungsempfehlung.","Automatic daily report around 7:45 CET, Sundays and Mondays bitcoin only. Reasons from news sources, not investment advice.")}</div>`;
+   <div class="mute" style="margin-top:10px;font-size:12px">${T("Täglicher automatischer Bericht gegen 7 Uhr, sonntags und montags nur Bitcoin. Gründe aus Nachrichtenquellen, keine Handlungsempfehlung.","Automatic daily report around 7 AM CET, Sundays and Mondays bitcoin only. Reasons from news sources, not investment advice.")}</div>`;
   s.hidden=false}).catch(()=>{});
  {const K=[["FTSE All-World (Welt)","FTSE All-World (world)","2013–2026","11,8 % vs. 15,2 % pro Jahr","11.8 % vs 15.2 % per year"],
   ["Welt inkl. Schwellenländer (MSCI ACWI)","World incl. emerging markets (MSCI ACWI)","2000–2026","7,9 % vs. 9,0 %, über 20 Jahre in 0 von 71 Zeiträumen vorn, tieferer Absturz","7.9 % vs 9.0 %, ahead in 0 of 71 twenty-year periods, deeper crash"],
