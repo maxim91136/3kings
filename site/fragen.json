@@ -274,5 +274,239 @@
   "wins": 1,
   "ok": false,
   "end": "2026-11-20"
+ },
+ "bitcoin": {
+  "last": "2026-09",
+  "windows": [
+   {
+    "label": "seit 2014-09",
+    "start": "2014-09",
+    "S&P 500": {
+     "cagr": 0.1339,
+     "mdd": 0.193,
+     "ratio": 0.695
+    },
+    "Gold": {
+     "cagr": 0.1098,
+     "mdd": 0.189,
+     "ratio": 0.582
+    },
+    "Bitcoin": {
+     "cagr": 0.5697,
+     "mdd": 0.734,
+     "ratio": 0.776
+    },
+    "btc_best": true
+   },
+   {
+    "label": "10 Jahre",
+    "start": "2016-09",
+    "S&P 500": {
+     "cagr": 0.1488,
+     "mdd": 0.193,
+     "ratio": 0.772
+    },
+    "Gold": {
+     "cagr": 0.1253,
+     "mdd": 0.189,
+     "ratio": 0.664
+    },
+    "Bitcoin": {
+     "cagr": 0.6373,
+     "mdd": 0.734,
+     "ratio": 0.868
+    },
+    "btc_best": true
+   },
+   {
+    "label": "5 Jahre",
+    "start": "2021-09",
+    "S&P 500": {
+     "cagr": 0.1213,
+     "mdd": 0.193,
+     "ratio": 0.63
+    },
+    "Gold": {
+     "cagr": 0.1946,
+     "mdd": 0.189,
+     "ratio": 1.032
+    },
+    "Bitcoin": {
+     "cagr": 0.1503,
+     "mdd": 0.734,
+     "ratio": 0.205
+    },
+    "btc_best": false
+   }
+  ],
+  "beta": 1.19,
+  "beta_gold": 0.08,
+  "high_beta": false,
+  "years": [
+   {
+    "y": 2015,
+    "btc": 0.377,
+    "sp": 0.02,
+    "gold": -0.104
+   },
+   {
+    "y": 2016,
+    "btc": 1.237,
+    "sp": 0.117,
+    "gold": 0.075
+   },
+   {
+    "y": 2017,
+    "btc": 12.164,
+    "sp": 0.209,
+    "gold": 0.092
+   },
+   {
+    "y": 2018,
+    "btc": -0.694,
+    "sp": -0.018,
+    "gold": -0.011
+   },
+   {
+    "y": 2019,
+    "btc": 0.868,
+    "sp": 0.262,
+    "gold": 0.183
+   },
+   {
+    "y": 2020,
+    "btc": 2.997,
+    "sp": 0.185,
+    "gold": 0.256
+   },
+   {
+    "y": 2021,
+    "btc": 0.633,
+    "sp": 0.283,
+    "gold": -0.037
+   },
+   {
+    "y": 2022,
+    "btc": -0.648,
+    "sp": -0.15,
+    "gold": 0.004
+   },
+   {
+    "y": 2023,
+    "btc": 1.539,
+    "sp": 0.207,
+    "gold": 0.127
+   },
+   {
+    "y": 2024,
+    "btc": 1.198,
+    "sp": 0.283,
+    "gold": 0.307
+   },
+   {
+    "y": 2025,
+    "btc": -0.046,
+    "sp": 0.14,
+    "gold": 0.627
+   }
+  ],
+  "n_years": 11,
+  "beat_sp": 8,
+  "beat_gold": 8,
+  "best_all": false
+ },
+ "divers": {
+  "rows": [
+   {
+    "name": "Gold",
+    "start": "1971-08",
+    "n": 661,
+    "beta": -0.0,
+    "corr": -0.0,
+    "diversifies": true,
+    "crisis": 0.0135,
+    "sp_crisis": -0.0628,
+    "n_worst": 66,
+    "protects": true
+   },
+   {
+    "name": "Gold",
+    "start": "2014-09",
+    "n": 144,
+    "beta": 0.08,
+    "corr": 0.08,
+    "diversifies": true,
+    "crisis": 0.0064,
+    "sp_crisis": -0.0605,
+    "n_worst": 14,
+    "protects": true
+   },
+   {
+    "name": "Bitcoin",
+    "start": "2014-09",
+    "n": 144,
+    "beta": 1.19,
+    "corr": 0.19,
+    "diversifies": true,
+    "crisis": -0.0414,
+    "sp_crisis": -0.0605,
+    "n_worst": 14,
+    "protects": false
+   }
+  ]
+ },
+ "drittel": {
+  "rows": [
+   {
+    "label": "100/0/0",
+    "w": [
+     1,
+     0,
+     0
+    ],
+    "cagr": 0.1339,
+    "mdd": 0.193,
+    "ratio": 0.695,
+    "better": false
+   },
+   {
+    "label": "80/10/10",
+    "w": [
+     0.8,
+     0.1,
+     0.1
+    ],
+    "cagr": 0.21,
+    "mdd": 0.236,
+    "ratio": 0.889,
+    "better": true
+   },
+   {
+    "label": "60/20/20",
+    "w": [
+     0.6,
+     0.2,
+     0.2
+    ],
+    "cagr": 0.2742,
+    "mdd": 0.286,
+    "ratio": 0.958,
+    "better": false
+   },
+   {
+    "label": "1/3 je",
+    "w": [
+     0.3333333333333333,
+     0.3333333333333333,
+     0.3333333333333333
+    ],
+    "cagr": 0.3474,
+    "mdd": 0.4,
+    "ratio": 0.868,
+    "better": false
+   }
+  ],
+  "start": "2014-09",
+  "last": "2026-09"
  }
 }
