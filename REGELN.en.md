@@ -510,3 +510,6 @@ Reason: In the savings-plan book ("not at the high", threshold 3 %) both variant
 
 ## 2026-11-22: The court detective: lantern with bat, case file of the day, group "Case files" (explicit decision)
 Design and story, no change to the rules. (1) Figure: The court detective is our own natural bat on a lantern at the left edge of the page header (not modelled on any other character). The lantern glows warm if the last data run was at most 30 hours ago, otherwise it is dark. Display only. (2) Tap on the lantern: "Case file of the day" with the three newest log entries and a short line from the detective (wording, no spoken voice), never a recommendation. (3) The group "Experiments" is now "Case files", with a legend of the seals: case open (test running), solved (rule met), closed (rule not met). All forward tests running now are "case open"; a seal changes only by the evaluation rules set in advance. No change to the buy rule. No recommendation.
+
+## 2026-11-22: Name of the court detective: "Court Detective Flynn" (explicit decision)
+Design and story, no change to the rules. The bat on the lantern is called "Court Detective Flynn". He appears by name on the case file of the day and in the text of the case files. Wording stays dry and friendly, never a recommendation.
