@@ -3123,6 +3123,346 @@
     "rank1": 231,
     "rank2": 117
    }
+  ],
+  "best50": [
+   {
+    "sp": 50,
+    "gold": 35,
+    "btc": 15,
+    "cagr": 0.2424,
+    "mdd": 0.239,
+    "ratio": 1.013,
+    "ok": true,
+    "rank1": 29,
+    "rank2": 44
+   },
+   {
+    "sp": 50,
+    "gold": 40,
+    "btc": 10,
+    "cagr": 0.2078,
+    "mdd": 0.207,
+    "ratio": 1.003,
+    "ok": true,
+    "rank1": 12,
+    "rank2": 32
+   },
+   {
+    "sp": 55,
+    "gold": 35,
+    "btc": 10,
+    "cagr": 0.2083,
+    "mdd": 0.212,
+    "ratio": 0.983,
+    "ok": true,
+    "rank1": 10,
+    "rank2": 35
+   },
+   {
+    "sp": 50,
+    "gold": 45,
+    "btc": 5,
+    "cagr": 0.1693,
+    "mdd": 0.174,
+    "ratio": 0.974,
+    "ok": true,
+    "rank1": 6,
+    "rank2": 23
+   },
+   {
+    "sp": 60,
+    "gold": 30,
+    "btc": 10,
+    "cagr": 0.2088,
+    "mdd": 0.217,
+    "ratio": 0.963,
+    "ok": true,
+    "rank1": 9,
+    "rank2": 48
+   }
+  ]
+ },
+ "golda": {
+  "last": "2026-09",
+  "base": {
+   "gold": 0,
+   "cagr": 0.1111,
+   "mdd": 0.49,
+   "ratio": 0.227,
+   "ok": false,
+   "rank_1980": 11,
+   "rank_2000": 21,
+   "rank_h1": 11,
+   "rank_h2": 21
+  },
+  "rows": [
+   {
+    "gold": 0,
+    "cagr": 0.1111,
+    "mdd": 0.49,
+    "ratio": 0.227,
+    "ok": false,
+    "rank_1980": 11,
+    "rank_2000": 21,
+    "rank_h1": 11,
+    "rank_h2": 21
+   },
+   {
+    "gold": 5,
+    "cagr": 0.112,
+    "mdd": 0.46,
+    "ratio": 0.243,
+    "ok": true,
+    "rank_1980": 10,
+    "rank_2000": 20,
+    "rank_h1": 9,
+    "rank_h2": 20
+   },
+   {
+    "gold": 10,
+    "cagr": 0.1127,
+    "mdd": 0.43,
+    "ratio": 0.262,
+    "ok": true,
+    "rank_1980": 9,
+    "rank_2000": 19,
+    "rank_h1": 6,
+    "rank_h2": 19
+   },
+   {
+    "gold": 15,
+    "cagr": 0.1131,
+    "mdd": 0.399,
+    "ratio": 0.284,
+    "ok": true,
+    "rank_1980": 7,
+    "rank_2000": 18,
+    "rank_h1": 4,
+    "rank_h2": 18
+   },
+   {
+    "gold": 20,
+    "cagr": 0.1133,
+    "mdd": 0.367,
+    "ratio": 0.309,
+    "ok": true,
+    "rank_1980": 6,
+    "rank_2000": 17,
+    "rank_h1": 2,
+    "rank_h2": 17
+   },
+   {
+    "gold": 25,
+    "cagr": 0.1133,
+    "mdd": 0.334,
+    "ratio": 0.339,
+    "ok": true,
+    "rank_1980": 4,
+    "rank_2000": 16,
+    "rank_h1": 1,
+    "rank_h2": 16
+   },
+   {
+    "gold": 30,
+    "cagr": 0.113,
+    "mdd": 0.303,
+    "ratio": 0.373,
+    "ok": true,
+    "rank_1980": 3,
+    "rank_2000": 14,
+    "rank_h1": 3,
+    "rank_h2": 14
+   },
+   {
+    "gold": 35,
+    "cagr": 0.1126,
+    "mdd": 0.286,
+    "ratio": 0.393,
+    "ok": true,
+    "rank_1980": 2,
+    "rank_2000": 12,
+    "rank_h1": 5,
+    "rank_h2": 12
+   },
+   {
+    "gold": 40,
+    "cagr": 0.1119,
+    "mdd": 0.281,
+    "ratio": 0.398,
+    "ok": true,
+    "rank_1980": 1,
+    "rank_2000": 10,
+    "rank_h1": 7,
+    "rank_h2": 10
+   },
+   {
+    "gold": 45,
+    "cagr": 0.111,
+    "mdd": 0.292,
+    "ratio": 0.38,
+    "ok": true,
+    "rank_1980": 5,
+    "rank_2000": 9,
+    "rank_h1": 8,
+    "rank_h2": 9
+   },
+   {
+    "gold": 50,
+    "cagr": 0.1099,
+    "mdd": 0.314,
+    "ratio": 0.35,
+    "ok": true,
+    "rank_1980": 8,
+    "rank_2000": 7,
+    "rank_h1": 10,
+    "rank_h2": 7
+   },
+   {
+    "gold": 55,
+    "cagr": 0.1086,
+    "mdd": 0.336,
+    "ratio": 0.324,
+    "ok": true,
+    "rank_1980": 12,
+    "rank_2000": 6,
+    "rank_h1": 12,
+    "rank_h2": 6
+   },
+   {
+    "gold": 60,
+    "cagr": 0.1071,
+    "mdd": 0.358,
+    "ratio": 0.3,
+    "ok": true,
+    "rank_1980": 13,
+    "rank_2000": 5,
+    "rank_h1": 13,
+    "rank_h2": 5
+   },
+   {
+    "gold": 65,
+    "cagr": 0.1054,
+    "mdd": 0.38,
+    "ratio": 0.277,
+    "ok": true,
+    "rank_1980": 14,
+    "rank_2000": 4,
+    "rank_h1": 14,
+    "rank_h2": 4
+   },
+   {
+    "gold": 70,
+    "cagr": 0.1035,
+    "mdd": 0.403,
+    "ratio": 0.257,
+    "ok": true,
+    "rank_1980": 15,
+    "rank_2000": 3,
+    "rank_h1": 15,
+    "rank_h2": 3
+   },
+   {
+    "gold": 75,
+    "cagr": 0.1013,
+    "mdd": 0.425,
+    "ratio": 0.238,
+    "ok": true,
+    "rank_1980": 16,
+    "rank_2000": 1,
+    "rank_h1": 16,
+    "rank_h2": 1
+   },
+   {
+    "gold": 80,
+    "cagr": 0.099,
+    "mdd": 0.448,
+    "ratio": 0.221,
+    "ok": false,
+    "rank_1980": 17,
+    "rank_2000": 2,
+    "rank_h1": 17,
+    "rank_h2": 2
+   },
+   {
+    "gold": 85,
+    "cagr": 0.0964,
+    "mdd": 0.469,
+    "ratio": 0.205,
+    "ok": false,
+    "rank_1980": 18,
+    "rank_2000": 8,
+    "rank_h1": 18,
+    "rank_h2": 8
+   },
+   {
+    "gold": 90,
+    "cagr": 0.0936,
+    "mdd": 0.491,
+    "ratio": 0.191,
+    "ok": false,
+    "rank_1980": 19,
+    "rank_2000": 11,
+    "rank_h1": 19,
+    "rank_h2": 11
+   },
+   {
+    "gold": 95,
+    "cagr": 0.0905,
+    "mdd": 0.518,
+    "ratio": 0.175,
+    "ok": false,
+    "rank_1980": 20,
+    "rank_2000": 13,
+    "rank_h1": 20,
+    "rank_h2": 13
+   },
+   {
+    "gold": 100,
+    "cagr": 0.0873,
+    "mdd": 0.621,
+    "ratio": 0.141,
+    "ok": false,
+    "rank_1980": 21,
+    "rank_2000": 15,
+    "rank_h1": 21,
+    "rank_h2": 15
+   }
+  ],
+  "n_ok": 15,
+  "best": [
+   {
+    "gold": 40,
+    "cagr": 0.1119,
+    "mdd": 0.281,
+    "ratio": 0.398,
+    "ok": true,
+    "rank_1980": 1,
+    "rank_2000": 10,
+    "rank_h1": 7,
+    "rank_h2": 10
+   },
+   {
+    "gold": 35,
+    "cagr": 0.1126,
+    "mdd": 0.286,
+    "ratio": 0.393,
+    "ok": true,
+    "rank_1980": 2,
+    "rank_2000": 12,
+    "rank_h1": 5,
+    "rank_h2": 12
+   },
+   {
+    "gold": 45,
+    "cagr": 0.111,
+    "mdd": 0.292,
+    "ratio": 0.38,
+    "ok": true,
+    "rank_1980": 5,
+    "rank_2000": 9,
+    "rank_h1": 8,
+    "rank_h2": 9
+   }
   ]
  }
 }
