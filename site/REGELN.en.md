@@ -555,3 +555,6 @@ Design. The removal in the entry on slimming down (item 11) is reversed: the lit
 
 ## 2026-11-22: Explainer text names the group "Case files" (correction)
 In the quick-guide text the group was still called "Experiments"; now "Case files", as in the menu and page. Pure wording correction.
+
+## 2026-11-22: Flynn gently draws attention (explicit decision)
+Design, no change to the rules. The bat on the lantern occasionally lets its eyes glow warmly (gold, not red, to keep it friendly) and sways briefly on the lantern. Rhythm: first time after about 35 seconds, second time after about 95 seconds, then every six minutes, offset from the Joker. Only when it is in view; no repeat at the edge. Off with reduced motion. No sound, no text.

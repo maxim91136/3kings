@@ -555,3 +555,6 @@ Gestaltung. Das Streichen aus dem Eintrag zur Entschlackung (Punkt 11) wird zur�
 
 ## 2026-11-22: Erklärtext nennt die Gruppe „Kronakten“ (Korrektur)
 Im Kurz-erklärt-Text hieß die Gruppe noch „Experimente“; jetzt „Kronakten“, wie in Menü und Seite. Reine Wortkorrektur.
+
+## 2026-11-22: Flynn macht dezent auf sich aufmerksam (ausdrückliche Entscheidung)
+Gestaltung, keine Änderung der Regeln. Die Fledermaus an der Laterne lässt gelegentlich ihre Augen warm aufleuchten (Goldton, nicht rot, damit es freundlich bleibt) und pendelt dabei kurz an der Laterne. Rhythmus: erstes Mal nach etwa 35 Sekunden, zweites Mal nach etwa 95 Sekunden, danach alle sechs Minuten, versetzt zum Joker. Nur wenn sie im Bild ist; keine Wiederholung am Rand. Bei reduzierter Bewegung aus. Kein Ton, kein Text.
