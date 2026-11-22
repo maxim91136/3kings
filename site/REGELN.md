@@ -543,3 +543,6 @@ Gestaltung und Erzählung, keine Änderung der Regeln. (1) Schloss: ein blasses 
 
 ## 2026-11-22: Drei Königreiche statt eines Schlosses (ausdrückliche Entscheidung)
 Gestaltung und Erzählung, keine Änderung der Regeln. Hinter dem Titel stehen jetzt drei blasse Schlösser, eines je König: Gold links (goldene Töne), S&P 500 in der Mitte (violett, etwas größer als Fundament), Bitcoin rechts (orange Töne, schlank). Die Farben und die Größe stehen für Charakter und Alter, nicht für Wert: Kein König ist „besser“. Nur kulissenhaft, nicht antippbar, eigene Zeichnung. Es kann nach Ansicht auf dem Handy angepasst werden.
+
+## 2026-11-22: Unterzeile „Marktmonitor“ unter dem Titel entfällt (ausdrückliche Entscheidung)
+Gestaltung, keine Änderung der Regeln. Der Titel „3Kings“ steht ohne Unterzeile. Der Seitentitel im Browser bleibt unverändert.

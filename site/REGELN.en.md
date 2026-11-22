@@ -543,3 +543,6 @@ Design and story, no change to the rules. (1) Castle: a pale violet fairytale ca
 
 ## 2026-11-22: Three kingdoms instead of one castle (explicit decision)
 Design and story, no change to the rules. Behind the title there are now three pale castles, one per king: gold on the left (golden tones), S&P 500 in the middle (violet, somewhat larger as the foundation), Bitcoin on the right (orange tones, slender). Colours and size stand for character and age, not for value: no king is "better". Backdrop only, not tappable, own drawing. It may be adjusted after viewing on a phone.
+
+## 2026-11-22: Subline "Market monitor" under the title is removed (explicit decision)
+Design, no change to the rules. The title "3Kings" stands without a subline. The page title in the browser is unchanged.
