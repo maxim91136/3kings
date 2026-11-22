@@ -519,3 +519,6 @@ Design, no change to the rules. Every file with a running forward test carries a
 
 ## 2026-11-22: Seals change only by log entry (explicit decision)
 Technical, no change to the rules. The state of the seals is kept in site/siegel.json (offen, aufgeklaert, eingestellt; today all six are "offen", i.e. open). The page reads the file and shows the matching seal. The file is changed only with the helper script siegel.py, which always writes a log entry with date and reason. A change without an entry is not possible. The only measure for a change is the evaluation rules and dates set in advance for that file. No recommendation.
+
+## 2026-11-22: Talent scouting carries the seal "case open" (explicit decision)
+Design, no change to the rules. Talent scouting is an ongoing investigation with no end date and permanently carries "case open". It is not a test with a verdict; here the seal only means: the search goes on. No recommendation.
