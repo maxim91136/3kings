@@ -552,3 +552,6 @@ Design, no change to the rules or results; nothing is hidden, all figures and te
 
 ## 2026-11-22: "Hahahahaha!" in the page footer stays (explicit decision)
 Design. The removal in the entry on slimming down (item 11) is reversed: the little joker with his "Hahahahaha!" in the page footer stays on the page.
+
+## 2026-11-22: Explainer text names the group "Case files" (correction)
+In the quick-guide text the group was still called "Experiments"; now "Case files", as in the menu and page. Pure wording correction.

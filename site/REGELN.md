@@ -552,3 +552,6 @@ Gestaltung, keine Änderung der Regeln oder Ergebnisse; nichts wird versteckt, a
 
 ## 2026-11-22: „Hahahahaha!“ im Seitenfuß bleibt (ausdrückliche Entscheidung)
 Gestaltung. Das Streichen aus dem Eintrag zur Entschlackung (Punkt 11) wird zurückgenommen: Der kleine Joker mit seinem „Hahahahaha!“ im Seitenfuß bleibt auf der Seite.
+
+## 2026-11-22: Erklärtext nennt die Gruppe „Kronakten“ (Korrektur)
+Im Kurz-erklärt-Text hieß die Gruppe noch „Experimente“; jetzt „Kronakten“, wie in Menü und Seite. Reine Wortkorrektur.
