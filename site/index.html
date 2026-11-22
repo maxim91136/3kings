@@ -193,7 +193,7 @@ details.more.big[open]>summary{margin-bottom:6px}
 @media(prefers-reduced-motion:reduce){.joker{filter:none}}
 </style></head><body>
 <button class="totop" id="totop" type="button"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="totopl">Nach oben</span></button>
-<meta name="build" content="2026-11-23T03:30:00Z">
+<meta name="build" content="2026-11-23T04:00:00Z">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="smear" x="-10%" y="-40%" width="120%" height="180%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="d"/><feTurbulence type="fractalNoise" baseFrequency="0.025 0.8" numOctaves="2" seed="3" result="s"/><feColorMatrix in="s" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.6 0 0 0 0.25" result="m"/><feComposite in="d" in2="m" operator="in"/></filter></svg><main id="app"><svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg>
 <h1>3Kings</h1><div class="sub">Marktmonitor</div><div class="stamp">…</div></main>
 <script>
@@ -700,7 +700,7 @@ function show(auto){
  o.addEventListener("click",function(){if(o.classList.contains("open"))return;T.forEach(clearTimeout);T=[];o.style.transition="opacity .2s";o.style.opacity=0;setTimeout(function(){o.remove()},220);fly(0)});
  T.push(setTimeout(open,3800))}
 function wink(){if(!stuck||busy||document.hidden||RM)return;stuck.animate([{transform:"rotate(28deg) scale(1)",filter:"drop-shadow(3px 5px 4px rgba(0,0,0,.6))"},{transform:"rotate(18deg) scale(1.22)",filter:"drop-shadow(0 0 12px rgba(217,166,59,.95)) drop-shadow(0 0 3px #fff)",offset:.25},{transform:"rotate(36deg) scale(1.16)",filter:"drop-shadow(0 0 14px rgba(217,166,59,.9))",offset:.5},{transform:"rotate(23deg) scale(1.12)",filter:"drop-shadow(0 0 10px rgba(217,166,59,.7))",offset:.75},{transform:"rotate(28deg) scale(1)",filter:"drop-shadow(3px 5px 4px rgba(0,0,0,.6))"}],{duration:1100,easing:"ease-in-out"})}
-setTimeout(wink,90000);setInterval(wink,300000);
+setTimeout(wink,20000);setInterval(wink,45000);
 window.addEventListener("resize",place);
 new MutationObserver(place).observe(document.body,{childList:true});
 show(true)})()</script><script>(function(){function op(t){for(var d=t&&t.closest("details");d;d=d.parentElement&&d.parentElement.closest("details"))d.open=true}
