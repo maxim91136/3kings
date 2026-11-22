@@ -144,7 +144,7 @@ details.guide{margin:12px auto 0;max-width:640px}details.guide>summary{text-alig
 .disc{display:inline-block;margin:8px auto 4px;padding:6px 12px;border:2px solid #E0473C;border-radius:6px;color:#F08A80;font:600 12.5px/1.3 var(--sans);letter-spacing:.02em}
 </style></head><body>
 <button class="totop" id="totop" type="button"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="totopl">Nach oben</span></button>
-<meta name="build" content="2026-11-22T12:00:00Z">
+<meta name="build" content="2026-11-22T12:30:00Z">
 <main id="app"><svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg>
 <h1>3Kings</h1><div class="sub">Marktmonitor</div><div class="stamp">…</div></main>
 <script>
@@ -219,9 +219,9 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <div class="weights">${Object.entries(KINGS).map(([k,K],i)=>`<label style="--c:${K.c}"><span>${K.name}</span><input type="number" inputmode="numeric" min="0" max="100" step="5" data-k="${k}" value="${i===0?34:33}"><em>%</em></label>`).join("")}</div>
  <div class="split" id="split"></div><div class="mute" id="note"></div></section>
  <div class="grp-h" id="g-bel"><svg viewBox="0 0 26 36" aria-hidden="true"><rect x="1" y="1" width="24" height="34" rx="4" fill="#EDE6D6" transform="rotate(-6 13 18)"/><text x="13" y="25" text-anchor="middle" font-family="Permanent Marker,cursive" font-size="19" fill="#120D17" transform="rotate(-6 13 18)">K</text></svg>${T("Belege","Evidence")}</div>
- <section class="proof" id="beleg"><h4>${T("Der Beleg","The evidence")}</h4>
+ <section class="proof" id="beleg"><h4>${T("Sofort oder warten?","Now or wait?")}</h4>
  <div class="mute">${T("Regel: Neues Kapital sofort investieren. Getestet beim S&amp;P 500 ab 1929, bei Gold ab 1975, bei Bitcoin ab 2013 und bei 138 Einzelaktien. Keine Warte-Strategie war überlegen. Entscheidend ist, was gekauft wird, nicht wann.","Rule: invest new money right away. Tested on the S&amp;P 500 since 1929, gold since 1975, bitcoin since 2013 and 138 single stocks. No waiting strategy did better. What is bought matters, not when.")}</div>
- <span class="narr">${T("Ha! Keiner war besser als sofort kaufen.","Ha! Nothing beat buying right away.")}</span><table class="pf"><tr><th>${T("Idee","Idea")}</th><th>${T("Ergebnis","Result")}</th></tr>${PROOF.map(p=>`<tr><td>${EN?p[1]:p[0]}</td><td>${EN?p[3]:p[2]}</td></tr>`).join("")}</table>
+ <table class="pf"><tr><th>${T("Idee","Idea")}</th><th>${T("Ergebnis","Result")}</th></tr>${PROOF.map(p=>`<tr><td>${EN?p[1]:p[0]}</td><td>${EN?p[3]:p[2]}</td></tr>`).join("")}</table><span class="narr r">${T("Ha! Der Markt wartet nicht.","Ha! The market doesn’t wait.")}</span>
  <div class="mute">${T("Einzige belegte Ausnahme: Der Trend (200-Tage-Linie) senkte beim S&amp;P 500 den schlimmsten Rückgang von 78 auf 22 %. Das gilt fürs Halten, nicht fürs Kaufen.","Only proven exception: the trend (200-day line) cut the worst S&amp;P 500 drawdown from 78 to 22 %. That applies to holding, not to buying.")}</div>
  <div class="mute" style="margin-top:8px">${T("Gilt für Anlagen, die langfristig steigen. Vergangenheit, keine Garantie. Stand 19.11.2026, Details im","Applies to assets that rise over the long term. Past results, no guarantee. As of Nov 19, 2026, details in the")} <a href="regeln.html?lang=${LANG}" style="color:var(--gld)">${T("Regelbuch","rule book")}</a>.</div></section>
  <section id="king"></section>
@@ -521,7 +521,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
 }).catch(()=>{document.querySelector(".stamp").textContent=T("Noch keine Daten. Der erste Lauf fehlt oder heartbeat.json ist nicht erreichbar.","No data yet. The first run is missing or heartbeat.json is unreachable.")});
 
 {const G=[[T("Aktuell","Current"),[["news","News"],["glance",T("Marktlage","Market conditions")],["cal",T("Prüfkalender","Review calendar")],["pl",T("Bitcoin: Power Law","Bitcoin: power law")],["reports",T("Berichte","Reports")],["hero",T("Kaufen und Rechner","Buy and calculator")]]],
-  [T("Belege","Evidence"),[["beleg",T("Der Beleg","The evidence")],["king",T("König der Könige","King of Kings")],["goldvs",T("S&amp;P 500 gegen Gold","S&amp;P 500 vs gold")],["long",T("S&amp;P 500 seit 1928","S&amp;P 500 since 1928")]]],
+  [T("Belege","Evidence"),[["beleg",T("Sofort oder warten?","Now or wait?")],["king",T("König der Könige","King of Kings")],["goldvs",T("S&amp;P 500 gegen Gold","S&amp;P 500 vs gold")],["long",T("S&amp;P 500 seit 1928","S&amp;P 500 since 1928")]]],
   [T("Experimente","Experiments"),[["books",T("Schattenbücher im Überblick","Shadow books overview")],["jewels",T("Kronjuwelen","Crown Jewels")],["scout","Talent Scouting"],["spar",T("Schattenbuch Sparplan S&amp;P 500","Shadow book: S&amp;P 500 savings plan")],["pruef",T("Taktikmodell 3 Könige","Tactical model 3 Kings")],["btcl",T("Bitcoin-Linien im Vergleich","Bitcoin lines compared")],["t16",T("Trendportfolio 16 Märkte","Trend portfolio 16 markets")]]]];
  const el=id=>document.getElementById(id),close=()=>{const n=el("nav"),b=el("navbtn");if(n){n.hidden=true;b.setAttribute("aria-expanded","false")}};
  document.addEventListener("click",ev=>{const b=el("navbtn"),n=el("nav");if(!b)return;
