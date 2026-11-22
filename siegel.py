@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Siegel einer Kronakte aendern. Schreibt immer einen Protokolleintrag.
+"""Siegel einer Kron-Akte aendern. Schreibt immer einen Protokolleintrag.
 Aufruf: python siegel.py <id> <offen|laufend|aufgeklaert|eingestellt> "Begruendung DE" "Reason EN"
 """
 import json, sys, datetime

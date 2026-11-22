@@ -28,9 +28,9 @@ items += [
  dict(date="2029-11-15", approx=True, de="Vorwärtstest Bitcoin im Oktober: 2027 bis 2029, Bewertung", en="Forward test bitcoin in October: 2027 to 2029, verdict"),
  dict(date="2031-11-17", de="Endbewertung Kronjuwelen gegen S&P 500 (bewährt bei mindestens 2 Punkten Vorsprung pro Jahr)", en="Final verdict Crown Jewels versus S&P 500 (proven with a lead of at least 2 points a year)"),
  dict(date="2036-11-17", de="Zehnjahresbericht Kronjuwelen gegen S&P 500 (gleiche Maßstäbe wie 2031)", en="Ten-year report Crown Jewels versus S&P 500 (same measures as 2031)"),
- dict(date="2029-11-17", de="Dreijahresbericht aller Kronakten (17. bis 22.11.2029)", en="Three-year report of all case files (Nov 17 to 22, 2029)"),
- dict(date="2031-11-18", de="Fünfjahresbericht der Kronakten ohne Kronjuwelen (18. bis 22.11.2031)", en="Five-year report of the case files without the Crown Jewels (Nov 18 to 22, 2031)"),
- dict(date="2036-11-18", de="Zehnjahresbericht der Kronakten ohne Kronjuwelen (18. bis 22.11.2036)", en="Ten-year report of the case files without the Crown Jewels (Nov 18 to 22, 2036)"),
+ dict(date="2029-11-17", de="Dreijahresbericht aller Kron-Akten (17. bis 22.11.2029)", en="Three-year report of all case files (Nov 17 to 22, 2029)"),
+ dict(date="2031-11-18", de="Fünfjahresbericht der Kron-Akten ohne Kronjuwelen (18. bis 22.11.2031)", en="Five-year report of the case files without the Crown Jewels (Nov 18 to 22, 2031)"),
+ dict(date="2036-11-18", de="Zehnjahresbericht der Kron-Akten ohne Kronjuwelen (18. bis 22.11.2036)", en="Ten-year report of the case files without the Crown Jewels (Nov 18 to 22, 2036)"),
 ]
 items = sorted((x for x in items if x["date"] >= today.isoformat()), key=lambda x: x["date"])
 json.dump(dict(today=str(today), season=dict(n=s.get("n_seasons"), day=s.get("day_in_season"), left=s.get("days_left")) if s else None, items=items), open("site/calendar.json", "w"), ensure_ascii=False, indent=1)
