@@ -384,3 +384,6 @@ Entscheidung: Der Mix (je ein Viertel 50/100/200/300) wird ab der nächsten Sais
 
 ## 2026-11-22: Trendportfolio über 16 Märkte geprüft, nicht übernommen (ausdrückliche Entscheidung)
 Untersuchung aus einem anderen Chat (2015 bis 11/2026, täglich, nur long, sechs Trendsignale je Markt, Gewicht nach Schwankung): Ohne Hebel etwa 3 % pro Jahr; die genannten 12 % nur mit drei- bis vierfachem Hebel (Zinsen nicht eingerechnet). Ohne Krypto Sharpe 0,80 gegen 0,79 beim S&P 500, Vorteil nur im kleineren Rückgang. Steuern und Kaufbarkeit in der EU nicht berücksichtigt. Gleiches Prinzip wie das Taktikmodell 3 Könige (Trend plus Gewicht nach Schwankung, ohne Hebel); kein eigenes Schattenbuch. Keine Regeländerung.
+
+## 2026-11-22: Trendportfolio 16 Märkte doch als Schattenbuch (ausdrückliche Entscheidung, ersetzt den Eintrag von heute)
+Es läuft als eigenes Schattenbuch ohne Hebel in Euro mit, Regeln unverändert aus dem Test übernommen (siehe Regelbuch). Vergleich vorwärts ab 20.11.2026 mit dem S&P 500 und dem Taktikmodell. Keine Änderung an Kaufregel oder Fundament.

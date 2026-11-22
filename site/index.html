@@ -83,7 +83,7 @@ section,.kj{scroll-margin-top:16px}.grp-h{margin:72px 0 -18px;padding-top:22px;b
 .gt{border:1px solid var(--line);border-radius:8px;padding:9px 10px;text-align:left;background:#12161E}.gt span{display:block;font-size:11.5px;color:var(--mute)}.gt b{display:block;font:500 18px/1.2 var(--serif);margin-top:2px}.gt i{font-style:normal;font-size:12px}.gt i.up{color:var(--ok)}.gt i.dn{color:var(--bad)}.gt i.n{color:var(--mute)}.gt.g{border-color:#3F7356;background:#12201A}.gt.g b{color:var(--ok)}.gt.y{border-color:#7A5A22;background:#211B10}.gt.y b{color:var(--warn)}.gt.r{border-color:#80403A;background:#251412}.gt.r b{color:var(--bad)}
 .glance .gn{font-size:11.5px;color:var(--mute);margin-top:6px;text-align:left}</style></head><body>
 <button class="totop" id="totop" type="button"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="totopl">Nach oben</span></button>
-<meta name="build" content="2026-11-21T19:30:00Z">
+<meta name="build" content="2026-11-22T10:00:00Z">
 <main id="app"><svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg>
 <h1>3Kings</h1><div class="sub">Marktmonitor</div><div class="stamp">…</div></main>
 <script>
@@ -328,13 +328,14 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
    ${tr(T("20 Jahre: Welt vorn","20 years: world ahead"),"",`${w.roll["20"].world_better}/${w.roll["20"].n}`,`${j.roll["20"].world_better}/${j.roll["20"].n}`)}</table>
    <div class="mute">${T(`MSCI-Indizes mit Dividenden (brutto), Monatsende, in Dollar, ${mo(j.from)} bis ${mo(j.until)}. USA = MSCI USA (praktisch der S&amp;P 500), World = Industrieländer, ACWI = Industrie- und Schwellenländer (wie der FTSE All-World). Die Währung ändert beide Seiten gleich. Enthalten ist das verlorene US-Jahrzehnt: In den 2000ern lag die Welt vorn, aber nur mit 2 bis 3 Prozentpunkten pro Jahr und mit tieferem Absturz. Frühere Jahrzehnte gibt die freie MSCI-Schnittstelle nicht her.`,`MSCI indices with dividends (gross), month-end, in dollars, ${mo(j.from)} to ${mo(j.until)}. USA = MSCI USA (practically the S&amp;P 500), World = developed markets, ACWI = developed and emerging markets (like the FTSE All-World). The currency changes both sides equally. The lost US decade is included: in the 2000s the world was ahead, but only by 2 to 3 percentage points per year and with a deeper crash. The free MSCI interface does not provide earlier decades.`)}</div>`;
   s.hidden=false}).catch(()=>{});
- Promise.all(["watch.json","sparplan.json","heartbeat.json"].map(u=>fetch(u,{cache:"no-store"}).then(r=>r.ok?r.json():null).catch(()=>null))).then(([w,sp,hb])=>{
+ Promise.all(["watch.json","sparplan.json","heartbeat.json","trend16.json"].map(u=>fetch(u,{cache:"no-store"}).then(r=>r.ok?r.json():null).catch(()=>null))).then(([w,sp,hb,t16])=>{
   const L=[],v=x=>fx(x,3),d=(a,b)=>{const x=(a/b-1)*100;return `<span style="color:${x>0?"var(--ok)":x<0?"var(--bad)":"var(--mute)"}">${x>0?"+":""}${fx(x,1)} %</span>`};
   const e=w&&w.elite&&w.elite.shadow;
   if(e){const l=(e.lump||[]).slice(-1)[0],r=(e.rows||[]).slice(-1)[0];
    if(l)L.push([T("Kronjuwelen, Einmalanlage","Crown Jewels, lump sum"),"#jewels",v(l.elite),"S&amp;P 500 "+v(l.spy),d(l.elite,l.spy),e.start]);
    if(r)L.push([T("Kronjuwelen, Sparplan","Crown Jewels, savings plan"),"#jewels",v(r.elite),"S&amp;P 500 "+v(r.spy),d(r.elite,r.spy),e.start])}
   if(sp&&sp.plans){const a=sp.plans.regel,b=sp.plans.sofort;L.push([T("Sparplan S&amp;P 500, nicht am Hoch","S&amp;P 500 plan, not at the high"),"#spar",v(a.value/a.paid),T("sofort ","immediately ")+v(b.value/b.paid),d(a.value,b.value),sp.start])}
+  if(t16&&t16.fwd!=null)L.push([T("Trendportfolio 16 Märkte","Trend portfolio 16 markets"),"#t16",v(1+t16.fwd),"S&amp;P 500 "+v(1+t16.fwd_spy),d(1+t16.fwd,1+t16.fwd_spy),t16.start]);
   if(hb&&hb.shadow!=null&&hb.hold!=null)L.push([T("Taktikmodell 3 Könige","Tactical model 3 Kings"),"#pruef",v(hb.shadow),T("Halten ","Hold ")+v(hb.hold),d(hb.shadow,hb.hold),hb.since]);
   if(!L.length)return;const s=document.getElementById("books");
   s.innerHTML=`<h4>${T("Schattenbücher im Überblick","Shadow books overview")}</h4><table class="pf"><tr><th>${T("Buch","Book")}</th><th>${T("Wert je Euro","Value per euro")}</th><th>${T("Vergleich","Benchmark")}</th><th>${T("Abstand","Gap")}</th></tr>${L.map(x=>`<tr><td><a href="${x[1]}" style="color:var(--text)">${x[0]}</a><br><span class="mute">${T("seit ","since ")}${x[5]?fmtDay(x[5]):"–"}</span></td><td>${x[2]}</td><td>${x[3]}</td><td>${x[4]}</td></tr>`).join("")}</table><div class="mute" style="font-size:12px">${T("Test nach vorn mit virtuellem Geld, Start = 1,000. Details in den einzelnen Büchern darunter.","Forward test with virtual money, start = 1.000. Details in the individual books below.")}</div>`;s.hidden=false});
@@ -346,6 +347,19 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
   ${b.rows.map(r=>`<tr><td style="white-space:nowrap"><b>${T(r.name,r.name.replace("Halten","Hold").replace("Linie","Line"))}</b></td><td>${pc(r.fwd)}</td><td>${fx(r.w_now*100,0)} %</td><td>${pc(r.cagr)}</td><td>−${fx(r.mdd*100,0)} %</td><td>${fx(r.switches,0)}</td></tr>`).join("")}</table>
   <div class="mute" style="font-size:12px">${T(`Rückblick ${fmtDay(b.back_from)} bis heute, ein bis zwei Zyklen: daraus lässt sich keine „beste“ Linie ableiten. Vorwärts = seit ${fmtDay(b.start)}, Wechsel pro Jahr. Im Taktikmodell steht der Mix ab der nächsten Saison als zusätzlicher Bitcoin-Kandidat zur Wahl.`,`Backtest ${fmtDay(b.back_from)} to today, one to two cycles: no “best” line can be derived. Forward = since ${fmtDay(b.start)}, switches per year. In the tactical model the mix becomes an additional bitcoin candidate from the next season.`)}</div>`;
   pr.after(sec)}).catch(()=>{});
+
+ fetch("trend16.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(t=>{if(!t||!t.back)return;const ref=document.getElementById("btcl")||document.getElementById("pruef");if(!ref)return;
+  const sec=document.createElement("section");sec.id="t16";const pc=x=>x==null?"–":(x>0?"+":"")+fx(x*100,1)+" %";const B=t.back,S=t.back_spy;
+  const wl=Object.entries(t.weights||{}).sort((a,b)=>b[1]-a[1]).map(([k,x])=>`${k} ${fx(x*100,0)} %`).join(", ");
+  sec.innerHTML=`<h4>${T("Schattenbuch Trendportfolio 16 Märkte","Shadow book: trend portfolio 16 markets")}</h4><div class="mute" style="margin-bottom:8px">${T("Aktien, Anleihen, Rohstoffe, Dollar und Krypto. Je Markt sechs Trendsignale, Anteil nach Trend und Ruhe, nur long, ohne Hebel, in Euro, Rest in Cash. Nur Information.","Stocks, bonds, commodities, dollar and crypto. Six trend signals per market, weight by trend and calm, long only, no leverage, in euros, rest in cash. Information only.")}</div>
+  <table class="pf" style="font-size:12.5px"><tr><th></th><th>${T("Trendportfolio","Trend portfolio")}</th><th>S&amp;P 500</th></tr>
+  <tr><td>${T("vorwärts seit ","forward since ")}${fmtDay(t.start)}</td><td>${pc(t.fwd)}</td><td>${pc(t.fwd_spy)}</td></tr>
+  <tr><td>${T("Rückblick p. a.","backtest p.a.")}</td><td>${pc(B.cagr)}</td><td>${pc(S.cagr)}</td></tr>
+  <tr><td>${T("Schwankung","volatility")}</td><td>${fx(B.vol*100,0)} %</td><td>${fx(S.vol*100,0)} %</td></tr>
+  <tr><td>${T("größter Rückgang","max drawdown")}</td><td>−${fx(B.mdd*100,0)} %</td><td>−${fx(S.mdd*100,0)} %</td></tr>
+  <tr><td>Sharpe</td><td>${fx(B.sharpe,2)}</td><td>${fx(S.sharpe,2)}</td></tr></table>
+  <div class="mute" style="font-size:12px">${T(`Heute investiert: ${fx(t.invested*100,0)} %${wl?` (${wl})`:""}. Rückblick ab ${fmtDay(t.back_from)}, ohne Zinsen auf Cash und ohne Steuern, Kosten 0,05 % je Seite. US-ETFs als Messgröße, für Privatanleger in der EU nicht alle kaufbar.`,`Invested today: ${fx(t.invested*100,0)} %${wl?` (${wl})`:""}. Backtest from ${fmtDay(t.back_from)}, without interest on cash and without taxes, cost 0.05 % per side. US ETFs as yardstick, not all buyable for EU retail investors.`)}</div>`;
+  ref.after(sec)}).catch(()=>{});
  fetch("watch.json",{cache:"no-store"}).then(r=>r.json()).then(w=>{
   const n1=x=>fx(x*100,1),n0=x=>Math.round(x*100),b2=x=>fx(x,2),b3=x=>fx(x,3);
   let t="";
@@ -382,7 +396,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
 
 {const G=[[T("Aktuell","Current"),[["news","News"],["glance",T("Marktlage","Market conditions")],["pl",T("Bitcoin: Power Law","Bitcoin: power law")],["reports",T("Berichte","Reports")],["hero",T("Kaufen und Rechner","Buy and calculator")]]],
   [T("Belege","Evidence"),[["beleg",T("Der Beleg","The evidence")],["king",T("König der Könige","King of Kings")],["long",T("S&amp;P 500 seit 1928","S&amp;P 500 since 1928")]]],
-  [T("Experimente","Experiments"),[["books",T("Schattenbücher im Überblick","Shadow books overview")],["jewels",T("Kronjuwelen","Crown Jewels")],["spar",T("Schattenbuch Sparplan S&amp;P 500","Shadow book: S&amp;P 500 savings plan")],["pruef",T("Taktikmodell 3 Könige","Tactical model 3 Kings")],["btcl",T("Bitcoin-Linien im Vergleich","Bitcoin lines compared")]]]];
+  [T("Experimente","Experiments"),[["books",T("Schattenbücher im Überblick","Shadow books overview")],["jewels",T("Kronjuwelen","Crown Jewels")],["spar",T("Schattenbuch Sparplan S&amp;P 500","Shadow book: S&amp;P 500 savings plan")],["pruef",T("Taktikmodell 3 Könige","Tactical model 3 Kings")],["btcl",T("Bitcoin-Linien im Vergleich","Bitcoin lines compared")],["t16",T("Trendportfolio 16 Märkte","Trend portfolio 16 markets")]]]];
  const el=id=>document.getElementById(id),close=()=>{const n=el("nav"),b=el("navbtn");if(n){n.hidden=true;b.setAttribute("aria-expanded","false")}};
  document.addEventListener("click",ev=>{const b=el("navbtn"),n=el("nav");if(!b)return;
   if(ev.target.closest("#navbtn")){if(!n.hidden){close();return}

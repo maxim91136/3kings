@@ -384,3 +384,6 @@ Decision: the mix (a quarter each of 50/100/200/300) becomes an additional bitco
 
 ## 2026-11-22: Trend portfolio across 16 markets reviewed, not adopted (explicit decision)
 Study from another chat (2015 to 11/2026, daily, long only, six trend signals per market, weight by volatility): without leverage about 3 % a year; the quoted 12 % only with three- to fourfold leverage (interest not included). Without crypto Sharpe 0.80 versus 0.79 for the S&P 500, advantage only in the smaller drawdown. Taxes and availability in the EU not considered. Same principle as the tactical model 3 Kings (trend plus volatility weighting, no leverage); no separate shadow book. No rule change.
+
+## 2026-11-22: Trend portfolio 16 markets added as a shadow book after all (explicit decision, replaces today's entry)
+It runs as its own shadow book without leverage in euros, rules taken unchanged from the test (see rule book). Forward comparison from Nov 20, 2026 with the S&P 500 and the tactical model. No change to the buy rule or the foundation.
