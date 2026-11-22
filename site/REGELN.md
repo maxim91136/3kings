@@ -558,3 +558,6 @@ Im Kurz-erklärt-Text hieß die Gruppe noch „Experimente“; jetzt „Kronakte
 
 ## 2026-11-22: Flynn macht dezent auf sich aufmerksam (ausdrückliche Entscheidung)
 Gestaltung, keine Änderung der Regeln. Die Fledermaus an der Laterne lässt gelegentlich ihre Augen warm aufleuchten (Goldton, nicht rot, damit es freundlich bleibt) und pendelt dabei kurz an der Laterne. Rhythmus: erstes Mal nach etwa 35 Sekunden, zweites Mal nach etwa 95 Sekunden, danach alle sechs Minuten, versetzt zum Joker. Nur wenn sie im Bild ist; keine Wiederholung am Rand. Bei reduzierter Bewegung aus. Kein Ton, kein Text.
+
+## 2026-11-22: Die Welt wird lebendiger: Sina regt sich, Sterne funkeln leise (ausdrückliche Entscheidung)
+Gestaltung, keine Änderung der Regeln. (1) Sina bewegt gelegentlich den Schwanz oder zuckt mit einem Ohr (etwa alle 40 bis 70 Sekunden, zufällig), ohne Wanderung und ohne Text; das Blinzeln bleibt. Nur wenn sie im Bild ist, nie am Rand wiederholt. (2) Die Sterne über den Schlössern funkeln sehr langsam und leise. Bei reduzierter Bewegung ist alles aus. Beides ohne Ton und ohne Aussage über Märkte.

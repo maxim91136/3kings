@@ -558,3 +558,6 @@ In the quick-guide text the group was still called "Experiments"; now "Case file
 
 ## 2026-11-22: Flynn gently draws attention (explicit decision)
 Design, no change to the rules. The bat on the lantern occasionally lets its eyes glow warmly (gold, not red, to keep it friendly) and sways briefly on the lantern. Rhythm: first time after about 35 seconds, second time after about 95 seconds, then every six minutes, offset from the Joker. Only when it is in view; no repeat at the edge. Off with reduced motion. No sound, no text.
+
+## 2026-11-22: The world gets livelier: Sina stirs, stars twinkle quietly (explicit decision)
+Design, no change to the rules. (1) Sina occasionally flicks her tail or twitches an ear (about every 40 to 70 seconds, at random), without walking and without text; the blink stays. Only when she is in view, never repeated at the edge. (2) The stars above the castles twinkle very slowly and quietly. With reduced motion everything is off. Both without sound and without any statement about markets.
