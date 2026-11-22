@@ -19,6 +19,7 @@ def messages(rows, pl, st):
     first = "conf" not in st
     conf = st.setdefault("conf", {k: last.get(k + "_c", "") for k in SLOW}); pend = st.setdefault("pend", {})
     lines = []
+    if first: st["daily_date"] = last["date"]
     if not first:
         for k in SLOW:
             new = last.get(k + "_c", "")
@@ -28,7 +29,7 @@ def messages(rows, pl, st):
             else: pend[k] = new
         if st.get("daily_date") != last["date"]:
             for k in DAILY:
-                if last.get(k + "_c") == "r" and (prev or {}).get(k + "_c") != "r":
+                if prev is not None and last.get(k + "_c") == "r" and prev.get(k + "_c") != "r":
                     lines.append(f"{NAME[k]}: {fmt(k, last.get(k))} (Kachel rot)")
             st["daily_date"] = last["date"]
     if lines: msgs.append("🚦 <b>Marktlage</b>\n" + "\n".join("• " + l for l in lines) + f"\nAmpel jetzt: {last.get('n_red', '?')} rot, {last.get('n_green', '?')} grün.\n" + FOOT)
