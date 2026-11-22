@@ -582,3 +582,6 @@ Hinweis, keine Regel und keine Änderung der Seite. Aus einem anderen Chat über
 
 ## 2026-11-22: Erklärtext: Satz zum Bot-Versuch (ausdrückliche Entscheidung)
 Wortlaut im Kurz-erklärt-Text, keine Regel. Im Absatz „Forschung“ steht ein zusätzlicher Satz: Auch ein Versuch, einen Krypto-Bot zu bauen, der den S&P 500 schlägt, endete beim S&P 500; die Zahlen stammen von außen und wurden hier nicht nachgerechnet (siehe Protokolleintrag „Von außen übernommen“). Keine Empfehlung.
+
+## 2026-11-22: Erklärtext: Zusatz „Heiliger Gral“ (ausdrückliche Entscheidung)
+Wortlaut im Kurz-erklärt-Text, keine Regel. Der Satz zum Bot-Versuch endet mit dem Zusatz: Den Heiligen Gral haben wir dort nicht gefunden, das heißt nicht, dass es ihn nicht gibt. Keine Empfehlung.

@@ -582,3 +582,6 @@ Note, no rule and no change to the page. Taken from another chat, calculated wit
 
 ## 2026-11-22: Explainer text: sentence on the bot attempt (explicit decision)
 Wording in the quick-guide text, not a rule. The paragraph "Research" gets an additional sentence: even an attempt to build a crypto bot that beats the S&P 500 ended at the S&P 500; the figures come from outside and were not recalculated here (see the log entry "Taken from outside"). No recommendation.
+
+## 2026-11-22: Explainer text: addition "Holy Grail" (explicit decision)
+Wording in the quick-guide text, not a rule. The sentence on the bot attempt ends with the addition: we did not find the Holy Grail there, which does not mean it does not exist. No recommendation.
