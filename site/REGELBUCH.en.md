@@ -70,3 +70,5 @@
 - **Evaluation of the forward tests:** automatic on the dates (turn of the month 08.11.2028, December 05.01.2029, bitcoin October 15.11.2029) by the rules set in advance, log entry and private message. (since 22.11.2026)
 - **Watchdog:** every morning around 9 CET a check of the data run, prices, news, (start of month) the monthly report, the workflows heartbeat and btclive, the files calendar, barometer, prices and power law, and an overdue season review; on failure a private Telegram message, on Sundays a short sign of life. (since Nov 21, 2026)
 - **Archive:** the homepage shows the last 7 days (news and histories); everything older is in the archive by month. Nothing is deleted. (since Nov 21, 2026)
+
+- **Recovery after crashes** (test of Nov 22, 2026, rules in advance): phases with at least 20 % decline from the all-time high (S&P 500, month-end 1927 to Oct 2026, price index in dollars). Compared: lump sum in the peak month vs savings plan without pause from the peak month, in each case months until back in the black. Hypothesis: savings plan earlier in at least two thirds of the phases. Look back, no recommendation. (since Nov 22, 2026)

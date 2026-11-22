@@ -1,0 +1,81 @@
+{
+ "until": "2026-10",
+ "n": 10,
+ "earlier": 10,
+ "share": 1.0,
+ "confirmed": true,
+ "med_lump": 34,
+ "med_spar": 24,
+ "rows": [
+  {
+   "peak": "1929-08",
+   "trough": "1932-06",
+   "depth": 0.86,
+   "lump": 301,
+   "spar": 46
+  },
+  {
+   "peak": "1961-12",
+   "trough": "1962-06",
+   "depth": 0.235,
+   "lump": 20,
+   "spar": 11
+  },
+  {
+   "peak": "1968-11",
+   "trough": "1970-06",
+   "depth": 0.329,
+   "lump": 42,
+   "spar": 25
+  },
+  {
+   "peak": "1972-12",
+   "trough": "1974-09",
+   "depth": 0.462,
+   "lump": 91,
+   "spar": 29
+  },
+  {
+   "peak": "1980-11",
+   "trough": "1982-07",
+   "depth": 0.238,
+   "lump": 25,
+   "spar": 23
+  },
+  {
+   "peak": "1987-08",
+   "trough": "1987-11",
+   "depth": 0.302,
+   "lump": 23,
+   "spar": 10
+  },
+  {
+   "peak": "2000-08",
+   "trough": "2002-09",
+   "depth": 0.463,
+   "lump": 81,
+   "spar": 40
+  },
+  {
+   "peak": "2007-10",
+   "trough": "2009-02",
+   "depth": 0.526,
+   "lump": 65,
+   "spar": 25
+  },
+  {
+   "peak": "2019-12",
+   "trough": "2020-03",
+   "depth": 0.2,
+   "lump": 7,
+   "spar": 5
+  },
+  {
+   "peak": "2021-12",
+   "trough": "2022-09",
+   "depth": 0.248,
+   "lump": 24,
+   "spar": 15
+  }
+ ]
+}

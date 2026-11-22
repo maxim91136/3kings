@@ -8,6 +8,7 @@
 - Nur Information: Es werden keine Aufträge ausgelöst, keine Anlageberatung. Die Seite nennt keine persönlichen Bestände. (seit 19.11.2026)
 
 ## Kaufregel
+- **Erholung nach Abstürzen** (Test vom 22.11.2026, Regeln vorab): Phasen mit mindestens 20 % Rückgang vom Allzeithoch (S&P 500, Monatsschluss 1927 bis Okt 2026, Kursindex in Dollar). Verglichen: Einmalanlage im Hochmonat gegen Sparplan ohne Pause ab dem Hochmonat, jeweils Monate bis wieder im Plus. Hypothese: Sparplan früher in mindestens zwei Dritteln der Phasen. Blick zurück, keine Empfehlung. (seit 22.11.2026)
 - **Kaufen, sobald Geld da ist.** Getestet für S&P 500 (ab 1928), Gold (ab 1975), Bitcoin (ab 2013) und 138 Einzelaktien (ab 2006): Warten auf Rücksetzer, Abstand zum Hoch, günstigere Bewertung, Angst-Signale, Einstieg in Stufen oder eine Crash-Reserve brachten in keinem Test mehr. (seit 18.11.2026)
 - **Fundament ist der S&P 500** (König der Könige). Kein getesteter Herausforderer schlug ihn dauerhaft: FTSE All-World, Welt inklusive Schwellenländer, nur die Größten, Faktor-ETFs, Trendfilter, Regel-Auswahl der Kronjuwelen. (seit 21.11.2026)
 - Bitcoin und Gold sind Satelliten. Bitcoin nur direkt, ohne Hebel.
