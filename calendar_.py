@@ -22,6 +22,9 @@ if nxt_season: items.append(dict(date=str(nxt_season), approx=True, de=f"Saisonp
 items += [
  dict(date="2027-11-20", de="Erste Bewertung: Barometer-Thesen A–D, These E (schwach gegen stark), These F (200-Tage-Linie), Taktikmodell, Sparplan S&P 500, Trendportfolio",
       en="First verdict: barometer hypotheses A–D, hypothesis E (weak vs strong), hypothesis F (200-day line), tactical model, S&P 500 savings plan, trend portfolio"),
+ dict(date="2028-11-08", approx=True, de="Vorwärtstest Monatswechsel (S&P 500): 24 Fenster, Bewertung", en="Forward test turn of the month (S&P 500): 24 windows, verdict"),
+ dict(date="2029-01-05", approx=True, de="Vorwärtstest Dezember (S&P 500): 2026 bis 2028, Bewertung", en="Forward test December (S&P 500): 2026 to 2028, verdict"),
+ dict(date="2029-11-15", approx=True, de="Vorwärtstest Bitcoin im Oktober: 2027 bis 2029, Bewertung", en="Forward test bitcoin in October: 2027 to 2029, verdict"),
  dict(date="2031-11-17", de="Endbewertung Kronjuwelen gegen S&P 500 (bewährt bei mindestens 2 Punkten Vorsprung pro Jahr)", en="Final verdict Crown Jewels versus S&P 500 (proven with a lead of at least 2 points a year)"),
 ]
 items = sorted((x for x in items if x["date"] >= today.isoformat()), key=lambda x: x["date"])
