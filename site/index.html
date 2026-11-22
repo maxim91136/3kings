@@ -192,7 +192,7 @@ details.more.big[open]>summary{margin-bottom:6px}
 @media(prefers-reduced-motion:reduce){.narr{filter:none}}
 </style></head><body>
 <button class="totop" id="totop" type="button"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="totopl">Nach oben</span></button>
-<meta name="build" content="2026-11-23T01:30:00Z">
+<meta name="build" content="2026-11-23T02:00:00Z">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="smear" x="-10%" y="-40%" width="120%" height="180%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="d"/><feTurbulence type="fractalNoise" baseFrequency="0.025 0.8" numOctaves="2" seed="3" result="s"/><feColorMatrix in="s" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.6 0 0 0 0.25" result="m"/><feComposite in="d" in2="m" operator="in"/></filter></svg><main id="app"><svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg>
 <h1>3Kings</h1><div class="sub">Marktmonitor</div><div class="stamp">…</div></main>
 <script>
@@ -288,11 +288,20 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
 </details>
 <div class="jump"><a href="#jewels">${T("Einzelne Firmen? Kronjuwelen ↓","Individual companies? Crown Jewels ↓")}</a></div>
 <div class="grp-h" id="g-exp"><svg viewBox="0 0 26 36" aria-hidden="true"><rect x="1" y="1" width="24" height="34" rx="4" fill="#EDE6D6" transform="rotate(-6 13 18)"/><text x="13" y="25" text-anchor="middle" font-family="Permanent Marker,cursive" font-size="19" fill="#120D17" transform="rotate(-6 13 18)">K</text></svg>${T("Experimente","Experiments")}</div><div class="mute" style="text-align:center;margin-top:22px;font-size:13px">${T("Alles in diesem Bereich ist experimentell: eigene Modelle, mit virtuellem Geld nach vorn getestet. Bewertet wird erst an den Terminen im Prüfkalender.","Everything in this area is experimental: own models, tested forward with virtual money. Verdicts come only on the dates in the review calendar.")}</div>
-<details class="more big" id="d-exp"><summary>${T("Labor öffnen: Kronjuwelen, Talente, Schattenbücher, Modelle","Open the lab: Crown Jewels, talents, shadow books, models")}</summary>
+<details class="more big" id="d-books"><summary>${T("Schattenbücher im Überblick: Wer liegt vorn seit dem Start?","Shadow books overview: who leads since the start?")}</summary>
  <section id="books" hidden></section>
+</details>
+<details class="more big" id="d-jewels"><summary>${T("Kronjuwelen: Firmen nach festen Regeln, Rückblick, Schattenbuch","Crown Jewels: companies under fixed rules, look-back, shadow book")}</summary>
  <section id="watch" hidden></section>
+</details>
+<details class="more big" id="d-scout"><summary>${T("Talent Scouting: Wer könnte das nächste Kronjuwel werden?","Talent scouting: who could be the next Crown Jewel?")}</summary>
+ <section id="scout" hidden></section>
+</details>
+<details class="more big" id="d-spar"><summary>${T("Schattenbuch Sparplan S&amp;P 500: Nicht am Hoch kaufen?","Shadow book S&amp;P 500 savings plan: not buying at the high?")}</summary>
  <section id="spar" hidden></section>
- <section class="pruef" id="pruef"><h4>${T("Prüfstand: Taktikmodell 3 Könige","Test bench: tactical model 3 Kings")}</h4><div class="mute">${T("Taktisches Modell mit allen drei Assets. Ohne Handelsrelevanz, läuft zu Testzwecken mit.","Tactical model across all three assets. Not used for decisions; runs for testing only.")}</div>`;
+</details>
+<details class="more big" id="d-takt"><summary>${T("Taktikmodell 3 Könige: Modell-Signal und Schattenbuch","Tactical model 3 Kings: model signal and shadow book")}</summary>
+<section class="pruef" id="pruef"><h4>${T("Prüfstand: Taktikmodell 3 Könige","Test bench: tactical model 3 Kings")}</h4><div class="mute">${T("Taktisches Modell mit allen drei Assets. Ohne Handelsrelevanz, läuft zu Testzwecken mit.","Tactical model across all three assets. Not used for decisions; runs for testing only.")}</div>`;
  o+=`<div class="verdict small ${act?"act":""}"><h2>${act?T("Modell-Signal: umschichten","Model signal: rebalance"):T("Modell-Signal: nichts tun","Model signal: do nothing")}</h2><p>${act?T(`Signal zum Schlusskurs vom ${fmtDay(h.moves_date||h.data_date)}: `+h.moves.map(m=>`${m.name} ${pct(m.von)} % → ${pct(m.auf)} % (Modell: ${m.delta>0?"kaufen":"verkaufen"})`).join(", ")+". Im Schattenbuch umgesetzt am nächsten Handelstag, keine Empfehlung.",`Signal at the close of ${fmtDay(h.moves_date||h.data_date)}: `+h.moves.map(m=>`${m.name} ${pct(m.von)} % → ${pct(m.auf)} % (model: ${m.delta>0?"buy":"sell"})`).join(", ")+". Carried out in the shadow book on the next trading day, not a recommendation."):(h.executed&&h.executed.date===h.data_date?T(`Umgesetzt zum Schlusskurs vom ${fmtDay(h.executed.date)} (Signal vom ${fmtDay(h.executed.signal_date)}): `+h.executed.moves.map(m=>`${m.name} ${pct(m.von)} % → ${pct(m.auf)} %`).join(", ")+". ",`Carried out at the close of ${fmtDay(h.executed.date)} (signal of ${fmtDay(h.executed.signal_date)}): `+h.executed.moves.map(m=>`${m.name} ${pct(m.von)} % → ${pct(m.auf)} %`).join(", ")+". "):"")+T("Der Bestand bleibt, keine Abweichung ab "+pct(h.band)+" Punkten.","Holdings stay; no deviation of "+pct(h.band)+" points or more.")}</p></div><div class="banners">`;
  for(const k of ["BTC","SPY","GLD"]){const v=h.players[k];if(!v)continue;const K=KINGS[k],m=mv[k],held=h.held[k];
   let verb,cls;
@@ -309,6 +318,13 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  ${chart(h.ledger_tail)}<div class="mute">${T(`Seit ${fmtDay(h.since)}, ${h.n_actions} ${h.n_actions===1?"Signal":"Signale"}. Papierrechnung, nur Handelskosten sind eingerechnet.`,`Since ${fmtDay(h.since)}, ${h.n_actions} ${h.n_actions===1?"signal":"signals"}. Paper calculation; only trading costs included.`)}</div></section>
  <details class="more"><summary>${T("Verlauf","History")}</summary><table><tr><th>${T("Tag","Day")}</th><th>BTC</th><th>S&amp;P</th><th>Gold</th><th>Cash</th><th>${T("Schatten","Shadow")}</th></tr>${h.ledger_tail.slice().reverse().slice(0,7).map(r=>`<tr><td>${fmtDay(r.date)}</td><td>${pct(+r.BTC)} %</td><td>${pct(+r.SPY)} %</td><td>${pct(+r.GLD)} %</td><td>${pct(+r.cash)} %</td><td>${fx(r.shadow,3)}</td></tr>`).join("")}</table><div class="mute" style="font-size:12px;margin-top:6px"><a href="archiv.html?lang=${LANG}" style="color:var(--mute)">${T("Ältere Tage im Archiv","Older days in the archive")}</a></div></details>
  </details>
+</details>
+<details class="more big" id="d-btcl"><summary>${T("Bitcoin-Linien im Vergleich: Halten gegen Trendlinien","Bitcoin lines compared: hold vs trend lines")}</summary>
+<section id="btcl" hidden></section>
+</details>
+<details class="more big" id="d-t16"><summary>${T("Trendportfolio 16 Märkte: Trend ohne Hebel gegen den S&amp;P 500","Trend portfolio 16 markets: trend without leverage vs the S&amp;P 500")}</summary>
+<section id="t16" hidden></section>
+</details>
 <footer><span class="narr v5" aria-hidden="true">Hahahahaha!</span><div style="font-size:11px;color:var(--mute);margin-bottom:6px">${(()=>{const b=(document.querySelector('meta[name=build]')||{}).content;if(!b)return"";const d=new Date(b);return T("Seitenstand ","Page version ")+d.toLocaleString(LOC,{timeZone:"Europe/Berlin",day:"2-digit",month:EN?"short":"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"})+(EN?" CET":" Uhr")})()}</div><a href="regeln.html?lang=${LANG}" style="color:var(--gld)">${T("Regelbuch","Rule book")}</a> · <a href="archiv.html?lang=${LANG}" style="color:var(--gld)">${T("Archiv","Archive")}</a> · <a href="protokoll.html?lang=${LANG}" style="color:var(--gld)">${T("Protokoll","Log")}</a><br>${T("Nur zur Information. Es werden keine Aufträge ausgelöst. Keine Anlageberatung.","For information only. No orders are placed. Not investment advice.")}</footer>`;
  document.getElementById("app").innerHTML=o;
  const amt=document.getElementById("amt"),ws=[...document.querySelectorAll(".weights input")];
@@ -494,16 +510,16 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
   if(!L.length)return;const s=document.getElementById("books");
   s.innerHTML=`<h4>${T("Schattenbücher im Überblick","Shadow books overview")}</h4><table class="pf"><tr><th>${T("Buch","Book")}</th><th>${T("Wert je Euro","Value per euro")}</th><th>${T("Vergleich","Benchmark")}</th><th>${T("Abstand","Gap")}</th></tr>${L.map(x=>`<tr><td><a href="${x[1]}" style="color:var(--text)">${x[0]}</a><br><span class="mute">${T("seit ","since ")}${x[5]?fmtDay(x[5]):"–"}</span></td><td>${x[2]}</td><td>${x[3]}</td><td>${x[4]}</td></tr>`).join("")}</table><div class="mute" style="font-size:12px">${T("Test nach vorn mit virtuellem Geld, Start = 1,000. Details in den einzelnen Büchern darunter.","Forward test with virtual money, start = 1.000. Details in the individual books below.")}</div>`;s.hidden=false});
 
- fetch("btclines.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(b=>{if(!b||!b.rows)return;const pr=document.getElementById("pruef");if(!pr)return;
-  const sec=document.createElement("section");sec.id="btcl";const pc=x=>x==null?"–":(x>0?"+":"")+fx(x*100,1)+" %";
+ fetch("btclines.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(b=>{if(!b||!b.rows)return;const pr=document.getElementById("btcl");if(!pr)return;
+  const sec=pr;const pc=x=>x==null?"–":(x>0?"+":"")+fx(x*100,1)+" %";
   sec.innerHTML=`<h4>${T("Bitcoin-Linien im Vergleich","Bitcoin lines compared")}</h4><div class="mute" style="margin-bottom:8px">${T(`Halten gegen Trendlinien und den Mix aller vier (anteilig investiert). In Euro, Kosten 0,1 % je Seite, umgeschichtet zum nächsten Schlusskurs. Nur Information, alle Ergebnisse, nicht nur das beste.`,`Holding versus trend lines and the mix of all four (partly invested). In euros, cost 0.1 % per side, switched at the next close. Information only, all results, not just the best.`)}</div>
   <table class="pf" style="font-size:12px;white-space:nowrap"><tr><th></th><th>${T("vorwärts","forward")}</th><th>${T("jetzt drin","in now")}</th><th>${T("Rückblick p. a.","back p.a.")}</th><th>${T("Rückgang","drawdown")}</th><th>${T("Wechsel","switch")}</th></tr>
   ${b.rows.map(r=>`<tr><td style="white-space:nowrap"><b>${T(r.name,r.name.replace("Halten","Hold").replace("Linie","Line"))}</b></td><td>${pc(r.fwd)}</td><td>${fx(r.w_now*100,0)} %</td><td>${pc(r.cagr)}</td><td>−${fx(r.mdd*100,0)} %</td><td>${fx(r.switches,0)}</td></tr>`).join("")}</table>
   <div class="mute" style="font-size:12px">${T(`Rückblick ${fmtDay(b.back_from)} bis heute, ein bis zwei Zyklen: daraus lässt sich keine „beste“ Linie ableiten. Vorwärts = seit ${fmtDay(b.start)}, Wechsel pro Jahr. Im Taktikmodell steht der Mix ab der nächsten Saison als zusätzlicher Bitcoin-Kandidat zur Wahl.`,`Backtest ${fmtDay(b.back_from)} to today, one to two cycles: no “best” line can be derived. Forward = since ${fmtDay(b.start)}, switches per year. In the tactical model the mix becomes an additional bitcoin candidate from the next season.`)}</div>`;
-  pr.after(sec)}).catch(()=>{});
+  sec.hidden=false}).catch(()=>{});
 
- fetch("trend16.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(t=>{if(!t||!t.back)return;const ref=document.getElementById("btcl")||document.getElementById("pruef");if(!ref)return;
-  const sec=document.createElement("section");sec.id="t16";const pc=x=>x==null?"–":(x>0?"+":"")+fx(x*100,1)+" %";const B=t.back,S=t.back_spy;
+ fetch("trend16.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(t=>{if(!t||!t.back)return;const ref=document.getElementById("t16");if(!ref)return;
+  const sec=ref;const pc=x=>x==null?"–":(x>0?"+":"")+fx(x*100,1)+" %";const B=t.back,S=t.back_spy;
   const wl=Object.entries(t.weights||{}).sort((a,b)=>b[1]-a[1]).map(([k,x])=>`${k} ${fx(x*100,0)} %`).join(", ");
   sec.innerHTML=`<h4>${T("Schattenbuch Trendportfolio 16 Märkte","Shadow book: trend portfolio 16 markets")}</h4><div class="mute" style="margin-bottom:8px">${T("Aktien, Anleihen, Rohstoffe, Dollar und Krypto. Je Markt sechs Trendsignale, Anteil nach Trend und Ruhe, nur long, ohne Hebel, in Euro, Rest in Cash. Nur Information.","Stocks, bonds, commodities, dollar and crypto. Six trend signals per market, weight by trend and calm, long only, no leverage, in euros, rest in cash. Information only.")}</div>
   <table class="pf" style="font-size:12.5px"><tr><th></th><th>${T("Trendportfolio","Trend portfolio")}</th><th>S&amp;P 500</th></tr>
@@ -513,17 +529,17 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
   <tr><td>${T("größter Rückgang","max drawdown")}</td><td>−${fx(B.mdd*100,0)} %</td><td>−${fx(S.mdd*100,0)} %</td></tr>
   <tr><td>Sharpe</td><td>${fx(B.sharpe,2)}</td><td>${fx(S.sharpe,2)}</td></tr></table>
   <div class="mute" style="font-size:12px">${T(`Heute investiert: ${fx(t.invested*100,0)} %${wl?` (${wl})`:""}. Rückblick ab ${fmtDay(t.back_from)}, ohne Zinsen auf Cash und ohne Steuern, Kosten 0,05 % je Seite. US-ETFs als Messgröße, für Privatanleger in der EU nicht alle kaufbar.`,`Invested today: ${fx(t.invested*100,0)} %${wl?` (${wl})`:""}. Backtest from ${fmtDay(t.back_from)}, without interest on cash and without taxes, cost 0.05 % per side. US ETFs as yardstick, not all buyable for EU retail investors.`)}</div>`;
-  ref.after(sec)}).catch(()=>{});
+  sec.hidden=false}).catch(()=>{});
 
- fetch("talents.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(t=>{if(!t||!t.talents)return;const ref=document.getElementById("watch");if(!ref)return;
-  const sec=document.createElement("section");sec.id="scout";const pc=x=>x==null?"–":fx(x*100,0)+" %";
+ fetch("talents.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(t=>{if(!t||!t.talents)return;const ref=document.getElementById("scout");if(!ref)return;
+  const sec=ref;const pc=x=>x==null?"–":fx(x*100,0)+" %";
   const cn=n=>n.replace(/ \(The\)| Companies| Company| Global Markets| Sciences| Pharmaceuticals| Inc\.?$| Corporation$/g,"");const row=r=>`<tr><td style="text-align:left"><b>${cn(r.name)}</b></td><td>${pc(r.cagr5)}</td><td>${pc(r.uw)}</td><td>${r.growth==null?"–":"+"+fx(r.growth*100,0)+" %"}</td><td>${pc(r.margin)}</td></tr>`;
   const T0=t.test||{},q=a=>a?`${Math.round(a[1]/a[0]*100)} % ${T("statt","vs")} ${Math.round(a[2]/a[3]*100)} %`:"–";
   sec.innerHTML=`<div class="kj"><h3>Talent Scouting</h3><p>${T(`Wer könnte ein künftiges Kronjuwel sein? Stand ${fmtDay(t.date)}, ${t.talents.length} Talente`,`Who could become a future Crown Jewel? As of ${fmtDay(t.date)}, ${t.talents.length} talents`)}</p></div>
   <table class="pf" style="font-size:12.5px"><tr><th style="text-align:left">${T("Talent","Talent")}</th><th>${T("5 J. p. a.","5y p.a.")}</th><th>${T("unter Wasser","under water")}</th><th>${T("Umsatz p. a.","revenue p.a.")}</th><th>${T("Marge","margin")}</th></tr>${t.talents.length?t.talents.map(row).join(""):`<tr><td colspan="5" style="text-align:left">${T("Derzeit erfüllt niemand alle Talent-Regeln.","Currently no one meets all talent rules.")}</td></tr>`}</table>
   ${t.near&&t.near.length?`<details class="more" style="text-align:left"><summary>${T("Knapp daneben","Near misses")}</summary><div class="mute" style="font-size:12.5px;margin-top:6px">${t.near.map(r=>`${cn(r.name)} (${r.why.map(w=>w==="marge"?T("Marge","margin"):w==="wachstum"?T("Wachstum","growth"):T("Schulden","debt")).join(", ")})`).join(", ")}</div></details>`:""}
   <details class="more"><summary>${T("Regeln und Gegenprobe","Rules and back-check")}</summary><div class="mute" style="font-size:12.5px;text-align:left;margin-top:10px">${T(`<b>Regeln:</b> noch kein Kronjuwel; über 5 Jahre mindestens 15 % Rendite pro Jahr, höchstens 15 % der Zeit mehr als 20 % unter dem Hoch, Schwankung höchstens 30 %, Beta höchstens 1,15; Bruttomarge ab 45 %, Schulden unter dem 2-Fachen des EBITDA; <b>Umsatz wächst mindestens 10 % pro Jahr</b> (3 Jahre). <b>Gegenprobe:</b> Von den Talenten wurden später Kronjuwelen (Kursregeln, innerhalb von 5 Jahren): 2011 ${q(T0.t2011)}, 2013 ${q(T0.t2013)}, 2016 ${q(T0.t2016)} bei allen anderen; mit Wachstumsfilter 2013 ${q((t.gtest||{}).t2013)}, 2016 ${q((t.gtest||{}).t2016)}. Etwa doppelte Chance, kein Garant; Überlebensbias. Aktualisiert zu jeder Saisonprüfung. Nur Information, keine Kaufempfehlung.`,`<b>Rules:</b> not yet a Crown Jewel; over 5 years at least 15 % return a year, at most 15 % of the time more than 20 % below the high, volatility at most 30 %, beta at most 1.15; gross margin from 45 %, debt below twice EBITDA; <b>revenue grows at least 10 % a year</b> (3 years). <b>Back-check:</b> talents that later became Crown Jewels (price rules, within 5 years): 2011 ${q(T0.t2011)}, 2013 ${q(T0.t2013)}, 2016 ${q(T0.t2016)} for all others; with growth filter 2013 ${q((t.gtest||{}).t2013)}, 2016 ${q((t.gtest||{}).t2016)}. Roughly double the chance, no guarantee; survivorship bias. Updated at every season review. Information only, not a buy recommendation.`)}</div></details>`;
-  ref.after(sec)}).catch(()=>{});
+  sec.hidden=false}).catch(()=>{});
 
  fetch("barometer_hist.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(H=>{if(!H||!H.length)return;const s=document.getElementById("bhist");let N=30;
   const draw=()=>{const L=N?H.slice(-N):H,W=600,Hh=110,eff=Math.max(N?Math.min(N,H.length):H.length,7),bw=Math.max(1,Math.min(40,W/eff-(eff>120?.3:2))),tot=16,
