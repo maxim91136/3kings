@@ -1,101 +1,125 @@
 {
- "items": [
-  {
-   "date": "2026-11-20",
-   "published": "21.11., 07:46 Uhr",
-   "published_en": "Nov 21, 7:46 AM CET",
-   "move": true,
-   "headline": "S&P 500 −3,6 %, Gold −3,7 %, Bitcoin −5,0 %: Ausverkauf bei KI-Aktien greift auf alle drei über",
-   "headline_en": "S&P 500 −3.6 %, gold −3.7 %, bitcoin −5.0 %: AI stock sell-off spreads to all three",
-   "lines": [
-    "S&P 500 6.910 Pkt. (−3,6 % in €) · Bitcoin 53.614 € (−5,0 %) · Gold 3.205 € je Unze (−3,7 %)",
-    "Schattenbuch: Elite 6 0,976 · S&P 500 0,944 (in €, seit 17.11.2026)",
-    "S&P 500: Der Index fiel auf 6.910 Punkte (−3,6 % in Euro), den tiefsten Stand seit sieben Monaten. Auslöser war ein sich verschärfender Ausverkauf bei Technologie- und KI-Aktien; der technologielastige Nasdaq verlor rund 5 %. In Dollar gerechnet liegt der S&P 500 nun mehr als 10 % unter seinem Rekordhoch, in Euro knapp 10 %.",
-    "Bitcoin: Der Kurs fiel auf 53.614 € (−5,0 %) und rutschte zeitweise unter 60.000 Dollar, den tiefsten Stand seit über zwei Jahren. Der Ausverkauf an den Aktienmärkten griff auf Kryptowährungen über; dazu kamen anhaltende Abflüsse aus Bitcoin-ETFs und die Auflösung von Kreditwetten in Milliardenhöhe. Seit Monatsbeginn liegt Bitcoin rund 20 % im Minus.",
-    "Gold: Der Goldpreis fiel auf 3.205 € je Unze (−3,7 %) und damit auf ein Zwölfmonatstief. Belastet haben die wachsenden Erwartungen an weitere Zinserhöhungen der US-Notenbank sowie der breite Ausverkauf an den Aktienmärkten. Seit dem Rekordhoch hat Gold in Euro rund 29 % verloren."
-   ],
-   "lines_en": [
-    "S&P 500 6,910 pts (−3.6 % in €) · Bitcoin €53,614 (−5.0 %) · Gold €3,205 per ounce (−3.7 %)",
-    "Shadow book: Elite 6 0.976 · S&P 500 0.944 (in €, since Nov 17, 2026)",
-    "S&P 500: The index fell to 6,910 points (−3.6 % in euros), its lowest level in seven months. The trigger was a deepening sell-off in technology and AI stocks; the tech-heavy Nasdaq lost about 5 %. In dollar terms the S&P 500 is now more than 10 % below its record high, in euros just under 10 %.",
-    "Bitcoin: The price fell to €53,614 (−5.0 %) and briefly slipped below $60,000, its lowest level in more than two years. The stock market sell-off spread to cryptocurrencies, compounded by continued outflows from bitcoin ETFs and the unwinding of leveraged bets worth billions. Bitcoin is down about 20 % since the start of the month.",
-    "Gold: The gold price fell to €3,205 per ounce (−3.7 %), a twelve-month low. It was weighed down by growing expectations of further US Federal Reserve rate hikes and the broad stock market sell-off. Since its record high, gold has lost about 29 % in euros."
-   ],
-   "sources": [
+  "items": [
     {
-     "title": "Forbes: S&P 500 Falls To 7-Month Low As Tech And AI Concerns Fuel Sell-Off",
-     "url": "https://www.forbes.com/sites/antoniopequenoiv/2026/11/20/sp-500-falls-to-7-month-low-as-tech-and-ai-concerns-fuel-sell-off/"
+      "date": "2026-11-22",
+      "published": "22.11., 07:50 Uhr",
+      "published_en": "Nov 22, 7:50 AM CET",
+      "move": false,
+      "headline": "Wochenende: Bitcoin ohne größere Bewegung, +1,7 % in 24 Stunden",
+      "headline_en": "Weekend: no major bitcoin move, +1.7 % in 24 hours",
+      "lines": [
+        "Bitcoin 54.800 € (+1,7 % in 24 h, Stand 22.11., 07:45 Uhr, laut CoinMarketCap)"
+      ],
+      "lines_en": [
+        "Bitcoin €54,800 (+1.7 % in 24 h, as of Nov 22, 7:45 AM CET, per CoinMarketCap)"
+      ],
+      "sources": [
+        {
+          "title": "CoinMarketCap: Bitcoin in Euro",
+          "url": "https://coinmarketcap.com/currencies/bitcoin/btc/eur/"
+        },
+        {
+          "title": "Paybis: BTC to EUR",
+          "url": "https://paybis.com/btc-to-eur/"
+        }
+      ]
     },
     {
-     "title": "CNBC: Gold's slide deepens as AI rout, rate hike bets hurt bullion",
-     "url": "https://www.cnbc.com/2026/11/20/gold-federal-reserve-price-dollar-metals.html"
+      "date": "2026-11-20",
+      "published": "21.11., 07:46 Uhr",
+      "published_en": "Nov 21, 7:46 AM CET",
+      "move": true,
+      "headline": "S&P 500 −3,6 %, Gold −3,7 %, Bitcoin −5,0 %: Ausverkauf bei KI-Aktien greift auf alle drei über",
+      "headline_en": "S&P 500 −3.6 %, gold −3.7 %, bitcoin −5.0 %: AI stock sell-off spreads to all three",
+      "lines": [
+        "S&P 500 6.910 Pkt. (−3,6 % in €) · Bitcoin 53.614 € (−5,0 %) · Gold 3.205 € je Unze (−3,7 %)",
+        "Schattenbuch: Elite 6 0,976 · S&P 500 0,944 (in €, seit 17.11.2026)",
+        "S&P 500: Der Index fiel auf 6.910 Punkte (−3,6 % in Euro), den tiefsten Stand seit sieben Monaten. Auslöser war ein sich verschärfender Ausverkauf bei Technologie- und KI-Aktien; der technologielastige Nasdaq verlor rund 5 %. In Dollar gerechnet liegt der S&P 500 nun mehr als 10 % unter seinem Rekordhoch, in Euro knapp 10 %.",
+        "Bitcoin: Der Kurs fiel auf 53.614 € (−5,0 %) und rutschte zeitweise unter 60.000 Dollar, den tiefsten Stand seit über zwei Jahren. Der Ausverkauf an den Aktienmärkten griff auf Kryptowährungen über; dazu kamen anhaltende Abflüsse aus Bitcoin-ETFs und die Auflösung von Kreditwetten in Milliardenhöhe. Seit Monatsbeginn liegt Bitcoin rund 20 % im Minus.",
+        "Gold: Der Goldpreis fiel auf 3.205 € je Unze (−3,7 %) und damit auf ein Zwölfmonatstief. Belastet haben die wachsenden Erwartungen an weitere Zinserhöhungen der US-Notenbank sowie der breite Ausverkauf an den Aktienmärkten. Seit dem Rekordhoch hat Gold in Euro rund 29 % verloren."
+      ],
+      "lines_en": [
+        "S&P 500 6,910 pts (−3.6 % in €) · Bitcoin €53,614 (−5.0 %) · Gold €3,205 per ounce (−3.7 %)",
+        "Shadow book: Elite 6 0.976 · S&P 500 0.944 (in €, since Nov 17, 2026)",
+        "S&P 500: The index fell to 6,910 points (−3.6 % in euros), its lowest level in seven months. The trigger was a deepening sell-off in technology and AI stocks; the tech-heavy Nasdaq lost about 5 %. In dollar terms the S&P 500 is now more than 10 % below its record high, in euros just under 10 %.",
+        "Bitcoin: The price fell to €53,614 (−5.0 %) and briefly slipped below $60,000, its lowest level in more than two years. The stock market sell-off spread to cryptocurrencies, compounded by continued outflows from bitcoin ETFs and the unwinding of leveraged bets worth billions. Bitcoin is down about 20 % since the start of the month.",
+        "Gold: The gold price fell to €3,205 per ounce (−3.7 %), a twelve-month low. It was weighed down by growing expectations of further US Federal Reserve rate hikes and the broad stock market sell-off. Since its record high, gold has lost about 29 % in euros."
+      ],
+      "sources": [
+        {
+          "title": "Forbes: S&P 500 Falls To 7-Month Low As Tech And AI Concerns Fuel Sell-Off",
+          "url": "https://www.forbes.com/sites/antoniopequenoiv/2026/11/20/sp-500-falls-to-7-month-low-as-tech-and-ai-concerns-fuel-sell-off/"
+        },
+        {
+          "title": "CNBC: Gold's slide deepens as AI rout, rate hike bets hurt bullion",
+          "url": "https://www.cnbc.com/2026/11/20/gold-federal-reserve-price-dollar-metals.html"
+        },
+        {
+          "title": "Bloomberg: Bitcoin Falls to More than Two-Year Low as Global Markets Sink",
+          "url": "https://www.bloomberg.com/news/articles/2026-11-20/bitcoin-falls-to-more-than-two-year-low-as-global-markets-sink"
+        },
+        {
+          "title": "Washington Times: U.S. stocks tumble as the sell-off for AI stocks accelerates",
+          "url": "https://www.washingtontimes.com/news/2026/nov/20/us-stocks-tumble-sp-500-falls-sell-ai-stocks-accelerates/"
+        },
+        {
+          "title": "Rio Times: Gold Falls About 4% to a 12-Month Low",
+          "url": "https://www.riotimesonline.com/gold-silver-precious-metals-friday-november-20-2026/"
+        },
+        {
+          "title": "CoinDesk: Bitcoin plunges below $59,000 as rush to cash puts new bear market lows back in play",
+          "url": "https://www.coindesk.com/markets/2026/11/20/bitcoin-plunges-below-usd59-000-as-rush-to-cash-puts-new-bear-market-lows-back-in-play"
+        }
+      ]
     },
     {
-     "title": "Bloomberg: Bitcoin Falls to More than Two-Year Low as Global Markets Sink",
-     "url": "https://www.bloomberg.com/news/articles/2026-11-20/bitcoin-falls-to-more-than-two-year-low-as-global-markets-sink"
+      "date": "2026-11-19",
+      "published": "20.11., 07:49 Uhr",
+      "published_en": "Nov 20, 7:49 AM CET",
+      "move": false,
+      "headline": "Keine größeren Bewegungen",
+      "headline_en": "No major moves",
+      "lines": [
+        "S&P 500 7.176 Pkt. (−1,8 % in €) · Bitcoin 56.428 € (−1,5 %) · Gold 3.359 € je Unze (−1,6 %)",
+        "Schattenbuch: Elite 6 0,989 · S&P 500 0,980 (in €, seit 17.11.2026)"
+      ],
+      "lines_en": [
+        "S&P 500 7,176 pts (−1.8 % in €) · Bitcoin €56,428 (−1.5 %) · Gold €3,359 per ounce (−1.6 %)",
+        "Shadow book: Elite 6 0.989 · S&P 500 0.980 (in €, since Nov 17, 2026)"
+      ],
+      "sources": []
     },
     {
-     "title": "Washington Times: U.S. stocks tumble as the sell-off for AI stocks accelerates",
-     "url": "https://www.washingtontimes.com/news/2026/nov/20/us-stocks-tumble-sp-500-falls-sell-ai-stocks-accelerates/"
-    },
-    {
-     "title": "Rio Times: Gold Falls About 4% to a 12-Month Low",
-     "url": "https://www.riotimesonline.com/gold-silver-precious-metals-friday-november-20-2026/"
-    },
-    {
-     "title": "CoinDesk: Bitcoin plunges below $59,000 as rush to cash puts new bear market lows back in play",
-     "url": "https://www.coindesk.com/markets/2026/11/20/bitcoin-plunges-below-usd59-000-as-rush-to-cash-puts-new-bear-market-lows-back-in-play"
+      "date": "2026-11-18",
+      "published": "20.11., 07:42 Uhr",
+      "published_en": "Nov 20, 7:42 AM CET",
+      "move": true,
+      "headline": "Gold −3,2 % auf 3.404 € je Unze: Erwartung weiterer US-Zinserhöhungen stärkt den Dollar",
+      "headline_en": "Gold −3.2 % to €3,404 per ounce: expectations of further US rate hikes lift the dollar",
+      "lines": [
+        "S&P 500 7.324 Pkt. (−0,3 % in €) · Bitcoin 57.293 € (−2,9 %) · Gold 3.404 € je Unze (−3,2 %)",
+        "Schattenbuch: Elite 6 1,007 · S&P 500 0,997 (in €, seit 17.11.2026)",
+        "Gold (−3,2 % in €): Der Goldpreis fiel am 18.11. auf rund 3.404 € je Unze, den tiefsten Stand seit über einem Jahr, und liegt 25,5 % unter seinem Hoch vom 02.03.2026. Marktberichte nennen den festeren Dollar und eine Wahrscheinlichkeit von rund 96 % für eine Zinserhöhung der US-Notenbank um 0,25 Prozentpunkte im Dezember nach restriktiven Aussagen von Notenbankvertretern."
+      ],
+      "lines_en": [
+        "S&P 500 7,324 pts (−0.3 % in €) · Bitcoin €57,293 (−2.9 %) · Gold €3,404 per ounce (−3.2 %)",
+        "Shadow book: Elite 6 1.007 · S&P 500 0.997 (in €, since Nov 17, 2026)",
+        "Gold (−3.2 % in €): the gold price fell to around €3,404 per ounce on Nov 18, its lowest level in over a year, and is 25.5 % below its high of Mar 2, 2026. Market reports cite a firmer dollar and a roughly 96 % probability of a 0.25 percentage point rate hike by the US Federal Reserve in December after hawkish comments from Fed officials."
+      ],
+      "sources": [
+        {
+          "title": "Trading Economics: Gold Hovers at Near 14-Month Low",
+          "url": "https://tradingeconomics.com/commodity/gold/news/601731"
+        },
+        {
+          "title": "USAGOLD: Gold Breaks Below $3,800 As Fed Hike Odds Lift The Dollar",
+          "url": "https://www.usagold.com/daily-precious-metals-market-report-november-18-2026/"
+        },
+        {
+          "title": "24/7 Wall St.: Gold Is at a 14-Month Low as Traders Bet on More Fed Hikes",
+          "url": "https://247wallst.com/investing/2026/11/18/gold-is-at-a-14-month-low-as-traders-bet-on-more-fed-hikes/"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "date": "2026-11-19",
-   "published": "20.11., 07:49 Uhr",
-   "published_en": "Nov 20, 7:49 AM CET",
-   "move": false,
-   "headline": "Keine größeren Bewegungen",
-   "headline_en": "No major moves",
-   "lines": [
-    "S&P 500 7.176 Pkt. (−1,8 % in €) · Bitcoin 56.428 € (−1,5 %) · Gold 3.359 € je Unze (−1,6 %)",
-    "Schattenbuch: Elite 6 0,989 · S&P 500 0,980 (in €, seit 17.11.2026)"
-   ],
-   "lines_en": [
-    "S&P 500 7,176 pts (−1.8 % in €) · Bitcoin €56,428 (−1.5 %) · Gold €3,359 per ounce (−1.6 %)",
-    "Shadow book: Elite 6 0.989 · S&P 500 0.980 (in €, since Nov 17, 2026)"
-   ],
-   "sources": []
-  },
-  {
-   "date": "2026-11-18",
-   "published": "20.11., 07:42 Uhr",
-   "published_en": "Nov 20, 7:42 AM CET",
-   "move": true,
-   "headline": "Gold −3,2 % auf 3.404 € je Unze: Erwartung weiterer US-Zinserhöhungen stärkt den Dollar",
-   "headline_en": "Gold −3.2 % to €3,404 per ounce: expectations of further US rate hikes lift the dollar",
-   "lines": [
-    "S&P 500 7.324 Pkt. (−0,3 % in €) · Bitcoin 57.293 € (−2,9 %) · Gold 3.404 € je Unze (−3,2 %)",
-    "Schattenbuch: Elite 6 1,007 · S&P 500 0,997 (in €, seit 17.11.2026)",
-    "Gold (−3,2 % in €): Der Goldpreis fiel am 18.11. auf rund 3.404 € je Unze, den tiefsten Stand seit über einem Jahr, und liegt 25,5 % unter seinem Hoch vom 02.03.2026. Marktberichte nennen den festeren Dollar und eine Wahrscheinlichkeit von rund 96 % für eine Zinserhöhung der US-Notenbank um 0,25 Prozentpunkte im Dezember nach restriktiven Aussagen von Notenbankvertretern."
-   ],
-   "lines_en": [
-    "S&P 500 7,324 pts (−0.3 % in €) · Bitcoin €57,293 (−2.9 %) · Gold €3,404 per ounce (−3.2 %)",
-    "Shadow book: Elite 6 1.007 · S&P 500 0.997 (in €, since Nov 17, 2026)",
-    "Gold (−3.2 % in €): the gold price fell to around €3,404 per ounce on Nov 18, its lowest level in over a year, and is 25.5 % below its high of Mar 2, 2026. Market reports cite a firmer dollar and a roughly 96 % probability of a 0.25 percentage point rate hike by the US Federal Reserve in December after hawkish comments from Fed officials."
-   ],
-   "sources": [
-    {
-     "title": "Trading Economics: Gold Hovers at Near 14-Month Low",
-     "url": "https://tradingeconomics.com/commodity/gold/news/601731"
-    },
-    {
-     "title": "USAGOLD: Gold Breaks Below $3,800 As Fed Hike Odds Lift The Dollar",
-     "url": "https://www.usagold.com/daily-precious-metals-market-report-november-18-2026/"
-    },
-    {
-     "title": "24/7 Wall St.: Gold Is at a 14-Month Low as Traders Bet on More Fed Hikes",
-     "url": "https://247wallst.com/investing/2026/11/18/gold-is-at-a-14-month-low-as-traders-bet-on-more-fed-hikes/"
-    }
-   ]
-  }
- ]
+  ]
 }
