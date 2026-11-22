@@ -55,6 +55,7 @@
 
 ## Chronicles (forward test, no real money)
 - **Crown Jewels** since Nov 17, 2026, as a lump sum and as a savings plan (€100 per month), each against the S&P 500. Verdict November 2031: proven with at least 2 points more return per year, failed below the S&P 500. (since Nov 21, 2026)
+- **S&P 500 lump sum** since 20.11.2026 (chronicle, start 1.000, in euros): immediately, in 12 monthly instalments, and waiting until 20 % below the all-time high (cash until then). Verdict on 20.11.2027, all three end values are reported. Forward test, not in Telegram. (since 22.11.2026)
 - **S&P 500 savings plan** since Nov 17, 2026: "always immediately" vs "not at the high" (buy only 3 % below the all-time high), S&P 500 in euros. Review after one year. (since Nov 18, 2026)
 - **Trend portfolio 16 markets** since Nov 20, 2026, no leverage, in euros, versus the S&P 500: six trend signals per market (price above the price 50/100/200 days ago; breakout above the 50/100/200-day high, active until the low is broken), weight = share of signals × 10 % target volatility / 60-day volatility / 16, long only, total at most 100 %, rest cash, executed at the next close, cost 0.05 % per side. Markets: SPY, QQQ, IWM, EFA, EEM, GLD, SLV, DBC, USO, TLT, IEF, HYG, VNQ, UUP, bitcoin, ethereum. Verdict after one year, without interest and taxes. (since Nov 22, 2026)
 - **Tactical model 3 Kings** against all three held. (since Nov 18, 2026)

@@ -55,6 +55,7 @@
 
 ## Chroniken (Test nach vorn, kein echtes Geld)
 - **Kronjuwelen** seit 17.11.2026, als Einmalanlage und als Sparplan (100 € pro Monat), jeweils gegen den S&P 500. Bewertung November 2031: bewährt bei mindestens 2 Punkten Mehrrendite pro Jahr, gescheitert unter dem S&P 500. (seit 21.11.2026)
+- **Einmalanlage S&P 500** seit 20.11.2026 (Chronik, Start 1,000, in Euro): sofort, in 12 Monatsraten und Warten bis 20 % unter dem Allzeithoch (bis dahin Bargeld). Bewertung am 20.11.2027, alle drei Endwerte werden berichtet. Test nach vorn, nicht in Telegram. (seit 22.11.2026)
 - **Sparplan S&P 500** seit 17.11.2026: „immer sofort“ gegen „nicht am Hoch“ (kaufen erst 3 % unter dem Allzeithoch), S&P 500 in Euro. Prüfung nach einem Jahr. (seit 18.11.2026)
 - **Trendportfolio 16 Märkte** seit 20.11.2026, ohne Hebel, in Euro, gegen den S&P 500: je Markt sechs Trendsignale (Kurs über dem Kurs vor 50/100/200 Tagen; Ausbruch über das 50/100/200-Tage-Hoch, aktiv bis zum Bruch des Tiefs), Anteil = Signalanteil × 10 % Zielschwankung / 60-Tage-Schwankung / 16, nur long, Summe höchstens 100 %, Rest Cash, Umsetzung zum nächsten Schluss, Kosten 0,05 % je Seite. Märkte: SPY, QQQ, IWM, EFA, EEM, GLD, SLV, DBC, USO, TLT, IEF, HYG, VNQ, UUP, Bitcoin, Ethereum. Bewertung nach einem Jahr, ohne Zinsen und Steuern. (seit 22.11.2026)
 - **Taktikmodell 3 Könige** gegen alle drei gehalten. (seit 18.11.2026)
