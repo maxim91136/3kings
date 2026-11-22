@@ -25,5 +25,5 @@ items += [
  dict(date="2031-11-17", de="Endbewertung Kronjuwelen gegen S&P 500 (bewährt bei mindestens 2 Punkten Vorsprung pro Jahr)", en="Final verdict Crown Jewels versus S&P 500 (proven with a lead of at least 2 points a year)"),
 ]
 items = sorted((x for x in items if x["date"] >= today.isoformat()), key=lambda x: x["date"])
-json.dump(dict(today=str(today), items=items), open("site/calendar.json", "w"), ensure_ascii=False, indent=1)
+json.dump(dict(today=str(today), season=dict(n=s.get("n_seasons"), day=s.get("day_in_season"), left=s.get("days_left")) if s else None, items=items), open("site/calendar.json", "w"), ensure_ascii=False, indent=1)
 print(json.dumps(items, ensure_ascii=False)[:400])
