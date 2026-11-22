@@ -7,33 +7,10 @@
   "vol": 0.3,
   "beta": 1.15,
   "margin": 0.45,
-  "nd": 2.0
+  "nd": 2.0,
+  "growth": 0.1
  },
  "talents": [
-  {
-   "sym": "CBOE",
-   "name": "Cboe Global Markets",
-   "cagr5": 0.238,
-   "uw": 0.057,
-   "vol": 0.261,
-   "beta": 0.16,
-   "margin": 0.539,
-   "nd": -0.53,
-   "ok": true,
-   "why": []
-  },
-  {
-   "sym": "GILD",
-   "name": "Gilead Sciences",
-   "cagr5": 0.233,
-   "uw": 0.053,
-   "vol": 0.228,
-   "beta": 0.29,
-   "margin": 0.799,
-   "nd": 1.25,
-   "ok": true,
-   "why": []
-  },
   {
    "sym": "VRTX",
    "name": "Vertex Pharmaceuticals",
@@ -43,61 +20,12 @@
    "beta": 0.51,
    "margin": 0.548,
    "nd": 0.03,
-   "ok": true,
-   "why": []
-  },
-  {
-   "sym": "MO",
-   "name": "Altria",
-   "cagr5": 0.201,
-   "uw": 0.042,
-   "vol": 0.203,
-   "beta": 0.15,
-   "margin": 0.724,
-   "nd": 1.66,
-   "ok": true,
-   "why": []
-  },
-  {
-   "sym": "AFL",
-   "name": "Aflac",
-   "cagr5": 0.196,
-   "uw": 0.0,
-   "vol": 0.187,
-   "beta": 0.43,
-   "margin": 0.466,
-   "nd": 1.67,
-   "ok": true,
-   "why": []
-  },
-  {
-   "sym": "KO",
-   "name": "Coca-Cola Company (The)",
-   "cagr5": 0.152,
-   "uw": 0.0,
-   "vol": 0.166,
-   "beta": 0.13,
-   "margin": 0.623,
-   "nd": 1.48,
+   "growth": 0.104,
    "ok": true,
    "why": []
   }
  ],
  "near": [
-  {
-   "sym": "CAH",
-   "name": "Cardinal Health",
-   "cagr5": 0.441,
-   "uw": 0.004,
-   "vol": 0.253,
-   "beta": 0.38,
-   "margin": 0.039,
-   "nd": 0.81,
-   "ok": false,
-   "why": [
-    "marge"
-   ]
-  },
   {
    "sym": "MCK",
    "name": "McKesson",
@@ -107,20 +35,7 @@
    "beta": 0.13,
    "margin": 0.037,
    "nd": 0.64,
-   "ok": false,
-   "why": [
-    "marge"
-   ]
-  },
-  {
-   "sym": "CASY",
-   "name": "Casey's",
-   "cagr5": 0.292,
-   "uw": 0.046,
-   "vol": 0.265,
-   "beta": 0.38,
-   "margin": 0.238,
-   "nd": 1.51,
+   "growth": 0.134,
    "ok": false,
    "why": [
     "marge"
@@ -135,123 +50,190 @@
    "beta": 0.16,
    "margin": 0.041,
    "nd": 1.12,
+   "growth": 0.104,
    "ok": false,
    "why": [
     "marge"
    ]
   },
   {
-   "sym": "ABBV",
-   "name": "AbbVie",
-   "cagr5": 0.236,
-   "uw": 0.0,
-   "vol": 0.246,
-   "beta": 0.21,
-   "margin": 0.737,
-   "nd": 2.21,
-   "ok": false,
-   "why": [
-    "schulden"
-   ]
-  },
-  {
-   "sym": "WAB",
-   "name": "Wabtec",
-   "cagr5": 0.236,
-   "uw": 0.0,
-   "vol": 0.249,
-   "beta": 0.87,
-   "margin": 0.362,
-   "nd": 2.28,
-   "ok": false,
-   "why": [
-    "marge",
-    "schulden"
-   ]
-  },
-  {
-   "sym": "GWW",
-   "name": "W. W. Grainger",
-   "cagr5": 0.234,
-   "uw": 0.027,
-   "vol": 0.239,
-   "beta": 0.8,
-   "margin": 0.394,
-   "nd": 0.69,
-   "ok": false,
-   "why": [
-    "marge"
-   ]
-  },
-  {
-   "sym": "WMT",
-   "name": "Walmart",
-   "cagr5": 0.228,
-   "uw": 0.046,
-   "vol": 0.238,
-   "beta": 0.47,
-   "margin": 0.253,
-   "nd": 1.39,
-   "ok": false,
-   "why": [
-    "marge"
-   ]
-  },
-  {
-   "sym": "MUV2.DE",
-   "name": "Munich Re",
-   "cagr5": 0.228,
-   "uw": 0.004,
-   "vol": 0.217,
-   "beta": 0.07,
-   "margin": 0.34,
-   "nd": null,
-   "ok": false,
-   "why": [
-    "marge",
-    "schulden"
-   ]
-  },
-  {
-   "sym": "TRV",
-   "name": "Travelers Companies (The)",
-   "cagr5": 0.222,
-   "uw": 0.0,
-   "vol": 0.205,
-   "beta": 0.41,
-   "margin": 0.349,
-   "nd": 0.32,
-   "ok": false,
-   "why": [
-    "marge"
-   ]
-  },
-  {
-   "sym": "MAR",
-   "name": "Marriott International",
-   "cagr5": 0.22,
+   "sym": "CBOE",
+   "name": "Cboe Global Markets",
+   "cagr5": 0.238,
    "uw": 0.057,
-   "vol": 0.285,
-   "beta": 1.03,
-   "margin": 0.788,
-   "nd": 3.49,
+   "vol": 0.261,
+   "beta": 0.16,
+   "margin": 0.539,
+   "nd": -0.53,
+   "growth": 0.06,
+   "ok": false,
+   "why": [
+    "wachstum"
+   ]
+  },
+  {
+   "sym": "GILD",
+   "name": "Gilead Sciences",
+   "cagr5": 0.233,
+   "uw": 0.053,
+   "vol": 0.228,
+   "beta": 0.29,
+   "margin": 0.799,
+   "nd": 1.25,
+   "growth": 0.026,
+   "ok": false,
+   "why": [
+    "wachstum"
+   ]
+  },
+  {
+   "sym": "ACGL",
+   "name": "Arch Capital Group",
+   "cagr5": 0.212,
+   "uw": 0.008,
+   "vol": 0.226,
+   "beta": 0.37,
+   "margin": 0.376,
+   "nd": -0.03,
+   "growth": 0.275,
+   "ok": false,
+   "why": [
+    "marge"
+   ]
+  },
+  {
+   "sym": "MO",
+   "name": "Altria",
+   "cagr5": 0.201,
+   "uw": 0.042,
+   "vol": 0.203,
+   "beta": 0.15,
+   "margin": 0.724,
+   "nd": 1.66,
+   "growth": -0.025,
+   "ok": false,
+   "why": [
+    "wachstum"
+   ]
+  },
+  {
+   "sym": "AMGN",
+   "name": "Amgen",
+   "cagr5": 0.201,
+   "uw": 0.05,
+   "vol": 0.243,
+   "beta": 0.29,
+   "margin": 0.725,
+   "nd": 2.31,
+   "growth": 0.118,
    "ok": false,
    "why": [
     "schulden"
    ]
   },
   {
-   "sym": "ALL",
-   "name": "Allstate",
-   "cagr5": 0.213,
-   "uw": 0.065,
-   "vol": 0.25,
-   "beta": 0.36,
-   "margin": 0.349,
-   "nd": 0.07,
+   "sym": "HLT",
+   "name": "Hilton Worldwide",
+   "cagr5": 0.2,
+   "uw": 0.08,
+   "vol": 0.268,
+   "beta": 1.04,
+   "margin": 0.795,
+   "nd": 4.09,
+   "growth": 0.111,
+   "ok": false,
+   "why": [
+    "schulden"
+   ]
+  },
+  {
+   "sym": "AFL",
+   "name": "Aflac",
+   "cagr5": 0.196,
+   "uw": 0.0,
+   "vol": 0.187,
+   "beta": 0.43,
+   "margin": 0.466,
+   "nd": 1.67,
+   "growth": -0.042,
+   "ok": false,
+   "why": [
+    "wachstum"
+   ]
+  },
+  {
+   "sym": "DB1.DE",
+   "name": "Deutsche Börse",
+   "cagr5": 0.191,
+   "uw": 0.092,
+   "vol": 0.197,
+   "beta": 0.08,
+   "margin": 0.8,
+   "nd": 2.37,
+   "growth": 0.116,
+   "ok": false,
+   "why": [
+    "schulden"
+   ]
+  },
+  {
+   "sym": "TDG",
+   "name": "TransDigm Group",
+   "cagr5": 0.169,
+   "uw": 0.103,
+   "vol": 0.274,
+   "beta": 0.99,
+   "margin": 0.597,
+   "nd": 6.08,
+   "growth": 0.17,
+   "ok": false,
+   "why": [
+    "schulden"
+   ]
+  },
+  {
+   "sym": "TT",
+   "name": "Trane Technologies",
+   "cagr5": 0.16,
+   "uw": 0.137,
+   "vol": 0.273,
+   "beta": 1.07,
+   "margin": 0.35,
+   "nd": 0.66,
+   "growth": 0.101,
    "ok": false,
    "why": [
     "marge"
+   ]
+  },
+  {
+   "sym": "CB",
+   "name": "Chubb Limited",
+   "cagr5": 0.159,
+   "uw": 0.0,
+   "vol": 0.19,
+   "beta": 0.38,
+   "margin": 0.298,
+   "nd": 1.27,
+   "growth": 0.112,
+   "ok": false,
+   "why": [
+    "marge"
+   ]
+  },
+  {
+   "sym": "KO",
+   "name": "Coca-Cola Company (The)",
+   "cagr5": 0.152,
+   "uw": 0.0,
+   "vol": 0.166,
+   "beta": 0.13,
+   "margin": 0.623,
+   "nd": 1.48,
+   "growth": 0.037,
+   "ok": false,
+   "why": [
+    "wachstum"
    ]
   }
  ],
@@ -273,6 +255,20 @@
    110,
    169,
    375
+  ]
+ },
+ "gtest": {
+  "t2013": [
+   23,
+   10,
+   46,
+   332
+  ],
+  "t2016": [
+   18,
+   14,
+   156,
+   353
   ]
  }
 }
