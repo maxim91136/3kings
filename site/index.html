@@ -132,7 +132,7 @@ body{background:#120D17}
 .gt span{padding-right:22px}
 .cal{margin-top:28px}.cal ol{list-style:none;margin:10px 0 0;padding:0;text-align:left}.cal li{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
 .cal .cd{font:400 26px/1 var(--display);color:var(--gld);text-align:center}.cal .cd small{display:block;font:500 10.5px/1.2 var(--sans);color:var(--mute);margin-top:4px}.cal .tx{font-size:13.5px;line-height:1.4}.cal .tx span{display:block;font-size:12px;color:var(--mute)}
-.bh{margin-top:12px;text-align:left}.bh .seg{display:flex;gap:6px;margin:8px 0}.bh .seg button{min-height:32px;padding:0 12px;border-radius:8px;border:1px solid var(--line);background:none;color:var(--mute);font:500 12.5px var(--sans);cursor:pointer}.bh .seg button[aria-pressed="true"]{background:var(--gld);color:var(--ink);border-color:var(--gld)}
+.bh{margin-top:12px;text-align:left}.bh .seg{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.bh .seg button{min-height:32px;padding:0 8px;font-size:13px;border-radius:8px;border:1px solid var(--line);background:none;color:var(--mute);font:500 12.5px var(--sans);cursor:pointer}.bh .seg button[aria-pressed="true"]{background:var(--gld);color:var(--ink);border-color:var(--gld)}
 
 /* Einsteiger-Guide 2026-11-22 */
 details.guide{margin:12px auto 0;max-width:640px}details.guide>summary{text-align:center}
@@ -192,7 +192,7 @@ details.more.big[open]>summary{margin-bottom:6px}
 @media(prefers-reduced-motion:reduce){.narr{filter:none}}
 </style></head><body>
 <button class="totop" id="totop" type="button"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="totopl">Nach oben</span></button>
-<meta name="build" content="2026-11-22T23:20:00Z">
+<meta name="build" content="2026-11-22T23:50:00Z">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="smear" x="-10%" y="-40%" width="120%" height="180%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="d"/><feTurbulence type="fractalNoise" baseFrequency="0.025 0.8" numOctaves="2" seed="3" result="s"/><feColorMatrix in="s" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.6 0 0 0 0.25" result="m"/><feComposite in="d" in2="m" operator="in"/></filter></svg><main id="app"><svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg>
 <h1>3Kings</h1><div class="sub">Marktmonitor</div><div class="stamp">…</div></main>
 <script>
@@ -517,9 +517,9 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
   ref.after(sec)}).catch(()=>{});
 
  fetch("barometer_hist.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(H=>{if(!H||!H.length)return;const s=document.getElementById("bhist");let N=30;
-  const draw=()=>{const L=H.slice(-N),W=600,Hh=110,n=Math.max(L.length,1),bw=Math.max(2,Math.min(40,W/Math.max(N,7)-2)),tot=16,
-    bars=L.map((x,i)=>{const X=i*(W/Math.max(N,7)),h=k=>x[k]/tot*Hh;let y=Hh,o="";for(const [k,c] of [["r","#EE6B5E"],["y","#E2B04A"],["g","#8BC26A"]]){const hh=h(k);y-=hh;o+=`<rect x="${X}" y="${y}" width="${bw}" height="${hh}" fill="${c}" rx="1.5"/>`}return o}).join("");
-    s.innerHTML=`<h4 class="bhh">${T("Verlauf der Ampel","Traffic-light history")}</h4><div class="seg" role="group" aria-label="${T("Zeitraum","Period")}">${[7,30,90].map(k=>`<button type="button" data-n="${k}" aria-pressed="${k===N}">${k} ${T("Tage","days")}</button>`).join("")}</div>
+  const draw=()=>{const L=N?H.slice(-N):H,W=600,Hh=110,eff=Math.max(N?Math.min(N,H.length):H.length,7),bw=Math.max(1,Math.min(40,W/eff-(eff>120?.3:2))),tot=16,
+    bars=L.map((x,i)=>{const X=i*(W/eff),h=k=>x[k]/tot*Hh;let y=Hh,o="";for(const [k,c] of [["r","#EE6B5E"],["y","#E2B04A"],["g","#8BC26A"]]){const hh=h(k);y-=hh;o+=`<rect x="${X}" y="${y}" width="${bw}" height="${hh}" fill="${c}" rx="1.5"/>`}return o}).join("");
+    s.innerHTML=`<h4 class="bhh">${T("Verlauf der Ampel","Traffic-light history")}</h4><div class="seg" role="group" aria-label="${T("Zeitraum","Period")}">${[7,30,90,365,0].map(k=>`<button type="button" data-n="${k}" aria-pressed="${k===N}">${k===365?T("1 Jahr","1 year"):k===0?T("Alles","All"):k+" "+T("Tage","days")}</button>`).join("")}</div>
     <svg viewBox="0 0 ${W} ${Hh}" width="100%" height="${Hh}" role="img" aria-label="${T("Rote, gelbe und grüne Kacheln je Tag","Red, yellow and green tiles per day")}" preserveAspectRatio="none">${bars}</svg>
     <div class="mute" style="font-size:12px">${T(`Je Tag: rote, gelbe und grüne Kacheln. Heute ${H[H.length-1].r} rot, ${H[H.length-1].y} gelb, ${H[H.length-1].g} grün. Aufzeichnung seit ${fmtDay(H[0].d)}, ${H.length} ${H.length===1?"Tag":"Tage"}.`,`Per day: red, yellow and green tiles. Today ${H[H.length-1].r} red, ${H[H.length-1].y} yellow, ${H[H.length-1].g} green. Recorded since ${fmtDay(H[0].d)}, ${H.length} ${H.length===1?"day":"days"}.`)}</div>`;
     s.querySelectorAll("button[data-n]").forEach(b=>b.onclick=()=>{N=+b.dataset.n;draw()})};
