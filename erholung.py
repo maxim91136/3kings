@@ -168,3 +168,113 @@ out["tr"] = dict(shiller_end=max(sh), nach=nach_tr, stufen=dict(n=nn, rows=rt, t
                  confirmed=bool(nn >= 5 and rt["S1"]["vs_spar"] / nn >= 2 / 3),
                  best_med=max(STRAT, key=lambda k: rt[k]["med"]), best_worst=max(STRAT, key=lambda k: rt[k]["worst"])))
 json.dump(out, open("site/erholung.json", "w"), ensure_ascii=False, indent=1)
+
+# --- Restliche Review-Punkte (REGELN 2026-11-22, Regeln vorab): Spannen, Test 1 mit Dividenden, real, Euro ---
+from math import comb
+def cp(k, n, a=0.05):
+    """Clopper-Pearson 95 %, ohne scipy (Bisektion auf der Binomialverteilung)."""
+    if not n: return None
+    def tail_ge(pp): return sum(comb(n, i) * pp ** i * (1 - pp) ** (n - i) for i in range(k, n + 1))
+    def tail_le(pp): return sum(comb(n, i) * pp ** i * (1 - pp) ** (n - i) for i in range(0, k + 1))
+    def bis(f, target, inc):
+        lo, hi = 0.0, 1.0
+        for _ in range(60):
+            mid = (lo + hi) / 2
+            if (f(mid) < target) == inc: lo = mid
+            else: hi = mid
+        return (lo + hi) / 2
+    lo = 0.0 if k == 0 else bis(tail_ge, a / 2, True)
+    hi = 1.0 if k == n else bis(tail_le, a / 2, False)
+    return [round(lo, 3), round(hi, 3)]
+cpi = {}
+for r in csv.DictReader(open("data/shiller.csv")):
+    if float(r["Consumer Price Index"]) > 0: cpi[r["Date"][:7]] = float(r["Consumer Price Index"])
+fx = {}
+for r in list(csv.reader(open("data/ind_EURUSD.csv")))[1:]:
+    if len(r) > 1 and r[1]: fx[r[0][:7]] = float(r[1])
+def arr(f):
+    return [None] + [f(i) for i in range(1, len(p))]
+GR = arr(lambda i: G[i] * cpi[ms[i - 1]] / cpi[ms[i]] if ms[i] in cpi and ms[i - 1] in cpi else None)
+CR = arr(lambda i: C[i] * cpi[ms[i - 1]] / cpi[ms[i]] if ms[i] in cpi and ms[i - 1] in cpi else None)
+GE = arr(lambda i: G[i] * fx[ms[i - 1]] / fx[ms[i]] if ms[i] in fx and ms[i - 1] in fx else None)
+CE = arr(lambda i: C[i] if ms[i] in fx and ms[i - 1] in fx else None)
+def simx(S, T, buys, Gx, Cx):
+    if T >= len(p) or any(Gx[t] is None for t in range(S + 1, T + 1)): return None
+    if ms[S] not in (fx if Gx is GE else cpi if Gx is GR else ms): return None
+    cash = 60.0; eq = 0.0
+    for t in range(S, T + 1):
+        if t > S: cash *= Cx[t]; eq *= Gx[t]
+        a = buys.get(t, 0.0)
+        if a: cash -= a; eq += a
+    return eq + cash
+def t1(Gx):
+    rows = []
+    for pk, tr, rec in eps:
+        def lump():
+            w = 1.0
+            for t in range(pk + 1, len(p)):
+                if Gx[t] is None: return None
+                w *= Gx[t]
+                if t > tr and w >= 1: return t - pk
+            return None
+        def spar_():
+            v = 0.0; paid = 0
+            for t in range(pk, len(p)):
+                if t > pk:
+                    if Gx[t] is None: return None
+                    v *= Gx[t]
+                v += 1; paid += 1
+                if t > tr and v >= paid: return t - pk
+            return None
+        if Gx is GE and ms[pk] not in fx: continue
+        if Gx is GR and ms[pk] not in cpi: continue
+        rows.append(dict(peak=ms[pk], lump=lump(), spar=spar_()))
+    done = [r for r in rows if r["lump"] is not None and r["spar"] is not None]
+    return dict(rows=rows, n=len(done), earlier=sum(1 for r in done if r["spar"] < r["lump"]),
+                med_lump=round(st.median([r["lump"] for r in done])) if done else None,
+                med_spar=round(st.median([r["spar"] for r in done])) if done else None)
+def t23(Gx, Cx):
+    nb = {}
+    for X in (0.0, 0.2, 0.3, 0.5):
+        ent = []
+        for pk, tr, rec in eps:
+            end = rec if rec is not None else len(p) - 1
+            t0 = pk if X == 0 else first_hit(p, pk, end, X)
+            if t0 is None: continue
+            e = simx(t0, t0 + H, {t0: 60.0}, Gx, Cx); s_ = simx(t0, t0 + H, {t0 + j: 1.0 for j in range(H)}, Gx, Cx)
+            if Gx is GE and e is None: continue
+            ent.append(dict(month=ms[t0], lump=None if e is None else round(e, 2), spar=None if s_ is None else round(s_, 2),
+                            lead=None if e is None or s_ is None else round((e - s_) / H, 3)))
+        b = block(ent); b["ci"] = cp(b["ahead"], b["n"]); nb[str(int(X * 100))] = b
+    m = nb["30"]; m["testable"] = m["n"] >= 5; m["confirmed"] = bool(m["testable"] and m["share"] >= 2 / 3)
+    rs = {k: [] for k in list(STRAT) + ["R1", "R2", "R3"]}
+    for pk, tr, rec in eps:
+        end = rec if rec is not None else len(p) - 1
+        t20 = first_hit(p, pk, end, .2)
+        if t20 is None: continue
+        T = t20 + H; vals = {}
+        for k, (mk, ws) in STRAT.items():
+            bb = {}
+            for x, w in zip(mk, ws):
+                i = first_hit(p, pk, end, x)
+                if i is not None and i <= T: add(bb, i, 60 * w)
+            vals[k] = simx(t20, T, bb, Gx, Cx)
+        vals["R1"] = simx(t20, T, {t20: 60.0}, Gx, Cx)
+        i30 = first_hit(p, pk, end, .3); vals["R2"] = simx(t20, T, {i30: 60.0} if i30 is not None and i30 <= T else {}, Gx, Cx)
+        vals["R3"] = simx(t20, T, {t20 + j: 1.0 for j in range(H)}, Gx, Cx)
+        if any(v is None for v in vals.values()): continue
+        for k in rs: rs[k].append(vals[k])
+    nn = len(rs["R3"]); rows_ = {}
+    for k, v in rs.items():
+        if not v: continue
+        rows_[k] = dict(vs_spar=sum(1 for a, b in zip(v, rs["R3"]) if a > b), med=round(st.median(v) / 60, 3), worst=round(min(v) / 60, 3))
+    sb = dict(n=nn, rows=rows_, ci=cp(rows_["S1"]["vs_spar"], nn) if nn else None, testable=nn >= 5,
+              confirmed=bool(nn >= 5 and rows_["S1"]["vs_spar"] / nn >= 2 / 3))
+    return nb, sb
+GN = [None] + [p[i] / p[i - 1] for i in range(1, len(p))]; CN = [None] + [1.0] * (len(p) - 1)
+out["ci"] = dict(nach30=cp(out["nach"]["30"]["ahead"], out["nach"]["30"]["n"]), stufen=cp(out["stufen"]["rows"]["S1"]["vs_spar"], out["stufen"]["n"]),
+                 tr_nach30=cp(out["tr"]["nach"]["30"]["ahead"], out["tr"]["nach"]["30"]["n"]), tr_stufen=cp(out["tr"]["stufen"]["rows"]["S1"]["vs_spar"], out["tr"]["stufen"]["n"]))
+out["t1_tr"] = t1(G)
+rn, rsb = t23(GR, CR); out["real"] = dict(cpi_end=max(cpi), t1=t1(GR), nach=rn, stufen=rsb)
+en_, esb = t23(GE, CE); out["eur"] = dict(fx_start=min(fx), t1=t1(GE), nach=en_, stufen=esb)
+json.dump(out, open("site/erholung.json", "w"), ensure_ascii=False, indent=1)
