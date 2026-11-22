@@ -387,3 +387,6 @@ Untersuchung aus einem anderen Chat (2015 bis 11/2026, täglich, nur long, sechs
 
 ## 2026-11-22: Trendportfolio 16 Märkte doch als Schattenbuch (ausdrückliche Entscheidung, ersetzt den Eintrag von heute)
 Es läuft als eigenes Schattenbuch ohne Hebel in Euro mit, Regeln unverändert aus dem Test übernommen (siehe Regelbuch). Vergleich vorwärts ab 20.11.2026 mit dem S&P 500 und dem Taktikmodell. Keine Änderung an Kaufregel oder Fundament.
+
+## 2026-11-22: Talent Scouting (ausdrückliche Entscheidung)
+Schritt 1: Die neun Kronjuwelen sahen etwa 3 Jahre vor ihrer ersten Qualifikation auf 5-Jahres-Basis schon wie kleine Kronjuwelen aus (5 J. mindestens 15 % p. a., selten unter Wasser, ruhig). Daraus vorab das Talent-Profil festgelegt. Schritt 2, Gegenprobe (nur Kursregeln, heutiges Universum, Überlebensbias): Talente wurden innerhalb von 5 Jahren Kronjuwelen: 11/2011 6 von 7 (86 %) gegen 11 % bei allen anderen; 11/2013 31 % gegen 16 %; 11/2016 77 % gegen 45 %. Etwa doppelte Chance, kein Garant. Neue Rubrik „Talent Scouting“ mit Bilanzregeln wie bei den Kronjuwelen (Marge ab 45 %, Schulden unter 2x). Nur Information, keine Aufnahme in den Index.

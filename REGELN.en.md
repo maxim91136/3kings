@@ -387,3 +387,6 @@ Study from another chat (2015 to 11/2026, daily, long only, six trend signals pe
 
 ## 2026-11-22: Trend portfolio 16 markets added as a shadow book after all (explicit decision, replaces today's entry)
 It runs as its own shadow book without leverage in euros, rules taken unchanged from the test (see rule book). Forward comparison from Nov 20, 2026 with the S&P 500 and the tactical model. No change to the buy rule or the foundation.
+
+## 2026-11-22: Talent Scouting (explicit decision)
+Step 1: about 3 years before first qualifying, the nine Crown Jewels already looked like small Crown Jewels on a 5-year basis (5y at least 15 % p.a., rarely under water, calm). The talent profile was fixed from this beforehand. Step 2, back-check (price rules only, today's universe, survivorship bias): talents became Crown Jewels within 5 years: 11/2011 6 of 7 (86 %) versus 11 % for all others; 11/2013 31 % versus 16 %; 11/2016 77 % versus 45 %. Roughly double the chance, no guarantee. New section "Talent Scouting" with balance-sheet rules as for the Crown Jewels (margin from 45 %, debt below 2x). Information only, no admission to the index.

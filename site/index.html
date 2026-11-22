@@ -115,7 +115,7 @@ h4::after,.kj h3::after,.grp-h+section h4::after{content:"";display:block;width:
 .crown{filter:drop-shadow(0 6px 18px rgba(123,75,184,.45))}
 </style></head><body>
 <button class="totop" id="totop" type="button"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="totopl">Nach oben</span></button>
-<meta name="build" content="2026-11-22T12:30:00Z">
+<meta name="build" content="2026-11-22T13:30:00Z">
 <main id="app"><svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg>
 <h1>3Kings</h1><div class="sub">Marktmonitor</div><div class="stamp">…</div></main>
 <script>
@@ -392,6 +392,16 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
   <tr><td>Sharpe</td><td>${fx(B.sharpe,2)}</td><td>${fx(S.sharpe,2)}</td></tr></table>
   <div class="mute" style="font-size:12px">${T(`Heute investiert: ${fx(t.invested*100,0)} %${wl?` (${wl})`:""}. Rückblick ab ${fmtDay(t.back_from)}, ohne Zinsen auf Cash und ohne Steuern, Kosten 0,05 % je Seite. US-ETFs als Messgröße, für Privatanleger in der EU nicht alle kaufbar.`,`Invested today: ${fx(t.invested*100,0)} %${wl?` (${wl})`:""}. Backtest from ${fmtDay(t.back_from)}, without interest on cash and without taxes, cost 0.05 % per side. US ETFs as yardstick, not all buyable for EU retail investors.`)}</div>`;
   ref.after(sec)}).catch(()=>{});
+
+ fetch("talents.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(t=>{if(!t||!t.talents)return;const ref=document.getElementById("watch");if(!ref)return;
+  const sec=document.createElement("section");sec.id="scout";const pc=x=>x==null?"–":fx(x*100,0)+" %";
+  const cn=n=>n.replace(/ \(The\)| Companies| Company| Global Markets| Sciences| Pharmaceuticals| Inc\.?$| Corporation$/g,"");const row=r=>`<tr><td style="text-align:left"><b>${cn(r.name)}</b></td><td>${pc(r.cagr5)}</td><td>${pc(r.uw)}</td><td>${pc(r.vol)}</td><td>${pc(r.margin)}</td></tr>`;
+  const T0=t.test||{},q=a=>a?`${Math.round(a[1]/a[0]*100)} % ${T("statt","vs")} ${Math.round(a[2]/a[3]*100)} %`:"–";
+  sec.innerHTML=`<div class="kj"><h3>Talent Scouting</h3><p>${T(`Wer könnte ein künftiges Kronjuwel sein? Stand ${fmtDay(t.date)}, ${t.talents.length} Talente`,`Who could become a future Crown Jewel? As of ${fmtDay(t.date)}, ${t.talents.length} talents`)}</p></div>
+  <table class="pf" style="font-size:12.5px"><tr><th style="text-align:left">${T("Talent","Talent")}</th><th>${T("5 J. p. a.","5y p.a.")}</th><th>${T("unter Wasser","under water")}</th><th>${T("Schwankung","volatility")}</th><th>${T("Marge","margin")}</th></tr>${t.talents.map(row).join("")}</table>
+  ${t.near&&t.near.length?`<details class="more" style="text-align:left"><summary>${T("Knapp daneben","Near misses")}</summary><div class="mute" style="font-size:12.5px;margin-top:6px">${t.near.map(r=>`${cn(r.name)} (${r.why.map(w=>w==="marge"?T("Marge","margin"):T("Schulden","debt")).join(", ")})`).join(", ")}</div></details>`:""}
+  <div class="mute" style="font-size:12px;text-align:left">${T(`<b>Regeln:</b> noch kein Kronjuwel; über 5 Jahre mindestens 15 % Rendite pro Jahr, höchstens 15 % der Zeit mehr als 20 % unter dem Hoch, Schwankung höchstens 30 %, Beta höchstens 1,15; Bruttomarge ab 45 %, Schulden unter dem 2-Fachen des EBITDA. <b>Gegenprobe:</b> Von den Talenten wurden später Kronjuwelen (Kursregeln, innerhalb von 5 Jahren): 2011 ${q(T0.t2011)}, 2013 ${q(T0.t2013)}, 2016 ${q(T0.t2016)} bei allen anderen. Etwa doppelte Chance, kein Garant; Überlebensbias. Aktualisiert zu jeder Saisonprüfung. Nur Information, keine Kaufempfehlung.`,`<b>Rules:</b> not yet a Crown Jewel; over 5 years at least 15 % return a year, at most 15 % of the time more than 20 % below the high, volatility at most 30 %, beta at most 1.15; gross margin from 45 %, debt below twice EBITDA. <b>Back-check:</b> talents that later became Crown Jewels (price rules, within 5 years): 2011 ${q(T0.t2011)}, 2013 ${q(T0.t2013)}, 2016 ${q(T0.t2016)} for all others. Roughly double the chance, no guarantee; survivorship bias. Updated at every season review. Information only, not a buy recommendation.`)}</div>`;
+  ref.after(sec)}).catch(()=>{});
  fetch("watch.json",{cache:"no-store"}).then(r=>r.json()).then(w=>{
   const n1=x=>fx(x*100,1),n0=x=>Math.round(x*100),b2=x=>fx(x,2),b3=x=>fx(x,3);
   let t="";
@@ -428,7 +438,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
 
 {const G=[[T("Aktuell","Current"),[["news","News"],["glance",T("Marktlage","Market conditions")],["pl",T("Bitcoin: Power Law","Bitcoin: power law")],["reports",T("Berichte","Reports")],["hero",T("Kaufen und Rechner","Buy and calculator")]]],
   [T("Belege","Evidence"),[["beleg",T("Der Beleg","The evidence")],["king",T("König der Könige","King of Kings")],["long",T("S&amp;P 500 seit 1928","S&amp;P 500 since 1928")]]],
-  [T("Experimente","Experiments"),[["books",T("Schattenbücher im Überblick","Shadow books overview")],["jewels",T("Kronjuwelen","Crown Jewels")],["spar",T("Schattenbuch Sparplan S&amp;P 500","Shadow book: S&amp;P 500 savings plan")],["pruef",T("Taktikmodell 3 Könige","Tactical model 3 Kings")],["btcl",T("Bitcoin-Linien im Vergleich","Bitcoin lines compared")],["t16",T("Trendportfolio 16 Märkte","Trend portfolio 16 markets")]]]];
+  [T("Experimente","Experiments"),[["books",T("Schattenbücher im Überblick","Shadow books overview")],["jewels",T("Kronjuwelen","Crown Jewels")],["scout","Talent Scouting"],["spar",T("Schattenbuch Sparplan S&amp;P 500","Shadow book: S&amp;P 500 savings plan")],["pruef",T("Taktikmodell 3 Könige","Tactical model 3 Kings")],["btcl",T("Bitcoin-Linien im Vergleich","Bitcoin lines compared")],["t16",T("Trendportfolio 16 Märkte","Trend portfolio 16 markets")]]]];
  const el=id=>document.getElementById(id),close=()=>{const n=el("nav"),b=el("navbtn");if(n){n.hidden=true;b.setAttribute("aria-expanded","false")}};
  document.addEventListener("click",ev=>{const b=el("navbtn"),n=el("nav");if(!b)return;
   if(ev.target.closest("#navbtn")){if(!n.hidden){close();return}
