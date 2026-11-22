@@ -1,0 +1,278 @@
+{
+ "date": "2026-11-20",
+ "season": 38,
+ "rules": {
+  "cagr": 0.15,
+  "uw": 0.15,
+  "vol": 0.3,
+  "beta": 1.15,
+  "margin": 0.45,
+  "nd": 2.0
+ },
+ "talents": [
+  {
+   "sym": "CBOE",
+   "name": "Cboe Global Markets",
+   "cagr5": 0.238,
+   "uw": 0.057,
+   "vol": 0.261,
+   "beta": 0.16,
+   "margin": 0.539,
+   "nd": -0.53,
+   "ok": true,
+   "why": []
+  },
+  {
+   "sym": "GILD",
+   "name": "Gilead Sciences",
+   "cagr5": 0.233,
+   "uw": 0.053,
+   "vol": 0.228,
+   "beta": 0.29,
+   "margin": 0.799,
+   "nd": 1.25,
+   "ok": true,
+   "why": []
+  },
+  {
+   "sym": "VRTX",
+   "name": "Vertex Pharmaceuticals",
+   "cagr5": 0.226,
+   "uw": 0.038,
+   "vol": 0.285,
+   "beta": 0.51,
+   "margin": 0.548,
+   "nd": 0.03,
+   "ok": true,
+   "why": []
+  },
+  {
+   "sym": "MO",
+   "name": "Altria",
+   "cagr5": 0.201,
+   "uw": 0.042,
+   "vol": 0.203,
+   "beta": 0.15,
+   "margin": 0.724,
+   "nd": 1.66,
+   "ok": true,
+   "why": []
+  },
+  {
+   "sym": "AFL",
+   "name": "Aflac",
+   "cagr5": 0.196,
+   "uw": 0.0,
+   "vol": 0.187,
+   "beta": 0.43,
+   "margin": 0.466,
+   "nd": 1.67,
+   "ok": true,
+   "why": []
+  },
+  {
+   "sym": "KO",
+   "name": "Coca-Cola Company (The)",
+   "cagr5": 0.152,
+   "uw": 0.0,
+   "vol": 0.166,
+   "beta": 0.13,
+   "margin": 0.623,
+   "nd": 1.48,
+   "ok": true,
+   "why": []
+  }
+ ],
+ "near": [
+  {
+   "sym": "CAH",
+   "name": "Cardinal Health",
+   "cagr5": 0.441,
+   "uw": 0.004,
+   "vol": 0.253,
+   "beta": 0.38,
+   "margin": 0.039,
+   "nd": 0.81,
+   "ok": false,
+   "why": [
+    "marge"
+   ]
+  },
+  {
+   "sym": "MCK",
+   "name": "McKesson",
+   "cagr5": 0.373,
+   "uw": 0.038,
+   "vol": 0.252,
+   "beta": 0.13,
+   "margin": 0.037,
+   "nd": 0.64,
+   "ok": false,
+   "why": [
+    "marge"
+   ]
+  },
+  {
+   "sym": "CASY",
+   "name": "Casey's",
+   "cagr5": 0.292,
+   "uw": 0.046,
+   "vol": 0.265,
+   "beta": 0.38,
+   "margin": 0.238,
+   "nd": 1.51,
+   "ok": false,
+   "why": [
+    "marge"
+   ]
+  },
+  {
+   "sym": "COR",
+   "name": "Cencora",
+   "cagr5": 0.239,
+   "uw": 0.034,
+   "vol": 0.239,
+   "beta": 0.16,
+   "margin": 0.041,
+   "nd": 1.12,
+   "ok": false,
+   "why": [
+    "marge"
+   ]
+  },
+  {
+   "sym": "ABBV",
+   "name": "AbbVie",
+   "cagr5": 0.236,
+   "uw": 0.0,
+   "vol": 0.246,
+   "beta": 0.21,
+   "margin": 0.737,
+   "nd": 2.21,
+   "ok": false,
+   "why": [
+    "schulden"
+   ]
+  },
+  {
+   "sym": "WAB",
+   "name": "Wabtec",
+   "cagr5": 0.236,
+   "uw": 0.0,
+   "vol": 0.249,
+   "beta": 0.87,
+   "margin": 0.362,
+   "nd": 2.28,
+   "ok": false,
+   "why": [
+    "marge",
+    "schulden"
+   ]
+  },
+  {
+   "sym": "GWW",
+   "name": "W. W. Grainger",
+   "cagr5": 0.234,
+   "uw": 0.027,
+   "vol": 0.239,
+   "beta": 0.8,
+   "margin": 0.394,
+   "nd": 0.69,
+   "ok": false,
+   "why": [
+    "marge"
+   ]
+  },
+  {
+   "sym": "WMT",
+   "name": "Walmart",
+   "cagr5": 0.228,
+   "uw": 0.046,
+   "vol": 0.238,
+   "beta": 0.47,
+   "margin": 0.253,
+   "nd": 1.39,
+   "ok": false,
+   "why": [
+    "marge"
+   ]
+  },
+  {
+   "sym": "MUV2.DE",
+   "name": "Munich Re",
+   "cagr5": 0.228,
+   "uw": 0.004,
+   "vol": 0.217,
+   "beta": 0.07,
+   "margin": 0.34,
+   "nd": null,
+   "ok": false,
+   "why": [
+    "marge",
+    "schulden"
+   ]
+  },
+  {
+   "sym": "TRV",
+   "name": "Travelers Companies (The)",
+   "cagr5": 0.222,
+   "uw": 0.0,
+   "vol": 0.205,
+   "beta": 0.41,
+   "margin": 0.349,
+   "nd": 0.32,
+   "ok": false,
+   "why": [
+    "marge"
+   ]
+  },
+  {
+   "sym": "MAR",
+   "name": "Marriott International",
+   "cagr5": 0.22,
+   "uw": 0.057,
+   "vol": 0.285,
+   "beta": 1.03,
+   "margin": 0.788,
+   "nd": 3.49,
+   "ok": false,
+   "why": [
+    "schulden"
+   ]
+  },
+  {
+   "sym": "ALL",
+   "name": "Allstate",
+   "cagr5": 0.213,
+   "uw": 0.065,
+   "vol": 0.25,
+   "beta": 0.36,
+   "margin": 0.349,
+   "nd": 0.07,
+   "ok": false,
+   "why": [
+    "marge"
+   ]
+  }
+ ],
+ "test": {
+  "t2011": [
+   7,
+   6,
+   38,
+   346
+  ],
+  "t2013": [
+   122,
+   38,
+   56,
+   355
+  ],
+  "t2016": [
+   143,
+   110,
+   169,
+   375
+  ]
+ }
+}
