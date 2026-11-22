@@ -561,3 +561,9 @@ Gestaltung, keine Änderung der Regeln. Die Fledermaus an der Laterne lässt gel
 
 ## 2026-11-22: Die Welt wird lebendiger: Sina regt sich, Sterne funkeln leise (ausdrückliche Entscheidung)
 Gestaltung, keine Änderung der Regeln. (1) Sina bewegt gelegentlich den Schwanz oder zuckt mit einem Ohr (etwa alle 40 bis 70 Sekunden, zufällig), ohne Wanderung und ohne Text; das Blinzeln bleibt. Nur wenn sie im Bild ist, nie am Rand wiederholt. (2) Die Sterne über den Schlössern funkeln sehr langsam und leise. Bei reduzierter Bewegung ist alles aus. Beides ohne Ton und ohne Aussage über Märkte.
+
+## 2026-11-22: Tagschicht und Nachtschicht: die Welt folgt der Uhrzeit (ausdrückliche Entscheidung)
+Gestaltung und Erzählung, keine Änderung der Regeln, keine Aussage über Märkte. Nach der Ortszeit des Besuchers (20 bis 7 Uhr Nacht, sonst Tag): Nachts leuchten die Fenster der Schlösser wärmer, Sina schläft mit kleinen „Z“, und eine Tipp-Zeile erinnert daran, dass Flynn Dienst hat. Tagsüber ist Sina wach (Augen offen, blinzelt) und Flynn schläft noch. Reine Stimmung, ohne Ton, bei reduzierter Bewegung ohne Bewegung. Die Laterne zeigt unverändert nur, ob der Datenlauf frisch ist.
+
+## 2026-11-22: Sternenhimmel und Tageslicht nach der Uhrzeit des Besuchers (ausdrückliche Entscheidung)
+Gestaltung, ergänzt den Eintrag zu Tag- und Nachtschicht. Nach der Ortszeit des Besuchers (nicht nach einer festen Zeitzone): Nachts liegt ein feiner Sternenhimmel über dem ganzen Seitenhintergrund, die Sterne funkeln leise. Tagsüber verschwinden die Sterne, und oben liegt ein weicher, warmer Lichtschein. Dazwischen (etwa 5 bis 7 und 20 bis 22 Uhr) blendet es weich über. Die Seite bleibt dunkel und gut lesbar; es ändert sich nur die Stimmung. Bei reduzierter Bewegung kein Funkeln. Keine Aussage über Märkte.

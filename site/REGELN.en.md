@@ -561,3 +561,9 @@ Design, no change to the rules. The bat on the lantern occasionally lets its eye
 
 ## 2026-11-22: The world gets livelier: Sina stirs, stars twinkle quietly (explicit decision)
 Design, no change to the rules. (1) Sina occasionally flicks her tail or twitches an ear (about every 40 to 70 seconds, at random), without walking and without text; the blink stays. Only when she is in view, never repeated at the edge. (2) The stars above the castles twinkle very slowly and quietly. With reduced motion everything is off. Both without sound and without any statement about markets.
+
+## 2026-11-22: Day shift and night shift: the world follows the clock (explicit decision)
+Design and story, no change to the rules, no statement about markets. By the visitor's local time (8 pm to 7 am night, otherwise day): at night the castle windows glow warmer, Sina sleeps with little "Z"s, and a tap line reminds that Flynn is on duty. By day Sina is awake (eyes open, blinks) and Flynn is still asleep. Pure mood, no sound, no movement with reduced motion. The lantern still only shows whether the data run is fresh.
+
+## 2026-11-22: Starry sky and daylight by the visitor's time (explicit decision)
+Design, supplements the entry on day and night shift. By the visitor's local time (not a fixed time zone): at night a fine starry sky lies over the whole page background, the stars twinkle quietly. By day the stars disappear and a soft, warm glow lies at the top. In between (about 5 to 7 am and 8 to 10 pm) it fades softly. The page stays dark and easy to read; only the mood changes. No twinkling with reduced motion. No statement about markets.
