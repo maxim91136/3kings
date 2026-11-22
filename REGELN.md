@@ -546,3 +546,6 @@ Gestaltung und Erzählung, keine Änderung der Regeln. Hinter dem Titel stehen j
 
 ## 2026-11-22: Unterzeile „Marktmonitor“ unter dem Titel entfällt (ausdrückliche Entscheidung)
 Gestaltung, keine Änderung der Regeln. Der Titel „3Kings“ steht ohne Unterzeile. Der Seitentitel im Browser bleibt unverändert.
+
+## 2026-11-22: Seite entschlackt: Doppeltes zusammengelegt, Beiwerk gestrichen (ausdrückliche Entscheidung)
+Gestaltung, keine Änderung der Regeln oder Ergebnisse; nichts wird versteckt, alle Zahlen und Tests bleiben lesbar. (1) Die vier Mischungs-Abschnitte (Wie viel Gold oder Bitcoin, 65 von 231, Wie viel Gold, Sicherheitstest) werden ein Abschnitt „Wie viel Gold und Bitcoin?“. (2) Silber gegen Gold wird Teil des Abschnitts zu Gold. (3) Bitcoin gegen S&P 500 und Gold sowie Diversifikation werden ein Abschnitt. (4) „König der Könige“, „Gleich gewichtet gegen nach Größe“ und der Überblick „Was bisher am stabilsten hielt“ werden ein Abschnitt. (5) „Keine Anlageberatung“ steht nur noch im roten Kasten oben. (6) „Nachlesen: Regelbuch · Protokoll“ steht nur noch unten. (7) Der Rücktest der Barometer-Thesen wandert in „Details zu allen Indikatoren“. (9) „Frühere Meldungen (7 Tage)“ entfällt, das Archiv bleibt. (11) Das „Hahahahaha!“ im Seitenfuß entfällt, der Aufkleber „Regeln zuerst, dann rechnen“ bleibt.
