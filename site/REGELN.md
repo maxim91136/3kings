@@ -616,3 +616,6 @@ Gestaltung, keine Aussage über Märkte, Telegram unberührt. Nach dem Datum des
 
 ## 2026-11-22: Schreibweise „Kron-Akten“ statt „Kronakten“ (ausdrückliche Entscheidung)
 Nur Wortlaut. Mit Bindestrich liest man das Wort sofort richtig (Krone und Akten). Geändert auf der Seite, im Regelbuch und im Prüfkalender; ältere Protokolleinträge bleiben unverändert.
+
+## 2026-11-22: Prüfkalender: Jahresbericht ergänzt, Monatsbericht als wiederkehrend (ausdrückliche Entscheidung)
+Nur Anzeige, keine neuen Prüfungen. Der Jahresbericht (am 1. Januar, zusammen mit dem Dezember-Monatsbericht, war schon geplant) steht jetzt im Prüfkalender. Der Monatsbericht heißt dort „jeden Monat am 1.“, damit sichtbar ist, dass er regelmäßig kommt.

@@ -616,3 +616,6 @@ Design, no statement about markets, Telegram unaffected. By the visitor's date: 
 
 ## 2026-11-22: German spelling “Kron-Akten” instead of “Kronakten” (explicit decision)
 Wording only, German version. With a hyphen the word reads correctly at once (crown and files). Changed on the page, in the rulebook and in the review calendar; older log entries stay unchanged.
+
+## 2026-11-22: Review calendar: annual report added, monthly report shown as recurring (explicit decision)
+Display only, no new reviews. The annual report (on January 1, together with the December monthly report, already planned) is now in the review calendar. The monthly report is shown as “on the 1st of every month” so that it is clear it comes regularly.

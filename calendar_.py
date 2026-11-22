@@ -15,7 +15,8 @@ nm = (today.replace(day=1) + dt.timedelta(days=32)).replace(day=1)
 eom = nm - dt.timedelta(days=1)
 items = [
  dict(date=str(eom), de="Bitcoin Power Law: Monatsschluss entscheidet, ob die Untergrenze hält", en="Bitcoin power law: the monthly close decides whether the floor holds"),
- dict(date=str(nm), de="Monatsbericht", en="Monthly report"),
+ dict(date=str(nm), de="Monatsbericht (jeden Monat am 1.)", en="Monthly report (on the 1st of every month)"),
+ dict(date=f"{today.year + 1}-01-01", de=f"Jahresbericht {today.year} (am 1. Januar)", en=f"Annual report {today.year} (on January 1)"),
 ]
 if nxt_season: items.append(dict(date=str(nxt_season), approx=True, de=f"Saisonprüfung {s.get('n_seasons', 0) + 1}: Kronjuwelen, Talent Scouting, Taktikmodell (noch {s.get('days_left')} Handelstage)",
                                  en=f"Season review {s.get('n_seasons', 0) + 1}: Crown Jewels, Talent Scouting, tactical model ({s.get('days_left')} trading days left)"))

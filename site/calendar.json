@@ -13,8 +13,13 @@
   },
   {
    "date": "2026-12-01",
-   "de": "Monatsbericht",
-   "en": "Monthly report"
+   "de": "Monatsbericht (jeden Monat am 1.)",
+   "en": "Monthly report (on the 1st of every month)"
+  },
+  {
+   "date": "2027-01-01",
+   "de": "Jahresbericht 2026 (am 1. Januar)",
+   "en": "Annual report 2026 (on January 1)"
   },
   {
    "date": "2027-01-28",
