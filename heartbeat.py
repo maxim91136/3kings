@@ -1,10 +1,10 @@
-"""3Kings Heartbeat: berechnet aus data/prices.csv die Mannschafts-Empfehlung (KEINE Auto-Trades).
+"""3Kings Heartbeat: berechnet aus data/prices.csv das Mannschafts-Modellsignal (KEINE Auto-Trades, keine Empfehlung).
 
 Ablauf je Lauf:
   1. Mannschaft (core/team.py) auf allen bisherigen Kursen rechnen -> Champion je Spieler, Zielanteile.
   2. Mit dem zuletzt GEHALTENEN Soll vergleichen. Nur wenn ein Anteil um >= BAND (5 Punkte) abweicht,
-     lautet die Empfehlung 'umschichten' - sonst 'nichts tun' (gegen Zappelei).
-  3. Schattenbuch fortschreiben: Was waere passiert, wenn man jede Empfehlung befolgt haette?
+     lautet das Modellsignal 'umschichten' - sonst 'nichts tun' (gegen Zappelei).
+  3. Schattenbuch fortschreiben: Was waere passiert, wenn man jedem Signal gefolgt waere?
      Daneben der Vergleich 'gleich gewichtet halten'. data/ledger.csv + data/state.json.
   4. site/heartbeat.json schreiben (die Seite liest sie).
 Regeländerungen passieren nur am Saisonende (core/team.py), nie mitten in der Saison.
@@ -163,7 +163,7 @@ def main():
     for p in PLAYERS:
         x = plan[p]
         print(f"  {LABEL[p]:8s} Champion {x['champion']:18s} Ziel {x['target']*100:5.1f}% (gehalten {state['held'][p]*100:5.1f}%)")
-    print("  Cash", f"{cash*100:.1f}%", "|", "AKTION: " + ", ".join(f"{m['name']} {m['von']*100:.0f}->{m['auf']*100:.0f}%" for m in moves) if moves else "| nichts tun")
+    print("  Cash", f"{cash*100:.1f}%", "|", "MODELL-SIGNAL: " + ", ".join(f"{m['name']} {m['von']*100:.0f}->{m['auf']*100:.0f}%" for m in moves) if moves else "| nichts tun")
     print(f"  Schattenbuch {state['shadow']:.4f} vs Halten {state['hold']:.4f} (seit {state['start']})")
 
 
