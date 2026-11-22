@@ -28,6 +28,16 @@ items += [
  dict(date="2029-11-15", approx=True, de="Vorwärtstest Bitcoin im Oktober: 2027 bis 2029, Bewertung", en="Forward test bitcoin in October: 2027 to 2029, verdict"),
  dict(date="2031-11-17", de="Endbewertung Kronjuwelen gegen S&P 500 (bewährt bei mindestens 2 Punkten Vorsprung pro Jahr)", en="Final verdict Crown Jewels versus S&P 500 (proven with a lead of at least 2 points a year)"),
  dict(date="2036-11-17", de="Zehnjahresbericht Kronjuwelen gegen S&P 500 (gleiche Maßstäbe wie 2031)", en="Ten-year report Crown Jewels versus S&P 500 (same measures as 2031)"),
+ dict(date="2029-11-17", de="Dreijahresbericht Kronakten: Kronjuwelen, Sparplan", en="Three-year report case files: Crown Jewels, savings plan"),
+ dict(date="2029-11-18", de="Dreijahresbericht Kronakten: Taktikmodell", en="Three-year report case files: Tactical model"),
+ dict(date="2029-11-20", de="Dreijahresbericht Kronakten: Einmalanlage, Bitcoin-Linien, Trendportfolio", en="Three-year report case files: Lump sum, Bitcoin lines, trend portfolio"),
+ dict(date="2029-11-22", de="Dreijahresbericht Kronakten: Talent Scouting", en="Three-year report case files: Talent scouting"),
+ dict(date="2031-11-18", de="Fünfjahresbericht Kronakten: Taktikmodell", en="Five-year report case files: Tactical model"),
+ dict(date="2031-11-20", de="Fünfjahresbericht Kronakten: Einmalanlage, Bitcoin-Linien, Trendportfolio", en="Five-year report case files: Lump sum, Bitcoin lines, trend portfolio"),
+ dict(date="2031-11-22", de="Fünfjahresbericht Kronakten: Talent Scouting", en="Five-year report case files: Talent scouting"),
+ dict(date="2036-11-18", de="Zehnjahresbericht Kronakten: Taktikmodell", en="Ten-year report case files: Tactical model"),
+ dict(date="2036-11-20", de="Zehnjahresbericht Kronakten: Einmalanlage, Bitcoin-Linien, Trendportfolio", en="Ten-year report case files: Lump sum, Bitcoin lines, trend portfolio"),
+ dict(date="2036-11-22", de="Zehnjahresbericht Kronakten: Talent Scouting", en="Ten-year report case files: Talent scouting"),
 ]
 items = sorted((x for x in items if x["date"] >= today.isoformat()), key=lambda x: x["date"])
 json.dump(dict(today=str(today), season=dict(n=s.get("n_seasons"), day=s.get("day_in_season"), left=s.get("days_left")) if s else None, items=items), open("site/calendar.json", "w"), ensure_ascii=False, indent=1)
