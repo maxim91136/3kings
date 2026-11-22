@@ -522,3 +522,6 @@ Technik, keine Änderung der Regeln. Der Zustand der Siegel steht in site/siegel
 
 ## 2026-11-22: Talent Scouting trägt das Siegel „Fall offen“ (ausdrückliche Entscheidung)
 Gestaltung, keine Änderung der Regeln. Das Talent Scouting ist eine laufende Ermittlung ohne Endtermin und trägt dauerhaft „Fall offen“. Es ist kein Test mit Urteil; das Siegel bedeutet hier nur: die Suche läuft weiter. Keine Empfehlung.
+
+## 2026-11-22: Viertes Siegel „Laufende Akte“ für Dauerakten (ausdrückliche Entscheidung)
+Gestaltung und Erzählung, keine Änderung der Regeln. Es gibt jetzt vier Siegel: „Fall offen“ (Test mit Termin und Urteil), „aufgeklärt“, „eingestellt“ und neu „Laufende Akte“ (blau mit Unendlichkeitszeichen): Dauerbeobachtung ohne Endtermin und ohne Urteil. „Laufende Akte“ tragen Kronjuwelen und Talent Scouting. Dies ersetzt für das Talent Scouting den Eintrag „Fall offen“ vom selben Tag; die Kronjuwelen wechseln von „Fall offen“ auf „Laufende Akte“. Ob für die Kronjuwelen später feste Zwischenberichte (etwa nach 5 Jahren) gelten, ist ein Regelthema und bleibt offen, bis ausdrücklich entschieden. Keine Empfehlung.

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Siegel einer Kronakte aendern. Schreibt immer einen Protokolleintrag.
-Aufruf: python siegel.py <id> <offen|aufgeklaert|eingestellt> "Begruendung DE" "Reason EN"
+Aufruf: python siegel.py <id> <offen|laufend|aufgeklaert|eingestellt> "Begruendung DE" "Reason EN"
 """
 import json, sys, datetime
-ST={"offen":("Fall offen","case open"),"aufgeklaert":("aufgeklärt","solved"),"eingestellt":("eingestellt","closed")}
+ST={"offen":("Fall offen","case open"),"laufend":("Laufende Akte","standing file"),"aufgeklaert":("aufgeklärt","solved"),"eingestellt":("eingestellt","closed")}
 def run(i,st,de,en,today=None,base="."):
     f=base+"/site/siegel.json"; m=json.load(open(f))
     if i not in m: raise SystemExit("unbekannte Akte: "+i)

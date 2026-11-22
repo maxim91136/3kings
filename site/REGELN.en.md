@@ -522,3 +522,6 @@ Technical, no change to the rules. The state of the seals is kept in site/siegel
 
 ## 2026-11-22: Talent scouting carries the seal "case open" (explicit decision)
 Design, no change to the rules. Talent scouting is an ongoing investigation with no end date and permanently carries "case open". It is not a test with a verdict; here the seal only means: the search goes on. No recommendation.
+
+## 2026-11-22: Fourth seal "Standing file" for permanent files (explicit decision)
+Design and story, no change to the rules. There are now four seals: "case open" (test with date and verdict), "solved", "closed" and new "Standing file" (blue with infinity sign): ongoing observation without end date and without verdict. Crown Jewels and talent scouting carry "Standing file". For talent scouting this replaces the "case open" entry of the same day; the Crown Jewels change from "case open" to "Standing file". Whether fixed interim reports (for example after 5 years) apply to the Crown Jewels later is a rules question and stays open until explicitly decided. No recommendation.
