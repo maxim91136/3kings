@@ -75,3 +75,40 @@ dd = round((ath - fp[-1]) / ath, 3)
 out["forward"] = dict(since=LAST, last_month=fm[-1], ath=round(ath, 2), dd=dd, hit=hit, cases=cases, n=len([c for c in cases if c["lead"] is not None]))
 json.dump(out, open("site/erholung.json", "w"), ensure_ascii=False, indent=1)
 print(json.dumps({k: out[k] for k in ("nach", "forward")}, ensure_ascii=False, indent=1))
+
+# --- Stufenstrategien (REGELN 2026-11-22, Regeln vorab): feste Liste S1..S5, Vergleich R1..R3, Bewertung 60 Monate nach t20 ---
+STRAT = {"S1": ([.2, .3, .4, .5], [.25] * 4), "S2": ([.2, .3, .4, .5], [.1, .2, .3, .4]), "S3": ([.2, .3, .4, .5], [.4, .3, .2, .1]),
+         "S4": ([.3, .5], [.5, .5]), "S5": ([.2, .25, .3, .35, .4], [.2] * 5)}
+def first_hit(pp, pk, end, x):
+    return next((i for i in range(pk, end + 1) if (pp[pk] - pp[i]) / pp[pk] >= x), None)
+def stufen_val(pp, pk, end, marks, ws, T):
+    v = 0.0
+    for x, w in zip(marks, ws):
+        i = first_hit(pp, pk, end, x)
+        if i is not None and i <= T: v += 60 * w * pp[T] / pp[i]
+        else: v += 60 * w
+    return v
+def idle(pp, pk, end, marks, ws, T):
+    return sum(w for x, w in zip(marks, ws) if (first_hit(pp, pk, end, x) is None or first_hit(pp, pk, end, x) > T))
+res = {k: [] for k in list(STRAT) + ["R1", "R2", "R3"]}; idl = {k: [] for k in STRAT}; used = []
+for pk, tr, rec in eps:
+    end = rec if rec is not None else len(p) - 1
+    t20 = first_hit(p, pk, end, .2)
+    if t20 is None or t20 + H >= len(p): continue
+    T = t20 + H; used.append(ms[t20])
+    for k, (mk, ws) in STRAT.items():
+        res[k].append(stufen_val(p, pk, end, mk, ws, T)); idl[k].append(idle(p, pk, end, mk, ws, T))
+    res["R1"].append(stufen_val(p, pk, end, [.2], [1], T)); res["R2"].append(stufen_val(p, pk, end, [.3], [1], T))
+    res["R3"].append(sum(p[T] / p[t20 + j] for j in range(H)))
+n = len(used); rows_s = {}
+for k in res:
+    v = res[k]
+    rows_s[k] = dict(vs_spar=sum(1 for a, b in zip(v, res["R3"]) if a > b), vs_lump30=sum(1 for a, b in zip(v, res["R2"]) if a > b),
+                     med=round(st.median(v) / 60, 3), worst=round(min(v) / 60, 3), idle=round(st.mean(idl[k]), 3) if k in idl else None,
+                     vals=[round(a / 60, 3) for a in v])
+s1 = rows_s["S1"]; test = n >= 5
+out["stufen"] = dict(n=n, months=used, rows=rows_s, testable=test, share=round(s1["vs_spar"] / n, 3) if n else None,
+                     confirmed=bool(test and s1["vs_spar"] / n >= 2 / 3),
+                     best_med=max(STRAT, key=lambda k: rows_s[k]["med"]), best_worst=max(STRAT, key=lambda k: rows_s[k]["worst"]))
+json.dump(out, open("site/erholung.json", "w"), ensure_ascii=False, indent=1)
+print(json.dumps(out["stufen"], ensure_ascii=False, indent=1))
