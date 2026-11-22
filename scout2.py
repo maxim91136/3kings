@@ -51,6 +51,7 @@ res = {t: dict(n=0, tal=0, tal_hit=0, base_hit=0, names=[]) for t in T0S}; now =
 for sym, p in pool.items():
     s = get(sym); time.sleep(0.4)
     if not s or len(s) < 1500: continue
+    _SK.pop(id(s), None)   # id kann von einer früheren Aktie wiederverwendet sein
     days = sorted(s)
     for t0 in T0S:
         if days[0] > yrs_back(t0, 5): continue
