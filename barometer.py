@@ -33,3 +33,10 @@ rows = [r for r in rows if r and r[0] != day] if rows[0] == head else [head]
 rows.append([str(x) for x in row]); rows[1:] = sorted(rows[1:])
 csv.writer(open(f, "w", newline="")).writerows(rows)
 print(day, "rot", row[-2], "grün", row[-1])
+
+# Verlauf für die Seite (REGELN 2026-11-22)
+hist = []
+for r in rows[1:]:
+    cs = r[len(keys) + 1: 2 * len(keys) + 1]
+    hist.append(dict(d=r[0], r=sum(c == "r" for c in cs), y=sum(c == "y" for c in cs), g=sum(c == "g" for c in cs)))
+json.dump(hist, open("site/barometer_hist.json", "w"))

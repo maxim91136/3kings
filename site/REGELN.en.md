@@ -399,3 +399,6 @@ New run every morning around 5:17 AM (winter time): updates only the bitcoin dis
 
 ## 2026-11-22: Talent Scouting with growth filter (explicit decision)
 Reason: without a growth filter, old giants with calm, good market years got through (Coca-Cola, Altria, Aflac, Gilead). Test fixed in advance: revenue at least +10 % a year over 3 years, only from SEC annual reports already published at the cut-off date (US companies). Result (became a Crown Jewel within 5 years): 11/2013 talents 28 %, with growth filter 43 % (10 of 23), all 14 %; 11/2016 77 % versus 78 % (14 of 18), all 44 %; 2011 not evaluable (too little SEC data). Filter adopted; European companies via Yahoo annual statements. Today only Vertex remains.
+
+## 2026-11-22: Review calendar, traffic-light history, explanations, S&P 500 versus gold (explicit decision)
+Ideas taken from an earlier own project. S&P 500 versus gold (monthly data in dollars, S&P with dividends): from 1928 9.9 % vs 5.6 % p.a., from 1971 11.1 % vs 8.7 %, from 1980 12.1 % vs 4.1 %, from 2000 8.3 % vs 10.7 %, from 2011 14.9 % vs 6.1 %. In S&P crashes: 1973–74 −38 % vs gold +138 %, 2000–02 −40 % vs +16 %, 2007–09 −46 % vs +25 %; in 1987, 2020, 2022 gold hardly helped. Mix since 1971 (rebalanced yearly): 100 % S&P 11.1 % / −49 %, 80/20 11.5 % / −38 %, 70/30 11.5 % / −32 %. Caveat: starting in 1971 favours gold. No rule change.

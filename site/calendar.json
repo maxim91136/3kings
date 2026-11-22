@@ -1,0 +1,31 @@
+{
+ "today": "2026-11-22",
+ "items": [
+  {
+   "date": "2026-11-30",
+   "de": "Bitcoin Power Law: Monatsschluss entscheidet, ob die Untergrenze hält",
+   "en": "Bitcoin power law: the monthly close decides whether the floor holds"
+  },
+  {
+   "date": "2026-12-01",
+   "de": "Monatsbericht",
+   "en": "Monthly report"
+  },
+  {
+   "date": "2027-01-28",
+   "approx": true,
+   "de": "Saisonprüfung 39: Kronjuwelen, Talent Scouting, Taktikmodell (noch 45 Handelstage)",
+   "en": "Season review 39: Crown Jewels, Talent Scouting, tactical model (45 trading days left)"
+  },
+  {
+   "date": "2027-11-20",
+   "de": "Erste Bewertung: Barometer-Thesen A–D, These E (schwach gegen stark), These F (200-Tage-Linie), Taktikmodell, Sparplan S&P 500, Trendportfolio",
+   "en": "First verdict: barometer hypotheses A–D, hypothesis E (weak vs strong), hypothesis F (200-day line), tactical model, S&P 500 savings plan, trend portfolio"
+  },
+  {
+   "date": "2031-11-17",
+   "de": "Endbewertung Kronjuwelen gegen S&P 500 (bewährt bei mindestens 2 Punkten Vorsprung pro Jahr)",
+   "en": "Final verdict Crown Jewels versus S&P 500 (proven with a lead of at least 2 points a year)"
+  }
+ ]
+}

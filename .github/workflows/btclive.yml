@@ -16,10 +16,11 @@ jobs:
           python-version: "3.12"
       - run: pip install -q numpy
       - run: python btclive.py
+      - run: python calendar_.py || true
       - name: Committen
         run: |
           git config user.name "3kings-heartbeat"
           git config user.email "heartbeat@users.noreply.github.com"
-          git add site/assets.json
+          git add site/assets.json site/calendar.json
           git diff --cached --quiet || git commit -m "bitcoin $(date -u +%F)"
           for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
