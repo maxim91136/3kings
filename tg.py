@@ -20,7 +20,7 @@ def esc(s):
     s = s.replace("  ", " ").replace("€ € ", "€ ")
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 def public(l):  # Schattenbücher nicht in Telegram; Kronjuwelen (öffentlicher Index) dürfen in Berichte
-    return not any(w in l for w in ("Schattenbuch", "Schattenbücher", "shadow book", "Shadow book", "Elite 6"))
+    return not any(w in l for w in ("Schattenbuch", "Schattenbücher", "shadow book", "Shadow book", "Chronik", "Chroniken", "chronicle", "Chronicle", "Elite 6"))
 st_path = "data/tg_sent.json"
 TEST = len(sys.argv) > 1 and sys.argv[1] == "test"
 st = {} if TEST else (json.load(open(st_path)) if os.path.exists(st_path) else {})
@@ -50,7 +50,7 @@ if os.path.exists("site/reports.json"):
         ti = x.get("title_en") if en and x.get("title_en") else x.get("title", "")
         ln = x.get("lines_en") if en and x.get("lines_en") else x.get("lines", [])
         kind = ("Annual report" if x.get("type") == "year" else "Monthly report") if en else ("Jahresbericht" if x.get("type") == "year" else "Monatsbericht")
-        body = "\n".join(f"\n<b>{esc(l[2:])}</b>" if l.startswith("# ") else esc(l) for l in ln if public(l) and not l.startswith(("# Elite", "# Schattenb", "# Shadow")))
+        body = "\n".join(f"\n<b>{esc(l[2:])}</b>" if l.startswith("# ") else esc(l) for l in ln if public(l) and not l.startswith(("# Elite", "# Schattenb", "# Shadow", "# Chronik", "# Chronicle")))
         out.append(("report", key, f"📊 <b>{kind} {esc(ti)}</b>\n{body}"))
 for kind, key, text in out:
     for i in range(0, len(text), 3900):

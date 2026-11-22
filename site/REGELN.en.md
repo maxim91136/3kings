@@ -501,3 +501,6 @@ New paragraph before "The joker": we research and ask questions, fix rules in ad
 
 ## 2026-11-22: Brand: joker card instead of K card (explicit decision)
 The joker card is the trademark. Replaced were the K cards in front of the group headings on the page as well as favicon, tab icon and home screen icon. Design only, no change to the rules.
+
+## 2026-11-22: Renaming: "shadow books" are now called "royal chronicles" (explicit decision)
+Replaced on the page, in the rule book and in the README ("Chronicle: S&P 500 savings plan", "Royal chronicles overview" and so on). The Telegram filter still keeps the chronicles out of the channel (old and new words). Earlier log entries keep the old name because they record the state at the time. Renaming only, no change to the rules.

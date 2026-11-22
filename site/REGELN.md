@@ -501,3 +501,6 @@ Neuer Absatz vor „Der Joker“: Wir forschen und stellen Fragen, legen Regeln 
 
 ## 2026-11-22: Marke: Joker-Karte statt K-Karte (ausdrückliche Entscheidung)
 Die Joker-Karte ist das Markenzeichen. Ersetzt wurden die K-Karten vor den Gruppenüberschriften auf der Seite sowie Favicon, Tab-Icon und Home-Bildschirm-Symbol. Reine Gestaltung, keine Änderung der Regeln.
+
+## 2026-11-22: Umbenennung: „Schattenbücher“ heißen jetzt „Königliche Chroniken“ (ausdrückliche Entscheidung)
+Auf Seite, im Regelbuch und im README ersetzt („Chronik Sparplan S&P 500“, „Königliche Chroniken im Überblick“ und so weiter). Der Telegram-Filter hält die Chroniken weiter aus dem Kanal heraus (alte und neue Wörter). Frühere Protokolleinträge behalten den alten Namen, weil sie den damaligen Stand wiedergeben. Reine Umbenennung, keine Änderung der Regeln.
