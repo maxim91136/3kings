@@ -30,6 +30,7 @@ jobs:
         continue-on-error: true
       - run: python elitecheck.py || true
       - run: python elitescreen.py || true
+      - run: timeout 1200 python talents.py || true
       - run: python elite_review.py || true
       - run: python elite_bank.py notify || true
         env:
