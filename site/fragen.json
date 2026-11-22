@@ -195,6 +195,8 @@
     "rate": 0.03,
     "success": 1.0,
     "median": 403.2,
+    "worst": 12.3,
+    "keep": 0.986,
     "n": 1473,
     "safe": true
    },
@@ -202,6 +204,8 @@
     "rate": 0.035,
     "success": 0.997,
     "median": 354.7,
+    "worst": 0,
+    "keep": 0.918,
     "n": 1473,
     "safe": true
    },
@@ -209,6 +213,8 @@
     "rate": 0.04,
     "success": 0.978,
     "median": 305.7,
+    "worst": 0,
+    "keep": 0.828,
     "n": 1473,
     "safe": true
    },
@@ -216,6 +222,8 @@
     "rate": 0.05,
     "success": 0.833,
     "median": 219.1,
+    "worst": 0,
+    "keep": 0.654,
     "n": 1473,
     "safe": false
    },
@@ -223,6 +231,8 @@
     "rate": 0.06,
     "success": 0.703,
     "median": 128.1,
+    "worst": 0,
+    "keep": 0.526,
     "n": 1473,
     "safe": false
    }

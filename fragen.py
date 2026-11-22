@@ -81,7 +81,7 @@ for w in (.03, .035, .04, .05, .06):
             if D <= 0: D = 0; break
             D *= real[t + 1] / real[t]
         fin.append(D)
-    ent.append(dict(rate=w, success=round(sum(x > 0 for x in fin) / len(fin), 3), median=round(st.median(fin), 1), n=len(fin), safe=sum(x > 0 for x in fin) / len(fin) >= .95))
+    ent.append(dict(rate=w, success=round(sum(x > 0 for x in fin) / len(fin), 3), median=round(st.median(fin), 1), worst=round(min(fin), 1), keep=round(sum(x >= 100 for x in fin) / len(fin), 3), n=len(fin), safe=sum(x > 0 for x in fin) / len(fin) >= .95))
 R["entnahme"] = dict(rows=ent, since=ms[0], last_start=ms[len(ms) - H - 1])
 json.dump(R, open("site/fragen.json", "w"), ensure_ascii=False, indent=1)
 print(json.dumps(R, ensure_ascii=False, indent=1))
