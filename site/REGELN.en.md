@@ -393,3 +393,6 @@ Step 1: about 3 years before first qualifying, the nine Crown Jewels already loo
 
 ## 2026-11-22: Reports earlier, weekend report clearly labelled (explicit decision)
 Daily report and Telegram post now around 7 AM (start 6:43) instead of 7:45; monthly report on the 1st around 7 AM (start 6:47) instead of 9:17. The weekend report is now labelled "Weekend Sat 21 Nov to Sun 22 Nov, bitcoin only" instead of only by its publication day; weekday reports stay dated by the trading day.
+
+## 2026-11-22: Bitcoin current on weekends too (explicit decision)
+New run every morning around 5:17 AM (winter time): updates only the bitcoin display (price, day, 1 year, distance to the high) with the last completed day, Saturdays and Sundays included. Models, shadow books and the price file stay on the trading calendar so that backtests and signals compute unchanged.

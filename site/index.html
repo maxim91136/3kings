@@ -115,7 +115,7 @@ h4::after,.kj h3::after,.grp-h+section h4::after{content:"";display:block;width:
 .crown{filter:drop-shadow(0 6px 18px rgba(123,75,184,.45))}
 </style></head><body>
 <button class="totop" id="totop" type="button"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="totopl">Nach oben</span></button>
-<meta name="build" content="2026-11-22T07:00:00Z">
+<meta name="build" content="2026-11-22T07:30:00Z">
 <main id="app"><svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg>
 <h1>3Kings</h1><div class="sub">Marktmonitor</div><div class="stamp">…</div></main>
 <script>
@@ -220,7 +220,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
     <dt>${T("1 Jahr","1 year")}</dt><dd style="color:${col(a.chg1y)}">${a.chg1y==null?"–":sgn(a.chg1y,0)}</dd>
     <dt>${T("Hoch","High")}</dt><dd>${a.dd_ath<0.005?T("am Hoch","at high"):"−"+fx(a.dd_ath*100,0)+" %"}</dd></dl></div>`}).join("");
   const d=A.SPY?A.SPY.date:h.data_date;
-  document.getElementById("cardnote").textContent=T(`Schlusskurse vom ${fmtDay(d)}, Veränderungen in Euro. S&P 500 in Punkten, Gold je Feinunze.`,`Closing prices of ${fmtDay(d)}, changes in euros. S&P 500 in points, gold per troy ounce.`)}).catch(()=>{});
+  const bd=A.BTC&&A.BTC.date&&A.BTC.date!==d?A.BTC.date:null;document.getElementById("cardnote").textContent=T(`Schlusskurse vom ${fmtDay(d)}${bd?`, Bitcoin vom ${fmtDay(bd)} (handelt auch am Wochenende)`:""}, Veränderungen in Euro. S&P 500 in Punkten, Gold je Feinunze.`,`Closing prices of ${fmtDay(d)}${bd?`, bitcoin of ${fmtDay(bd)} (trades on weekends too)`:""}, changes in euros. S&P 500 in points, gold per troy ounce.`)}).catch(()=>{});
  fetch("reports.json",{cache:"no-store"}).then(r=>r.json()).then(n=>{const it=(n.items||[]);if(!it.length){const s=document.getElementById("reports");s.innerHTML=`<h4>${T("Berichte","Reports")}</h4><div class="mute" style="font-size:13px">${T("Der erste Monatsbericht erscheint am 1. Dezember 2026 (für November), der erste Jahresbericht am 1. Januar 2027.","The first monthly report appears on December 1, 2026 (for November), the first annual report on January 1, 2027.")}</div>`;s.hidden=false;return}
   const e=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
   const one=x=>{const ti=EN&&x.title_en?x.title_en:x.title,ln=EN&&x.lines_en?x.lines_en:(x.lines||[]);

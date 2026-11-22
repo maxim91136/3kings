@@ -393,3 +393,6 @@ Schritt 1: Die neun Kronjuwelen sahen etwa 3 Jahre vor ihrer ersten Qualifikatio
 
 ## 2026-11-22: Berichte früher, Wochenend-Bericht eindeutig beschriftet (ausdrückliche Entscheidung)
 Tagesbericht und Telegram-Post jetzt gegen 7 Uhr (Start 6:43 Uhr) statt 7:45 Uhr; Monatsbericht am 1. gegen 7 Uhr (Start 6:47 Uhr) statt 9:17 Uhr. Der Wochenend-Bericht heißt auf der Seite jetzt „Wochenende Sa. 21.11. bis So. 22.11., nur Bitcoin“ statt nur nach dem Erscheinungstag; Werktags-Berichte bleiben nach dem Börsentag datiert.
+
+## 2026-11-22: Bitcoin auch am Wochenende aktuell (ausdrückliche Entscheidung)
+Neuer Lauf jeden Morgen gegen 5:17 Uhr (Winterzeit): aktualisiert nur die Bitcoin-Anzeige (Kurs, Tag, 1 Jahr, Abstand zum Hoch) mit dem letzten abgeschlossenen Tag, auch samstags und sonntags. Modelle, Schattenbücher und Kursdatei bleiben beim Börsenkalender, damit Rückblicke und Signale unverändert rechnen.
