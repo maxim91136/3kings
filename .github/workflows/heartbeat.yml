@@ -19,6 +19,7 @@ jobs:
       - run: python fetch_prices.py --out data/prices.csv
       - run: python heartbeat.py
       - run: python btclines.py || true
+      - run: timeout 600 python trend16.py || true
       - run: python fetch_indicators.py || true
         timeout-minutes: 3
         continue-on-error: true
