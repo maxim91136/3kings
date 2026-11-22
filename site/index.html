@@ -190,7 +190,7 @@ details.more.big[open]>summary{margin-bottom:6px}
 @media(prefers-reduced-motion:reduce){.narr{filter:none}}
 </style></head><body>
 <button class="totop" id="totop" type="button"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="totopl">Nach oben</span></button>
-<meta name="build" content="2026-11-22T21:10:00Z">
+<meta name="build" content="2026-11-22T21:30:00Z">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="smear" x="-10%" y="-40%" width="120%" height="180%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="d"/><feTurbulence type="fractalNoise" baseFrequency="0.025 0.8" numOctaves="2" seed="3" result="s"/><feColorMatrix in="s" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.6 0 0 0 0.25" result="m"/><feComposite in="d" in2="m" operator="in"/></filter></svg><main id="app"><svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg>
 <h1>3Kings</h1><div class="sub">Marktmonitor</div><div class="stamp">…</div></main>
 <script>
@@ -303,7 +303,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  const amt=document.getElementById("amt"),ws=[...document.querySelectorAll(".weights input")];
  const upd=()=>{const a=Math.max(0,+amt.value||0),sum=ws.reduce((s,w)=>s+Math.max(0,+w.value||0),0);
   document.getElementById("split").style.gridTemplateColumns="repeat(3,1fr)";document.getElementById("split").innerHTML=ws.map(w=>{const k=w.dataset.k,p=Math.max(0,+w.value||0);return `<div style="--c:${KINGS[k].c}"><b>${eur0(sum?a*p/sum:0)}</b><span>${KINGS[k].name}</span></div>`}).join("");
-  document.getElementById("note").innerHTML=(sum!==100?`<span style="color:var(--warn)">${T("Summe","Total")} ${sum} %, ${T("Beträge anteilig umgerechnet.","amounts scaled proportionally.")}</span> `:"")+T("Aufteilung frei wählbar, voreingestellt etwa je ein Drittel. Keine Empfehlung für eine Gewichtung. Nicht verkaufen, auch nicht im Crash.","Choose any split; the default is roughly one third each. No recommendation on weights. Don't sell, not even in a crash.")};
+  document.getElementById("note").innerHTML=(sum!==100?`<span style="color:var(--warn)">${T("Summe","Total")} ${sum} %, ${T("Beträge anteilig umgerechnet.","amounts scaled proportionally.")}</span> `:"")+T("Nur eine Rechenhilfe: Aufteilung frei wählbar, voreingestellt etwa je ein Drittel. Das ist keine Empfehlung für eine Gewichtung. Die Tests unter „Belege“ zeigen nur, was in der Vergangenheit besser oder schlechter lief; verkaufen im Crash wurde nicht untersucht.","Just a calculator: choose any split; the default is roughly one third each. This is not a recommendation on weights. The tests under “Evidence” only show what did better or worse in the past; selling in a crash was not tested.")};
  [amt,...ws].forEach(i=>i.addEventListener("input",upd));upd();
  fetch("assets.json",{cache:"no-store"}).then(r=>r.json()).then(j=>{const A={};j.assets.forEach(a=>A[a.key]=a);
   document.getElementById("cards").innerHTML=["SPY","BTC","GLD"].filter(k=>A[k]).map(k=>{const a=A[k],K=KINGS[k];
