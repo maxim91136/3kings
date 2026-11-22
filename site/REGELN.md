@@ -498,3 +498,6 @@ Neue Zeile am Anfang der Gruppe „Warum der S&P 500 das Fundament ist“. Sie f
 
 ## 2026-11-22: Absatz „Forschung“ im Über-Teil der Seite (ausdrückliche Entscheidung)
 Neuer Absatz vor „Der Joker“: Wir forschen und stellen Fragen, legen Regeln vorab fest, berichten auch Unbequemes und Fehlschläge, nennen die Grenzen der Daten. Reine Textergänzung, keine Änderung der Regeln.
+
+## 2026-11-22: Marke: Joker-Karte statt K-Karte (ausdrückliche Entscheidung)
+Die Joker-Karte ist das Markenzeichen. Ersetzt wurden die K-Karten vor den Gruppenüberschriften auf der Seite sowie Favicon, Tab-Icon und Home-Bildschirm-Symbol. Reine Gestaltung, keine Änderung der Regeln.

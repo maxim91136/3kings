@@ -498,3 +498,6 @@ New row at the start of the group "Why the S&P 500 is the foundation". It sums u
 
 ## 2026-11-22: Paragraph "Research" in the about section of the page (explicit decision)
 New paragraph before "The joker": we research and ask questions, fix rules in advance, also report uncomfortable results and misses, and state the limits of the data. Text addition only, no change to the rules.
+
+## 2026-11-22: Brand: joker card instead of K card (explicit decision)
+The joker card is the trademark. Replaced were the K cards in front of the group headings on the page as well as favicon, tab icon and home screen icon. Design only, no change to the rules.
