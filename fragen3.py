@@ -1,11 +1,11 @@
-"""Aufteilung der Satelliten (REGELN 2026-11-22, Regeln vorab): alle Mischungen S&P/Gold/Bitcoin in 5-%-Schritten, Satelliten höchstens 40 %.
+"""Aufteilung der Satelliten (REGELN 2026-11-22, Regeln vorab): alle Mischungen S&P/Gold/Bitcoin in 5-%-Schritten, alle Anteile von 0 bis 100 %.
 Ergänzt site/fragen.json um den Schlüssel konstellation."""
 import json
 exec(open("fragen2.py").read().split("R = json.load")[0])
 def run(a, b):
     out = []
-    for gs in range(0, 41, 5):
-        for bs in range(0, 41 - gs, 5):
+    for gs in range(0, 101, 5):
+        for bs in range(0, 101 - gs, 5):
             w = [1 - (gs + bs) / 100, gs / 100, bs / 100]
             c, d = cagr_mdd(mix([tr, g, btc], w, a, b, 12)); out.append(dict(sp=round(w[0] * 100), gold=gs, btc=bs, cagr=round(c, 4), mdd=round(d, 3), ratio=round(c / d, 3)))
     return out
