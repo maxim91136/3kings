@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="de"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#0F1218">
-<title>3Kings</title>
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#120D17">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-touch-icon.png"><title>3Kings</title>
 <style>
 :root{--ink:#0F1218;--slate:#171B24;--line:#262B37;--text:#E9E4D8;--mute:#8A8F9C;
 --btc:#E58A3A;--spy:#6C8FD6;--gld:#D9B34A;--ok:#6FBF8E;--warn:#E8A33D;--bad:#E26D5C;
@@ -81,9 +81,33 @@ section,.kj{scroll-margin-top:16px}.grp-h{margin:72px 0 -18px;padding-top:22px;b
 .kjx{grid-column:2/4;display:flex;justify-content:space-between;font-size:11px;color:var(--mute)}.disc{color:var(--mute);font-size:12px;margin:0 0 6px}
 .glance{margin-top:20px}.glance .gg{display:grid;grid-template-columns:1fr 1fr;gap:8px}@media(min-width:700px){.glance .gg{grid-template-columns:repeat(4,1fr)}}
 .gt{border:1px solid var(--line);border-radius:8px;padding:9px 10px;text-align:left;background:#12161E}.gt span{display:block;font-size:11.5px;color:var(--mute)}.gt b{display:block;font:500 18px/1.2 var(--serif);margin-top:2px}.gt i{font-style:normal;font-size:12px}.gt i.up{color:var(--ok)}.gt i.dn{color:var(--bad)}.gt i.n{color:var(--mute)}.gt.g{border-color:#3F7356;background:#12201A}.gt.g b{color:var(--ok)}.gt.y{border-color:#7A5A22;background:#211B10}.gt.y b{color:var(--warn)}.gt.r{border-color:#80403A;background:#251412}.gt.r b{color:var(--bad)}
-.glance .gn{font-size:11.5px;color:var(--mute);margin-top:6px;text-align:left}</style></head><body>
+.glance .gn{font-size:11.5px;color:var(--mute);margin-top:6px;text-align:left}
+/* Hofnarr-Design 2026-11-22 */
+:root{--ink:#120D17;--slate:#1B1422;--line:#2E2338;--text:#EDE6D6;--mute:#B3A9BF;--ok:#8BC26A;--warn:#E2B04A;--bad:#EE6B5E;--gld:#D9A63B;--violet:#7B4BB8;--jgreen:#8BC26A;
+--display:"Pirata One","Iowan Old Style",Georgia,serif;--serif:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+body{background:var(--ink)}a{color:#C9A6F2}a:hover{color:#E4D2FA}
+.totop{background:rgba(18,13,23,.92);color:var(--gld)}
+h1{font-family:var(--display);font-weight:400;letter-spacing:.01em}
+h2{font-family:var(--display);font-weight:400;font-size:30px}
+h1{font-size:60px;line-height:1;margin:4px 0 6px}@media(min-width:560px){h1{font-size:72px}}
+h4{font:400 32px/1.1 var(--display);letter-spacing:.01em}
+summary{font:400 28px/1.2 var(--display)}details.more>summary{font:500 14px/1.4 var(--sans);color:var(--gld)}
+.verdict h2{font-family:var(--display);font-weight:400}.verdict.hero h2{font-size:64px;letter-spacing:0}.verdict.hero h2.buy{color:var(--jgreen)}
+.kj{color:var(--gld)}.kj h3{font:400 50px/1 var(--display);letter-spacing:.01em}
+.grp-h{font:400 34px/1 var(--display);letter-spacing:.02em;color:var(--gld);display:flex;align-items:center;justify-content:center;gap:12px;margin:80px 0 -12px}
+.grp-h svg{width:26px;height:36px;flex:none}
+.crown{width:84px;height:84px;color:inherit;display:block;margin:0 auto -6px}
+.sub{color:var(--jgreen);letter-spacing:.04em;font-weight:600}
+.motto{font:400 26px/1.15 var(--display);color:var(--text);margin:14px auto 6px;max-width:22em}
+.sticker{display:inline-block;transform:rotate(-3deg);background:var(--jgreen);color:var(--ink);font:600 12.5px/1 var(--sans);padding:7px 12px;border-radius:6px;margin:4px 0 2px}
+.gt{background:var(--slate);border-radius:12px}.gt b{font-weight:600}
+.gt.g{border-color:#3B5A33;background:#16241A}.gt.y{border-color:#5C4720;background:#251E10}.gt.r{border-color:#6A2A25;background:#2A1414}
+.nav{background:#170F1D}.lang .nav a:hover{background:#241A2D}.lang a.on{background:var(--gld);border-color:var(--gld)}
+.card{border-radius:12px}.kjn{font:400 22px/1 var(--display);color:var(--gld)}.kjb{background:#2A1F33}.kjb i{background:linear-gradient(90deg,var(--violet),var(--jgreen))}
+.split b,.pair b,.pct,.ind em,.kjv b,.verdictline b{font-weight:600}
+</style></head><body>
 <button class="totop" id="totop" type="button"><svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="totopl">Nach oben</span></button>
-<meta name="build" content="2026-11-22T10:00:00Z">
+<meta name="build" content="2026-11-22T11:30:00Z">
 <main id="app"><svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg>
 <h1>3Kings</h1><div class="sub">Marktmonitor</div><div class="stamp">…</div></main>
 <script>
@@ -131,7 +155,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  const run=new Date(h.generated_at).toLocaleString(LOC,{day:"2-digit",month:EN?"short":"2-digit",hour:"2-digit",minute:"2-digit"});
  const mv={};h.moves.forEach(m=>mv[m.player]=m);const act=h.moves.length>0;
  let o=`<div class="lang"><button class="menu" id="navbtn" aria-expanded="false" aria-controls="nav" aria-label="${T("Menü","Menu")}"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4h11M2.5 8h11M2.5 12h11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><nav class="nav" id="nav" hidden></nav><span class="l"><a href="?lang=de&amp;v=${Date.now()}" class="${EN?"":"on"}" hreflang="de">DE</a><a href="?lang=en&amp;v=${Date.now()}" class="${EN?"on":""}" hreflang="en">EN</a></span></div>
- <svg class="crown" viewBox="0 0 24 18" fill="currentColor" aria-hidden="true"><path d="M2 6l5 4 5-8 5 8 5-4-2 11H4z"/></svg><h1>3Kings</h1><div class="sub">${T("Marktmonitor","Market monitor")}</div><div class="disc">${T("Eigene Modelle und Tests. Keine Anlageberatung.","Own models and tests. Not investment advice.")}</div>
+ <svg class="crown" viewBox="0 0 120 120" role="img" aria-label="3Kings Narrenkappe"><path d="M24 82 C 20 58, 8 42, 6 24 C 20 32, 36 48, 46 80 Z" fill="#7B4BB8"/><path d="M46 80 C 50 52, 56 30, 60 10 C 64 30, 70 52, 74 80 Z" fill="#8BC26A"/><path d="M96 82 C 100 58, 112 42, 114 24 C 100 32, 84 48, 74 80 Z" fill="#7B4BB8"/><rect x="18" y="78" width="84" height="16" rx="4" fill="#D9A63B"/><path d="M30 86 l6 -5 l6 5 l6 -5 l6 5 l6 -5 l6 5 l6 -5 l6 5 l6 -5 l6 5" fill="none" stroke="#120D17" stroke-width="2"/><circle cx="6" cy="24" r="6" fill="#D9A63B"/><circle cx="60" cy="10" r="6" fill="#D9A63B"/><circle cx="114" cy="24" r="6" fill="#D9A63B"/></svg><h1>3Kings</h1><div class="sub">${T("Marktmonitor","Market monitor")}</div><p class="motto">${T("Drei Könige regieren. Der Narr prüft, ob sie es verdienen.","Three kings rule. The jester checks whether they deserve it.")}</p><span class="sticker">${T("Regeln zuerst, dann rechnen","Rules first, then compute")}</span><div class="disc">${T("Eigene Modelle und Tests. Keine Anlageberatung.","Own models and tests. Not investment advice.")}</div>
  <div class="stamp">${T(`Kurse vom ${fmtDay(h.data_date)}, berechnet am ${run} Uhr`,`Prices as of ${fmtDay(h.data_date)}, calculated ${run}`)}</div>`;
  if(age>3||dage>5) o+=`<div class="alert"><b>${T("Puls ausgefallen.","Data feed down.")}</b> ${T(`Letzter Lauf vor ${fx(age,1)} Tagen, letzter Kurstag ${fmtDay(h.data_date)}. Bitte den GitHub-Lauf prüfen.`,`Last run ${fx(age,1)} days ago, last price date ${fmtDay(h.data_date)}. Check the GitHub run.`)}</div>`;
  o+=`<section id="news" hidden style="margin-top:22px"></section>
@@ -143,7 +167,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <section class="first" id="calc"><h4>${T("Rechner: neues Geld aufteilen","Calculator: split new money")}</h4><div class="money"><label for="amt" class="mute">${T("Neues Geld","New money")}</label><input id="amt" type="number" inputmode="numeric" min="0" step="100" value="1000"><span class="mute">€</span></div>
  <div class="weights">${Object.entries(KINGS).map(([k,K],i)=>`<label style="--c:${K.c}"><span>${K.name}</span><input type="number" inputmode="numeric" min="0" max="100" step="5" data-k="${k}" value="${i===0?34:33}"><em>%</em></label>`).join("")}</div>
  <div class="split" id="split"></div><div class="mute" id="note"></div></section>
- <div class="grp-h" id="g-bel">${T("Belege","Evidence")}</div>
+ <div class="grp-h" id="g-bel"><svg viewBox="0 0 26 36" aria-hidden="true"><rect x="1" y="1" width="24" height="34" rx="4" fill="#EDE6D6" transform="rotate(-6 13 18)"/><text x="13" y="25" text-anchor="middle" font-family="Pirata One,serif" font-size="19" fill="#120D17" transform="rotate(-6 13 18)">K</text></svg>${T("Belege","Evidence")}</div>
  <section class="proof" id="beleg"><h4>${T("Der Beleg","The evidence")}</h4>
  <div class="mute">${T("Regel: Neues Kapital sofort investieren. Getestet beim S&amp;P 500 ab 1929, bei Gold ab 1975, bei Bitcoin ab 2013 und bei 138 Einzelaktien. Keine Warte-Strategie war überlegen. Entscheidend ist, was gekauft wird, nicht wann.","Rule: invest new money right away. Tested on the S&amp;P 500 since 1929, gold since 1975, bitcoin since 2013 and 138 single stocks. No waiting strategy did better. What is bought matters, not when.")}</div>
  <table class="pf"><tr><th>${T("Idee","Idea")}</th><th>${T("Ergebnis","Result")}</th></tr>${PROOF.map(p=>`<tr><td>${EN?p[1]:p[0]}</td><td>${EN?p[3]:p[2]}</td></tr>`).join("")}</table>
@@ -151,7 +175,7 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <div class="mute" style="margin-top:8px">${T("Gilt für Anlagen, die langfristig steigen. Vergangenheit, keine Garantie. Stand 19.11.2026, Details im","Applies to assets that rise over the long term. Past results, no guarantee. As of Nov 19, 2026, details in the")} <a href="regeln.html?lang=${LANG}" style="color:var(--gld)">${T("Regelbuch","rule book")}</a>.</div></section>
  <section id="king"></section>
  <section id="long" hidden></section>
- <div class="grp-h" id="g-exp">${T("Experimente","Experiments")}</div>
+ <div class="grp-h" id="g-exp"><svg viewBox="0 0 26 36" aria-hidden="true"><rect x="1" y="1" width="24" height="34" rx="4" fill="#EDE6D6" transform="rotate(-6 13 18)"/><text x="13" y="25" text-anchor="middle" font-family="Pirata One,serif" font-size="19" fill="#120D17" transform="rotate(-6 13 18)">K</text></svg>${T("Experimente","Experiments")}</div>
  <section id="books" hidden></section>
  <section id="watch" hidden></section>
  <section id="spar" hidden></section>
