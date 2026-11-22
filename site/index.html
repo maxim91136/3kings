@@ -324,7 +324,6 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <div class="split" id="split"></div><div class="mute" id="note"></div></section>
  <div class="grp-h" id="g-bel"><svg viewBox="0 0 48 68" aria-hidden="true"><g transform="rotate(-6 24 34)"><rect x="1" y="1" width="46" height="66" rx="5" fill="#EDE6D6" stroke="#120D17" stroke-width="1.5"/><rect x="5" y="5" width="38" height="58" rx="3" fill="none" stroke="#7B4BB8" stroke-width="1.5"/><path d="M13 46C11 34 17 27 15 16C22 21 25 27 24 33C25 27 28 21 35 16C33 27 38 34 35 46Z" fill="#7B4BB8"/><path d="M15 16C22 21 25 27 24 33C23 27 19 22 15 16Z" fill="#8BC26A"/><rect x="13" y="44" width="22" height="4" rx="2" fill="#D9A63B"/><circle cx="15" cy="15" r="2.6" fill="#D9A63B"/><circle cx="35" cy="15" r="2.6" fill="#D9A63B"/><circle cx="24" cy="31" r="2.2" fill="#D9A63B"/><path d="M24 53l1.6 3.3 3.6.5-2.6 2.5.6 3.6-3.2-1.7-3.2 1.7.6-3.6-2.6-2.5 3.6-.5z" fill="#D4213A"/></g></svg>${T("Warum der S&amp;P 500 das Fundament ist","Why the S&amp;P 500 is the foundation")}</div>
 <details class="more big" id="d-fq14"><summary>${T("Warum der S&amp;P 500 vorn bleibt: Überblick, König der Könige, gleich gewichtet","Why the S&amp;P 500 stays ahead: overview, King of Kings, equal weight")}</summary>
- <h5 class="subq">${T("Was bisher am stabilsten hielt: ein Überblick über alle Tests","What held up best so far: an overview of all tests")}</h5>
  <section id="fq14"><p><b>${T("Am stabilsten (lange Daten, mehrere Prüfungen)","Most stable (long data, several checks)")}</b></p>
  <p>${T("S&amp;P 500 als Fundament: trägt über sehr lange Zeiträume, jede Mischung wird daran gemessen. Nachjustieren: jährlich reichte, nie oder monatlich war schlechter. Entnahme: bei 4 % pro Jahr wurden 30 Jahre in 98 % der Fälle bezahlt, in 83 % lag das Ende über dem Start, der schlechteste Fall war leer. Sell in May: das Muster zeigt sich beim S&amp;P 500, die Strategie schlug Kaufen und Halten nicht. Bitcoin und S&amp;P 500: Korrelation 0,19, in 24-Monats-Fenstern nie bei 0,5 oder höher.","S&amp;P 500 as the foundation: it carries over very long periods, every blend is measured against it. Rebalancing: yearly was enough, never or monthly was worse. Withdrawal: at 4 % a year, 30 years were paid in 98 % of cases, in 83 % the end was above the start, the worst case ran empty. Sell in May: the pattern shows for the S&amp;P 500, the strategy did not beat buy and hold. Bitcoin and S&amp;P 500: correlation 0.19, never 0.5 or higher in 24-month windows.")}</p>
  <p><b>${T("Hält, aber dünner","Holds, but thinner")}</b></p>
@@ -332,10 +331,8 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <p><b>${T("Nicht stabil","Not stable")}</b></p>
  <p>${T("Die genaue beste Mischung wechselt mit Rhythmus und Zeitraum (65/25/10 halbjährlich war ein Testergebnis, kein Fundament). Saisonalität bei Bitcoin, auch der Oktober: nur elf Jahre Daten. Saisonalität bei Gold: kein Muster hielt.","The exact best blend changes with rhythm and period (65/25/10 half-yearly was a test result, not a foundation). Seasonality for bitcoin, including October: only eleven years of data. Seasonality for gold: no pattern held.")}</p>
  <p class="mute">${T("Bei den übrigen Ergebnissen hat das Muster bisher nicht gehalten oder die Daten sind noch zu jung; dafür laufen die Vorwärtstests. <b>Blick zurück, kein Beleg für die Zukunft:</b> Das war in der Vergangenheit so, es kann anders kommen. Keine Garantie, keine Empfehlung.","For the other results the pattern did not hold so far or the data is still too young; that is what the forward tests are for. <b>Looking back, no proof for the future:</b> This is how it was in the past, it can turn out differently. No guarantee, no recommendation.")}</p></section>
-<h5 class="subq">${T("König der Könige: Kein Herausforderer schlug den S&amp;P 500","King of Kings: no challenger beat the S&amp;P 500")}</h5>
- <section id="king"></section>
-<h5 class="subq">${T("Gleich gewichtet gegen nach Größe: Gleich gewichtet war nicht besser","Equal weight vs cap weight: equal weight was not better")}</h5>
- <section id="fq6" hidden></section>
+<details class="more"><summary>${T("Hat ein Herausforderer den S&amp;P 500 geschlagen? Bisher keiner","Did any challenger beat the S&amp;P 500? None so far")}</summary><section id="king"></section></details>
+<details class="more"><summary>${T("Alle Aktien gleich gewichtet oder nach Größe? Gleich gewichtet war nicht besser","All stocks equally weighted or by size? Equal weight was not better")}</summary><section id="fq6" hidden></section></details>
 </details>
 <details class="more big" id="d-long"><summary>${T("S&amp;P 500 seit 1928: Chart und Rückgänge","S&amp;P 500 since 1928: chart and drawdowns")}</summary>
  <section id="long" hidden></section>
@@ -345,26 +342,18 @@ fetch("heartbeat.json?"+Date.now()).then(r=>r.json()).then(h=>{
  <section id="fq7" hidden></section>
 </details>
 <details class="more big" id="d-gold"><summary>${T("S&amp;P 500 gegen Gold und Silber: Der König gewinnt, Gold hilft in Krisen, Silber schlug Gold nicht","S&amp;P 500 vs gold and silver: the king wins, gold helps in crises, silver did not beat gold")}</summary>
- <h5 class="subq">${T("S&amp;P 500 gegen Gold: Der König gewinnt, Gold hilft in Krisen","S&amp;P 500 vs gold: the king wins, gold helps in crises")}</h5>
-  <section id="goldvs" hidden></section>
-<h5 class="subq">${T("Silber gegen Gold: Silber schlug Gold in keinem Test","Silver vs gold: silver did not beat gold in any test")}</h5>
- <section id="silver" hidden></section>
+ <details class="more"><summary>${T("S&amp;P 500 gegen Gold: Der König gewinnt, Gold hilft in Krisen","S&amp;P 500 vs gold: the king wins, gold helps in crises")}</summary><section id="goldvs" hidden></section></details>
+<details class="more"><summary>${T("Silber gegen Gold: Silber schlug Gold in keinem Test","Silver vs gold: silver did not beat gold in any test")}</summary><section id="silver" hidden></section></details>
 </details>
 <details class="more big" id="d-fq8"><summary>${T("Bitcoin und Diversifikation: Vorn seit 2014, nicht in den letzten 5 Jahren; nur Gold hielt in Krisenmonaten","Bitcoin and diversification: ahead since 2014, not in the last 5 years; only gold held in crisis months")}</summary>
- <h5 class="subq">${T("Bitcoin gegen S&amp;P 500 und Gold: Vorn seit 2014, nicht in den letzten 5 Jahren","Bitcoin vs S&amp;P 500 and gold: ahead since 2014, not in the last 5 years")}</h5>
- <section id="fq8" hidden></section>
-<h5 class="subq">${T("Diversifikation: Beide laufen kaum im Gleichklang mit dem S&amp;P 500, nur Gold hielt in Krisenmonaten","Diversification: both barely move with the S&amp;P 500, only gold held in crisis months")}</h5>
- <section id="fq9" hidden></section>
+ <details class="more"><summary>${T("Bitcoin gegen S&amp;P 500 und Gold: Vorn seit 2014, nicht in den letzten 5 Jahren","Bitcoin vs S&amp;P 500 and gold: ahead since 2014, not in the last 5 years")}</summary><section id="fq8" hidden></section></details>
+<details class="more"><summary>${T("Diversifikation: Beide laufen kaum im Gleichklang mit dem S&amp;P 500, nur Gold hielt in Krisenmonaten","Diversification: both barely move with the S&amp;P 500, only gold held in crisis months")}</summary><section id="fq9" hidden></section></details>
 </details>
 <details class="more big" id="d-fq1"><summary>${T("Wie viel Gold und Bitcoin? Vier Tests: Beimischung, Mischungen, Gold allein, Sicherheit","How much gold and bitcoin? Four tests: blend, blends, gold alone, safety")}</summary>
- <h5 class="subq">${T("Wie viel Gold oder Bitcoin beimischen? Gold senkte den Rückgang, Bitcoin hat erst 12 Jahre Daten","How much gold or bitcoin? Gold cut the drawdown, bitcoin has only 12 years of data")}</h5>
- <section id="fq1" hidden></section>
-<h5 class="subq">${T("Mischungen mit Gold und Bitcoin: 65 von 231 erfüllen die Regel, die beste hat nur 30 % S&amp;P 500","Blends with gold and bitcoin: 65 of 231 meet the rule, the best has only 30 % S&amp;P 500")}</h5>
- <section id="fq10" hidden></section>
-<h5 class="subq">${T("Wie viel Gold? Seit 1971 war 40 % am besten, in gleitenden Fenstern hielten 5 bis 30 % am stabilsten","How much gold? Since 1971 40 % was best; in rolling windows 5 to 30 % held up most stably")}</h5>
- <section id="fq11" hidden></section>
-<h5 class="subq">${T("Sicherheits-Test der Mischungen: Mit jährlichem Nachjustieren fällt Bitcoin durch, mit halbjährlichem nicht","Safety test of the blends: with yearly rebalancing bitcoin fails, with half-yearly it does not")}</h5>
- <section id="fq12" hidden></section>
+ <details class="more"><summary>${T("Wie viel Gold oder Bitcoin beimischen? Gold senkte den Rückgang, Bitcoin hat erst 12 Jahre Daten","How much gold or bitcoin? Gold cut the drawdown, bitcoin has only 12 years of data")}</summary><section id="fq1" hidden></section></details>
+<details class="more"><summary>${T("Mischungen mit Gold und Bitcoin: 65 von 231 erfüllen die Regel, die beste hat nur 30 % S&amp;P 500","Blends with gold and bitcoin: 65 of 231 meet the rule, the best has only 30 % S&amp;P 500")}</summary><section id="fq10" hidden></section></details>
+<details class="more"><summary>${T("Wie viel Gold? Seit 1971 war 40 % am besten, in gleitenden Fenstern hielten 5 bis 30 % am stabilsten","How much gold? Since 1971 40 % was best; in rolling windows 5 to 30 % held up most stably")}</summary><section id="fq11" hidden></section></details>
+<details class="more"><summary>${T("Sicherheits-Test der Mischungen: Mit jährlichem Nachjustieren fällt Bitcoin durch, mit halbjährlichem nicht","Safety test of the blends: with yearly rebalancing bitcoin fails, with half-yearly it does not")}</summary><section id="fq12" hidden></section></details>
 </details>
 <details class="more big" id="d-fq2"><summary>${T("Euro gegen Dollar: Für Euro-Anleger lag die Rendite höher als in Dollar","Euro vs dollar: for euro investors the return was higher than in dollars")}</summary>
  <section id="fq2" hidden></section>
