@@ -206,6 +206,7 @@ main#app{position:relative;z-index:1}
 .seals i.sl{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:-1px;border:1.5px solid #120D17}
 .seals i.o{background:#7B4BB8}.seals i.s{background:#D9A63B}.seals i.c{background:#8A8F9C}.seals i.l{background:#3E5C9A}
 .lamp{position:absolute;left:4px;top:70px;width:66px;height:132px;background:none;border:0;padding:0;cursor:pointer;z-index:5;-webkit-tap-highlight-color:transparent}
+body:has(#nav:not([hidden])) .lamp{z-index:0;pointer-events:none}
 .lamp:focus-visible{outline:2px solid var(--gld);outline-offset:4px;border-radius:10px}
 .lamp svg{width:100%;height:100%;display:block;overflow:visible}
 .lamp .glow{opacity:0;transition:opacity 1.2s ease}.lamp.lit .glow{opacity:1}
