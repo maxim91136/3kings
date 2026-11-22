@@ -531,3 +531,6 @@ Rules. The Crown Jewels get fixed reports: (1) every season (season check, every
 
 ## 2026-11-22: Reports for all case files: monthly, yearly, after 3, 5 and 10 years (explicit decision)
 Rules, supplements the entry on the Crown Jewels reports. For all files with a test or chronicle (Crown Jewels, savings plan, lump sum, tactical model, Bitcoin lines, trend portfolio, talent scouting): a report monthly, yearly and after 3, 5 and 10 years, counted from the start date of the file (Crown Jewels and savings plan Nov 17, 2026, tactical model Nov 18, 2026, lump sum, Bitcoin lines and trend portfolio Nov 20, 2026, talent scouting Nov 22, 2026). For the Crown Jewels this adds the three-year report (Nov 17, 2029). The reports are look-backs under the rules set in advance, not a recommendation. New in the review calendar: report dates 2029, 2031 and 2036 for each file.
+
+## 2026-11-22: Recipients of the case file reports (explicit decision)
+Rules. The reports after 3, 5 and 10 years appear on the page like the annual report (public, as an archive). At most a neutral market note goes to the Telegram channel, never evaluations of own tests, chronicles or signals. The savings plan steps, season review and automatic evaluations still go privately to the operator. Producing the reports is not built yet; the dates are in the review calendar. No recommendation.
