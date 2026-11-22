@@ -112,3 +112,59 @@ out["stufen"] = dict(n=n, months=used, rows=rows_s, testable=test, share=round(s
                      best_med=max(STRAT, key=lambda k: rows_s[k]["med"]), best_worst=max(STRAT, key=lambda k: rows_s[k]["worst"]))
 json.dump(out, open("site/erholung.json", "w"), ensure_ascii=False, indent=1)
 print(json.dumps(out["stufen"], ensure_ascii=False, indent=1))
+
+# --- Neurechnung mit Dividenden und Zins auf Bargeld (REGELN 2026-11-22, Regeln vorab) ---
+sh = {}
+for r in csv.DictReader(open("data/shiller.csv")):
+    if float(r["Dividend"]) > 0 and float(r["Long Interest Rate"]) > 0:
+        sh[r["Date"][:7]] = (float(r["Dividend"]) / float(r["SP500"]), float(r["Long Interest Rate"]) / 100)
+lastsh = sh[max(sh)]
+dyr = [sh.get(k, lastsh if k > max(sh) else None) for k in ms]
+G = [None] + [p[i] / p[i - 1] + dyr[i][0] / 12 for i in range(1, len(p))]
+C = [None] + [1 + dyr[i][1] / 12 for i in range(1, len(p))]
+def sim(S, T, buys):
+    """buys: {Monat: Einheiten}; Startkasse 60 in S, Kauf am Monatsende, Bewertung in T."""
+    cash = 60.0; eq = 0.0
+    for t in range(S, T + 1):
+        if t > S: cash *= C[t]; eq *= G[t]
+        a = buys.get(t, 0.0)
+        if a: cash -= a; eq += a
+    return eq + cash
+def add(d, k, v): d[k] = d.get(k, 0.0) + v
+nach_tr = {}
+for X in (0.0, 0.2, 0.3, 0.5):
+    ent = []
+    for pk, tr, rec in eps:
+        end = rec if rec is not None else len(p) - 1
+        t0 = pk if X == 0 else first_hit(p, pk, end, X)
+        if t0 is None: continue
+        if t0 + H >= len(p): ent.append(dict(month=ms[t0], lump=None, spar=None, lead=None)); continue
+        e = sim(t0, t0 + H, {t0: 60.0}); s_ = sim(t0, t0 + H, {t0 + j: 1.0 for j in range(H)})
+        ent.append(dict(month=ms[t0], lump=round(e, 2), spar=round(s_, 2), lead=round((e - s_) / H, 3)))
+    nach_tr[str(int(X * 100))] = block(ent)
+m3 = nach_tr["30"]; m3["testable"] = m3["n"] >= 5; m3["confirmed"] = bool(m3["testable"] and m3["share"] >= 2 / 3)
+res = {k: [] for k in list(STRAT) + ["R1", "R2", "R3"]}
+for pk, tr, rec in eps:
+    end = rec if rec is not None else len(p) - 1
+    t20 = first_hit(p, pk, end, .2)
+    if t20 is None or t20 + H >= len(p): continue
+    T = t20 + H
+    for k, (mk, ws) in STRAT.items():
+        b = {}
+        for x, w in zip(mk, ws):
+            i = first_hit(p, pk, end, x)
+            if i is not None and i <= T: add(b, i, 60 * w)
+        res[k].append(sim(t20, T, b))
+    res["R1"].append(sim(t20, T, {t20: 60.0}))
+    i30 = first_hit(p, pk, end, .3); res["R2"].append(sim(t20, T, {i30: 60.0} if i30 is not None and i30 <= T else {}))
+    res["R3"].append(sim(t20, T, {t20 + j: 1.0 for j in range(H)}))
+rt = {}
+for k in res:
+    v = res[k]
+    rt[k] = dict(vs_spar=sum(1 for a, b in zip(v, res["R3"]) if a > b), vs_lump30=sum(1 for a, b in zip(v, res["R2"]) if a > b),
+                 med=round(st.median(v) / 60, 3), worst=round(min(v) / 60, 3), vals=[round(a / 60, 3) for a in v])
+nn = len(res["R3"])
+out["tr"] = dict(shiller_end=max(sh), nach=nach_tr, stufen=dict(n=nn, rows=rt, testable=nn >= 5,
+                 confirmed=bool(nn >= 5 and rt["S1"]["vs_spar"] / nn >= 2 / 3),
+                 best_med=max(STRAT, key=lambda k: rt[k]["med"]), best_worst=max(STRAT, key=lambda k: rt[k]["worst"])))
+json.dump(out, open("site/erholung.json", "w"), ensure_ascii=False, indent=1)
