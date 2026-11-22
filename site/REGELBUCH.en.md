@@ -11,7 +11,7 @@
 - **Buy as soon as there is money.** Tested for the S&P 500 (from 1928), gold (from 1975), bitcoin (from 2013) and 138 single stocks (from 2006): waiting for dips, distance to the high, cheaper valuations, fear signals, buying in stages or a crash reserve never did better. (since Nov 18, 2026)
 - **The foundation is the S&P 500** (King of Kings). No tested challenger beat it lastingly: FTSE All-World, world incl. emerging markets, only the largest, factor ETFs, trend filters, the Crown Jewels rule selection. (since Nov 21, 2026)
 - Bitcoin and gold are satellites. Bitcoin only directly, without leverage.
-- The split in the calculator is freely selectable, one third each by default (neutral, no recommendation). Another default only if all safety conditions set in advance are met (RULES Nov 22, 2026). The test results on the split stand below the calculator. (since Nov 22, 2026)
+- The split in the calculator is freely selectable, one third each by default, deliberately neutral: the site does not want to influence anyone, not even where test results show another split. Another default only if all safety conditions set in advance are met (RULES Nov 22, 2026). The test results on the split stand below the calculator. (since Nov 22, 2026)
 
 ## Crown Jewels (own index)
 - **Universe:** current S&P 500 members and a fixed European list, renewed every season. (since Nov 21, 2026)

@@ -11,7 +11,7 @@
 - **Kaufen, sobald Geld da ist.** Getestet für S&P 500 (ab 1928), Gold (ab 1975), Bitcoin (ab 2013) und 138 Einzelaktien (ab 2006): Warten auf Rücksetzer, Abstand zum Hoch, günstigere Bewertung, Angst-Signale, Einstieg in Stufen oder eine Crash-Reserve brachten in keinem Test mehr. (seit 18.11.2026)
 - **Fundament ist der S&P 500** (König der Könige). Kein getesteter Herausforderer schlug ihn dauerhaft: FTSE All-World, Welt inklusive Schwellenländer, nur die Größten, Faktor-ETFs, Trendfilter, Regel-Auswahl der Kronjuwelen. (seit 21.11.2026)
 - Bitcoin und Gold sind Satelliten. Bitcoin nur direkt, ohne Hebel.
-- Die Aufteilung im Rechner ist frei wählbar, voreingestellt je ein Drittel (neutral, keine Empfehlung). Eine andere Voreinstellung nur, wenn alle vorab festgelegten Sicherheits-Bedingungen erfüllt sind (REGELN 22.11.2026). Die Testergebnisse zur Aufteilung stehen unter dem Rechner. (seit 22.11.2026)
+- Die Aufteilung im Rechner ist frei wählbar, voreingestellt je ein Drittel, bewusst neutral: Die Seite will niemanden beeinflussen, auch nicht dort, wo Testergebnisse eine andere Aufteilung zeigen. Eine andere Voreinstellung nur, wenn alle vorab festgelegten Sicherheits-Bedingungen erfüllt sind (REGELN 22.11.2026). Die Testergebnisse zur Aufteilung stehen unter dem Rechner. (seit 22.11.2026)
 
 ## Kronjuwelen (eigener Index)
 - **Universum:** aktuelle Mitglieder des S&P 500 und eine feste Europa-Liste, jede Saison neu. (seit 21.11.2026)
