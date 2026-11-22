@@ -619,3 +619,6 @@ Wording only, German version. With a hyphen the word reads correctly at once (cr
 
 ## 2026-11-22: Review calendar: annual report added, monthly report shown as recurring (explicit decision)
 Display only, no new reviews. The annual report (on January 1, together with the December monthly report, already planned) is now in the review calendar. The monthly report is shown as “on the 1st of every month” so that it is clear it comes regularly.
+
+## 2026-11-22: Motto with space below the castles (explicit decision)
+Design. The line “Three kings rule …” now sits with some space below the castles and no longer touches the picture; it looks calmer.

@@ -619,3 +619,6 @@ Nur Wortlaut. Mit Bindestrich liest man das Wort sofort richtig (Krone und Akten
 
 ## 2026-11-22: Prüfkalender: Jahresbericht ergänzt, Monatsbericht als wiederkehrend (ausdrückliche Entscheidung)
 Nur Anzeige, keine neuen Prüfungen. Der Jahresbericht (am 1. Januar, zusammen mit dem Dezember-Monatsbericht, war schon geplant) steht jetzt im Prüfkalender. Der Monatsbericht heißt dort „jeden Monat am 1.“, damit sichtbar ist, dass er regelmäßig kommt.
+
+## 2026-11-22: Leitsatz mit Abstand unter den Schlössern (ausdrückliche Entscheidung)
+Gestaltung. Der Satz „Drei Könige regieren …“ steht jetzt mit etwas Abstand unter den Schlössern und berührt das Bild nicht mehr; das wirkt ruhiger.
