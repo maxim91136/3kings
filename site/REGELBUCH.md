@@ -62,6 +62,7 @@
 
 ## Automatik und Seite
 - **News-Monitor** täglich gegen 7 Uhr, sonntags und montags nur Bitcoin. Gründe werden gesucht ab: S&P 500 ±2 %, Gold ±2,5 %, Bitcoin ±5 %, jede Kronjuwelen-Aktie ±4 % (gerundeter Wert, Tagesveränderung in Euro); dann bekommen alle drei Hauptwerte eine Zeile. (seit 21.11.2026)
+- **Berichte der Kronjuwelen:** je Saison (Saisonprüfung, 63 Handelstage), monatlich, jährlich, nach 5 Jahren (17.11.2031) und nach 10 Jahren (17.11.2036, gleiche Maßstäbe). Rückblicke, keine Empfehlung. (seit 22.11.2026)
 - **Monatsbericht** am 1. jedes Monats, **Jahresbericht** am 1. Januar, jeweils mit Power-Law-Check und Kronjuwelen-Änderungen. (seit 21.11.2026)
 - **Telegram:** Tagesmeldungen und Berichte an den Kanal (Kronjuwelen-Änderungen dort neutral im Monatsbericht); die Sparplan-Schritte zu Kronjuwelen-Änderungen nur privat. (seit 21.11.2026)
 - **Marktlage im Kanal (Deutsch):** Ampel-Wechsel (langsame Kacheln erst nach zwei Datentagen in Folge, Tagesänderungen nur beim Wechsel auf Rot, höchstens eine Sammelmeldung am Tag) und der Monatsschluss beim Bitcoin Power Law (bei Wechsel über oder unter die Untergrenze). Nichts aus eigenen Tests oder Chroniken, jede Meldung: Nur Information, kein Kauf- oder Verkaufssignal. (seit 22.11.2026)
