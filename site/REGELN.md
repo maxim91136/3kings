@@ -495,3 +495,6 @@ Anlass: Im Kanal sind jetzt weitere Leser. Sprache bleibt Deutsch, die Seite zwe
 
 ## 2026-11-22: Überblick „Was bisher am stabilsten hielt“ auf der Seite (ausdrückliche Entscheidung)
 Neue Zeile am Anfang der Gruppe „Warum der S&P 500 das Fundament ist“. Sie fasst vorhandene Testergebnisse in drei Stufen zusammen (am stabilsten, hält aber dünner, nicht stabil), ohne neue Rechnung und ohne Wertung; Hinweis „Blick zurück, kein Beleg für die Zukunft“. Keine Änderung der Kaufregel. Keine Empfehlung.
+
+## 2026-11-22: Absatz „Forschung“ im Über-Teil der Seite (ausdrückliche Entscheidung)
+Neuer Absatz vor „Der Joker“: Wir forschen und stellen Fragen, legen Regeln vorab fest, berichten auch Unbequemes und Fehlschläge, nennen die Grenzen der Daten. Reine Textergänzung, keine Änderung der Regeln.

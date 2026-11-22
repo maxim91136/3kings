@@ -495,3 +495,6 @@ Reason: There are now other readers in the channel. The language stays German; t
 
 ## 2026-11-22: Overview "What held up best so far" on the page (explicit decision)
 New row at the start of the group "Why the S&P 500 is the foundation". It sums up existing test results in three tiers (most stable, holds but thinner, not stable), with no new calculation and no judgment; note "Looking back, no proof for the future". No change to the buy rule. No recommendation.
+
+## 2026-11-22: Paragraph "Research" in the about section of the page (explicit decision)
+New paragraph before "The joker": we research and ask questions, fix rules in advance, also report uncomfortable results and misses, and state the limits of the data. Text addition only, no change to the rules.
