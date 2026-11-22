@@ -9306,5 +9306,91 @@
     2025
    ]
   }
+ },
+ "saison_btc": {
+  "years": [
+   2015,
+   2025
+  ],
+  "halves": [
+   2015,
+   2019,
+   2020,
+   2025
+  ],
+  "sell_in_may": {
+   "n": 11,
+   "winter": 0.4933,
+   "summer": 0.5173,
+   "diff": -0.024,
+   "median_diff": 0.0908,
+   "share": 0.545,
+   "d1": -0.7351,
+   "d2": 0.5685,
+   "pattern": false
+  },
+  "kennzahlen": [
+   {
+    "fenster": "Nov–Apr",
+    "n": 11,
+    "hit": 0.636,
+    "mean": 0.4933,
+    "median": 0.3894,
+    "sd": 0.9259,
+    "max_gain": 2.9503,
+    "max_loss": -0.3748,
+    "last5": 0.8293
+   },
+   {
+    "fenster": "Mai–Okt",
+    "n": 11,
+    "hit": 0.818,
+    "mean": 0.5173,
+    "median": 0.1797,
+    "sd": 1.0853,
+    "max_gain": 3.601,
+    "max_loss": -0.4655,
+    "last5": 0.0296
+   }
+  ],
+  "fenster": [
+   {
+    "richtung": "erste → zweite Hälfte",
+    "start": 6,
+    "L": 2,
+    "hit_a": 1.0,
+    "mean_a": 0.1986,
+    "hit_b": 0.667,
+    "mean_b": 0.0387,
+    "mean_all": 0.1109,
+    "haelt": false
+   },
+   {
+    "richtung": "zweite → erste Hälfte",
+    "start": 3,
+    "L": 2,
+    "hit_a": 1.0,
+    "mean_a": 0.0953,
+    "hit_b": 0.6,
+    "mean_b": 0.0647,
+    "mean_all": 0.1778,
+    "haelt": false
+   }
+  ],
+  "chart_median": [
+   0.0,
+   -0.0398,
+   0.0085,
+   -0.0015,
+   0.2158,
+   0.2366,
+   0.2723,
+   0.5288,
+   0.4024,
+   0.4389,
+   0.7161,
+   1.004,
+   0.8678
+  ]
  }
 }
