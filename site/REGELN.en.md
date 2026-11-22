@@ -513,3 +513,6 @@ Design and story, no change to the rules. (1) Figure: The court detective is our
 
 ## 2026-11-22: Name of the court detective: "Court Detective Flynn" (explicit decision)
 Design and story, no change to the rules. The bat on the lantern is called "Court Detective Flynn". He appears by name on the case file of the day and in the text of the case files. Wording stays dry and friendly, never a recommendation.
+
+## 2026-11-22: Seals of the case files: wax seal with a stamp across it (explicit decision)
+Design, no change to the rules. Every file with a running forward test carries a wax seal with a slanted stamp ("CASE OPEN" violet with question mark, "SOLVED" gold with crown, "CLOSED" grey with cross). Right now all six files (Crown Jewels, savings plan, lump sum, tactical model, Bitcoin lines, trend portfolio) carry "CASE OPEN". A seal changes only by the evaluation rules and dates set in advance, never by feeling. No recommendation.

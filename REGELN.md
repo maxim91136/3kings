@@ -513,3 +513,6 @@ Gestaltung und Erzählung, keine Änderung der Regeln. (1) Figur: Der Hofdetekti
 
 ## 2026-11-22: Name des Hofdetektivs: „Hofdetektiv Flynn“ (ausdrückliche Entscheidung)
 Gestaltung und Erzählung, keine Änderung der Regeln. Die Fledermaus an der Laterne heißt „Hofdetektiv Flynn“. Er erscheint mit Namen auf der Kronakte des Tages und im Text der Kronakten. Wortwahl bleibt trocken und freundlich, nie eine Empfehlung.
+
+## 2026-11-22: Siegel der Kronakten: Wachssiegel mit Stempel quer darüber (ausdrückliche Entscheidung)
+Gestaltung, keine Änderung der Regeln. Jede Akte mit laufendem Vorwärtstest trägt ein Wachssiegel mit schrägem Stempel („FALL OFFEN“ violett mit Fragezeichen, „AUFGEKLÄRT“ gold mit Krone, „EINGESTELLT“ grau mit Kreuz). Derzeit tragen alle sechs Akten (Kronjuwelen, Sparplan, Einmalanlage, Taktikmodell, Bitcoin-Linien, Trendportfolio) „FALL OFFEN“. Ein Siegel wechselt nur nach den vorab festgelegten Bewertungsregeln und Terminen, nie nach Gefühl. Keine Empfehlung.
