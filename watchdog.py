@@ -25,6 +25,17 @@ if now.day <= 3:
         rep = json.load(open("site/reports.json")) if os.path.exists("site/reports.json") else {"items": []}
         if not any(x.get("type") == "month" and x.get("period") == pm for x in rep.get("items", [])):
             problems.append(f"Monatsbericht für {pm} fehlt.")
+# Erweiterung (REGELN 2026-11-22): Workflows und Dateien, weil Schritte im Datenlauf Fehler verschlucken
+for wf in ("heartbeat", "btclive"):
+    out = subprocess.run(["gh", "run", "list", "-R", REPO, "--workflow", f"{wf}.yml", "-L", "1", "--json", "conclusion,createdAt", "-q", ".[0].conclusion"], capture_output=True, text=True).stdout.strip()
+    if out == "failure": problems.append(f"Workflow {wf}: letzter Lauf gescheitert.")
+for pth in ("site/calendar.json", "data/barometer.csv", "site/assets.json", "site/powerlaw.json"):
+    hh = hours(last_commit(pth))
+    if hh is None or hh > lim: problems.append(f"{pth}: letzte Aktualisierung vor {'?' if hh is None else round(hh)} Stunden.")
+try:
+    se = json.load(open("site/heartbeat.json")).get("season", {})
+    if (se.get("day_in_season") or 0) > 63 or (se.get("days_left") is not None and se["days_left"] < 0): problems.append("Saisonprüfung überfällig (Saisontag über 63).")
+except Exception: pass
 msg = None
 if problems: msg = "🚨 <b>3Kings: Wächter</b>\n" + "\n".join("• " + p for p in problems) + "\nDie Seite zeigt so lange den letzten Stand."
 elif now.weekday() == 6 or "--test" in sys.argv: msg = "✅ <b>3Kings: Wächter</b>\nAlles läuft: Datenlauf, Kurse und News sind aktuell." + (" (Test)" if "--test" in sys.argv else "")

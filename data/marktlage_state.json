@@ -1,0 +1,18 @@
+{
+ "conf": {
+  "oil_m": "g",
+  "us10y": "r",
+  "ecb": "y",
+  "cpi_us": "r",
+  "cpi_ez": "r",
+  "fng": "r",
+  "cfng": "r",
+  "vix": "r",
+  "cape": "r",
+  "buffett": "r",
+  "curve": "y"
+ },
+ "pend": {},
+ "pl_below": false,
+ "pl_m": "2026-10"
+}
