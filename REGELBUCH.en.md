@@ -72,3 +72,4 @@
 - **Archive:** the homepage shows the last 7 days (news and histories); everything older is in the archive by month. Nothing is deleted. (since Nov 21, 2026)
 
 - **Recovery after crashes** (test of Nov 22, 2026, rules in advance): phases with at least 20 % decline from the all-time high (S&P 500, month-end 1927 to Oct 2026, price index in dollars). Compared: lump sum in the peak month vs savings plan without pause from the peak month, in each case months until back in the black. Hypothesis: savings plan earlier in at least two thirds of the phases. Look back, no recommendation. (since Nov 22, 2026)
+- **Crash assumption** (test of Nov 22, 2026, rules in advance): lump sum vs savings plan when entering at the first month-end 30 % below the peak, 60 units, valued after 60 months. Hypothesis: lump sum ahead in at least two thirds of the cases. Running file, case open, the trigger is the market. Look back, no recommendation. (since Nov 22, 2026)
