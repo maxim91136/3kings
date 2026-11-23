@@ -639,3 +639,6 @@ All fonts are now loaded from our own server, no longer from Google Fonts. Reaso
 
 ## 2026-11-23: Shared privacy policy (explicit decision)
 All projects link to the shared privacy policy at dreierlabs.com next to the legal notice at the bottom. It states per project which services the browser contacts. For 3Kings these are only Cloudflare Access (email sign-in) and its own server.
+
+## 2026-11-23: Telegram channel linked on the site (explicit decision)
+A button linking to the Telegram channel sits below the page header. The channel still receives only the market situation as information (see 2026-11-22). Content and calculation of the site do not change.
