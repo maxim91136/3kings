@@ -625,3 +625,6 @@ Design. The line “Three kings rule …” now sits with some space below the c
 
 ## 2026-11-23: Copyright notice and reservation of use (explicit decision)
 Every page now shows at the bottom “© 2026 Steve Dreier · All rights reserved. Texts, graphics, characters and code may not be reused without permission.” Plus a machine-readable reservation against text and data mining (Section 44b German Copyright Act): robots.txt blocks known AI crawlers and all others, the pages send “tdm-reservation” and “noai”. The repository stays private and without an open licence. Note: ideas, methods and price data are not protected by copyright; purely AI-generated parts probably not either. A trademark filing for name and logo is possible but not decided.
+
+## 2026-11-23: Dreier Labs as publisher and legal notice (explicit decision)
+Every page now shows “A project by Dreier Labs” at the bottom, linking to dreierlabs.com and the shared legal notice (dreierlabs.com/impressum.html).
