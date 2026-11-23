@@ -642,3 +642,6 @@ All projects link to the shared privacy policy at dreierlabs.com next to the leg
 
 ## 2026-11-23: Telegram channel linked on the site (explicit decision)
 A button linking to the Telegram channel sits below the page header. The channel still receives only the market situation as information (see 2026-11-22). Content and calculation of the site do not change.
+
+## 2026-11-24: Telegram Court Report bilingual (explicit decision)
+The Court Report in the Telegram channel appears in one message, first in German, below it in English. Source links appear once at the end. If the English version is missing, only the German one is sent. Content and calculation do not change.

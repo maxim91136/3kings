@@ -642,3 +642,6 @@ Alle Projekte verlinken unten neben dem Impressum auf die gemeinsame Datenschutz
 
 ## 2026-11-23: Telegram-Kanal auf der Seite verlinkt (ausdrückliche Entscheidung)
 Unter dem Seitenkopf steht ein Button mit Link zum Telegram-Kanal. Der Kanal bekommt weiterhin nur die Marktlage als Information (siehe 2026-11-22). Inhalt und Berechnung der Seite ändern sich nicht.
+
+## 2026-11-24: Telegram-Hofbericht zweisprachig (ausdrückliche Entscheidung)
+Der Hofbericht im Telegram-Kanal erscheint in einer Nachricht erst auf Deutsch, darunter auf Englisch. Quellenlinks stehen einmal am Ende. Fehlt die englische Fassung, geht nur die deutsche raus. Inhalt und Berechnung ändern sich nicht.

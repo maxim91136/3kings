@@ -3,7 +3,7 @@ Modus 'setup': zeigt die Chat-ID(s) aus getUpdates. Braucht TELEGRAM_BOT_TOKEN (
 Zustand (was schon gesendet wurde): data/tg_sent.json."""
 import json, os, sys, urllib.parse, urllib.request
 tok, chat = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
-LANG = os.environ.get("TG_LANG", "de")
+LANG = os.environ.get("TG_LANG", "both")  # both = Deutsch + Englisch in einer Nachricht
 SITE = "https://3kings.dev"
 if not tok: sys.exit("TELEGRAM_BOT_TOKEN fehlt (GitHub Secret anlegen)")
 def api(method, **kw):
@@ -24,34 +24,50 @@ def public(l):  # Schattenbücher nicht in Telegram; Kronjuwelen (öffentlicher 
 st_path = "data/tg_sent.json"
 TEST = len(sys.argv) > 1 and sys.argv[1] == "test"
 st = {} if TEST else (json.load(open(st_path)) if os.path.exists(st_path) else {})
-en = LANG == "en"
-out = []
-if os.path.exists("site/news.json"):
-    it = json.load(open("site/news.json")).get("items", [])
-    if it:
-        x = it[0]; key = f"{x.get('date')}|{str(x.get('headline','')).startswith('Wochenende')}"
-        if st.get("news") != key:
-            hl = x.get("headline_en") if en and x.get("headline_en") else x.get("headline", "")
+SEP = "\n\n━━━━━━━━━━\n🇬🇧 English\n\n"
+def build(lang):
+    """Baut die Nachrichten in einer Sprache. Gibt {kind-key: (kind, key, text, sources)} zurück."""
+    global LANG
+    LANG = lang
+    en = lang == "en"
+    res = {}
+    if os.path.exists("site/news.json"):
+        it = json.load(open("site/news.json")).get("items", [])
+        if it:
+            x = it[0]; key = f"{x.get('date')}|{str(x.get('headline','')).startswith('Wochenende')}"
+            if st.get("news") != key and (not en or (x.get("headline_en") and x.get("lines_en"))):
+                hl = x.get("headline_en") if en and x.get("headline_en") else x.get("headline", "")
+                ln = x.get("lines_en") if en and x.get("lines_en") else x.get("lines", [])
+                icon = "🔶" if x.get("move") else "👑"
+                from datetime import date as _d
+                y_, m_, d_ = map(int, str(x.get("date", "2000-01-01")).split("-"))
+                dt = _d(y_, m_, d_)
+                wd = (["Mo.", "Di.", "Mi.", "Do.", "Fr.", "Sa.", "So."] if not en else ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"])[dt.weekday()]
+                weekend = str(x.get("headline", "")).startswith("Wochenende")
+                if en: head = f"📜 Court Report · {'Bitcoin weekend' if weekend else 'Trading day'} {wd}, {dt.strftime('%b')} {dt.day}, {dt.year}"
+                else: head = f"📜 Hofbericht · {'Bitcoin am Wochenende' if weekend else 'Börsentag'} {wd}, {dt:%d.%m.%Y}"
+                src = "\n".join(f'<a href="{esc(s["url"])}">{esc(s["title"])}</a>' for s in x.get("sources", [])[:3])
+                res[("news", key)] = f"<i>{head}</i>\n{icon} <b>{esc(hl)}</b>\n\n" + "\n\n".join(esc(l) for l in ln if public(l)), src
+    if os.path.exists("site/reports.json"):
+        for x in ([] if TEST else reversed(json.load(open("site/reports.json")).get("items", [])[:2])):
+            key = f"{x.get('type')}|{x.get('period')}|{x.get('published')}"
+            if key in st.get("reports", []): continue
+            if en and not x.get("lines_en"): continue
+            ti = x.get("title_en") if en and x.get("title_en") else x.get("title", "")
             ln = x.get("lines_en") if en and x.get("lines_en") else x.get("lines", [])
-            icon = "🔶" if x.get("move") else "👑"
-            from datetime import date as _d
-            y_, m_, d_ = map(int, str(x.get("date", "2000-01-01")).split("-"))
-            dt = _d(y_, m_, d_)
-            wd = (["Mo.", "Di.", "Mi.", "Do.", "Fr.", "Sa.", "So."] if not en else ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"])[dt.weekday()]
-            weekend = str(x.get("headline", "")).startswith("Wochenende")
-            if en: head = f"📜 Court Report · {'Bitcoin weekend' if weekend else 'Trading day'} {wd}, {dt.strftime('%b')} {dt.day}, {dt.year}"
-            else: head = f"📜 Hofbericht · {'Bitcoin am Wochenende' if weekend else 'Börsentag'} {wd}, {dt:%d.%m.%Y}"
-            src = "\n".join(f'<a href="{esc(s["url"])}">{esc(s["title"])}</a>' for s in x.get("sources", [])[:3])
-            out.append(("news", key, f"<i>{head}</i>\n{icon} <b>{esc(hl)}</b>\n\n" + "\n\n".join(esc(l) for l in ln if public(l)) + (f"\n\n{src}" if src else "")))
-if os.path.exists("site/reports.json"):
-    for x in ([] if TEST else reversed(json.load(open("site/reports.json")).get("items", [])[:2])):
-        key = f"{x.get('type')}|{x.get('period')}|{x.get('published')}"
-        if key in st.get("reports", []): continue
-        ti = x.get("title_en") if en and x.get("title_en") else x.get("title", "")
-        ln = x.get("lines_en") if en and x.get("lines_en") else x.get("lines", [])
-        kind = ("Annual report" if x.get("type") == "year" else "Monthly report") if en else ("Jahresbericht" if x.get("type") == "year" else "Monatsbericht")
-        body = "\n".join(f"\n<b>{esc(l[2:])}</b>" if l.startswith("# ") else esc(l) for l in ln if public(l) and not l.startswith(("# Elite", "# Schattenb", "# Shadow", "# Chronik", "# Chronicle")))
-        out.append(("report", key, f"📊 <b>{kind} {esc(ti)}</b>\n{body}"))
+            kind = ("Annual report" if x.get("type") == "year" else "Monthly report") if en else ("Jahresbericht" if x.get("type") == "year" else "Monatsbericht")
+            body = "\n".join(f"\n<b>{esc(l[2:])}</b>" if l.startswith("# ") else esc(l) for l in ln if public(l) and not l.startswith(("# Elite", "# Schattenb", "# Shadow", "# Chronik", "# Chronicle")))
+            res[("report", key)] = f"📊 <b>{kind} {esc(ti)}</b>\n{body}", ""
+    return res
+out = []
+if LANG in ("de", "en"):  # einzelne Sprache erzwungen
+    out = [(k, key, t + (f"\n\n{src}" if src else "")) for (k, key), (t, src) in build(LANG).items()]
+else:  # Standard: Deutsch, darunter Englisch in derselben Nachricht
+    de_, en_ = build("de"), build("en")
+    for (k, key), (t, src) in de_.items():
+        if (k, key) in en_:
+            t = t + SEP + en_[(k, key)][0]
+        out.append((k, key, t + (f"\n\n{src}" if src else "")))
 for kind, key, text in out:
     for i in range(0, len(text), 3900):
         for c in [c.strip() for c in chat.split(",") if c.strip()]:
