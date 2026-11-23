@@ -3,7 +3,7 @@ Modus 'setup': zeigt die Chat-ID(s) aus getUpdates. Braucht TELEGRAM_BOT_TOKEN (
 Zustand (was schon gesendet wurde): data/tg_sent.json."""
 import json, os, sys, urllib.parse, urllib.request
 tok, chat = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
-LANG = os.environ.get("TG_LANG", "both")  # both = Deutsch + Englisch in einer Nachricht
+LANG = os.environ.get("TG_LANG", "de")  # de, en oder both (Deutsch + Englisch in einer Nachricht)
 SITE = "https://3kings.dev"
 if not tok: sys.exit("TELEGRAM_BOT_TOKEN fehlt (GitHub Secret anlegen)")
 def api(method, **kw):

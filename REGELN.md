@@ -643,5 +643,5 @@ Alle Projekte verlinken unten neben dem Impressum auf die gemeinsame Datenschutz
 ## 2026-11-23: Telegram-Kanal auf der Seite verlinkt (ausdrückliche Entscheidung)
 Unter dem Seitenkopf steht ein Button mit Link zum Telegram-Kanal. Der Kanal bekommt weiterhin nur die Marktlage als Information (siehe 2026-11-22). Inhalt und Berechnung der Seite ändern sich nicht.
 
-## 2026-11-24: Telegram-Hofbericht zweisprachig (ausdrückliche Entscheidung)
-Der Hofbericht im Telegram-Kanal erscheint in einer Nachricht erst auf Deutsch, darunter auf Englisch. Quellenlinks stehen einmal am Ende. Fehlt die englische Fassung, geht nur die deutsche raus. Inhalt und Berechnung ändern sich nicht.
+## 2026-11-24: Telegram-Hofbericht bleibt deutsch (ausdrückliche Entscheidung)
+Der Telegram-Kanal von 3Kings und der von Cyberlage bleiben deutsch. Der englische Button auf der Seite weist mit „(in German)“ darauf hin. Die zweisprachige Nachricht ist in tg.py vorbereitet (TG_LANG=both) und bleibt aus, bis es englische Leser gibt. Dann lieber ein eigener englischer Kanal. Inhalt und Berechnung ändern sich nicht.
