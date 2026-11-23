@@ -636,3 +636,6 @@ Ergänzung: Über dem Hofbericht steht eine kleine Zeitung im Kartenstil und die
 
 ## 2026-11-23: Schriften lokal statt von Google (ausdrückliche Entscheidung)
 Alle Schriften der Seite werden vom eigenen Server geladen, nicht mehr von Google Fonts. Grund: Beim Laden von Google gelangt die IP-Adresse der Besucher ohne Einwilligung an Google (DSGVO). Aussehen und Inhalt bleiben unverändert.
+
+## 2026-11-23: Gemeinsame Datenschutzerklärung (ausdrückliche Entscheidung)
+Alle Projekte verlinken unten neben dem Impressum auf die gemeinsame Datenschutzerklärung bei dreierlabs.com. Sie nennt je Projekt, welche Dienste der Browser kontaktiert. Bei 3Kings sind das nur Cloudflare Access (E-Mail-Anmeldung) und der eigene Server.

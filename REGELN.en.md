@@ -636,3 +636,6 @@ Addendum: A small newspaper icon in the card style and the line “Morning editi
 
 ## 2026-11-23: Fonts served locally instead of from Google (explicit decision)
 All fonts are now loaded from our own server, no longer from Google Fonts. Reason: loading from Google sends visitors' IP addresses to Google without consent (GDPR). Look and content are unchanged.
+
+## 2026-11-23: Shared privacy policy (explicit decision)
+All projects link to the shared privacy policy at dreierlabs.com next to the legal notice at the bottom. It states per project which services the browser contacts. For 3Kings these are only Cloudflare Access (email sign-in) and its own server.
