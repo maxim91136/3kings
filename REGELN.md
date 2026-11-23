@@ -622,3 +622,6 @@ Nur Anzeige, keine neuen Prüfungen. Der Jahresbericht (am 1. Januar, zusammen m
 
 ## 2026-11-22: Leitsatz mit Abstand unter den Schlössern (ausdrückliche Entscheidung)
 Gestaltung. Der Satz „Drei Könige regieren …“ steht jetzt mit etwas Abstand unter den Schlössern und berührt das Bild nicht mehr; das wirkt ruhiger.
+
+## 2026-11-23: Urheberhinweis und Nutzungsvorbehalt (ausdrückliche Entscheidung)
+Auf allen Seiten steht unten „© 2026 Steve Dreier · Alle Rechte vorbehalten. Texte, Grafiken, Figuren und Code dürfen ohne Erlaubnis nicht übernommen werden.“ Dazu ein maschinenlesbarer Vorbehalt gegen Text- und Data-Mining (§ 44b UrhG): robots.txt sperrt bekannte KI-Crawler und alle anderen, die Seiten senden „tdm-reservation“ und „noai“. Das Repository bleibt privat und ohne offene Lizenz. Hinweis: Ideen, Methoden und Kursdaten sind nicht urheberrechtlich geschützt; rein KI-erzeugte Teile vermutlich auch nicht. Eine Markenanmeldung für Name und Logo ist möglich, aber nicht beschlossen.

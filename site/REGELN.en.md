@@ -622,3 +622,6 @@ Display only, no new reviews. The annual report (on January 1, together with the
 
 ## 2026-11-22: Motto with space below the castles (explicit decision)
 Design. The line “Three kings rule …” now sits with some space below the castles and no longer touches the picture; it looks calmer.
+
+## 2026-11-23: Copyright notice and reservation of use (explicit decision)
+Every page now shows at the bottom “© 2026 Steve Dreier · All rights reserved. Texts, graphics, characters and code may not be reused without permission.” Plus a machine-readable reservation against text and data mining (Section 44b German Copyright Act): robots.txt blocks known AI crawlers and all others, the pages send “tdm-reservation” and “noai”. The repository stays private and without an open licence. Note: ideas, methods and price data are not protected by copyright; purely AI-generated parts probably not either. A trademark filing for name and logo is possible but not decided.

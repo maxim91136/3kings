@@ -1,0 +1,23 @@
+# © 2026 Steve Dreier. Alle Rechte vorbehalten. Kein Text- und Data-Mining (Vorbehalt nach § 44b UrhG).
+User-agent: GPTBot
+Disallow: /
+User-agent: ChatGPT-User
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
+User-agent: anthropic-ai
+Disallow: /
+User-agent: CCBot
+Disallow: /
+User-agent: Google-Extended
+Disallow: /
+User-agent: PerplexityBot
+Disallow: /
+User-agent: Bytespider
+Disallow: /
+User-agent: Applebot-Extended
+Disallow: /
+User-agent: meta-externalagent
+Disallow: /
+User-agent: *
+Disallow: /
