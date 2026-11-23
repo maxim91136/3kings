@@ -633,3 +633,6 @@ Every page now shows “A project by Dreier Labs” at the bottom, linking to dr
 The news section on the page and the Telegram message are now called “Court Report” (German “Hofbericht”). It appears each morning around 7 AM as a look back at yesterday and overnight, like a newspaper. Content and schedule are unchanged.
 
 Addendum: A small newspaper icon in the card style and the line “Morning edition · a look back at …” now sit above the Court Report, so it is clear at once that it is a look back.
+
+## 2026-11-23: Fonts served locally instead of from Google (explicit decision)
+All fonts are now loaded from our own server, no longer from Google Fonts. Reason: loading from Google sends visitors' IP addresses to Google without consent (GDPR). Look and content are unchanged.

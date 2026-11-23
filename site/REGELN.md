@@ -633,3 +633,6 @@ Unten auf allen Seiten steht jetzt „Ein Projekt von Dreier Labs“ mit Link au
 Die News-Section auf der Seite und die Telegram-Nachricht heißen „Hofbericht“ (englisch „Court Report“). Er erscheint morgens gegen 7 Uhr und ist ein Rückblick auf gestern und die Nacht, wie eine Zeitung. Inhalt und Ablauf bleiben unverändert.
 
 Ergänzung: Über dem Hofbericht steht eine kleine Zeitung im Kartenstil und die Zeile „Morgenausgabe · Rückblick auf …“, damit sofort klar ist, dass es ein Rückblick ist.
+
+## 2026-11-23: Schriften lokal statt von Google (ausdrückliche Entscheidung)
+Alle Schriften der Seite werden vom eigenen Server geladen, nicht mehr von Google Fonts. Grund: Beim Laden von Google gelangt die IP-Adresse der Besucher ohne Einwilligung an Google (DSGVO). Aussehen und Inhalt bleiben unverändert.
