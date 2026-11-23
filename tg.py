@@ -39,8 +39,8 @@ if os.path.exists("site/news.json"):
             dt = _d(y_, m_, d_)
             wd = (["Mo.", "Di.", "Mi.", "Do.", "Fr.", "Sa.", "So."] if not en else ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"])[dt.weekday()]
             weekend = str(x.get("headline", "")).startswith("Wochenende")
-            if en: head = f"📅 {'Bitcoin weekend' if weekend else 'Trading day'} {wd}, {dt.strftime('%b')} {dt.day}, {dt.year}"
-            else: head = f"📅 {'Bitcoin am Wochenende' if weekend else 'Börsentag'} {wd}, {dt:%d.%m.%Y}"
+            if en: head = f"📜 Court Report · {'Bitcoin weekend' if weekend else 'Trading day'} {wd}, {dt.strftime('%b')} {dt.day}, {dt.year}"
+            else: head = f"📜 Hofbericht · {'Bitcoin am Wochenende' if weekend else 'Börsentag'} {wd}, {dt:%d.%m.%Y}"
             src = "\n".join(f'<a href="{esc(s["url"])}">{esc(s["title"])}</a>' for s in x.get("sources", [])[:3])
             out.append(("news", key, f"<i>{head}</i>\n{icon} <b>{esc(hl)}</b>\n\n" + "\n\n".join(esc(l) for l in ln if public(l)) + (f"\n\n{src}" if src else "")))
 if os.path.exists("site/reports.json"):

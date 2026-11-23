@@ -628,3 +628,6 @@ Auf allen Seiten steht unten „© 2026 Steve Dreier · Alle Rechte vorbehalten.
 
 ## 2026-11-23: Absender Dreier Labs und Impressum (ausdrückliche Entscheidung)
 Unten auf allen Seiten steht jetzt „Ein Projekt von Dreier Labs“ mit Link auf dreierlabs.com und auf das gemeinsame Impressum (dreierlabs.com/impressum.html).
+
+## 2026-11-23: „News“ heißt jetzt „Hofbericht“ (ausdrückliche Entscheidung)
+Die News-Section auf der Seite und die Telegram-Nachricht heißen „Hofbericht“ (englisch „Court Report“). Er erscheint morgens gegen 7 Uhr und ist ein Rückblick auf gestern und die Nacht, wie eine Zeitung. Inhalt und Ablauf bleiben unverändert.

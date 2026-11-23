@@ -628,3 +628,6 @@ Every page now shows at the bottom “© 2026 Steve Dreier · All rights reserve
 
 ## 2026-11-23: Dreier Labs as publisher and legal notice (explicit decision)
 Every page now shows “A project by Dreier Labs” at the bottom, linking to dreierlabs.com and the shared legal notice (dreierlabs.com/impressum.html).
+
+## 2026-11-23: “News” is now “Court Report” (explicit decision)
+The news section on the page and the Telegram message are now called “Court Report” (German “Hofbericht”). It appears each morning around 7 AM as a look back at yesterday and overnight, like a newspaper. Content and schedule are unchanged.
