@@ -631,3 +631,5 @@ Unten auf allen Seiten steht jetzt „Ein Projekt von Dreier Labs“ mit Link au
 
 ## 2026-11-23: „News“ heißt jetzt „Hofbericht“ (ausdrückliche Entscheidung)
 Die News-Section auf der Seite und die Telegram-Nachricht heißen „Hofbericht“ (englisch „Court Report“). Er erscheint morgens gegen 7 Uhr und ist ein Rückblick auf gestern und die Nacht, wie eine Zeitung. Inhalt und Ablauf bleiben unverändert.
+
+Ergänzung: Über dem Hofbericht steht eine kleine Zeitung im Kartenstil und die Zeile „Morgenausgabe · Rückblick auf …“, damit sofort klar ist, dass es ein Rückblick ist.

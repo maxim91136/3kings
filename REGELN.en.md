@@ -631,3 +631,5 @@ Every page now shows “A project by Dreier Labs” at the bottom, linking to dr
 
 ## 2026-11-23: “News” is now “Court Report” (explicit decision)
 The news section on the page and the Telegram message are now called “Court Report” (German “Hofbericht”). It appears each morning around 7 AM as a look back at yesterday and overnight, like a newspaper. Content and schedule are unchanged.
+
+Addendum: A small newspaper icon in the card style and the line “Morning edition · a look back at …” now sit above the Court Report, so it is clear at once that it is a look back.
