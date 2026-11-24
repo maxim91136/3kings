@@ -2,6 +2,48 @@
  "items": [
   {
    "date": "2026-11-23",
+   "published": "24.11., 06:49 Uhr",
+   "published_en": "Nov 24, 6:49 AM CET",
+   "move": true,
+   "headline": "S&P 500 +4,7 %, Gold +3,1 %: kräftige Erholung nach Rückkehr von Jensen Huang an die Nvidia-Spitze",
+   "headline_en": "S&P 500 +4.7 %, gold +3.1 %: strong rebound after Jensen Huang returns to lead Nvidia",
+   "lines": [
+    "S&P 500 7.237 Pkt. (+4,7 % in €) · Bitcoin 55.769 € (+4,0 %) · Gold 3.328 € je Unze (+3,1 %)",
+    "Chronik: Kronjuwelen 0,993 · S&P 500 0,989 (Einmalanlage, in €, seit 17.11.2026)",
+    "S&P 500: Der Index stieg auf 7.237 Punkte (+4,7 % in Euro), der stärkste Tagesgewinn seit April 2025, und beendete eine Serie von sieben Verlusttagen. Auslöser war die Wiedereinsetzung von Jensen Huang als Chef des Chipkonzerns Nvidia; die Nvidia-Aktie sprang um rund 31 %, KI- und Technologiewerte erholten sich breit, der Nasdaq gewann 6,5 %. Marktbeobachter verweisen zudem auf Eindeckungskäufe nach dem vorherigen Ausverkauf.",
+    "Gold: Der Goldpreis stieg auf 3.328 € je Unze (+3,1 %), nachdem er am Freitag auf den tiefsten Stand seit über einem Jahr gefallen war. Gestützt haben Schnäppchenkäufe, die bessere Stimmung an den Aktienmärkten und gesunkene Erwartungen an eine besonders große Zinserhöhung der US-Notenbank im Dezember; eine Erhöhung um 0,25 Prozentpunkte gilt weiterhin als wahrscheinlich.",
+    "Bitcoin: Der Kurs stieg auf 55.769 € (+4,0 % gegenüber Freitag) und erholte sich damit zusammen mit den Aktienmärkten vom Wochenendtief. Ein eigener Auslöser ist nicht erkennbar; seit Monatsbeginn liegt Bitcoin weiter deutlich im Minus.",
+    "Kronjuwelen: Alle Werte unter der Schwelle von ±4 %; stärkster Wert Moody's mit +2,9 % in Euro. Für Investor AB lag kein neuer Kurs vor."
+   ],
+   "lines_en": [
+    "S&P 500 7,237 pts (+4.7 % in €) · Bitcoin €55,769 (+4.0 %) · Gold €3,328 per ounce (+3.1 %)",
+    "Chronicle: Crown Jewels 0.993 · S&P 500 0.989 (lump sum, in €, since Nov 17, 2026)",
+    "S&P 500: The index rose to 7,237 points (+4.7 % in euros), its best day since April 2025, ending a run of seven losing sessions. The trigger was the reinstatement of Jensen Huang as chief executive of chipmaker Nvidia; Nvidia shares jumped about 31 %, AI and technology stocks rebounded broadly and the Nasdaq gained 6.5 %. Market observers also point to short covering after the preceding sell-off.",
+    "Gold: The gold price rose to €3,328 per ounce (+3.1 %) after falling to its lowest level in more than a year on Friday. Support came from bargain hunting, better sentiment in stock markets and fading expectations of an especially large US Federal Reserve rate hike in December; a 0.25 percentage point hike is still considered likely.",
+    "Bitcoin: The price rose to €55,769 (+4.0 % from Friday), recovering from its weekend low alongside stock markets. No separate trigger is apparent; bitcoin remains clearly down since the start of the month.",
+    "Crown Jewels: all stocks below the ±4 % threshold; strongest was Moody's at +2.9 % in euros. No new price was available for Investor AB."
+   ],
+   "sources": [
+    {
+     "title": "Motley Fool: Markets Rebound From Correction on AI Relief Rally",
+     "url": "https://www.fool.com/coverage/stock-market-today/2026/11/23/stock-market-today-nov-23-markets-rebound-from-correction-on-ai-relief-rally/"
+    },
+    {
+     "title": "Yahoo Finance: Dow, S&P 500, Nasdaq post best day since April 2025 as Nvidia stock soars 31% on Jensen Huang's return",
+     "url": "https://finance.yahoo.com/markets/live/stock-market-today-monday-november-23-dow-sp-500-nasdaq-091118583.html"
+    },
+    {
+     "title": "Kitco: Gold, silver prices see sharp rebounds as AI shares rally, renewed Fed uncertainty",
+     "url": "https://www.kitco.com/news/article/2026-11-23/gold-silver-prices-see-sharp-rebounds-ai-shares-rally-renewed-fed"
+    },
+    {
+     "title": "USAGOLD: Gold Rebounds As Half-Point Fed Hike Bets Fade",
+     "url": "https://www.usagold.com/daily-precious-metals-market-report-november-23-2026/"
+    }
+   ]
+  },
+  {
+   "date": "2026-11-23",
    "published": "23.11., 07:29 Uhr",
    "published_en": "Nov 23, 7:29 AM CET",
    "move": false,
