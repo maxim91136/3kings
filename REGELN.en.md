@@ -648,3 +648,6 @@ The Telegram channels of 3Kings and Cyberlage stay German. The English button on
 
 ## 2026-11-24: Chronicles overview switchable (explicit decision)
 The table "Royal chronicles overview" can be sorted by clicking a column header: by "Gap" (default, gap to each book's own benchmark) or by "Value per euro". Both views count: value per euro shows whether a book is in profit, the gap whether it beats its benchmark. The text above the table explains that value per euro is only partly comparable because of different start dates. Calculation and verdicts (only on the dates in the review calendar) do not change.
+
+## 2026-11-24: Court Report label on Mondays
+The Monday edition (Sunday to Monday, bitcoin only) was labelled "Weekend …" although Monday is not a weekend day. The display now reads "Sun 22 Nov to Mon 23 Nov, bitcoin only". Display only; no rules, data or headlines changed.

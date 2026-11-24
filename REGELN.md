@@ -648,3 +648,6 @@ Der Telegram-Kanal von 3Kings und der von Cyberlage bleiben deutsch. Der englisc
 
 ## 2026-11-24: Chroniken-Überblick umschaltbar (ausdrückliche Entscheidung)
 Die Tabelle „Königliche Chroniken im Überblick" lässt sich per Klick auf den Spaltenkopf nach „Abstand" (Standard, Abstand zum eigenen Vergleichswert) oder nach „Wert je Euro" sortieren. Beide Sichten zählen: Der Wert je Euro zeigt, ob ein Buch im Plus liegt, der Abstand, ob es seinen Vergleich schlägt. Der Text über der Tabelle erklärt, dass der Wert je Euro wegen verschiedener Startdaten nur bedingt vergleichbar ist. Berechnung und Bewertung (nur an den Terminen im Prüfkalender) ändern sich nicht.
+
+## 2026-11-24: Hofbericht-Beschriftung am Montag
+Die Montagsausgabe (Sonntag bis Montag, nur Bitcoin) hieß „Wochenende …", obwohl Montag kein Wochenende ist. Die Anzeige sagt jetzt „So. 22.11. bis Mo. 23.11., nur Bitcoin". Nur Anzeige, keine Regeln, Daten und Überschriften geändert.
