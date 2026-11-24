@@ -645,3 +645,6 @@ Unter dem Seitenkopf steht ein Button mit Link zum Telegram-Kanal. Der Kanal bek
 
 ## 2026-11-24: Telegram-Hofbericht bleibt deutsch (ausdrückliche Entscheidung)
 Der Telegram-Kanal von 3Kings und der von Cyberlage bleiben deutsch. Der englische Button auf der Seite weist mit „(in German)“ darauf hin. Die zweisprachige Nachricht ist in tg.py vorbereitet (TG_LANG=both) und bleibt aus, bis es englische Leser gibt. Dann lieber ein eigener englischer Kanal. Inhalt und Berechnung ändern sich nicht.
+
+## 2026-11-24: Chroniken-Überblick umschaltbar (ausdrückliche Entscheidung)
+Die Tabelle „Königliche Chroniken im Überblick" lässt sich per Klick auf den Spaltenkopf nach „Abstand" (Standard, Abstand zum eigenen Vergleichswert) oder nach „Wert je Euro" sortieren. Beide Sichten zählen: Der Wert je Euro zeigt, ob ein Buch im Plus liegt, der Abstand, ob es seinen Vergleich schlägt. Der Text über der Tabelle erklärt, dass der Wert je Euro wegen verschiedener Startdaten nur bedingt vergleichbar ist. Berechnung und Bewertung (nur an den Terminen im Prüfkalender) ändern sich nicht.

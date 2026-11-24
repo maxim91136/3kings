@@ -645,3 +645,6 @@ A button linking to the Telegram channel sits below the page header. The channel
 
 ## 2026-11-24: Telegram Court Report stays German (explicit decision)
 The Telegram channels of 3Kings and Cyberlage stay German. The English button on the page says "(in German)". The bilingual message is prepared in tg.py (TG_LANG=both) and stays off until there are English readers. Then rather a separate English channel. Content and calculation do not change.
+
+## 2026-11-24: Chronicles overview switchable (explicit decision)
+The table "Royal chronicles overview" can be sorted by clicking a column header: by "Gap" (default, gap to each book's own benchmark) or by "Value per euro". Both views count: value per euro shows whether a book is in profit, the gap whether it beats its benchmark. The text above the table explains that value per euro is only partly comparable because of different start dates. Calculation and verdicts (only on the dates in the review calendar) do not change.
