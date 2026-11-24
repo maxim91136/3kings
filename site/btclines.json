@@ -1,30 +1,30 @@
 {
  "start": "2026-11-20",
- "date": "2026-11-20",
+ "date": "2026-11-23",
  "rows": [
   {
    "name": "Halten",
-   "fwd": 0.0,
+   "fwd": 0.0404,
    "w_now": 1.0,
-   "cagr": 0.423,
+   "cagr": 0.429,
    "mdd": 0.827,
-   "sharpe": 0.86,
+   "sharpe": 0.87,
    "switches": 0.0
   },
   {
    "name": "Linie 50",
    "fwd": 0.0,
    "w_now": 0.0,
-   "cagr": 0.512,
+   "cagr": 0.511,
    "mdd": 0.604,
    "sharpe": 1.1,
-   "switches": 14.2
+   "switches": 14.1
   },
   {
    "name": "Linie 100",
    "fwd": 0.0,
    "w_now": 0.0,
-   "cagr": 0.513,
+   "cagr": 0.512,
    "mdd": 0.673,
    "sharpe": 1.07,
    "switches": 6.5
@@ -33,7 +33,7 @@
    "name": "Linie 200",
    "fwd": 0.0,
    "w_now": 0.0,
-   "cagr": 0.375,
+   "cagr": 0.374,
    "mdd": 0.672,
    "sharpe": 0.85,
    "switches": 7.0
@@ -53,7 +53,7 @@
    "w_now": 0.0,
    "cagr": 0.462,
    "mdd": 0.652,
-   "sharpe": 1.02,
+   "sharpe": 1.01,
    "switches": 8.0
   }
  ],
