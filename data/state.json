@@ -1,17 +1,19 @@
 {
  "start": "2026-11-16",
- "last_date": "2026-11-23",
- "shadow": 0.9899330572910003,
- "hold": 0.95651573721426,
+ "last_date": "2026-11-24",
+ "shadow": 0.9896900782220883,
+ "hold": 0.9405966387624115,
  "held": {
   "BTC": 0.0,
-  "SPY": 0.0,
+  "SPY": 0.4909,
   "GLD": 0.0
  },
- "n_actions": 2,
- "last_logged": "2026-11-23",
- "pending": {
-  "date": "2026-11-23",
+ "n_actions": 3,
+ "last_logged": "2026-11-24",
+ "pending": null,
+ "executed": {
+  "date": "2026-11-24",
+  "signal_date": "2026-11-23",
   "moves": [
    {
     "player": "SPY",
@@ -19,19 +21,6 @@
     "von": 0.0,
     "auf": 0.4909,
     "delta": 0.4909
-   }
-  ]
- },
- "executed": {
-  "date": "2026-11-23",
-  "signal_date": "2026-11-20",
-  "moves": [
-   {
-    "player": "SPY",
-    "name": "S&P 500",
-    "von": 0.4948,
-    "auf": 0.0,
-    "delta": -0.4948
    }
   ]
  }

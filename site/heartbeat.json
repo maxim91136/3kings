@@ -1,79 +1,71 @@
 {
- "generated_at": "2026-11-24T15:18:02Z",
- "data_date": "2026-11-23",
+ "generated_at": "2026-11-25T06:06:37Z",
+ "data_date": "2026-11-24",
  "players": {
   "BTC": {
    "champion": "Trend SMA100",
    "strat_weight": 0.0,
    "alloc": 0.2814,
    "target": 0.0,
-   "price": 55769.20342690485,
+   "price": 54473.30172335188,
    "line_n": 100,
-   "vs_line": -0.1386,
-   "dd_high": -0.3303,
-   "dd_ath": -0.4764
+   "vs_line": -0.1585,
+   "dd_high": -0.3458,
+   "dd_ath": -0.4885
   },
   "SPY": {
    "champion": "Trend SMA200",
    "strat_weight": 1.0,
    "alloc": 0.4909,
    "target": 0.4909,
-   "price": 658.3029329201604,
+   "price": 655.4025977933801,
    "line_n": 200,
-   "vs_line": 0.0364,
-   "dd_high": -0.0558,
-   "dd_ath": -0.0558
+   "vs_line": 0.0313,
+   "dd_high": -0.06,
+   "dd_ath": -0.06
   },
   "GLD": {
    "champion": "Trend SMA200",
    "strat_weight": 0.0,
    "alloc": 0.2277,
    "target": 0.0,
-   "price": 303.51803590958804,
+   "price": 296.7539089997265,
    "line_n": 200,
-   "vs_line": -0.1371,
-   "dd_high": -0.2716,
-   "dd_ath": -0.2716
+   "vs_line": -0.1552,
+   "dd_high": -0.2879,
+   "dd_ath": -0.2879
   }
  },
  "season": {
-  "day_in_season": 19,
-  "days_left": 44,
+  "day_in_season": 20,
+  "days_left": 43,
   "n_seasons": 38
  },
  "held": {
   "BTC": 0.0,
-  "SPY": 0.0,
+  "SPY": 0.4909,
   "GLD": 0.0
  },
- "cash": 1.0,
- "moves": [
-  {
-   "player": "SPY",
-   "name": "S&P 500",
-   "von": 0.0,
-   "auf": 0.4909,
-   "delta": 0.4909
-  }
- ],
- "moves_date": "2026-11-23",
+ "cash": 0.5091,
+ "moves": [],
+ "moves_date": null,
  "executed": {
-  "date": "2026-11-23",
-  "signal_date": "2026-11-20",
+  "date": "2026-11-24",
+  "signal_date": "2026-11-23",
   "moves": [
    {
     "player": "SPY",
     "name": "S&P 500",
-    "von": 0.4948,
-    "auf": 0.0,
-    "delta": -0.4948
+    "von": 0.0,
+    "auf": 0.4909,
+    "delta": 0.4909
    }
   ]
  },
- "shadow": 0.9899,
- "hold": 0.9565,
+ "shadow": 0.9897,
+ "hold": 0.9406,
  "since": "2026-11-16",
- "n_actions": 2,
+ "n_actions": 3,
  "band": 0.05,
  "ledger_tail": [
   {
@@ -135,6 +127,16 @@
    "shadow": "0.98993",
    "hold": "0.95652",
    "action": "ausgef\u00fchrt S&P 500 0.49->0.00; Signal S&P 500 0.00->0.49"
+  },
+  {
+   "date": "2026-11-24",
+   "BTC": "0.0",
+   "SPY": "0.4909",
+   "GLD": "0.0",
+   "cash": "0.5091",
+   "shadow": "0.98969",
+   "hold": "0.9406",
+   "action": "ausgef\u00fchrt S&P 500 0.00->0.49"
   }
  ]
 }

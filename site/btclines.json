@@ -1,12 +1,12 @@
 {
  "start": "2026-11-20",
- "date": "2026-11-23",
+ "date": "2026-11-24",
  "rows": [
   {
    "name": "Halten",
-   "fwd": 0.0402,
+   "fwd": 0.016,
    "w_now": 1.0,
-   "cagr": 0.429,
+   "cagr": 0.425,
    "mdd": 0.827,
    "sharpe": 0.87,
    "switches": 0.0
@@ -51,7 +51,7 @@
    "name": "Mix",
    "fwd": 0.0,
    "w_now": 0.0,
-   "cagr": 0.462,
+   "cagr": 0.461,
    "mdd": 0.652,
    "sharpe": 1.01,
    "switches": 8.0

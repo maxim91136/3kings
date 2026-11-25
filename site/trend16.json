@@ -1,14 +1,14 @@
 {
  "start": "2026-11-20",
  "date": "2026-11-24",
- "fwd": 0.003,
- "fwd_spy": 0.0416,
- "invested": 0.444,
+ "fwd": 0.0029,
+ "fwd_spy": 0.0423,
+ "invested": 0.443,
  "back_from": "2015-01-02",
  "back": {
   "cagr": 0.033,
   "vol": 0.042,
-  "sharpe": 0.79,
+  "sharpe": 0.78,
   "mdd": 0.068
  },
  "back_spy": {

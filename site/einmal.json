@@ -1,14 +1,14 @@
 {
  "start": "2026-11-20",
  "currency": "EUR",
- "date": "2026-11-23",
+ "date": "2026-11-24",
  "thresh": -0.2,
  "n_raten": 1,
  "bought_warten": null,
- "dd_ath": -0.0558,
+ "dd_ath": -0.0549,
  "values": {
-  "sofort": 1.0469,
-  "raten": 1.0039,
+  "sofort": 1.0479,
+  "raten": 1.004,
   "warten": 1.0
  },
  "rows": [
@@ -25,6 +25,13 @@
    "raten": 1.0039,
    "warten": 1.0,
    "dd": -0.0558
+  },
+  {
+   "date": "2026-11-24",
+   "sofort": 1.0479,
+   "raten": 1.004,
+   "warten": 1.0,
+   "dd": -0.0549
   }
  ]
 }

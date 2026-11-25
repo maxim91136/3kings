@@ -7,7 +7,7 @@
   "hit": 0.877,
   "hit_all": 0.808,
   "start": "1990-01-02",
-  "end": "2025-11-21",
+  "end": "2025-11-24",
   "pass": true,
   "note": "VIX über 30 als Ersatz; Angst und Gier Aktien liegt erst seit 2025 vor"
  },
@@ -61,15 +61,15 @@
  },
  "pct": {
   "vix": {
-   "p": 0.867,
+   "p": 0.863,
    "since": 1990
   },
   "cfng": {
-   "p": 0.022,
+   "p": 0.049,
    "since": 2018
   },
   "us10y": {
-   "p": 0.733,
+   "p": 0.732,
    "since": 1871
   },
   "cpi_us": {
@@ -83,5 +83,5 @@
   "D": true,
   "btc_vs_mid": -0.597
  },
- "date": "2026-11-24"
+ "date": "2026-11-25"
 }
