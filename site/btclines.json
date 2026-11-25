@@ -4,9 +4,9 @@
  "rows": [
   {
    "name": "Halten",
-   "fwd": 0.016,
+   "fwd": 0.0215,
    "w_now": 1.0,
-   "cagr": 0.425,
+   "cagr": 0.426,
    "mdd": 0.827,
    "sharpe": 0.87,
    "switches": 0.0
