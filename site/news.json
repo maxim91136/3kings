@@ -1,6 +1,23 @@
 {
  "items": [
   {
+   "date": "2026-11-24",
+   "published": "25.11., 07:08 Uhr",
+   "published_en": "Nov 25, 7:08 AM CET",
+   "move": false,
+   "headline": "Keine größeren Bewegungen",
+   "headline_en": "No major moves",
+   "lines": [
+    "S&P 500 7.201 Pkt. (+0,1 % in €) · Bitcoin 54.768 € (−1,8 %) · Gold 3.265 € je Unze (−1,7 %)",
+    "Chronik: Kronjuwelen 0,993 · S&P 500 0,989 (Einmalanlage, in €, seit 17.11.2026)"
+   ],
+   "lines_en": [
+    "S&P 500 7,201 pts (+0.1 % in €) · Bitcoin €54,768 (−1.8 %) · Gold €3,265 per ounce (−1.7 %)",
+    "Chronicle: Crown Jewels 0.993 · S&P 500 0.989 (lump sum, in €, since Nov 17, 2026)"
+   ],
+   "sources": []
+  },
+  {
    "date": "2026-11-23",
    "published": "24.11., 06:49 Uhr",
    "published_en": "Nov 24, 6:49 AM CET",
