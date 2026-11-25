@@ -651,3 +651,6 @@ The table "Royal chronicles overview" can be sorted by clicking a column header:
 
 ## 2026-11-24: Court Report label on Mondays
 The Monday edition (Sunday to Monday, bitcoin only) was labelled "Weekend …" although Monday is not a weekend day. The display now reads "Sun 22 Nov to Mon 23 Nov, bitcoin only". Display only; no rules, data or headlines changed.
+
+## 2026-11-25: Traffic-light history counts trading days
+The line under the history said "Today … recorded since Nov 20, 3 days" although more calendar days had passed. The history has one entry per US trading day (date of the latest S&P 500 close); weekends and holidays are skipped. The display now says "per trading day", names the date of the latest entry instead of "today" and counts "trading days". Display only, no rules or data changed.
