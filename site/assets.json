@@ -1,1 +1,34 @@
-{"assets": [{"key": "SPY", "chg1d": -0.0078, "chg1y": 0.1278, "dd_ath": 0.0623, "date": "2026-11-25", "price": 7182.78, "unit": "pts", "price_date": "2026-11-25"}, {"key": "BTC", "chg1d": 0.0098, "chg1y": -0.271, "dd_ath": 0.4832, "date": "2026-11-25", "price": 55042, "unit": "eur", "price_date": "2026-11-25", "live": "Kraken"}, {"key": "GLD", "chg1d": 0.0012, "chg1y": -0.0946, "dd_ath": 0.2831, "date": "2026-11-25", "price": 3226.0, "unit": "eur_oz", "price_date": "2026-11-25"}]}
+{
+ "assets": [
+  {
+   "key": "SPY",
+   "chg1d": -0.0078,
+   "chg1y": 0.1278,
+   "dd_ath": 0.0623,
+   "date": "2026-11-25",
+   "price": 7182.78,
+   "unit": "pts",
+   "price_date": "2026-11-25"
+  },
+  {
+   "key": "BTC",
+   "chg1d": 0.0058,
+   "chg1y": -0.2733,
+   "dd_ath": 0.4828,
+   "date": "2026-11-25",
+   "price": 55084.0,
+   "unit": "eur",
+   "price_date": "2026-11-25"
+  },
+  {
+   "key": "GLD",
+   "chg1d": 0.0012,
+   "chg1y": -0.0946,
+   "dd_ath": 0.2831,
+   "date": "2026-11-25",
+   "price": 3226.0,
+   "unit": "eur_oz",
+   "price_date": "2026-11-25"
+  }
+ ]
+}
