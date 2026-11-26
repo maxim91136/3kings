@@ -4,9 +4,9 @@
  "rows": [
   {
    "name": "Halten",
-   "fwd": 0.0289,
+   "fwd": 0.0274,
    "w_now": 1.0,
-   "cagr": 0.427,
+   "cagr": 0.426,
    "mdd": 0.827,
    "sharpe": 0.87,
    "switches": 0.0
@@ -17,7 +17,7 @@
    "w_now": 0.0,
    "cagr": 0.511,
    "mdd": 0.604,
-   "sharpe": 1.1,
+   "sharpe": 1.09,
    "switches": 14.1
   },
   {
@@ -33,9 +33,9 @@
    "name": "Linie 200",
    "fwd": 0.0,
    "w_now": 0.0,
-   "cagr": 0.365,
+   "cagr": 0.374,
    "mdd": 0.672,
-   "sharpe": 0.84,
+   "sharpe": 0.85,
    "switches": 7.0
   },
   {
@@ -51,7 +51,7 @@
    "name": "Mix",
    "fwd": 0.0,
    "w_now": 0.0,
-   "cagr": 0.459,
+   "cagr": 0.461,
    "mdd": 0.652,
    "sharpe": 1.01,
    "switches": 8.0

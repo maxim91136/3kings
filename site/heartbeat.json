@@ -1,39 +1,39 @@
 {
- "generated_at": "2026-11-26T05:44:13Z",
+ "generated_at": "2026-11-26T08:47:59Z",
  "data_date": "2026-11-25",
  "players": {
   "BTC": {
    "champion": "Trend SMA100",
    "strat_weight": 0.0,
-   "alloc": 0.2808,
+   "alloc": 0.2814,
    "target": 0.0,
-   "price": 55164.909556002196,
+   "price": 55084.391534391536,
    "line_n": 100,
-   "vs_line": -0.1472,
-   "dd_high": -0.3375,
-   "dd_ath": -0.4821
+   "vs_line": -0.149,
+   "dd_high": -0.3385,
+   "dd_ath": -0.4828
   },
   "SPY": {
    "champion": "Trend SMA200",
    "strat_weight": 1.0,
-   "alloc": 0.4912,
-   "target": 0.4912,
-   "price": 654.7597405444911,
+   "alloc": 0.4909,
+   "target": 0.4909,
+   "price": 653.8040613026819,
    "line_n": 200,
-   "vs_line": 0.0296,
-   "dd_high": -0.0609,
-   "dd_ath": -0.0609
+   "vs_line": 0.0281,
+   "dd_high": -0.0623,
+   "dd_ath": -0.0623
   },
   "GLD": {
    "champion": "Trend SMA200",
    "strat_weight": 0.0,
-   "alloc": 0.2279,
+   "alloc": 0.2277,
    "target": 0.0,
-   "price": 299.1503855289604,
+   "price": 298.7137493158183,
    "line_n": 200,
-   "vs_line": -0.1473,
-   "dd_high": -0.2821,
-   "dd_ath": -0.2821
+   "vs_line": -0.1485,
+   "dd_high": -0.2831,
+   "dd_ath": -0.2831
   }
  },
  "season": {
