@@ -36,9 +36,9 @@ Geprüft und unauffällig: keine Geheimnisse im Repo (Telegram-Token nur als Sec
 
 ## Vor der Veröffentlichung (Checkliste)
 
-- [ ] Punkt A, B, C oben erledigt und in Cloudflare kontrolliert
-- [ ] MFA und Session-Dauer für InnerCircle entschieden
-- [ ] Actions auf Hashes gepinnt (Punkt F)
+- [x] Punkt A, B, C oben erledigt und in Cloudflare kontrolliert
+- [x] MFA und Session-Dauer für InnerCircle entschieden
+- [x] Actions auf Hashes gepinnt (Punkt F)
 - [ ] Öffentlich wäre die Seite nicht mehr „noindex“-geschützt: `robots.txt`, `X-Robots-Tag` und `noindex` entfernen, Zugriffsschutz durch Access bleibt aber die Hauptsperre
 - [ ] Eine externe Prüfung der öffentlichen Adresse (Header, TLS, Mail) mit dem Audit-Werkzeug von Dreier Labs
 - [ ] Impressum und Datenschutz für die öffentliche Seite (der Footer verweist bereits auf dreierlabs.com)
