@@ -54,21 +54,23 @@ class Kopfzeilen(unittest.TestCase):
         self.assertNotIn("'unsafe-inline'", c["script-src"])
         self.assertNotIn("'unsafe-eval'", c["script-src"])
 
-    def test_csp_hashes_passen_zu_index(self):
-        html = (SITE / "index.html").read_text(encoding="utf-8")
-        erwartet = {
-            "'sha256-%s'" % base64.b64encode(hashlib.sha256(b.encode("utf-8")).digest()).decode()
-            for b in re.findall(r"<script>(.*?)</script>", html, flags=re.S)
-        }
-        erlaubt = set(re.findall(r"'sha256-[^']+'", csp()["script-src"]))
-        self.assertTrue(erwartet, "keine Inline-Skripte gefunden")
-        self.assertEqual(erwartet - erlaubt, set(), "fehlende Hashes in site/_headers")
-        self.assertEqual(erlaubt - erwartet, set(), "veraltete Hashes in site/_headers")
+    def test_keine_inline_skripte_auf_keiner_seite(self):
+        for f in SITE.glob("*.html"):
+            html = f.read_text(encoding="utf-8")
+            for m in re.finditer(r"<script([^>]*)>", html):
+                self.assertIn("src=", m.group(1), f.name + ": Inline-Skript")
+            self.assertEqual(re.findall(r"\son[a-z]+\s*=\s*[\"']", html), [], f.name)
+            for s in re.findall(r'<script src="([^"]+)"', html):
+                self.assertTrue((SITE / s).exists(), s)
+
+    def test_csp_ohne_hashes(self):
+        self.assertEqual(csp()["script-src"], "'self'")
 
 
 class Seite(unittest.TestCase):
     def setUp(self):
-        self.html = (SITE / "index.html").read_text(encoding="utf-8")
+        self.html = (SITE / "index.html").read_text(encoding="utf-8") + "".join(
+            f.read_text(encoding="utf-8") for f in sorted((SITE / "js").glob("index-*.js")))
 
     def test_keine_inline_handler_im_markup(self):
         self.assertEqual(re.findall(r"\son[a-z]+\s*=\s*[\"']", self.html), [])

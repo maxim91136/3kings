@@ -1,0 +1,1 @@
+(function(){var n=0,t=setInterval(function(){var sl=document.getElementById("bhist-slot"),b=document.getElementById("bhist");if(sl&&b){if(b.parentElement!==sl)sl.appendChild(b);if(!b.hidden||n>60)clearInterval(t)}if(++n>80)clearInterval(t)},150)})()

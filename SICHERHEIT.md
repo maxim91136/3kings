@@ -1,6 +1,6 @@
 # Sicherheit 3Kings
 
-Stand: 26.11.2026. Diese Seite ist privat (Cloudflare Access, nur deine E-Mail), deshalb steht sie bewusst nicht auf der Web-Audit-Seite von Dreier Labs.
+Stand: 26.11.2026. Seit 26.11.2026 wird die Seite öffentlich gemacht (Cloudflare Access wird entfernt) und kommt auf die Web-Audit-Seite von Dreier Labs.
 
 ## Prüfung
 
@@ -13,7 +13,7 @@ Stand: 26.11.2026. Diese Seite ist privat (Cloudflare Access, nur deine E-Mail),
 | # | Befund | Maßnahme |
 |---|---|---|
 | 1 | Keine Sicherheits-Kopfzeilen | `site/_headers`: CSP, HSTS (ein Jahr, ohne Unterdomains, ohne Preload), nosniff, Framing verboten, Referrer- und Permissions-Policy, COOP/CORP |
-| 2 | Inline-Skripte ohne Schutz | Strikte CSP mit SHA-256-Hashes der 13 Inline-Skripte; der Test schlägt an, wenn Hashes nicht mehr passen |
+| 2 | Inline-Skripte ohne Schutz | Alle Inline-Skripte (22, auch auf Archiv, Protokoll, Regelbuch) liegen jetzt in `site/js/`; CSP `script-src 'self'` ohne Hashes. Hash-Variante hatte die drei Unterseiten blockiert. Der Test verbietet neue Inline-Skripte |
 | 3 | Ein Inline-Klick-Handler im Markup | in `site/lacht.js` ausgelagert (delegierter Listener) |
 | 4 | Escaping ließ Anführungszeichen durch; Quellenlinks ohne Schema-Prüfung | `e()` escaped jetzt auch `"` und `'`; Quellenlinks nur mit `https://`, sonst `#` |
 | 5 | Workflow-Eingaben (`symbol`, `mode`, `script`) direkt in die Shell interpoliert | Übergabe über Umgebungsvariablen (`lookup.yml`, `telegram.yml`, `adhoc.yml`) |
@@ -31,7 +31,7 @@ Geprüft und unauffällig: keine Geheimnisse im Repo (Telegram-Token nur als Sec
 
 ## Pflege
 
-- Änderungen an `index.html` mit Inline-Skripten: danach die Hashes in `site/_headers` neu setzen (der Test zeigt, welche fehlen).
+- Keine Inline-Skripte und keine `on…=`-Handler in den HTML-Dateien. Neuer Code kommt nach `site/js/` (der Test schlägt sonst an).
 - Neue externe Quellen (Schriften, Bilder, Skripte) brauchen eine Erweiterung der CSP, sonst werden sie blockiert.
 
 ## Vor der Veröffentlichung (Checkliste)
@@ -39,6 +39,6 @@ Geprüft und unauffällig: keine Geheimnisse im Repo (Telegram-Token nur als Sec
 - [x] Punkt A, B, C oben erledigt und in Cloudflare kontrolliert
 - [x] MFA und Session-Dauer für InnerCircle entschieden
 - [x] Actions auf Hashes gepinnt (Punkt F)
-- [ ] Öffentlich wäre die Seite nicht mehr „noindex“-geschützt: `robots.txt`, `X-Robots-Tag` und `noindex` entfernen, Zugriffsschutz durch Access bleibt aber die Hauptsperre
+- [x] `noindex` in HTML, `robots.txt` und `X-Robots-Tag` entfernt (KI-Trainings-Bots bleiben ausgesperrt), `sitemap.xml` und `security.txt` ergänzt
 - [ ] Eine externe Prüfung der öffentlichen Adresse (Header, TLS, Mail) mit dem Audit-Werkzeug von Dreier Labs
 - [ ] Impressum und Datenschutz für die öffentliche Seite (der Footer verweist bereits auf dreierlabs.com)
