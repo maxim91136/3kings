@@ -22,14 +22,23 @@ Geprüft und unauffällig: keine Geheimnisse im Repo (Telegram-Token nur als Sec
 
 ## Offen (bei dir, in Cloudflare und GitHub)
 
-- **A. workers.dev-Adresse prüfen (wichtig).** Access gilt nur für Adressen, die in einer Access-Anwendung stehen. Prüfe im privaten Fenster `https://3kings.csrxfxzp6f.workers.dev`: Es muss die Anmeldung kommen. Wenn nicht, die Adresse in die Access-Anwendung aufnehmen oder `workers_dev` in `wrangler.jsonc` auf `false` setzen, falls du sie nicht brauchst.
+- **A. workers.dev: geprüft (26.11.).** Worker-Access gilt für Produktion und Preview, also auch für `3kings.csrxfxzp6f.workers.dev`. Die Anwendung „3kings - Cloudflare Workers“ hat drei Regeln: „Cloudflare account members“ (nur du), „InnerCircle“ (bewusst freigegeben, sechs Personen per E-Mail) und „sentinel3“ (Service Auth für das Monitoring).
 - **B. HSTS nur einmal setzen.** Der Header kommt aus `_headers`. In Cloudflare unter SSL/TLS, Edge Certificates, HSTS nicht zusätzlich aktivieren.
 - **C. Zone 3kings.dev:** „Always Use HTTPS“ an, „Minimum TLS Version“ auf 1.2, vier CAA-Einträge (`pki.goog`, `letsencrypt.org`, `ssl.com`, `sectigo.com`), wie bei cyberlage.org.
-- **D. Access-Richtlinie:** nur deine E-Mail (Aktion Allow), kurze Sitzungsdauer (z. B. 24 Stunden).
+- **D. Access-Richtlinie:** InnerCircle bleibt absichtlich. Offen: MFA für InnerCircle (heute aus) und Session-Dauer (heute 1 Monat). Beides vor einer Veröffentlichung entscheiden.
 - **E. GitHub:** Zwei-Faktor-Anmeldung aktiv, Branch-Schutz für `main` (kein Force-Push).
-- **F. Empfehlung, noch nicht gemacht:** Actions auf feste Commit-Hashes pinnen statt Versions-Tags. Das schützt vor manipulierten Tags in Drittanbieter-Actions.
+- **F. Actions auf Commit-Hashes pinnen (offen):** `actions/checkout@v5` und `actions/setup-python@v6`. Die Hashes konnte die Prüfumgebung nicht auflösen. Nachtragen, sobald die Hashes bekannt sind.
 
 ## Pflege
 
 - Änderungen an `index.html` mit Inline-Skripten: danach die Hashes in `site/_headers` neu setzen (der Test zeigt, welche fehlen).
 - Neue externe Quellen (Schriften, Bilder, Skripte) brauchen eine Erweiterung der CSP, sonst werden sie blockiert.
+
+## Vor der Veröffentlichung (Checkliste)
+
+- [ ] Punkt A, B, C oben erledigt und in Cloudflare kontrolliert
+- [ ] MFA und Session-Dauer für InnerCircle entschieden
+- [ ] Actions auf Hashes gepinnt (Punkt F)
+- [ ] Öffentlich wäre die Seite nicht mehr „noindex“-geschützt: `robots.txt`, `X-Robots-Tag` und `noindex` entfernen, Zugriffsschutz durch Access bleibt aber die Hauptsperre
+- [ ] Eine externe Prüfung der öffentlichen Adresse (Header, TLS, Mail) mit dem Audit-Werkzeug von Dreier Labs
+- [ ] Impressum und Datenschutz für die öffentliche Seite (der Footer verweist bereits auf dreierlabs.com)
