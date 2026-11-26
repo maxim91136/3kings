@@ -1,12 +1,12 @@
 {
  "start": "2026-11-20",
- "date": "2026-11-24",
+ "date": "2026-11-25",
  "rows": [
   {
    "name": "Halten",
-   "fwd": 0.0215,
+   "fwd": 0.0289,
    "w_now": 1.0,
-   "cagr": 0.426,
+   "cagr": 0.427,
    "mdd": 0.827,
    "sharpe": 0.87,
    "switches": 0.0
@@ -33,9 +33,9 @@
    "name": "Linie 200",
    "fwd": 0.0,
    "w_now": 0.0,
-   "cagr": 0.374,
+   "cagr": 0.365,
    "mdd": 0.672,
-   "sharpe": 0.85,
+   "sharpe": 0.84,
    "switches": 7.0
   },
   {
@@ -51,7 +51,7 @@
    "name": "Mix",
    "fwd": 0.0,
    "w_now": 0.0,
-   "cagr": 0.461,
+   "cagr": 0.459,
    "mdd": 0.652,
    "sharpe": 1.01,
    "switches": 8.0

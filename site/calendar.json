@@ -1,9 +1,9 @@
 {
- "today": "2026-11-25",
+ "today": "2026-11-26",
  "season": {
   "n": 38,
-  "day": 20,
-  "left": 43
+  "day": 21,
+  "left": 42
  },
  "items": [
   {
@@ -24,8 +24,8 @@
   {
    "date": "2027-01-28",
    "approx": true,
-   "de": "Saisonprüfung 39: Kronjuwelen, Talent Scouting, Taktikmodell (noch 43 Handelstage)",
-   "en": "Season review 39: Crown Jewels, Talent Scouting, tactical model (43 trading days left)"
+   "de": "Saisonprüfung 39: Kronjuwelen, Talent Scouting, Taktikmodell (noch 42 Handelstage)",
+   "en": "Season review 39: Crown Jewels, Talent Scouting, tactical model (42 trading days left)"
   },
   {
    "date": "2027-11-20",

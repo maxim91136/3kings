@@ -651,3 +651,6 @@ Die Tabelle „Königliche Chroniken im Überblick" lässt sich per Klick auf de
 
 ## 2026-11-24: Hofbericht-Beschriftung am Montag
 Die Montagsausgabe (Sonntag bis Montag, nur Bitcoin) hieß „Wochenende …", obwohl Montag kein Wochenende ist. Die Anzeige sagt jetzt „So. 22.11. bis Mo. 23.11., nur Bitcoin". Nur Anzeige, keine Regeln, Daten und Überschriften geändert.
+
+## 2026-11-25: Verlauf der Ampel zählt Börsentage
+Die Zeile unter dem Verlauf sagte „Heute … Aufzeichnung seit 20.11., 3 Tage", obwohl seitdem mehr Kalendertage vergangen waren. Der Verlauf hat je US-Börsentag einen Eintrag (Datum des letzten S&P-500-Schlusses); Wochenenden und Feiertage entfallen. Die Anzeige sagt jetzt „Je Börsentag", nennt das Datum des letzten Eintrags statt „Heute" und zählt „Börsentage". Nur Anzeige, keine Regeln und Daten geändert.
