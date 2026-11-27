@@ -28,7 +28,7 @@ def run(m, start):
 out = {"2006": [], "2016": []}
 for sym in list(dict.fromkeys(US)) + EU:
     d = None
-    for i in range(3):
+    for _i in range(3):
         try:
             d = fp.yahoo(sym)
             if len(d) > 300: break

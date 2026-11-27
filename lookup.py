@@ -15,7 +15,7 @@ i = int(p.argmax()); print(f"Allzeithoch {ks[i]} {p[i]:.2f} EUR, Abstand {p[-1]/
 for n in (50, 200): print(f"SMA{n}: {p[-n:].mean():.2f} EUR ({p[-1]/p[-n:].mean()-1:+.1%})")
 # Wochenschluss-Tiefs/Hochs der letzten 2 Jahre (Swing-Punkte, 5 Wochen links/rechts)
 w = {}
-for k, v in zip(ks, p): w[np.datetime64(k, "W")] = (k, v)
+for k, v in zip(ks, p, strict=False): w[np.datetime64(k, "W")] = (k, v)
 wk = list(w.values())[-110:]; vals = np.array([v for _, v in wk])
 print("Swing-Tiefs (Wochenschluss, 2 Jahre):")
 for j in range(5, len(wk) - 2):

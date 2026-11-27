@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fetch_prices as fp, universe
 U = json.load(open("data/elite_universe.json"))
 pool = {r["sym"]: r["name"] for r in universe.sp500() if r["sector"] not in U["cyclic_sectors"]}
-for sym, nm, cur, cyc, br, br_en in U["extra"]:
+for sym, nm, _cur, cyc, _br, _br_en in U["extra"]:
     if not cyc: pool[sym] = nm
 mem = json.load(open("data/elite_members.json"))
 def weekly(s):

@@ -1,7 +1,12 @@
 """Satelliten-Aufteilung: Sicherheits-Test mit jährlichem, halbjährlichem und vierteljährlichem Standard-Rhythmus plus Diversifikation
 (REGELN 2026-11-22, Regeln vorab). Ergänzt site/fragen.json um den Schlüssel rhythmus."""
-import json, math
-exec(open("fragen2.py").read().split("R = json.load")[0])
+import json
+from fragenbasis import btc
+from fragenbasis import cagr_mdd
+from fragenbasis import g
+from fragenbasis import tr
+from fragenbasis2 import last, rets
+from fragenbasis import fxm, mix
 RH = {"nie": 0, "jährlich": 12, "halbjährlich": 6, "vierteljährlich": 3, "monatlich": 1}
 def rule(c, d, bc, bd): return c / d > bc / bd and d <= bd + .05
 def mixd(series, w, a, b, k): return cagr_mdd(mix(series, w, a, b, k))
@@ -21,7 +26,7 @@ sv = (avol(tr), avol(g), avol(btc))
 # Korrelationen (f)
 def corr(s, a):
     ra, rb = rets(s, a, last), rets(tr, a, last); m = sorted(set(ra) & set(rb)); x = [rb[i] for i in m]; y = [ra[i] for i in m]
-    mx, my = sum(x) / len(x), sum(y) / len(y); cv = sum((p - mx) * (q - my) for p, q in zip(x, y)); return cv / (sum((p - mx) ** 2 for p in x) * sum((q - my) ** 2 for q in y)) ** .5
+    mx, my = sum(x) / len(x), sum(y) / len(y); cv = sum((p - mx) * (q - my) for p, q in zip(x, y, strict=False)); return cv / (sum((p - mx) ** 2 for p in x) * sum((q - my) ** 2 for q in y)) ** .5
 cf = dict(gold71=corr(g, "1971-08"), gold14=corr(g, "2014-09"), btc=corr(btc, "2014-09")); f_ok = all(v < .5 for v in cf.values())
 out = {}
 for lab in ("jährlich", "halbjährlich", "vierteljährlich"):

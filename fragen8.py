@@ -1,32 +1,7 @@
 """Saisonalität (REGELN 2026-11-22, Regeln vorab): Monate, Sell in May, Jahreswechsel, Wahlzyklus, Wochentag, Monatswechsel. Schreibt fragen.json["saison"]."""
-import csv, json, datetime as dt, numpy as np
-LAST = "2026-10"
-def daily(path, col=1):
-    out = []
-    for r in list(csv.reader(open(path)))[1:]:
-        if r[col]: out.append((dt.date.fromisoformat(r[0]), float(r[col])))
-    return sorted(out)
-spx = daily("data/spx_long.csv"); btcd = daily("data/btc_long.csv")
-def month_end(d):
-    o = {}
-    for day, v in d: o[day.strftime("%Y-%m")] = v
-    return o
-sp_m = month_end(spx); bt_m = month_end([x for x in btcd if x[0] >= dt.date(2014, 9, 1)])
-gold = {}
-for r in list(csv.reader(open("data/gold_long.csv")))[1:]:
-    if r[1] and r[0] >= "1971-08": gold[r[0][:7]] = float(r[1])
-def mrets(s, a, b):
-    ms = [m for m in sorted(s) if a <= m <= b]; return {ms[i]: s[ms[i]] / s[ms[i - 1]] - 1 for i in range(1, len(ms))}
-A = {"S&P 500": mrets(sp_m, "1927-12", LAST), "Gold": mrets(gold, "1971-08", LAST), "Bitcoin": mrets(bt_m, "2014-09", LAST)}
-def year_matrix(r):
-    ys = sorted({int(m[:4]) for m in r}); rows, yy = [], []
-    for y in ys:
-        row = [r.get("%d-%02d" % (y, k)) for k in range(1, 13)]
-        if all(v is not None for v in row): rows.append(row); yy.append(y)
-    return np.array(rows), yy
-def qual(M):
-    n = len(M); h = n // 2; hit = (M > 0).mean(0); m1 = M[:h].mean(0); m2 = M[h:].mean(0)
-    return ((hit >= .7) & (m1 > 0) & (m2 > 0)) | ((hit <= .3) & (m1 < 0) & (m2 < 0)), hit, M.mean(0), m1, m2
+from fragenbasis8 import A, qual, spx, year_matrix
+import json
+import numpy as np
 rng = np.random.default_rng(1); R = {}; months = {}
 for name, r in A.items():
     M, yy = year_matrix(r); q, hit, mean, m1, m2 = qual(M)
@@ -95,7 +70,7 @@ for i in range(len(rd)):
     if len(first) == len([j for j in range(max(0, i - 3), i + 1)]) and (i < 3 or mk[i - 3] != mk[i]) is False: pass
 idx = {}
 for i, m in enumerate(mk): idx.setdefault(m, []).append(i)
-for m, l in idx.items():
+for _m, l in idx.items():
     tom[l[:3]] = True; tom[l[-1]] = True
 d_all = float(ret[tom].mean() - ret[~tom].mean()); d1 = float(ret[:mid][tom[:mid]].mean() - ret[:mid][~tom[:mid]].mean()); d2 = float(ret[mid:][tom[mid:]].mean() - ret[mid:][~tom[mid:]].mean())
 R["monatswechsel"] = dict(diff=round(d_all, 5), d1=round(d1, 5), d2=round(d2, 5), n=int(tom.sum()), pattern=bool(d_all >= .0005 and d1 > 0 and d2 > 0))

@@ -18,7 +18,7 @@ def tr(sym):
     divs = {fp.day(int(t)): v["amount"] for t, v in (j.get("events", {}).get("dividends") or {}).items()}
     print(sym, "Ausschüttungen:", len(divs), "Summe", round(sum(divs.values()), 2), "| adj/close Start", adj and round(adj[0] / cl[0], 3))
     out, units = {}, 1.0
-    for t, c in zip(j["timestamp"], cl):
+    for t, c in zip(j["timestamp"], cl, strict=False):
         if not c: continue
         k = fp.day(t)
         if k in divs: units *= 1 + divs[k] / c

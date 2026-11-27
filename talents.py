@@ -1,5 +1,6 @@
 """Talent Scouting (REGELN 2026-11-22, nur Information): Wer könnte ein künftiges Kronjuwel sein?\nTalent = kein Mitglied; 5 J. Wochenkurse: Rendite >= 15 % p. a., höchstens 15 % der Zeit mehr als 20 % unter dem Hoch, Schwankung <= 30 %, Beta <= 1,15 (Euro gegen S&P 500); Bruttomarge >= 45 %; Nettoverschuldung < 2x EBITDA; Umsatzwachstum >= 10 % p. a. über 3 Jahre (SEC, sonst Yahoo).\nLäuft zu jeder Saisonprüfung (oder --force). Schreibt site/talents.json und data/talents_hist.json (Vorwärtstest: wer wird später Kronjuwel?)."""
 import csv, json, os, sys, time
+import netz
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fetch_prices as fp
@@ -7,14 +8,14 @@ mem = json.load(open("data/elite_members.json")); meta = json.load(open("data/el
 import universe, fundamentals
 U = json.load(open("data/elite_universe.json"))
 pool = {r["sym"]: dict(name=r["name"], cur="USD") for r in universe.sp500() if r["sector"] not in U["cyclic_sectors"]}
-for sym, nm, cur, cyc, br, br_en in U["extra"]:
+for sym, nm, cur, cyc, _br, _br_en in U["extra"]:
     if not cyc: pool[sym] = dict(name=nm, cur=cur)
 fx = {r["date"]: float(r["value"]) for r in csv.DictReader(open("data/ind_EURUSD.csv"))}
 import bisect; FXD = sorted(fx); FXV = [fx[x] for x in FXD]
 def fxl(d):
     i = bisect.bisect_right(FXD, d) - 1; return FXV[i] if i >= 0 else None
 def get(s):
-    for k in range(3):
+    for _k in range(3):
         try: return fp.yahoo(s)
         except Exception: time.sleep(3)
 spx = get("SPY")
@@ -26,7 +27,7 @@ def weekly(s, a, b):
     ds, wk = _SK[k]
     i, j = bisect.bisect_left(ds, a), bisect.bisect_right(ds, b)
     out = {}
-    for d, w in zip(ds[i:j], wk[i:j]): out[w] = (d, s[d])
+    for d, w in zip(ds[i:j], wk[i:j], strict=False): out[w] = (d, s[d])
     return [out[w] for w in sorted(out)]
 def yrs_back(d, n): return f"{int(d[:4]) - n}{d[4:]}"
 def prof(s, cur, d, n):
@@ -47,8 +48,8 @@ def prof(s, cur, d, n):
 import urllib.request
 SECH = {"User-Agent": "3kings research kontakt@3kings.dev"}
 def secget(u):
-    for k in range(3):
-        try: return json.loads(urllib.request.urlopen(urllib.request.Request(u, headers=SECH), timeout=30).read())
+    for _k in range(3):
+        try: return json.loads(netz.oeffne(urllib.request.Request(u, headers=SECH), timeout=30).read())
         except Exception: time.sleep(2)
 CIK = {v["ticker"].replace(".", "-"): str(v["cik_str"]).zfill(10) for v in (secget("https://www.sec.gov/files/company_tickers.json") or {}).values()}
 TAGS = ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "SalesRevenueNet", "RevenueFromContractWithCustomerIncludingAssessedTax", "SalesRevenueGoodsNet"]

@@ -1,7 +1,12 @@
 """Aufteilung der Satelliten (REGELN 2026-11-22, Regeln vorab): alle Mischungen S&P/Gold/Bitcoin in 5-%-Schritten, alle Anteile von 0 bis 100 %.
 Ergänzt site/fragen.json um den Schlüssel konstellation."""
 import json
-exec(open("fragen2.py").read().split("R = json.load")[0])
+from fragenbasis import btc
+from fragenbasis import cagr_mdd
+from fragenbasis import g
+from fragenbasis import tr
+from fragenbasis2 import last
+from fragenbasis import mix
 def run(a, b):
     out = []
     for gs in range(0, 101, 5):

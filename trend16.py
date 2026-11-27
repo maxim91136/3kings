@@ -14,9 +14,9 @@ START, COST, TV, FROM = "2026-11-20", 0.0005, 0.10, "2015-01-01"
 fx = {r["date"]: float(r["value"]) for r in csv.DictReader(open("data/ind_EURUSD.csv"))}
 S = {}
 for m in M:
-    for k in range(3):
+    for _k in range(3):
         try: s = fp.yahoo(m); break
-        except Exception as e: s = None; time.sleep(3)
+        except Exception: s = None; time.sleep(3)
     if s: S[m] = s
     time.sleep(0.5)
 if len(S) < len(M): print("fehlt:", [m for m in M if m not in S])

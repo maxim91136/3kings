@@ -1,6 +1,10 @@
 """S&P 500 gegen Gold, alle Mischungen seit 1971 (REGELN 2026-11-22, Regeln vorab). Ergänzt site/fragen.json um golda und test B (nur Filter)."""
 import json
-exec(open("fragen2.py").read().split("R = json.load")[0])
+from fragenbasis import cagr_mdd
+from fragenbasis import g
+from fragenbasis import tr
+from fragenbasis2 import last
+from fragenbasis import mix
 def run(a, b):
     out = []
     for gs in range(0, 101, 5):

@@ -13,7 +13,7 @@ EU = {"MC.PA": "EUR", "OR.PA": "EUR", "SU.PA": "EUR", "AI.PA": "EUR", "EL.PA": "
       "EXPN.L": "GBP", "DGE.L": "GBP", "ULVR.L": "GBP", "ATCO-A.ST": "SEK", "INVE-B.ST": "SEK", "EVO.ST": "SEK", "LISN.SW": "CHF", "SIKA.SW": "CHF",
       "PGHN.SW": "CHF", "NESN.SW": "CHF", "CSU.TO": "CAD"}
 def get(sym):
-    for i in range(3):
+    for _i in range(3):
         try:
             d = fp.yahoo(sym)
             if len(d) > 300: return d

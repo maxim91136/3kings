@@ -1,13 +1,14 @@
 """Makro-Umfeld (nur Information, keine Regel; seit 2026-11-21): Öl (Brent), US-Zins 10 Jahre, EZB-Einlagenzins, Euro/Dollar, Inflation USA und Eurozone.
 Quellen: Yahoo (BZ=F, ^TNX), EZB-Datenportal (Einlagenzins), Eurostat (HICP), US-Statistikbehörde BLS (CPI-U), data/ind_EURUSD.csv. Schreibt site/macro.json."""
-import csv, json, os, signal, sys, time, urllib.request
+import csv, json, os, signal, sys, urllib.request
+import netz
 signal.signal(signal.SIGALRM, lambda *a: (_ for _ in ()).throw(TimeoutError("Quelle zu langsam")))
 from datetime import date
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fetch_prices as fp
 UA = {"User-Agent": "Mozilla/5.0 3kings"}
 def get(u, t=10):   # harte Grenze: eine langsame Quelle darf nichts blockieren
-    return urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=t).read().decode()
+    return netz.oeffne(urllib.request.Request(u, headers=UA), timeout=t).read().decode()
 def fred(sid):
     rows = list(csv.reader(get(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}").splitlines()))[1:]
     return [(r[0], float(r[1])) for r in rows if len(r) > 1 and r[1] not in ("", ".")]
@@ -55,7 +56,7 @@ try:   # Inflation Eurozone: Eurostat HICP, ab 2026 nach neuer Klassifikation (t
     for p_ in per:
         pos = {d: (cat[d][p_] if d == "time" else cat[d][fix[d]] if fix[d] else 0) for d in ids}
         n = 0
-        for d, sz in zip(ids, size): n = n * sz + pos[d]
+        for d, sz in zip(ids, size, strict=False): n = n * sz + pos[d]
         if str(n) in j["value"]: v.append((p_, float(j["value"][str(n)])))
     out["cpi_ez"] = dict(month=v[-1][0], value=round(v[-1][1] / 100, 4), prev=round(v[-2][1] / 100, 4) if len(v) > 1 else None)
 except Exception as e: err["cpi_ez"] = str(e)

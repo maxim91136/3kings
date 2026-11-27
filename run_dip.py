@@ -1,6 +1,5 @@
 """Experiment: Mannschaft mit 4. Strategie 'Dip-Aufbau' im Turnier (aendert den Heartbeat NICHT)."""
 import sys, os
-import numpy as np
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "core"))
 import lab, team
 from collections import Counter

@@ -3,7 +3,8 @@
   python elite_bank.py poll      -> Antworten abholen (nur privater Chat), Aufnehmen/Ablehnen, Erinnerung nach 7 Tagen, dann nächster
   python elite_bank.py test SYM  -> Testvorschlag (Bestätigung ändert nichts)
 Zustand: data/elite_pending.json {queue, current, rejected, season}, Offset: data/tg_offset.json."""
-import csv, json, os, subprocess, sys, urllib.parse, urllib.request
+import json, os, subprocess, sys, urllib.parse, urllib.request
+import netz
 from datetime import datetime, timezone
 TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", ""); IDS = [c.strip() for c in os.environ.get("TELEGRAM_CHAT_ID", "").split(",") if c.strip()]
 USER = next((c for c in IDS if not c.startswith("-")), None)
@@ -11,7 +12,7 @@ PEND = "data/elite_pending.json"; OFF = "data/tg_offset.json"
 now = lambda: datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 def api(m, **kw):
     d = urllib.parse.urlencode({k: (json.dumps(v) if isinstance(v, (dict, list)) else v) for k, v in kw.items()}).encode()
-    return json.loads(urllib.request.urlopen(f"https://api.telegram.org/bot{TOKEN}/{m}", d, timeout=40).read())
+    return json.loads(netz.oeffne(f"https://api.telegram.org/bot{TOKEN}/{m}", d, timeout=40).read())
 def load(p, d): return json.load(open(p)) if os.path.exists(p) else d
 def save(p, o): json.dump(o, open(p, "w"), ensure_ascii=False, indent=1)
 def say(text, buttons=None):

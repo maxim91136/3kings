@@ -52,7 +52,7 @@ def entry(pp, mm, t0):
 nach = {}
 for X in (0.0, 0.2, 0.3, 0.5):
     ent = []
-    for pk, tr, rec in eps:
+    for pk, _tr, rec in eps:
         end = rec if rec is not None else len(p) - 1
         t0 = pk if X == 0 else next((i for i in range(pk, end + 1) if (p[pk] - p[i]) / p[pk] >= X), None)
         if t0 is not None: ent.append(entry(p, ms, t0))
@@ -83,15 +83,15 @@ def first_hit(pp, pk, end, x):
     return next((i for i in range(pk, end + 1) if (pp[pk] - pp[i]) / pp[pk] >= x), None)
 def stufen_val(pp, pk, end, marks, ws, T):
     v = 0.0
-    for x, w in zip(marks, ws):
+    for x, w in zip(marks, ws, strict=False):
         i = first_hit(pp, pk, end, x)
         if i is not None and i <= T: v += 60 * w * pp[T] / pp[i]
         else: v += 60 * w
     return v
 def idle(pp, pk, end, marks, ws, T):
-    return sum(w for x, w in zip(marks, ws) if (first_hit(pp, pk, end, x) is None or first_hit(pp, pk, end, x) > T))
+    return sum(w for x, w in zip(marks, ws, strict=False) if (first_hit(pp, pk, end, x) is None or first_hit(pp, pk, end, x) > T))
 res = {k: [] for k in list(STRAT) + ["R1", "R2", "R3"]}; idl = {k: [] for k in STRAT}; used = []
-for pk, tr, rec in eps:
+for pk, _tr, rec in eps:
     end = rec if rec is not None else len(p) - 1
     t20 = first_hit(p, pk, end, .2)
     if t20 is None or t20 + H >= len(p): continue
@@ -103,7 +103,7 @@ for pk, tr, rec in eps:
 n = len(used); rows_s = {}
 for k in res:
     v = res[k]
-    rows_s[k] = dict(vs_spar=sum(1 for a, b in zip(v, res["R3"]) if a > b), vs_lump30=sum(1 for a, b in zip(v, res["R2"]) if a > b),
+    rows_s[k] = dict(vs_spar=sum(1 for a, b in zip(v, res["R3"], strict=False) if a > b), vs_lump30=sum(1 for a, b in zip(v, res["R2"], strict=False) if a > b),
                      med=round(st.median(v) / 60, 3), worst=round(min(v) / 60, 3), idle=round(st.mean(idl[k]), 3) if k in idl else None,
                      vals=[round(a / 60, 3) for a in v])
 s1 = rows_s["S1"]; test = n >= 5
@@ -134,7 +134,7 @@ def add(d, k, v): d[k] = d.get(k, 0.0) + v
 nach_tr = {}
 for X in (0.0, 0.2, 0.3, 0.5):
     ent = []
-    for pk, tr, rec in eps:
+    for pk, _tr, rec in eps:
         end = rec if rec is not None else len(p) - 1
         t0 = pk if X == 0 else first_hit(p, pk, end, X)
         if t0 is None: continue
@@ -144,14 +144,14 @@ for X in (0.0, 0.2, 0.3, 0.5):
     nach_tr[str(int(X * 100))] = block(ent)
 m3 = nach_tr["30"]; m3["testable"] = m3["n"] >= 5; m3["confirmed"] = bool(m3["testable"] and m3["share"] >= 2 / 3)
 res = {k: [] for k in list(STRAT) + ["R1", "R2", "R3"]}
-for pk, tr, rec in eps:
+for pk, _tr, rec in eps:
     end = rec if rec is not None else len(p) - 1
     t20 = first_hit(p, pk, end, .2)
     if t20 is None or t20 + H >= len(p): continue
     T = t20 + H
     for k, (mk, ws) in STRAT.items():
         b = {}
-        for x, w in zip(mk, ws):
+        for x, w in zip(mk, ws, strict=False):
             i = first_hit(p, pk, end, x)
             if i is not None and i <= T: add(b, i, 60 * w)
         res[k].append(sim(t20, T, b))
@@ -161,7 +161,7 @@ for pk, tr, rec in eps:
 rt = {}
 for k in res:
     v = res[k]
-    rt[k] = dict(vs_spar=sum(1 for a, b in zip(v, res["R3"]) if a > b), vs_lump30=sum(1 for a, b in zip(v, res["R2"]) if a > b),
+    rt[k] = dict(vs_spar=sum(1 for a, b in zip(v, res["R3"], strict=False) if a > b), vs_lump30=sum(1 for a, b in zip(v, res["R2"], strict=False) if a > b),
                  med=round(st.median(v) / 60, 3), worst=round(min(v) / 60, 3), vals=[round(a / 60, 3) for a in v])
 nn = len(res["R3"])
 out["tr"] = dict(shiller_end=max(sh), nach=nach_tr, stufen=dict(n=nn, rows=rt, testable=nn >= 5,
@@ -209,15 +209,15 @@ def simx(S, T, buys, Gx, Cx):
     return eq + cash
 def t1(Gx):
     rows = []
-    for pk, tr, rec in eps:
-        def lump():
+    for pk, tr, _rec in eps:
+        def lump(pk=pk, tr=tr):
             w = 1.0
             for t in range(pk + 1, len(p)):
                 if Gx[t] is None: return None
                 w *= Gx[t]
                 if t > tr and w >= 1: return t - pk
             return None
-        def spar_():
+        def spar_(pk=pk, tr=tr):
             v = 0.0; paid = 0
             for t in range(pk, len(p)):
                 if t > pk:
@@ -237,7 +237,7 @@ def t23(Gx, Cx):
     nb = {}
     for X in (0.0, 0.2, 0.3, 0.5):
         ent = []
-        for pk, tr, rec in eps:
+        for pk, _tr, rec in eps:
             end = rec if rec is not None else len(p) - 1
             t0 = pk if X == 0 else first_hit(p, pk, end, X)
             if t0 is None: continue
@@ -248,14 +248,14 @@ def t23(Gx, Cx):
         b = block(ent); b["ci"] = cp(b["ahead"], b["n"]); nb[str(int(X * 100))] = b
     m = nb["30"]; m["testable"] = m["n"] >= 5; m["confirmed"] = bool(m["testable"] and m["share"] >= 2 / 3)
     rs = {k: [] for k in list(STRAT) + ["R1", "R2", "R3"]}
-    for pk, tr, rec in eps:
+    for pk, _tr, rec in eps:
         end = rec if rec is not None else len(p) - 1
         t20 = first_hit(p, pk, end, .2)
         if t20 is None: continue
         T = t20 + H; vals = {}
         for k, (mk, ws) in STRAT.items():
             bb = {}
-            for x, w in zip(mk, ws):
+            for x, w in zip(mk, ws, strict=False):
                 i = first_hit(p, pk, end, x)
                 if i is not None and i <= T: add(bb, i, 60 * w)
             vals[k] = simx(t20, T, bb, Gx, Cx)
@@ -267,7 +267,7 @@ def t23(Gx, Cx):
     nn = len(rs["R3"]); rows_ = {}
     for k, v in rs.items():
         if not v: continue
-        rows_[k] = dict(vs_spar=sum(1 for a, b in zip(v, rs["R3"]) if a > b), med=round(st.median(v) / 60, 3), worst=round(min(v) / 60, 3))
+        rows_[k] = dict(vs_spar=sum(1 for a, b in zip(v, rs["R3"], strict=False) if a > b), med=round(st.median(v) / 60, 3), worst=round(min(v) / 60, 3))
     sb = dict(n=nn, rows=rows_, ci=cp(rows_["S1"]["vs_spar"], nn) if nn else None, testable=nn >= 5,
               confirmed=bool(nn >= 5 and rows_["S1"]["vs_spar"] / nn >= 2 / 3))
     return nb, sb

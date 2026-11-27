@@ -2,7 +2,7 @@
 import csv, os, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fetch_prices as fp
-for i in range(3):
+for _i in range(3):
     try:
         d = fp.yahoo("GC=F")
         if len(d) > 200: break

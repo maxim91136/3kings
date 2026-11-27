@@ -3,6 +3,7 @@ Nur lesen, kein Konto. Ausgabe: data/prices.csv (Spalten date,BTC,SPY,GLD).
 Es zaehlen nur ABGESCHLOSSENE Tage (alles ab heute UTC wird verworfen).
 HINWEIS: gegen die echten APIs noch nicht getestet - der erste Lauf auf GitHub zeigt es im Log."""
 import argparse, csv, json, os, time, urllib.request
+import netz
 from datetime import datetime, timedelta, timezone
 
 UA = {"User-Agent": "Mozilla/5.0 3kings-heartbeat"}
@@ -11,7 +12,7 @@ UA = {"User-Agent": "Mozilla/5.0 3kings-heartbeat"}
 def get(url, tries=3):
     for i in range(tries):
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as r:
+            with netz.oeffne(urllib.request.Request(url, headers=UA), timeout=30) as r:
                 return r.read().decode()
         except Exception:
             if i == tries - 1:
@@ -58,7 +59,7 @@ def yahoo(sym):
     d = json.loads(get(f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}?period1=946684800&period2={now}&interval=1d&events=div,splits"))
     r = d["chart"]["result"][0]
     px = r["indicators"].get("adjclose", [{}])[0].get("adjclose") or r["indicators"]["quote"][0]["close"]
-    return {day(t): p for t, p in zip(r["timestamp"], px) if p}
+    return {day(t): p for t, p in zip(r["timestamp"], px, strict=False) if p}
 
 
 def stooq(sym):
@@ -71,7 +72,7 @@ def first_ok(label, *fns):
         try:
             d = fn()
             ks = sorted(d)
-            gaps = sorted((datetime.fromisoformat(b) - datetime.fromisoformat(a)).days for a, b in zip(ks, ks[1:]))
+            gaps = sorted((datetime.fromisoformat(b) - datetime.fromisoformat(a)).days for a, b in zip(ks, ks[1:], strict=False))
             med = gaps[len(gaps) // 2] if gaps else 99
             print(f"{label}: {len(d)} Eintraege, {ks[0]} .. {ks[-1]}, typischer Abstand {med} Tag(e)")
             if len(d) > 200 and med <= 3:                 # Tagesdaten (Monats-/Wochendaten werden abgelehnt)

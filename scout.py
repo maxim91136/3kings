@@ -13,7 +13,7 @@ import bisect; FXD = sorted(fx); FXV = [fx[x] for x in FXD]
 def fxl(d):
     i = bisect.bisect_right(FXD, d) - 1; return FXV[i] if i >= 0 else None
 def get(s):
-    for k in range(3):
+    for _k in range(3):
         try: return fp.yahoo(s)
         except Exception: time.sleep(3)
 spx = get("SPY")

@@ -3,8 +3,6 @@
 Läuft ohne Netz. Schlägt an, wenn eine Änderung an site/index.html die
 Content-Security-Policy stumm bricht (dann Hash in site/_headers nachtragen).
 """
-import base64
-import hashlib
 import re
 import unittest
 from pathlib import Path

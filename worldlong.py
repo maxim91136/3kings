@@ -1,5 +1,5 @@
 """Welt gegen USA über lange Zeit (MSCI Gesamtrendite brutto, Monatsende, USD). Regel: REGELN.md 2026-11-21. Schreibt site/worldlong.json."""
-import json, os, sys, urllib.request
+import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fetch_prices as fp
 CODES = {"usa": 984000, "world": 990100, "acwi": 892400}

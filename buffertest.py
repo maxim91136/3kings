@@ -8,7 +8,7 @@ pool = {}
 for r in universe.sp500():
     if r["sector"] in U["cyclic_sectors"] or r["sub"] in U["cyclic_subs"]: continue
     pool[r["sym"]] = "USD"
-for sym, nm, cur, cyc, *_ in U["extra"]:
+for sym, _nm, cur, cyc, *_ in U["extra"]:
     if not cyc: pool[sym] = cur
 def get(sym):
     for i in range(3):

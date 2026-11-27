@@ -3,6 +3,7 @@ Quellen: CBOE (VIX ab 1990), US-Finanzministerium (Zinsen 3 M, 2 J, 10 J), DBnom
 T10Y2Y (Zinskurve 10J-2J); DTB3 (Geldmarkt 3 Monate, taeglich); TB3MS (monatlich ab 1934, fuer Langzeittests).
 multpl.com: Shiller-KGV (CAPE) monatlich ab 1871. Ausgabe: data/ind_<NAME>.csv (date,value)."""
 import csv, json, os, re, sys, urllib.request
+import netz
 from datetime import datetime, timezone
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fetch_prices as fp
@@ -16,7 +17,7 @@ FRED = ["NCBEILQ027S", "GDP", "VIXCLS", "T10Y2Y", "DTB3", "TB3MS"]
 
 def get(url, timeout=20):
     """Ein Versuch, kurzer Timeout: eine haengende Quelle darf den Heartbeat nicht aufhalten."""
-    with urllib.request.urlopen(urllib.request.Request(url, headers=BROWSER), timeout=timeout) as r:
+    with netz.oeffne(urllib.request.Request(url, headers=BROWSER), timeout=timeout) as r:
         return r.read().decode()
 
 
@@ -24,7 +25,7 @@ def fred(sid):
     last = None
     for ua in (BROWSER, {"User-Agent": "3kings/1.0"}):
         try:
-            with urllib.request.urlopen(urllib.request.Request(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}", headers=ua), timeout=15) as r:
+            with netz.oeffne(urllib.request.Request(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}", headers=ua), timeout=15) as r:
                 rows = list(csv.reader(r.read().decode().splitlines()))[1:]
             return {r[0]: float(r[1]) for r in rows if len(r) > 1 and r[1] not in ("", ".")}
         except Exception as e:
@@ -36,7 +37,7 @@ def yahoo(sym, start=631152000):
     import time
     j = json.loads(fp.get(f"https://query2.finance.yahoo.com/v8/finance/chart/{sym}?period1={start}&period2={int(time.time())}&interval=1d"))
     r = j["chart"]["result"][0]
-    return {fp.day(t): round(float(c), 4) for t, c in zip(r["timestamp"], r["indicators"]["quote"][0]["close"]) if c}
+    return {fp.day(t): round(float(c), 4) for t, c in zip(r["timestamp"], r["indicators"]["quote"][0]["close"], strict=False) if c}
 
 
 def cape():
@@ -54,7 +55,7 @@ def cape():
 def cnn_fng():
     """CNN Fear & Greed (Aktien, 0-100). Liefert nur ca. 1 Jahr - die Datei waechst taeglich weiter."""
     req = urllib.request.Request("https://production.dataviz.cnn.io/index/fearandgreed/graphdata", headers=BROWSER)
-    j = json.loads(urllib.request.urlopen(req, timeout=20).read().decode())
+    j = json.loads(netz.oeffne(req, timeout=20).read().decode())
     d = {datetime.fromtimestamp(p["x"] / 1000, timezone.utc).strftime("%Y-%m-%d"): round(float(p["y"]), 1)
          for p in j["fear_and_greed_historical"]["data"]}
     d[datetime.now(timezone.utc).strftime("%Y-%m-%d")] = round(float(j["fear_and_greed"]["score"]), 1)
@@ -110,7 +111,7 @@ def treasury():
 def dbnomics(sid):
     j = json.loads(get(f"https://api.db.nomics.world/v22/series/{sid}?observations=1&format=json", 30))
     doc = j["series"]["docs"][0]; out = {}
-    for per, v in zip(doc["period"], doc["value"]):
+    for per, v in zip(doc["period"], doc["value"], strict=False):
         if v in (None, "NA"): continue
         y, q = per.split("-Q"); out[f"{y}-{(int(q) - 1) * 3 + 1:02d}-01"] = float(v)
     return out

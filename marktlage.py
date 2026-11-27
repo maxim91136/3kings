@@ -1,6 +1,7 @@
 """Marktlage-Meldungen an den Kanal (REGELN 2026-11-22): Ampel-Wechsel und Bitcoin-Power-Law-Monatsschluss. Nur Information.
 Zustand: data/marktlage_state.json. Ohne Telegram-Secrets (oder mit --dry) wird nur ausgegeben. --selftest simuliert Wechsel."""
 import csv, json, os, sys, urllib.parse, urllib.request
+import netz
 ST = "data/marktlage_state.json"
 NAME = dict(oil_m="Öl (Monatsänderung)", us10y="US-Zins 10 Jahre", ecb="EZB-Einlagenzins", cpi_us="Inflation USA", cpi_ez="Inflation Eurozone",
             fng="Angst und Gier Aktien", cfng="Angst und Gier Krypto", vix="VIX", cape="Shiller-KGV", buffett="Buffett-Indikator", curve="Zinskurve 10 J − 2 J",
@@ -48,7 +49,7 @@ def send(msgs):
         return
     for m in msgs:
         for c in ids:
-            try: urllib.request.urlopen(f"https://api.telegram.org/bot{tok}/sendMessage", urllib.parse.urlencode(dict(chat_id=c, text=m, parse_mode="HTML", disable_web_page_preview="true")).encode(), timeout=20)
+            try: netz.oeffne(f"https://api.telegram.org/bot{tok}/sendMessage", urllib.parse.urlencode(dict(chat_id=c, text=m, parse_mode="HTML", disable_web_page_preview="true")).encode(), timeout=20)
             except Exception as e: print("Fehler bei", c, e)
 if __name__ == "__main__":
     rows = list(csv.DictReader(open("data/barometer.csv"))); pl = json.load(open("site/powerlaw.json"))

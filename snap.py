@@ -1,5 +1,5 @@
 """Nur Ausgabe: Stand jetzt (Live-Kurse) gegen Vortagesschluss, in Euro. Aendert nichts."""
-import csv, json, os, sys
+import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fetch_prices as fp
 def last2(s):

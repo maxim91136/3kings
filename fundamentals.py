@@ -33,7 +33,7 @@ def growth3(sym):
             v = sorted(((x["endDate"]["raw"], x.get("totalRevenue", {}).get("raw")) for x in h if x.get("totalRevenue", {}).get("raw")), reverse=True)
             if len(v) < 4 or v[3][1] <= 0: return None
             return (v[0][1] / v[3][1]) ** (1 / 3) - 1
-        except Exception as e:
+        except Exception:
             time.sleep(3 * (i + 1))
     return None
 if __name__ == "__main__":

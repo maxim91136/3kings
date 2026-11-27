@@ -2,13 +2,14 @@
 Modus 'setup': zeigt die Chat-ID(s) aus getUpdates. Braucht TELEGRAM_BOT_TOKEN (und TELEGRAM_CHAT_ID zum Senden).
 Zustand (was schon gesendet wurde): data/tg_sent.json."""
 import json, os, sys, urllib.parse, urllib.request
+import netz
 tok, chat = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
 LANG = os.environ.get("TG_LANG", "de")  # de, en oder both (Deutsch + Englisch in einer Nachricht)
 SITE = "https://3kings.dev"
 if not tok: sys.exit("TELEGRAM_BOT_TOKEN fehlt (GitHub Secret anlegen)")
 def api(method, **kw):
     data = urllib.parse.urlencode(kw).encode() if kw else None
-    return json.load(urllib.request.urlopen(f"https://api.telegram.org/bot{tok}/{method}", data, timeout=20))
+    return json.load(netz.oeffne(f"https://api.telegram.org/bot{tok}/{method}", data, timeout=20))
 if len(sys.argv) > 1 and sys.argv[1] == "setup":
     ups = api("getUpdates").get("result", [])
     ids = {f'{c.get("id")} ({c.get("type")}{": " + c["title"] if c.get("title") else ""})' for u in ups for c in [(u.get("message") or u.get("channel_post") or u.get("my_chat_member") or {}).get("chat", {})] if c.get("id")}

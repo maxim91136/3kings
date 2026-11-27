@@ -1,6 +1,5 @@
 """Test: Trend SMA100 als zusaetzlicher Kandidat im Turnier (nur Bitcoin / alle Spieler). Aendert den Heartbeat nicht."""
 import sys, os
-import numpy as np
 from collections import Counter
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "core"))
 import lab, team

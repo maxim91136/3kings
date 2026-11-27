@@ -1,13 +1,14 @@
 """Saisonalität Bitcoin (REGELN 2026-11-22, Regeln vorab). Ergänzt fragen.json["saison_btc"]."""
 import json, numpy as np
-exec(open("fragen9.py").read().split("S = {")[0])
+from fragenbasis9 import win_ret, winter_summer, yearly
+from fragenbasis8 import A
 B = yearly(A["Bitcoin"], 2015, 2025); ys = sorted(B); h = len(ys) // 2
 t = [(y, w, s_) for y, w, s_ in winter_summer(A["Bitcoin"], 2015) if y <= 2025]
 d = np.array([w - s_ for _, w, s_ in t]); n = len(t); hh = n // 2
 sim = dict(n=n, winter=round(float(np.mean([w for _, w, _ in t])), 4), summer=round(float(np.mean([s_ for _, _, s_ in t])), 4), diff=round(float(np.mean(d)), 4), median_diff=round(float(np.median(d)), 4), share=round(float((d > 0).mean()), 3),
            d1=round(float(d[:hh].mean()), 4), d2=round(float(d[hh:].mean()), 4), pattern=bool(d.mean() >= .02 and (d > 0).mean() >= .6 and d[:hh].mean() > 0 and d[hh:].mean() > 0))
 def stats(vals):
-    v = np.array(vals); up = v[v > 0]; dn = v[v < 0]
+    v = np.array(vals)
     return dict(n=len(v), hit=round(float((v > 0).mean()), 3), mean=round(float(v.mean()), 4), median=round(float(np.median(v)), 4), sd=round(float(v.std(ddof=1)), 4), max_gain=round(float(v.max()), 4), max_loss=round(float(v.min()), 4), last5=round(float(v[-5:].mean()), 4))
 kz = [dict(fenster="Nov–Apr", **stats([w for _, w, _ in t])), dict(fenster="Mai–Okt", **stats([s_ for _, _, s_ in t]))]
 res = {(st, L): {y: win_ret(B, y, st, L) for y in ys} for L in (1, 2, 3) for st in range(1, 13)}

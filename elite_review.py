@@ -2,7 +2,7 @@
 Mitglieder: alle vier Regeln (Beta, 10-J.-Rendite, Marge, Nettoverschuldung/EBITDA). Durchgefallen = Verwarnung, zwei Saisons in Folge = raus.
 Neue Kandidaten: alle vier Regeln zwei Saisons in Folge bestanden -> automatisch aufgenommen; Meldung privat per Telegram.
 Schattenbuch verkettet (Stand bei Änderung = neue Basis, alle Mitglieder gleich gewichtet). Ergebnis ins Regelbuch DE/EN."""
-import csv, json, os
+import json, os
 rv = json.load(open("data/elite_reviews.json")); hb = json.load(open("site/heartbeat.json")); n = hb["season"]["n_seasons"]
 if n <= rv["last_season"]:
     print(f"Kronjuwelen-Prüfung: keine neue Saison ({n})"); raise SystemExit(0)

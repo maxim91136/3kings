@@ -5,7 +5,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fetch_prices as fp
 fx = {r["date"]: float(r["value"]) for r in csv.DictReader(open("data/ind_EURUSD.csv"))}
 def get(s):
-    for i in range(3):
+    for _i in range(3):
         try: return fp.yahoo(s)
         except Exception as e: print(s, e); time.sleep(10)
 def eur(d):

@@ -1,7 +1,12 @@
 """Satelliten-Aufteilung: Robustheit (REGELN 2026-11-22, Regeln vorab): R1 gleitende 10-Jahres-Fenster S&P/Gold seit 1971,
 R2 Euro seit 2003, R3 gleitende 5-Jahres-Fenster 3 Anlagen (S&P >= 50 %) seit 2014, R4 Nachjustieren der Kandidaten; Sicherheits-Bedingungen a-e."""
 import json
-exec(open("fragen2.py").read().split("R = json.load")[0])
+from fragenbasis import btc
+from fragenbasis import cagr_mdd
+from fragenbasis import g
+from fragenbasis import tr
+from fragenbasis2 import last
+from fragenbasis import fxm, mix
 def months(s, a, b): return [m for m in sorted(s) if a <= m <= b]
 def rule(c, d, bc, bd): return c / d > bc / bd and d <= bd + .05
 def win_share(series_fn, shares, a, b, L):

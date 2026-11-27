@@ -70,7 +70,7 @@ for sym, p in pool.items():
     if (b is None or b > I["beta_max"]) and not m: continue
     f = fundamentals.fund(sym); time.sleep(0.7)
     uw, vol = steady(s)
-    def miss(L, strict):
+    def miss(L, strict, b=b, c=c, f=f, uw=uw, vol=vol):
         return [k for k, bad in (("beta", b is None or b > L["beta_max"]), ("cagr10", c is None or c < L["cagr10_min"]),
                 ("margin", f["margin"] is None or f["margin"] < L["margin_min"]), ("debt", f["nd_ebitda"] is None or f["nd_ebitda"] >= L["nd_ebitda_max"]),
                 ("uw", uw is None or uw > L["uw_max"]), ("vol", vol is None or vol > L["vol_max"])) if bad]

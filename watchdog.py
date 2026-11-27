@@ -2,6 +2,7 @@
 Prüft über die GitHub-API die letzten Änderungen an site/heartbeat.json (nächtlicher Datenlauf) und site/news.json (News-Monitor),
 das Datum der Kurse und am Monatsanfang den Monatsbericht. Sonntags kurze Lebensmeldung. --test: Meldung immer senden."""
 import json, os, subprocess, sys, urllib.parse, urllib.request
+import netz
 from datetime import datetime, timezone, timedelta, date
 REPO = "maxim91136/3kings"; now = datetime.now(timezone.utc)
 def last_commit(path):
@@ -43,4 +44,4 @@ print(msg or "alles ok, keine Meldung")
 tok, ids = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID", "")
 user = next((c.strip() for c in ids.split(",") if c.strip() and not c.strip().startswith("-")), None)
 if msg and tok and user:
-    urllib.request.urlopen(f"https://api.telegram.org/bot{tok}/sendMessage", urllib.parse.urlencode(dict(chat_id=user, text=msg, parse_mode="HTML")).encode(), timeout=20)
+    netz.oeffne(f"https://api.telegram.org/bot{tok}/sendMessage", urllib.parse.urlencode(dict(chat_id=user, text=msg, parse_mode="HTML")).encode(), timeout=20)

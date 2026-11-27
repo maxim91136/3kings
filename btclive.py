@@ -1,8 +1,9 @@
 """Bitcoin jeden Tag, auch am Wochenende (REGELN 2026-11-22): Tagesschlusskurse in Euro direkt von Kraken (XBT/EUR, Tageskerzen UTC),
 Ersatz Coinbase (BTC-EUR). Aktualisiert nur den Bitcoin-Eintrag in site/assets.json. Modelle und data/prices.csv bleiben unberührt."""
-import datetime as dt, json, os, sys, time, urllib.request
+import datetime as dt, json, urllib.request
+import netz
 UA = {"User-Agent": "Mozilla/5.0 3kings"}
-get = lambda u: json.loads(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=20).read())
+get = lambda u: json.loads(netz.oeffne(urllib.request.Request(u, headers=UA), timeout=20).read())
 def kraken():
     j = get("https://api.kraken.com/0/public/OHLC?pair=XBTEUR&interval=1440")
     rows = next(v for k, v in j["result"].items() if k != "last")

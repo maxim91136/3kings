@@ -1,32 +1,9 @@
 """Die Fragen der Fragen (REGELN 2026-11-22, Regeln vorab): Beimischung, Euro gegen Dollar, Nachjustieren, Monatstag, Entnahme.
 Nur lokale Daten (Shiller, gold_long, btc_long, spx_long, ind_EURUSD). Schreibt site/fragen.json."""
-import csv, json, statistics as st
-def monthly(path, col, key=0):
-    out = {}
-    for r in list(csv.reader(open(path)))[1:]:
-        if r[col]: out[r[key][:7]] = float(r[col])  # letzter Wert des Monats gewinnt
-    return out
-sh = list(csv.DictReader(open("data/shiller.csv")))
-tr, cpi, lvl, prev = {}, {}, 1.0, None
-for r in sh:
-    p = float(r["SP500"] or 0); d = float(r["Dividend"] or 0)
-    if p <= 0: continue
-    if prev: lvl *= (p + d / 12) / prev
-    tr[r["Date"][:7]] = lvl; cpi[r["Date"][:7]] = float(r["Consumer Price Index"]); prev = p
-g = monthly("data/gold_long.csv", 1); btc = monthly("data/btc_long.csv", 1); fxm = monthly("data/ind_EURUSD.csv", 1)
-def cagr_mdd(v):
-    n = len(v) - 1; pk = dd = 0
-    for x in v: pk = max(pk, x); dd = max(dd, 1 - x / pk)
-    return v[-1] ** (12 / n) - 1, dd
-def mix(series, w, start, end, k):  # k = Monate zwischen Rückgewichtungen, 0 = nie
-    ms = [m for m in sorted(set.intersection(*[set(s) for s in series])) if start <= m <= end]
-    a = list(w); v = [1.0]
-    for i in range(1, len(ms)):
-        a = [x * s[ms[i]] / s[ms[i - 1]] for x, s in zip(a, series)]
-        t = sum(a)
-        if k and i % k == 0: a = [t * x for x in w]
-        v.append(sum(a))
-    return v
+from fragenbasis import btc, cagr_mdd, cpi, fxm, g, mix, tr
+import csv
+import json
+import statistics as st
 R = {}
 # F2 Beimischung
 def blend(name, other, start, shares):
@@ -58,7 +35,7 @@ by = {}
 for i, d in enumerate(dates): by.setdefault(d[:7], []).append(i)
 B = {"erster Handelstag": lambda L: L[0], "10. Handelstag": lambda L: L[9], "15. Handelstag": lambda L: L[14], "letzter Handelstag": lambda L: L[-1]}
 res = {k: [] for k in B}; win = {k: 0 for k in B}; n = 0
-for m, L in sorted(by.items()):
+for _m, L in sorted(by.items()):
     if len(L) < 15: continue
     row = {}
     for k, f in B.items():

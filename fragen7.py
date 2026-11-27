@@ -1,8 +1,11 @@
 """Diversifikation über die Zeit (REGELN 2026-11-22, Regeln vorab): gleitende 24-Monats-Korrelation, Krisenmonate. Ergänzt fragen.json um korr_zeit."""
 import json
-exec(open("fragen2.py").read().split("R = json.load")[0])
+from fragenbasis import btc
+from fragenbasis import g
+from fragenbasis import tr
+from fragenbasis2 import last, rets
 def pc(x, y):
-    mx, my = sum(x) / len(x), sum(y) / len(y); cv = sum((a - mx) * (b - my) for a, b in zip(x, y)); return cv / (sum((a - mx) ** 2 for a in x) * sum((b - my) ** 2 for b in y)) ** .5
+    mx, my = sum(x) / len(x), sum(y) / len(y); cv = sum((a - mx) * (b - my) for a, b in zip(x, y, strict=False)); return cv / (sum((a - mx) ** 2 for a in x) * sum((b - my) ** 2 for b in y)) ** .5
 def roll(a, b, start, L=24):
     ra, rb = rets(a, start, last), rets(b, start, last); ms = sorted(set(ra) & set(rb)); out = []
     for i in range(L, len(ms) + 1): w = ms[i - L:i]; out.append((w[-1], pc([ra[m] for m in w], [rb[m] for m in w])))

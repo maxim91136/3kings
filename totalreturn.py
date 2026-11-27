@@ -8,7 +8,7 @@ ath = np.maximum.accumulate(P); dd = P / ath - 1
 COST = 0.0005
 
 def dca(a, b, rule, cf, real):
-    u = cash = paid = 0.0; val = 0.0; wmax = 0
+    u = cash = paid = 0.0
     for k, t in enumerate(range(a, b)):
         cash *= 1 + cf * RATE[t] / 12
         u *= 1 + tr[t] if k else 1

@@ -9,7 +9,7 @@ def yahoo_gspc():
     now = int(datetime.now(timezone.utc).timestamp())
     j = json.loads(fp.get(f"https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?period1=-1325635200&period2={now}&interval=1d"))
     r = j["chart"]["result"][0]
-    return {fp.day(t): float(c) for t, c in zip(r["timestamp"], r["indicators"]["quote"][0]["close"]) if c}
+    return {fp.day(t): float(c) for t, c in zip(r["timestamp"], r["indicators"]["quote"][0]["close"], strict=False) if c}
 
 def stooq_spx():
     rows = list(csv.reader(fp.get("https://stooq.com/q/d/l/?s=%5Espx&i=d").splitlines()))[1:]

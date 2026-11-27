@@ -1,11 +1,12 @@
 """Silber gegen Gold und S&P 500 (REGELN 2026-11-22, Regeln vorab festgelegt). Nur Ausgabe.
 Monatspreise in Dollar: Silber aus den Weltbank-Rohstoffdaten (Pink Sheet), Gold aus data/gold_long.csv (wie die Gold-Karte),
 S&P 500 mit Dividenden (Shiller). Fenster: 1971-08, 1980-01, 2000-01, 2011-08."""
-import csv, io, json, os, subprocess, sys, urllib.request
+import csv, io, os, subprocess, sys, urllib.request
+import netz
 subprocess.run([sys.executable, "-m", "pip", "install", "-q", "openpyxl"], check=False)
 import openpyxl
 URL = "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx"
-raw = urllib.request.urlopen(urllib.request.Request(URL, headers={"User-Agent": "Mozilla/5.0"}), timeout=60).read()
+raw = netz.oeffne(urllib.request.Request(URL, headers={"User-Agent": "Mozilla/5.0"}), timeout=60).read()
 wb = openpyxl.load_workbook(io.BytesIO(raw), read_only=True, data_only=True)
 sh_name = next(n for n in wb.sheetnames if "Monthly Prices" in n)
 rows = list(wb[sh_name].iter_rows(values_only=True))

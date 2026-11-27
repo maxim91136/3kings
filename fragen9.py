@@ -1,24 +1,8 @@
 """Saisonalität nach Seasonax-Vorbild (REGELN 2026-11-22, Regeln vorab): Chart, Jahresbalken, Kennzahlen, Fenstertest mit Hälften. Ergänzt fragen.json["saison2"]."""
-import json, numpy as np
-src = open("fragen8.py").read().split("rng = np.random.default_rng(1)")[0]; exec(src)
-def winter_summer(r, a_year):
-    out = []
-    for y in range(a_year, 2027):
-        w = [r.get("%d-%02d" % (y - 1, 11)), r.get("%d-%02d" % (y - 1, 12))] + [r.get("%d-%02d" % (y, k)) for k in range(1, 5)]
-        s_ = [r.get("%d-%02d" % (y, k)) for k in range(5, 11)]
-        if all(v is not None for v in w + s_): out.append((y, float(np.prod([1 + v for v in w]) - 1), float(np.prod([1 + v for v in s_]) - 1)))
-    return out
-def yearly(r, y0, y1):
-    out = {}
-    for y in range(y0, y1 + 1):
-        row = [r.get("%d-%02d" % (y, k)) for k in range(1, 13)]
-        if all(v is not None for v in row): out[y] = np.array(row)
-    return out
-def win_ret(row_by_year, y, start, L):  # Fenster aus L Monaten ab Monat start (1..12), ggf. in das Folgejahr hinein
-    vals = []
-    for i in range(L):
-        m = start + i; yy = y + (m - 1) // 12; mm = (m - 1) % 12 + 1; vals.append(row_by_year.get(yy, [None] * 12)[mm - 1] if yy in row_by_year else None)
-    return None if any(v is None for v in vals) else float(np.prod([1 + v for v in vals]) - 1)
+from fragenbasis9 import win_ret, winter_summer, yearly
+import json
+import numpy as np
+from fragenbasis8 import A
 S = {"S&P 500": yearly(A["S&P 500"], 1928, 2025), "Gold": yearly(A["Gold"], 1972, 2025)}
 R = {}
 # A Chart

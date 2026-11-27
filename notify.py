@@ -3,6 +3,7 @@
   2. eine seltene Lage eintritt: Shiller-KGV nicht mehr rot UND Fear & Greed Aktien <= 25 (guenstig plus extreme Angst).
 Braucht die Secrets TELEGRAM_BOT_TOKEN und TELEGRAM_CHAT_ID; ohne sie passiert nichts. Zustand: data/notify_state.json."""
 import json, os, urllib.parse, urllib.request
+import netz
 
 st_path = "data/notify_state.json"
 st = json.load(open(st_path)) if os.path.exists(st_path) else {}
@@ -27,5 +28,5 @@ if not (tok and chat):
     raise SystemExit("Telegram nicht eingerichtet - waere gemeldet worden: " + " | ".join(msgs))
 user = next((c.strip() for c in chat.split(",") if c.strip() and not c.strip().startswith("-")), None)  # nur privat
 for m in msgs:
-    urllib.request.urlopen(f"https://api.telegram.org/bot{tok}/sendMessage", urllib.parse.urlencode(dict(chat_id=user, text=m, parse_mode="HTML")).encode(), timeout=20)
+    netz.oeffne(f"https://api.telegram.org/bot{tok}/sendMessage", urllib.parse.urlencode(dict(chat_id=user, text=m, parse_mode="HTML")).encode(), timeout=20)
 print("gesendet:", msgs)

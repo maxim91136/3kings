@@ -54,8 +54,8 @@ for d, r in frm.items():
     if d >= dt.date(1990, 1, 1) and d in yoy and d in vm and d in pe:
         xs.append((vm[d] > 30) + (pe[d] > 30) + (yoy[d] > .035) + (yl[d] > 4.75)); ys.append(r)
 mx, my = sum(xs) / len(xs), sum(ys) / len(ys)
-cov = sum((x - mx) * (y - my) for x, y in zip(xs, ys)); r = cov / (sum((x - mx) ** 2 for x in xs) * sum((y - my) ** 2 for y in ys)) ** .5
-by = {k: [y for x, y in zip(xs, ys) if x == k] for k in sorted(set(xs))}
+cov = sum((x - mx) * (y - my) for x, y in zip(xs, ys, strict=False)); r = cov / (sum((x - mx) ** 2 for x in xs) * sum((y - my) ** 2 for y in ys)) ** .5
+by = {k: [y for x, y in zip(xs, ys, strict=False) if x == k] for k in sorted(set(xs))}
 out["C"] = dict(r=round(r, 3), n_months=len(xs), pass_=abs(r) < .1, pass__=None,
     by_red={str(k): dict(n=len(v), mean=round(sum(v) / len(v), 4)) for k, v in by.items()},
     note="Monate seit 1990, rote Kacheln aus VIX, Shiller-KGV, US-Inflation, US-Zins (die mit langer Historie)")

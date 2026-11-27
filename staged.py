@@ -41,7 +41,7 @@ def evaluate(title, dates, p, cost, eras, need):
     print("Verdikt gegen R0:")
     out = {}
     for k in list(W)[1:]:
-        wins = sum(a >= b for a, b in zip(sh[k], sh["R0 Basis SMA200"]))
+        wins = sum(a >= b for a, b in zip(sh[k], sh["R0 Basis SMA200"], strict=False))
         dS = res[k, "ALLES"]["sharpe"] - res["R0 Basis SMA200", "ALLES"]["sharpe"]
         dM = (res[k, "ALLES"]["mdd"] - res["R0 Basis SMA200", "ALLES"]["mdd"]) * 100
         crisis = [(res[k, n]["mdd"] - res["R0 Basis SMA200", n]["mdd"]) * 100 for n in ("1973-1982", "2000-2009") if (k, n) in res]

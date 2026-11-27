@@ -1,6 +1,7 @@
 """Automatische Auswertung der Vorwärtstests (REGELN 2026-11-22, Regeln vorab). Läuft täglich; rechnet jeden Test einmal an/nach seinem Termin,
 schreibt einen Protokolleintrag und meldet privat. Zustand: data/auswertung_state.json. --selftest rechnet die Funktionen auf alten Jahren."""
 import csv, json, os, sys, datetime as dt, urllib.parse, urllib.request
+import netz
 import numpy as np
 ST = "data/auswertung_state.json"
 def daily(path):
@@ -61,7 +62,7 @@ def entry(key, res):
 def private(msg):
     tok, ids = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID", "")
     user = next((c.strip() for c in ids.split(",") if c.strip() and not c.strip().startswith("-")), None)
-    if tok and user: urllib.request.urlopen(f"https://api.telegram.org/bot{tok}/sendMessage", urllib.parse.urlencode(dict(chat_id=user, text=msg, parse_mode="HTML")).encode(), timeout=20)
+    if tok and user: netz.oeffne(f"https://api.telegram.org/bot{tok}/sendMessage", urllib.parse.urlencode(dict(chat_id=user, text=msg, parse_mode="HTML")).encode(), timeout=20)
     else: print("[ohne Telegram]", msg)
 if __name__ == "__main__":
     spx = daily("data/spx_long.csv"); btc = daily("data/btc_long.csv")
