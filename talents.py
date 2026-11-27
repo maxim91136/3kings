@@ -45,7 +45,7 @@ def prof(s, cur, d, n):
 
 
 import urllib.request
-SECH = {"User-Agent": "3kings research contact@3kings.dev"}
+SECH = {"User-Agent": "3kings research kontakt@3kings.dev"}
 def secget(u):
     for k in range(3):
         try: return json.loads(urllib.request.urlopen(urllib.request.Request(u, headers=SECH), timeout=30).read())

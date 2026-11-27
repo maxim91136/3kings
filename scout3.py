@@ -44,7 +44,7 @@ def prof(s, cur, d, n):
     return dict(cagr=float((p[-1] / p[0]) ** (1 / yr) - 1), uw=float((dd > .2).mean()), vol=float(r.std(ddof=1) * np.sqrt(52)), mdd=float(dd.max()), beta=beta)
 
 
-SECH = {"User-Agent": "3kings research contact@3kings.dev"}
+SECH = {"User-Agent": "3kings research kontakt@3kings.dev"}
 def secget(u):
     for k in range(3):
         try: return json.loads(urllib.request.urlopen(urllib.request.Request(u, headers=SECH), timeout=30).read())
