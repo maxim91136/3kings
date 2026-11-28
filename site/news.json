@@ -1,6 +1,30 @@
 {
  "items": [
   {
+   "date": "2026-11-27",
+   "published": "28.11., 06:58 Uhr",
+   "published_en": "Nov 28, 6:58 AM CET",
+   "move": false,
+   "headline": "Keine größeren Bewegungen",
+   "headline_en": "No major moves",
+   "lines": [
+    "S&P 500 7.297 Pkt. (+1,5 % in €) · Bitcoin 54.556 € (−1,0 %) · Gold 3.317 € je Unze (+2,0 %)",
+    "Chronik: Kronjuwelen 1,010 · S&P 500 0,982 (Einmalanlage, in €, seit 17.11.2026)",
+    "Hinweis: Wegen des Thanksgiving-Feiertags am Donnerstag beziehen sich die Veränderungen bei Aktien auf Mittwoch bis Freitag; am Freitag wurde in den USA nur verkürzt gehandelt."
+   ],
+   "lines_en": [
+    "S&P 500 7,297 pts (+1.5 % in €) · Bitcoin €54,556 (−1.0 %) · Gold €3,317 per ounce (+2.0 %)",
+    "Chronicle: Crown Jewels 1.010 · S&P 500 0.982 (lump sum, in €, since Nov 17, 2026)",
+    "Note: Because of the Thanksgiving holiday on Thursday, stock changes cover Wednesday to Friday; US trading ended early on Friday."
+   ],
+   "sources": [
+    {
+     "title": "NYSE: Holidays & Trading Hours",
+     "url": "https://www.nyse.com/trade/hours-calendars"
+    }
+   ]
+  },
+  {
    "date": "2026-11-25",
    "published": "27.11., 06:47 Uhr",
    "published_en": "Nov 27, 6:47 AM CET",
