@@ -638,7 +638,7 @@ Ergänzung: Über dem Hofbericht steht eine kleine Zeitung im Kartenstil und die
 Alle Schriften der Seite werden vom eigenen Server geladen, nicht mehr von Google Fonts. Grund: Beim Laden von Google gelangt die IP-Adresse der Besucher ohne Einwilligung an Google (DSGVO). Aussehen und Inhalt bleiben unverändert.
 
 ## 2026-11-23: Gemeinsame Datenschutzerklärung (ausdrückliche Entscheidung)
-Alle Projekte verlinken unten neben dem Impressum auf die gemeinsame Datenschutzerklärung bei dreierlabs.com. Sie nennt je Projekt, welche Dienste der Browser kontaktiert. Bei 3Kings sind das nur Cloudflare Access (E-Mail-Anmeldung) und der eigene Server.
+Alle Projekte verlinken unten neben dem Impressum auf die gemeinsame Datenschutzerklärung bei dreierlabs.com. Sie nennt je Projekt, welche Dienste der Browser kontaktiert. Bei 3Kings ist das nur der eigene Server (seit 26.11.2026 öffentlich, ohne Cloudflare Access).
 
 ## 2026-11-23: Telegram-Kanal auf der Seite verlinkt (ausdrückliche Entscheidung)
 Unter dem Seitenkopf steht ein Button mit Link zum Telegram-Kanal. Der Kanal bekommt weiterhin nur die Marktlage als Information (siehe 2026-11-22). Inhalt und Berechnung der Seite ändern sich nicht.
