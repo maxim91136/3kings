@@ -12,7 +12,7 @@ Es gibt **keine Auto-Trades**; es erzeugt nur ein tägliches Modellsignal (keine
 ## Einrichtung (einmalig, bei dir)
 1. Repository **privat** lassen. Actions -> Workflow `heartbeat` einmal per *Run workflow* starten und das Log lesen.
 2. Cloudflare Pages: Repository verbinden, Build-Befehl leer, Ausgabeordner `site`, Domain `3kings.dev`.
-3. Cloudflare Access davor setzen (nur deine E-Mail).
+3. Die Seite ist öffentlich (seit 26.11.2026, ohne Cloudflare Access). Schutz: Kopfzeilen in `site/_headers`, siehe `SICHERHEIT.md`.
 4. Optional Telegram: Secrets `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`.
 
 Regeln ändern sich nur am Saisonende, nie mitten in der Saison. Der Kursabruf ist vor dem ersten Lauf ungetestet.

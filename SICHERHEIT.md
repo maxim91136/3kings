@@ -1,12 +1,12 @@
 # Sicherheit 3Kings
 
-Stand: 26.11.2026. Seit 26.11.2026 wird die Seite öffentlich gemacht (Cloudflare Access wird entfernt) und kommt auf die Web-Audit-Seite von Dreier Labs.
+Stand: 26.11.2026. Seit 26.11.2026 wird die Seite öffentlich gemacht (Cloudflare Access ist entfernt, Stand der Wache: ohne Access erreichbar) und kommt auf die Web-Audit-Seite von Dreier Labs.
 
 ## Prüfung
 
 - **Art:** Code- und Konfigurationsprüfung (statisch), Browser-Test mit erzwungener Content-Security-Policy, Prüfung der Workflows.
-- **Nicht geprüft:** die Live-Adressen. Aus der Prüfumgebung sind sie nicht erreichbar. Der Zugriffsschutz (Cloudflare Access) muss von dir in einem privaten Fenster geprüft werden (siehe Punkt A unten).
-- **Tests:** `python3 -m unittest discover -s tests` (8 Tests: Kopfzeilen, CSP-Hashes, keine Inline-Handler, Escaping, https-Quellenlinks, kein eval).
+- **Nicht geprüft:** die Live-Adressen. Aus der Prüfumgebung sind sie nicht erreichbar. Die Seite ist öffentlich, ein Zugriffsschutz gilt nicht mehr (Historie: Punkt A und D).
+- **Tests:** `python3 -m unittest discover -s tests` (Kopfzeilen, CSP ohne Inline-Skripte, keine Inline-Handler, Escaping, https-Quellenlinks, kein eval).
 
 ## Befunde und Maßnahmen
 
@@ -22,12 +22,12 @@ Geprüft und unauffällig: keine Geheimnisse im Repo (Telegram-Token nur als Sec
 
 ## Offen (bei dir, in Cloudflare und GitHub)
 
-- **A. workers.dev: geprüft (26.11.).** Worker-Access gilt für Produktion und Preview, also auch für `3kings.csrxfxzp6f.workers.dev`. Die Anwendung „3kings - Cloudflare Workers“ hat drei Regeln: „Cloudflare account members“ (nur du), „InnerCircle“ (bewusst freigegeben, sechs Personen per E-Mail) und „sentinel3“ (Service Auth für das Monitoring).
+- **A. (Historie, durch Veröffentlichung überholt) workers.dev:** Worker-Access gilt für Produktion und Preview, also auch für `3kings.csrxfxzp6f.workers.dev`. Die Anwendung „3kings - Cloudflare Workers“ hat drei Regeln: „Cloudflare account members“ (nur du), „InnerCircle“ (bewusst freigegeben, sechs Personen per E-Mail) und „sentinel3“ (Service Auth für das Monitoring).
 - **B. HSTS nur einmal setzen.** Der Header kommt aus `_headers`. In Cloudflare unter SSL/TLS, Edge Certificates, HSTS nicht zusätzlich aktivieren.
 - **C. Zone 3kings.dev:** „Always Use HTTPS“ an, „Minimum TLS Version“ auf 1.2, vier CAA-Einträge (`pki.goog`, `letsencrypt.org`, `ssl.com`, `sectigo.com`), wie bei cyberlage.org.
-- **D. Access-Richtlinie:** InnerCircle bleibt absichtlich. Offen: MFA für InnerCircle (heute aus) und Session-Dauer (heute 1 Monat). Beides vor einer Veröffentlichung entscheiden.
+- **D. (Historie, überholt) Access-Richtlinie:** InnerCircle bleibt absichtlich. Offen: MFA für InnerCircle (heute aus) und Session-Dauer (heute 1 Monat). Beides vor einer Veröffentlichung entscheiden.
 - **E. GitHub:** Zwei-Faktor-Anmeldung aktiv, Branch-Schutz für `main` (kein Force-Push).
-- **F. Actions auf Commit-Hashes pinnen (offen):** `actions/checkout@v5` und `actions/setup-python@v6`. Die Hashes konnte die Prüfumgebung nicht auflösen. Nachtragen, sobald die Hashes bekannt sind.
+- **F. Actions auf Commit-Hashes gepinnt (erledigt 26.11.):** `actions/checkout@v5` und `actions/setup-python@v6`.
 
 ## Pflege
 
