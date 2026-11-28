@@ -1,12 +1,12 @@
 {
  "start": "2026-11-20",
- "date": "2026-11-25",
+ "date": "2026-11-27",
  "rows": [
   {
    "name": "Halten",
-   "fwd": 0.0274,
+   "fwd": 0.0195,
    "w_now": 1.0,
-   "cagr": 0.426,
+   "cagr": 0.425,
    "mdd": 0.827,
    "sharpe": 0.87,
    "switches": 0.0
@@ -42,7 +42,7 @@
    "name": "Linie 300",
    "fwd": 0.0,
    "w_now": 0.0,
-   "cagr": 0.349,
+   "cagr": 0.348,
    "mdd": 0.829,
    "sharpe": 0.81,
    "switches": 4.4
